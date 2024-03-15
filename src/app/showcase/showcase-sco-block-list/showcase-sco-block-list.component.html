@@ -1,0 +1,597 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Agregar bloque</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="addBlock()">Agregar</button>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 2: Eliminar primero</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="removeFirstBlock()">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 3: Eliminar ultimo</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="removeLastBlock()">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 4: {{showHeader ? 'Ocultar cabecera' : 'Mostrar cabecera'}}</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="showHideHeader()">{{showHeader ? 'Ocultar' : 'Mostrar'}}</button>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 5: {{showInfoAdditional ? 'Ocultar Info Adicional' : 'Mostrar Info Adicional'}}</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="showHideInfoAdditional()">{{showInfoAdditional ? 'Ocultar' : 'Mostrar'}}</button>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 6: {{showActions ? 'Ocultar acciones' : 'Mostrar acciones'}}</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="showHideActions()">{{showActions ? 'Ocultar' : 'Mostrar'}}</button>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 7: {{showBorder ? 'Ocultar borde' : 'Mostrar borde'}}</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="showHideBorder()">{{showBorder ? 'Ocultar' : 'Mostrar'}}</button>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <sco-block-list
+              [blockItems]="blockItems"
+              [labelNoResults]="'No hay nada que mostrar'"
+              [showHeader]="showHeader"
+              [showInfoAdditional]="showInfoAdditional"
+              [showActions]="showActions"
+              [showBorder]="showBorder"
+              [canSelectItems]="true"
+              [pagination]="5"
+              [previousLabel]="'Anterior'"
+              [nextLabel]="'Siguiente'"
+              (itemSelected)="selectItem($event)"
+              (actionSelected)="getAcation($event)" >
+
+              <ng-template #templateInfoAdditional let-item="item">
+                <span>{{item.date | date: 'dd/MMM/yyyy'}}</span>
+              </ng-template>
+
+              <ng-template #templateHeader let-item="item">
+                <span>{{item.client}}</span>
+              </ng-template>
+
+              <ng-template #templateData let-item="item">
+                <sco-block-list-data-item
+                  label="Estado"
+                  [value]="item.status" >
+                </sco-block-list-data-item>
+
+                <sco-block-list-data-item
+                  label="Edad"
+                  [value]="item.age" >
+                </sco-block-list-data-item>
+              </ng-template>
+
+            </sco-block-list>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Agregar bloque&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;addBlock()&quot;&gt;Agregar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Eliminar primero&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;removeFirstBlock()&quot;&gt;Eliminar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 3 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 3: Eliminar ultimo&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;removeLastBlock()&quot;&gt;Eliminar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 4 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 4: {{showHeader ? 'Ocultar cabecera' : 'Mostrar cabecera'}}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showHideHeader()&quot;&gt;{{showHeader ? 'Ocultar' : 'Mostrar'}}&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 5 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 5: {{showInfoAdditional ? 'Ocultar Info Adicional' : 'Mostrar Info Adicional'}}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showHideInfoAdditional()&quot;&gt;{{showInfoAdditional ? 'Ocultar' : 'Mostrar'}}&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 6 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 6: {{showActions ? 'Ocultar acciones' : 'Mostrar acciones'}}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showHideActions()&quot;&gt;{{showActions ? 'Ocultar' : 'Mostrar'}}&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 7 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 7: {{showBorder ? 'Ocultar borde' : 'Mostrar borde'}}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showHideBorder()&quot;&gt;{{showBorder ? 'Ocultar' : 'Mostrar'}}&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-block-list
+          [blockItems]=&quot;blockItems&quot;
+          [labelNoResults]=&quot;'No hay nada que mostrar'&quot;
+          [showHeader]=&quot;showHeader&quot;
+          [showInfoAdditional]=&quot;showInfoAdditional&quot;
+          [showActions]=&quot;showActions&quot;
+          [showBorder]=&quot;showBorder&quot;
+          [canSelectItems]=&quot;true&quot;
+          [pagination]=&quot;5&quot;
+          [previousLabel]=&quot;'Previo'&quot;
+          [nextLabel]=&quot;'Siguiente'&quot;
+          (itemSelected)=&quot;selectItem($event)&quot;
+          (actionSelected)=&quot;getAcation($event)&quot; &gt;
+
+          &lt;ng-template #templateInfoAdditional let-item=&quot;item&quot;&gt;
+            &lt;span&gt;{{item.date | date: 'dd/MMM/yyyy'}}&lt;/span&gt;
+          &lt;/ng-template&gt;
+
+          &lt;ng-template #templateHeader let-item=&quot;item&quot;&gt;
+            &lt;span&gt;{{item.client}}&lt;/span&gt;
+          &lt;/ng-template&gt;
+
+          &lt;ng-template #templateData let-item=&quot;item&quot;&gt;
+            &lt;sco-block-list-data-item
+              label=&quot;Estado&quot;
+              [value]=&quot;item.status&quot; &gt;
+            &lt;/sco-block-list-data-item&gt;
+
+            &lt;sco-block-list-data-item
+              label=&quot;Edad&quot;
+              [value]=&quot;item.age&quot; &gt;
+            &lt;/sco-block-list-data-item&gt;
+          &lt;/ng-template&gt;
+
+        &lt;/sco-block-list&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService, ScoSelectedItem, ScoAction, ScoBlockItem &#125; from 'sco-components-lib';
+import &#123; Appointment &#125; from './model/Appointment';
+import &#123; Component, OnInit &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-block-list',
+  templateUrl: './showcase-sco-block-list.component.html',
+  styleUrls: ['./showcase-sco-block-list.component.scss']
+&#125;)
+
+export class ShowcaseScoBlockListComponent implements OnInit &#123;
+
+  public blockItems: ScoBlockItem&lt;Appointment&gt;[];
+  public showHeader: boolean;
+  public showInfoAdditional: boolean;
+  public showActions: boolean;
+  public showBorder: boolean;
+
+  public CANCEL_APPOINTMENT: string  = 'CANCEL_APPOINTMENT';
+  public BEFORE_APPOINTMENT: string  = 'BEFORE_APPOINTMENT';
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement("title", "Block List");
+    this.blockItems = [];
+    this.showHeader = true;
+    this.showInfoAdditional = true;
+    this.showActions = true;
+    this.showBorder = true;
+  &#125;
+
+  ngOnInit() &#123;
+    let appointments : Appointment[] = [
+      &#123;
+        date: '2022-08-12',
+        status: 'complete',
+        client: 'Santi',
+        age: 28
+      },
+      &#123;
+        date: '2022-08-12',
+        status: 'canceled',
+        client: 'Carol',
+        age: 26
+      },
+      &#123;
+        date: '2022-08-12',
+        status: 'in course',
+        client: 'Mendoline',
+        age: 20
+      },
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        client: 'Prubleme',
+        age: 21
+      },
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        client: 'Client 1',
+        age: 21
+      },
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        client: 'Client 2',
+        age: 21
+      },
+    ];
+    this.createItems(appointments);
+  &#125;
+
+  private createItems(appointments: Appointment[]) &#123;
+    let actions: ScoAction&lt;Appointment&gt;[] = [
+      &#123;
+        label: 'Cancelar cita',
+        value: this.CANCEL_APPOINTMENT,
+        icon : ''
+      },
+      &#123;
+        label: 'Ver citas anteriores',
+        value : this.BEFORE_APPOINTMENT,
+        icon: 'fa fa-file'
+      &#125;
+    ];
+
+    appointments.forEach(ap =>  &#123;
+      let blockItem = new ScoBlockItem&lt;Appointment&gt;();
+      blockItem.item = ap;
+
+      switch (ap.status) &#123;
+        case 'complete':
+          blockItem.borderColor = 'green';
+          break;
+        case 'canceled':
+          blockItem.borderColor = 'red';
+          break;
+        case 'in course':
+          blockItem.borderColor = 'blue';
+          break;
+        case 'unknow':
+          blockItem.borderColor = 'grey';
+          break;
+      &#125;
+
+      if (blockItem.item.status !== 'in course') &#123;
+        blockItem.actions = actions.slice(1);
+      &#125; else &#123;
+        blockItem.actions = actions;
+      &#125;
+
+      this.blockItems.push(blockItem);
+    }); 
+  &#125;
+
+  getAcation($event) &#123;
+    console.log($event);
+    this.toastService.addInfoMessage("Accion seleccionada", JSON.stringify($event));
+  &#125;
+
+  selectItem($event: ScoSelectedItem&lt;Appointment&gt;) &#123;
+    console.log($event);
+    this.toastService.addInfoMessage("Item seleccionado", JSON.stringify($event));
+  &#125;
+
+  addBlock() &#123;
+    let ap: Appointment[] = [
+      &#123;
+        date: '2022-08-12',
+        status: 'complete',
+        client: 'AddBLock',
+        age: 28
+      },
+    ];
+    this.createItems(ap);
+  &#125;
+
+  removeFirstBlock() &#123;
+    this.blockItems = this.blockItems.slice(1);
+  &#125;
+
+  removeLastBlock() &#123;
+    this.blockItems = this.blockItems.slice(0, this.blockItems.length-1);
+  &#125;
+
+  showHideHeader() &#123;
+    this.showHeader = !this.showHeader;
+  &#125;
+
+  showHideInfoAdditional() &#123;  
+    this.showInfoAdditional = !this.showInfoAdditional;
+  &#125;
+
+  showHideActions() &#123;
+    this.showActions = !this.showActions;
+  &#125;
+
+  showHideBorder() &#123;
+    this.showBorder = !this.showBorder;
+  &#125;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>blockItems</td>
+                    <td>Contiene los elementos a mostrar en la lista</td>
+                    <td>ScoBlockItem&lt;T&gt;[]</td>
+                    <td>undefined</td>
+                    <td></td>
+                </tr>
+                <tr>
+                  <td>labelTotalResults</td>
+                  <td>Texto de total de elementos</td>
+                  <td>string</td>
+                  <td>'Total elementos'</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>labelNoResults</td>
+                  <td>Label que se muestra cuando no hay elementos</td>
+                  <td>string</td>
+                  <td>"No results"</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>showTotalItems</td>
+                  <td>Muestra el texto con el total de elementos</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>      
+                <tr>
+                  <td>showHeader</td>
+                  <td>Muestra la cabecera del bloque</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>showInfoAdditional</td>
+                  <td>Muestra la información adicional del bloque</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>showActions</td>
+                  <td>Muestra las acciones del bloque</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>showBorder</td>
+                  <td>Muestra el borde del bloque</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>canSelectItems</td>
+                  <td>Indica si se puede seleccionar el elemento de la lista</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>pagination</td>
+                  <td>Número de elementos por cada página</td>
+                  <td>number</td>
+                  <td>10</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>previousLabel</td>
+                  <td>Texto de la anterior página</td>
+                  <td>string</td>
+                  <td>"Previus"</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>nextLabel</td>
+                  <td>Texto de la siguiente página</td>
+                  <td>string</td>
+                  <td>"Next"</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>paginationOnTop</td>
+                  <td>Indicador para mostrar los controles de paginacion Arriba o Abajo</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>itemSelected</td>
+                    <td>Evento al seleccionar un bloque</td>
+                    <td>ScoSelectedItem&lt;T&gt;</td>
+                </tr>
+                <tr>
+                  <td>actionSelected</td>
+                  <td>Evento al seleccionar una acción de un bloque</td>
+                  <td>ScoAction&lt;T&gt;</td>
+                </tr>
+                <tr>
+                  <td>changePage</td>
+                  <td>Evento al cambiar la página del block list</td>
+                  <td>number</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

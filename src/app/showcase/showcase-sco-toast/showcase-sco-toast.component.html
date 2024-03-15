@@ -1,0 +1,237 @@
+<base-showcase [showOutputs]="false">
+
+    <div examples>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- 1 -->
+                <div class="row mt-1">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 1: Info</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-info" (click)="addInfo()">Mensaje de infor</button>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 2: Error</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-danger" (click)="addError()">Mensaje de error</button>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 3: Warning</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-warning" (click)="addWarning()">Mensaje de warning</button>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 4: Success</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-success" (click)="addSuccess()">Mensaje de success</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+
+        &lt;!-- 1 --&gt;
+        &lt;div class=&quot;row mt-1&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 1: Info&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-info&quot; (click)=&quot;addInfo()&quot;&gt;Mensaje de infor&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 2 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 2: Error&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-danger&quot; (click)=&quot;addError()&quot;&gt;Mensaje de error&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 3 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 3: Warning&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-warning&quot; (click)=&quot;addWarning()&quot;&gt;Mensaje de warning&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 4 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 4: Success&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-success&quot; (click)=&quot;addSuccess()&quot;&gt;Mensaje de success&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService, ScoToastService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-toast',
+  templateUrl: './showcase-sco-toast.component.html',
+  styleUrls: ['./showcase-sco-toast.component.scss']
+&#125;)
+
+export class ShowcaseScoToastComponent &#123;
+
+  constructor(
+    private toastService: ScoToastService,
+    private scoCacahe: ScoCacheService
+  ) &#123; 
+    this.scoCacahe.setElement("title", "Toast");
+  &#125;
+
+  addInfo() &#123;
+    this.toastService.addInfoMessage("Info", "Mensaje de info");
+  &#125;
+
+  addError() &#123;
+    this.toastService.addErrorMessage("Error", "Mensaje de error");
+  &#125;
+
+  addWarning() &#123;
+    this.toastService.addWarningMessage("Warning", "Mensaje de warning");
+  &#125;
+
+  addSuccess() &#123;
+    this.toastService.addSuccessMessage("Success", "Mensaje de success");
+  &#125;
+&#125;
+            
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>timeout</td>
+                    <td>Tiempo de duración del toast (milisegundos)</td>
+                    <td>number</td>
+                    <td>5000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>orientation</td>
+                    <td>Orientación por donde aparecerá el toast</td>
+                    <td>string</td>
+                    <td>'top-right'</td>
+                    <td>
+                        <ul>
+                            <li>ScoToastConstants.ORIENTATION_TOP_RIGHT</li>
+                            <li>ScoToastConstants.ORIENTATION_TOP_LEFT</li>
+                            <li>ScoToastConstants.ORIENTATION_BOTTOM_RIGHT</li>
+                            <li>ScoToastConstants.ORIENTATION_BOTTOM_LEFT</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>block</td>
+                    <td>Indicador para mostrar el toast expandido en modo bloque</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

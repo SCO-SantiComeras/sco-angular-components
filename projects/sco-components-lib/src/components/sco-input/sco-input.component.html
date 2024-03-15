@@ -1,0 +1,26 @@
+<div [ngClass]="{'sco-input': !inLine, 'sco-input__flex': inLine}">
+
+  <div [ngClass]="{'sco-input__label': !inLine, 'sco-input__label--si-inline': inLine}" *ngIf="showLabel && label">
+    <span class="sco-input__label--require" *ngIf="require">{{'(*) '}}</span><span class="sco-input__label--title">{{label}}</span>
+  </div>
+
+  <div class="input-group"> 
+    <input 
+      name="value" 
+      class="form-control" 
+      [(ngModel)]="value" 
+      [readonly]="readOnly" 
+      [disabled]="disabled" 
+      [type]="type"
+      [placeholder]="placeHolder" 
+      (change)="onInputChange()">
+    <div class="input-group-append" *ngIf="showIcon && icon">
+      <button
+        [ngClass]="{'cursor-default': !enabledIconClick}" 
+        (click)="enabledIconClick && onIconClick()" >
+        <i class="{{icon}}"></i>
+      </button>
+    </div>
+  </div>
+
+</div>

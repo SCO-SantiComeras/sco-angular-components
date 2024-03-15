@@ -1,0 +1,52 @@
+<div class="sco-textarea">
+
+  <div class="sco-textarea__textarea-container">
+    <label class="sco-textarea__textarea-container--label" 
+      [ngClass]="{
+        'sco-textarea__textarea-container--label--inline': inline,
+        'sco-textarea__textarea-container--label--no-inline': !inline
+      }" 
+      *ngIf="label">{{label + (required ? ' *' : '')}}</label>
+    <textarea 
+      #textarea="ngModel"
+      class="sco-textarea__textarea-container--textarea"
+      [name]="name" 
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [maxlength]="maxlength"
+      [minlength]="minlength"
+      [required]="required"
+      [cols]="cols"
+      [rows]="rows"
+      [(ngModel)]="value" 
+      [ngClass]="{
+        'is-valid': validate && textarea.dirty && !textarea.errors,
+        'is-invalid': validate && textarea.dirty && textarea.errors,
+        'sco-textarea__textarea-container--textarea--no-inline w-100': !inline,
+        'sco-textarea__textarea-container--textarea--inline': inline
+      }"
+      ngDefaultControl>
+    </textarea>
+
+    <!--Validation-->
+    <div
+      [ngClass]="{ 'w-auto d-inline-block ml-1': inline }"
+      class="valid-feedback"
+      *ngIf="validate && textarea.dirty && !textarea.errors"
+    >
+      <ng-template *ngTemplateOutlet="templateValid"></ng-template>
+    </div>
+    <div
+      [ngClass]="{ 'w-auto d-inline-block ml-1': inline }"
+      class="invalid-feedback"
+      *ngIf="validate && textarea.dirty && textarea.errors"
+    >
+      <ng-template
+        *ngTemplateOutlet="templateErrors; context: { errors: textarea.errors }"
+      ></ng-template>
+    </div>
+
+  </div>
+
+</div>

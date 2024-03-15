@@ -1,0 +1,44 @@
+<div class="row sco-modal" *ngIf="show">
+  <div class="sco-modal--overlay sco-overlay">
+    <div class="col-12 sco-modal--overlay__content" 
+      [ngClass]="{
+        'sco-modal--overlay__content--big': big, 
+        'sco-modal--overlay__content--small': !big && !width && !height
+      }"
+    >
+      <div class="card" 
+        scoClickOutside [avoidFirstTime]="true" [clickOutsideEnabled]="!forceClose" (clickOutSide)="onClickOutside($event)"
+        [ngStyle]="{
+          width: !big && width ? width : null,
+          height: !big && height ? height : null,
+          top: !big && top ? top : null,
+          left: !big && left ? left : null
+        }"
+      >
+        <div class="card-title sco-modal--overlay__content--title">
+          <ng-content select="[modal-title]"></ng-content>
+        </div>
+
+        <div class="card-body">
+          <ng-content select="[modal-content]"></ng-content>
+        </div>
+
+        <div class="row sco-modal--overlay__content--card-buttons" *ngIf="type !== constatnsService.ScoModalTypeConstants.NO_BUTTONS">
+          <div class="col-12 text-right">
+            <button *ngIf="type === constatnsService.ScoModalTypeConstants.CONFIRM || 
+            type === constatnsService.ScoModalTypeConstants.INFO"
+            (click)="onConfirm($event)"
+            class="btn btn-primary sco-modal--overlay__content--card-buttons__button">
+            {{labelConfirm}}
+          </button>
+          <button *ngIf="type === constatnsService.ScoModalTypeConstants.CONFIRM"
+            (click)="onClose($event)"
+            class="btn btn-danger sco-modal--overlay__content--card-buttons__button">
+            {{labelClose}}
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="sco-progress-bar progress" [ngStyle]="{'height.px': height }">
+  <div class="progress-bar" 
+    role="progressbar"
+    [ngClass]="{'progress-bar-striped': striped, 'progress-bar-animated': animated}"
+    [ngStyle]="{'width.%': value }">
+    {{label}}
+  </div>
+</div>

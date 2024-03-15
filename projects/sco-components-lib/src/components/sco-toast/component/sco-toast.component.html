@@ -1,0 +1,27 @@
+<div class="sco-toast" [ngClass]="{
+  'sco-toast__top-right': orientation == constantsService.ScoToastConstants.ORIENTATION_TOP_RIGHT,
+  'sco-toast__top-left': orientation == constantsService.ScoToastConstants.ORIENTATION_TOP_LEFT,
+  'sco-toast__bottom-right': orientation == constantsService.ScoToastConstants.ORIENTATION_BOTTOM_RIGHT,
+  'sco-toast__bottom-left': orientation == constantsService.ScoToastConstants.ORIENTATION_BOTTOM_LEFT
+}">
+
+  <div [@overlayAnimation]="{value: 'visible'}" class="sco-toast__container text-light bg-{{toast.status}} border-{{toast.status}}"
+    [ngClass]="{'sco-toast__container--block': block == true}"
+    *ngFor="let toast of toastService.toasts">
+  
+    <div class="sco-toast__container--tittle d-flex">
+      <div class="w-90 text-left">
+        <span class="sco-toast__container--tittle--message">{{toast.tittle}}</span>
+      </div>
+      <div class="w-10 text-right">
+        <i class="fa fa-times sco-toast__container--tittle--close-toast" (click)="closeToast(toast)"></i>
+      </div>
+    </div>
+
+    <div class="sco-toast__container--content">
+      <span>{{toast.message}}</span>
+    </div>
+
+  </div>
+
+</div>

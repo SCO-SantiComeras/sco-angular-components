@@ -1,0 +1,25 @@
+{
+  "name": "sco-components-lib",
+  "version": "13.1.1",
+  "author": {
+    "name": "sco-santiago",
+    "email": "santiagocomerasoteo@gmail.com"
+  },
+  "description": "SCO Angular Components Library",
+  "peerDependencies": {
+    "@angular/common": "^13.1.0",
+    "@angular/core": "^13.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.11.0",
+    "chart.js": "^4.4.0",
+    "font-awesome": "4.7.0",
+    "jquery": "^3.7.1",
+    "lodash-es": "4.17.21",
+    "ngx-pagination": "^6.0.2",
+    "primeicons": "^5.0.0",
+    "primeng": "^13.1.1",
+    "tslib": "^2.3.0"
+  }
+}

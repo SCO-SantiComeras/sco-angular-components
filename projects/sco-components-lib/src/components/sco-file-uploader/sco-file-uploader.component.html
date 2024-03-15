@@ -1,0 +1,33 @@
+<div class="sco-file-uploader">
+
+  <div class="row-no-gutters sco-file-uploader__container" 
+   [ngClass]="{'sco-file-uploader__container--show-border': showBorder}"
+   [style]="'border-color: ' + colorBorder + ' !important;'"
+  >
+    <div *ngIf="showLabel">
+      <span class="sco-file-uploader__container--require" *ngIf="required">{{'(*) '}}</span><span class="sco-file-uploader__container--title">{{label}}</span>
+    </div>
+
+    <div class="col-12 sco-file-uploader__container__file" [ngClass]="{'sco-file-uploader__container__file--only-file': !base64}">
+      <input class="sco-file-uploader__container__file--input" type="file" id="file" (change)="onChangeFileInput($event.target.files)">
+      <button class="btn btn-success btn-sm sco-file-uploader__container__file--upload-btn" (click)="onClickUploadBtn()" *ngIf="showUploadBtn">{{labelUploadBtn}}</button>
+      <button class="btn btn-sco btn-sm sco-file-uploader__container__file--clean-btn" (click)="onClickCleanBtn()" *ngIf="showCleanBtn">{{labelCleanBtn}}</button>
+    </div>
+
+    <div class="col-12 col-12 sco-file-uploader__container__base64" *ngIf="base64">
+      <div class="row sco-file-uploader__container__base64--header">
+        <div class="col-6 sco-file-uploader__container__base64--header--title-container">
+          <span class="sco-file-uploader__container__base64--header--title-container--title">{{labelBase64Title}}</span>
+        </div>
+        <div class="col-6 sco-file-uploader__container__base64--header--btns-container">
+          <button class="btn btn-sco btn-sm sco-file-uploader__container__base64--header--btns-container--btn" (click)="onCLickCopyResultBtn(fileBase64, 'base64')">
+            <i class="fa fa-copy sco-file-uploader__container__base64--header--btns-container--btn--icon"></i>
+          </button>
+        </div>
+      </div>
+      <textarea class="form-control" id="inputBase64" [rows]="base64TextRows" [(ngModel)]="fileBase64"></textarea>
+    </div>
+
+  </div>
+  
+</div>

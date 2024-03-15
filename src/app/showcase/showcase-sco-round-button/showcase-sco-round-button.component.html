@@ -1,0 +1,189 @@
+<base-showcase>
+
+  <div examples>
+    
+<div class="row">
+  <div class="col-12">
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 1: Estandar</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-round-button [(ngModel)]="valueEx1" (action)="clickEx1($event)"></sco-round-button>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 2: tamaño</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        
+        <sco-round-button 
+          [width]="50" 
+          [height]="50" 
+          [(ngModel)]="valueEx2"
+          (action)="clickEx2($event)">
+        </sco-round-button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+       <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-round-button [(ngModel)]=&quot;valueEx1&quot; (action)=&quot;clickEx1($event)&quot;&gt;&lt;/sco-round-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 2: tama&ntilde;o&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        
+        &lt;sco-round-button 
+          [width]=&quot;50&quot; 
+          [height]=&quot;50&quot; 
+          [(ngModel)]=&quot;valueEx2&quot;
+          (action)=&quot;clickEx2($event)&quot;&gt;
+        &lt;/sco-round-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; ScoToastService &#125; from 'projects/sco-components/src/public-api';
+import &#123; ScoCacheService &#125; from 'projects/sco-components/src/services/sco-cache.service';
+
+@Component(&#123;
+  selector: 'app-round-button-showcase',
+  templateUrl: './round-button-showcase.component.html',
+  styleUrls: ['./round-button-showcase.component.scss']
+&#125;)
+export class RoundButtonShowcaseComponent &#123;
+
+  public valueEx1: boolean;
+  public valueEx2: boolean;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService  
+  ) &#123;
+    this.cacheService.setElement('title', 'Round button')
+  &#125;
+
+  clickEx1($event: boolean)&#123;
+    if($event)&#123;
+      this.toastService.addSuccessMessage('Éxito', 'Botón 1 activado');
+    &#125;else&#123;
+      this.toastService.addSuccessMessage('Éxito', 'Botón 1 desactivado');
+    &#125;
+  &#125;
+  
+  clickEx2($event: boolean)&#123;
+    if($event)&#123;
+      this.toastService.addSuccessMessage('Éxito', 'Botón 2 activado');
+    &#125;else&#123;
+      this.toastService.addSuccessMessage('Éxito', 'Botón 2 desactivado');
+    &#125;
+  &#125;
+&#125;</code>
+        </pre>
+      </sco-tab-item>
+    </sco-tabs>
+
+  </div>
+
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>width</td>
+          <td>Anchura del botón en pixeles.</td>
+          <td>number</td>
+          <td>100</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Altura del botón en pixeles.</td>
+          <td>number</td>
+          <td>100</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>Indica si esta deshabilitado o no</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>action</td>
+          <td>Evento al clicar el boton</td>
+          <td>boolean</td>
+        </tr>
+      </tbody>
+   
+    </table>
+  </div>
+
+</base-showcase>

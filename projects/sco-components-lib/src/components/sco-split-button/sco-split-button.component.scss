@@ -1,0 +1,66 @@
+.sco-split-button{
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+
+    &__action-principal{
+        
+        &--more-actions{
+            button {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+        
+    }
+   
+    &__action-secondaries-no-border-left {
+        button {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            width: 40px;
+            padding: 0;
+        }
+    }
+
+    &__action-secondaries {
+        button {
+            width: 40px;
+            padding: 0;
+        }
+    }
+
+    &__options{
+        position: absolute;
+        width: 100%;
+        min-width: 200px;
+        z-index: 999;
+        background: #fff;
+        margin-top: 5px;
+        max-height: 300px;
+        text-align: center;
+        top: 30px;
+        right: 0;
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+            max-height: 200px;
+            overflow: auto;
+            border: 1px solid #c8c8c8;
+            border-radius: .25rem;
+            overflow-x: hidden;
+
+            li {
+                list-style: none;
+                cursor: pointer;
+                padding: 5px;
+
+                &:hover {
+                    background: #aefff48c;
+                }
+            }
+        }
+    }
+
+}

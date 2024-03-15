@@ -1,0 +1,25 @@
+<div class="sco-accordion">
+
+  <div class="sco-accordion__title" 
+    [ngClass]="{'sco-accordion__title--is-opened': open, 'sco-accordion__title--is-closed': !open}" 
+    (click)="openClose()" >
+
+    <div class="row">
+      <div class="col-md-11 col-10 text-left">
+        <span class="sco-accordion__title--text">{{title}}</span>
+      </div>
+      <div class="col-md-1 col-2 text-right">
+        <i class="fa fa-angle-down sco-accordion__title--icon" *ngIf="!open"></i>
+        <i class="fa fa-angle-up sco-accordion__title--icon" *ngIf="open"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="sco-accordion__content" #contentAccordion
+   [@slideInOut]="state"
+   [ngClass]="{'sco-accordion__content--is-opened': open, 'sco-accordion__content--is-closed': !open}"
+  >
+    <ng-content select="[content-accordion]"></ng-content>
+  </div>
+
+</div>

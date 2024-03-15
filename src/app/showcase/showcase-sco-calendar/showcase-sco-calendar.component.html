@@ -1,0 +1,708 @@
+<base-showcase>
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 1: Seleccionar una fecha</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value1" name="example">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value1 | date: "dd/MM/yyyy") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 2: Seleccionar una fecha con barra de botones</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [showButtonBar]="true" [(ngModel)]="value2" name="example" (select)="selectEx2($event)"
+              (clearClick)="clearClick($event)">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value2 | date: "dd/MM/yyyy") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 3: Valor inicial</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value3" name="example">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value3 | date: "dd/MM/yyyy") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 4: Seleccion de fecha multiple</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="
+                constantsService.ScoCalendarConstants.SELECTION_MULTIPLE
+              " [(ngModel)]="value4" name="example" (select)="selectEx4($event)" (clearClick)="clearClick($event)">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p *ngFor="let d of value4; let index = index">
+              {{ "Valor " + index + ": " + (d | date: "dd/MM/yyyy") }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 5: Seleccion de rango de fechas</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_RANGE"
+              [(ngModel)]="value5" name="example" (select)="selectEx5($event)" (clearClick)="clearClick($event)">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p *ngFor="let d of value5; let index = index">
+              {{ "Valor " + index + ": " + (d | date: "dd/MM/yyyy") }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 6: Seleccion de fecha con tiempo</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value6" name="example" (select)="selectEx6($event)" [showTime]="true">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value6 | date: "dd/MM/yyyy HH:mm") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 7: Seleccion solamente de tiempo</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value7" name="example" (select)="selectEx7($event)" [timeOnly]="true">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value7 | date: "dd/MM/yyyy HH:mm") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 8: Calendario inline</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value8" name="example" (select)="selectEx7($event)" [inline]="true">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value8 | date: "dd/MM/yyyy HH:mm") }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 9: Calendario modo popup & placeholder</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-calendar [label]="'Fecha'" [selectionMode]="constantsService.ScoCalendarConstants.SELECTION_SINGLE"
+              [(ngModel)]="value9" name="example" (select)="selectEx9($event)" [touchUI]="true"
+              [placeholder]="'Seleccione una fecha'">
+            </sco-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p>{{ "Valor: " + (value9 | date: "dd/MM/yyyy HH:mm") }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTML">
+        <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Seleccionar una fecha&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value1&quot;
+          name=&quot;example&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value1 | date: 'dd/MM/yyyy')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 2: Seleccionar una fecha con barra de botones&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [showButtonBar]=&quot;true&quot;
+          [(ngModel)]=&quot;value2&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx2($event)&quot;
+          (clearClick)=&quot;clearClick($event)&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value2 | date: 'dd/MM/yyyy')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Valor inicial&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value3&quot;
+          name=&quot;example&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value3 | date: 'dd/MM/yyyy')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 4: Seleccion de fecha multiple&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_MULTIPLE&quot;
+          [(ngModel)]=&quot;value4&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx4($event)&quot;
+          (clearClick)=&quot;clearClick($event)&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p *ngFor=&quot;let d of value4; let index = index&quot;&gt;{{'Valor ' + index + ': '+ (d | date: 'dd/MM/yyyy')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 5: Seleccion de rango de fechas&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.RANGE&quot;
+          [(ngModel)]=&quot;value5&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx5($event)&quot;
+          (clearClick)=&quot;clearClick($event)&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p *ngFor=&quot;let d of value5; let index = index&quot;&gt;{{'Valor ' + index + ': '+ (d | date: 'dd/MM/yyyy')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 6: Seleccion de fecha con tiempo&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value6&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx6($event)&quot;
+          [showTime]=&quot;true&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value6 | date: 'dd/MM/yyyy HH:mm')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 7: Seleccion solamente de tiempo&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value7&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx7($event)&quot;
+          [timeOnly]=&quot;true&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value7 | date: 'dd/MM/yyyy HH:mm')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+        &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 8: Calendario inline&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value8&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx7($event)&quot;
+          [inline]=&quot;true&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value7 | date: 'dd/MM/yyyy HH:mm')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 9: Calendario modo popup & placeholder&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-calendar
+          [selectionMode]=&quot;constantsService.ScoCalendarConstants.SELECTION_SINGLE&quot;
+          [(ngModel)]=&quot;value9&quot;
+          name=&quot;example&quot;
+          (select)=&quot;selectEx9($event)&quot;
+          [touchUI]=&quot;true&quot;
+          [placeholder]=&quot;'Seleccione una fecha'&quot;&gt;
+        &lt;/sco-calendar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p&gt;{{'Valor: ' + (value9 | date: 'dd/MM/yyyy HH:mm')}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item tittle="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item tittle="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, ViewEncapsulation &#125; from '@angular/core';
+import &#123; ScoToastService &#125; from 'projects/sco-components/src/public-api';
+import &#123; ScoCacheService &#125; from 'projects/sco-components/src/services/sco-cache.service';
+import &#123; ScoConstantsService &#125; from 'projects/sco-components/src/services/sco-constants.service';
+
+@Component(&#123;
+  selector: 'app-calendar-showcase',
+  templateUrl: './calendar-showcase.component.html',
+  styleUrls: ['./calendar-showcase.component.scss'],
+  encapsulation: ViewEncapsulation.None
+&#125;)
+export class CalendarShowcaseComponent &#123;
+
+  value1: Date;
+  value2: Date;
+  value3: Date = new Date(2021, 0, 1);
+  value4: Date[];
+  value5: Date[];
+  value6: Date;
+  value7: Date = new Date();
+  value8: Date = new Date();
+
+  constructor(
+    public constants: ScoConstantsService, 
+    public cacheService: ScoCacheService,
+    public toasatService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement('title', 'Calendar');
+    this.value7.setHours(8,30);
+  &#125;
+  
+  selectEx2($event: Date)&#123;
+    console.log("Fecha elegida: " , $event);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Fecha elegida: " + $event);
+  &#125;
+
+  selectEx4($event: Date[])&#123;
+    console.log("Fecha/s elegida/s: " , $event);
+    console.log("Fecha/s elegida/s en el value4: " , this.value4);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Fecha/s elegida/s: " + $event);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Fecha/s elegida/s en el value4: " + this.value4);
+  &#125;
+
+  selectEx5($event: Date[])&#123;
+    console.log("Fecha/s elegida/s: " , $event);
+    console.log("Fecha/s elegida/s en el value5: " , this.value5);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Rango de fechas: " + $event);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Fecha/s elegida/s en el value5: " + this.value5);
+  &#125;
+
+  selectEx6($event: Date)&#123;
+    console.log("Fecha y tiempo elegida: " , $event);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Fecha y tiempo elegida: " + $event);
+  &#125;
+
+  selectEx7($event: Date)&#123;
+    console.log("Tiempo elegido: " , $event);
+    this.toasatService.addSuccessMessage("Seleccion fecha", "Tiempo elegido: " + $event);
+  &#125;
+
+  clearClick($event: MouseEvent)&#123;
+    console.log($event);
+    this.toasatService.addSuccessMessage("Limpiar fecha", "Fecha limpiada");
+  &#125;
+&#125;
+
+          </code>
+        </pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>defaultDate</td>
+          <td>Fecha por defecto</td>
+          <td>Date</td>
+          <td>new Date()</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>minDate</td>
+          <td>Fecha minima a elegir</td>
+          <td>Date</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>maxDate</td>
+          <td>Fecha maxima a elegir</td>
+          <td>Date</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>disabled</td>
+          <td>Indica si esta o no deshabilitado</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>readonlyInput</td>
+          <td>Indica si o no de solo lectura</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>inputStyleClass</td>
+          <td>Clases adicionales a añadir</td>
+          <td>string</td>
+          <td>''</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>dateFormat</td>
+          <td>Formato de la fecha seleccionada</td>
+          <td>string</td>
+          <td>dd/mm/yy</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>hourFormat</td>
+          <td>Formato de la hora</td>
+          <td>string</td>
+          <td>24</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>stepHour</td>
+          <td>Incremento/decremento de la hora</td>
+          <td>number</td>
+          <td>1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>stepHour</td>
+          <td>Incremento/decremento de la hora</td>
+          <td>number</td>
+          <td>1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>stepMinute</td>
+          <td>Incremento/decremento de los minutos</td>
+          <td>number</td>
+          <td>1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>showButtonBar</td>
+          <td>Indica si muestra la barra de botones del calendario</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>selectionMode</td>
+          <td>Indica el modo de seleccion</td>
+          <td>string</td>
+          <td>ScoCalendarConstants.SELECTION_SINGLE</td>
+          <td>
+            <ul>
+              <li>ScoCalendarConstants.SELECTION_SINGLE</li>
+              <li>ScoCalendarConstants.SELECTION_MULTIPLE</li>
+              <li>ScoCalendarConstants.SELECTION_RANGE</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>inputId</td>
+          <td>Indica el id del calendar</td>
+          <td>string</td>
+          <td>''</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>name</td>
+          <td>Indica el name del calendar</td>
+          <td>string</td>
+          <td>''</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>language</td>
+          <td>Indica el idioma del calendario</td>
+          <td>string</td>
+          <td>LocaleConstants.ES</td>
+          <td>
+            <ul>
+              <li>LocaleConstants.ES</li>
+              <li>LocaleConstants.EN</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>touchUI</td>
+          <td>Indicador para mostrar el calendario en modo popup</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>placeholder</td>
+          <td>Texto que aparece mientras no hay una fecha seleccionada</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>select</td>
+          <td>Evento al seleccionar una fecha</td>
+          <td>Date</td>
+        </tr>
+
+        <tr>
+          <td>close</td>
+          <td>Evento al cerrar el calendario</td>
+          <td>Date</td>
+        </tr>
+
+        <tr>
+          <td>todayClick</td>
+          <td>Evento al clickar en el hoy</td>
+          <td>Date</td>
+        </tr>
+
+        <tr>
+          <td>clearClick</td>
+          <td>Evento al clickar en limpiar</td>
+          <td>MouseEvent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</base-showcase>

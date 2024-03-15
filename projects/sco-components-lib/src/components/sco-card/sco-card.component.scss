@@ -1,0 +1,22 @@
+.sco-card {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.411);
+    border-radius: 4px;
+    -webkit-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+  
+    &__title {
+      padding: 10px;
+      padding-left: 15px;
+      font-family: "sco bold";
+      font-size: 28px;
+      color: #fff;
+    }
+  
+    &__body {
+      padding: 20px;
+      border-radius: 4px;
+    }
+  }
+  

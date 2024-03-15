@@ -1,0 +1,547 @@
+<base-showcase>
+
+    <div examples>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- 1 -->
+                <div class="row mt-1">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 1: Sin Label</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx1"
+                            [showLabel]="false" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx1}}</div>
+                    </div>  
+                </div>
+
+                <!-- 2 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 2: Mostrar Label</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx2"
+                            [label]="'Ejemplo 2'"
+                            [showLabel]="true"
+                            [require]="true" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx2}}</div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 3: Mostrar Icono Sin Click</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx3" 
+                            [label]="'Ejemplo 3'"
+                            [showLabel]="true"  
+                            [icon]="'fa fa-user'"
+                            [showIcon]="true" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx3}}</div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 4: Mostrar Icono Con Click</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-12">
+                            <sco-input
+                                [(ngModel)]="valueEx4" 
+                                [label]="'Ejemplo 4'"
+                                [showLabel]="true"
+                                [icon]="'fa fa-user'"
+                                [showIcon]="true" 
+                                [enabledIconClick]="true"
+                                (iconClick)="onIconClick($event)" >
+                            </sco-input>
+                            <div>{{'Valor: ' + valueEx4}}</div>
+                        </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 5: Mostrar Place Holder</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx5" 
+                            [label]="'Ejemplo 5'"
+                            [showLabel]="true"
+                            [icon]="'fa fa-user'"
+                            [showIcon]="true" 
+                            [enabledIconClick]="true"
+                            [placeHolder]="'Introduzca un valor'"
+                            (iconClick)="onIconClick($event)" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx5}}</div>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 6: Readonly</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx6" 
+                            [label]="'Ejemplo 6'"
+                            [showLabel]="true"
+                            [readOnly]="true">
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx6}}</div>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 7: Disabled</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [(ngModel)]="valueEx7" 
+                            [label]="'Ejemplo 7'"
+                            [showLabel]="true"
+                            [disabled]="true">
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx7}}</div>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 8: Tipo Password</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [type]="constantsService.ScoInputTypeConstants.PASSWORD"
+                            [(ngModel)]="valueEx8" 
+                            [label]="'Ejemplo 8'"
+                            [showLabel]="true" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx8}}</div>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 9: Tipo Numero</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <sco-input
+                            [type]="constantsService.ScoInputTypeConstants.NUMBER"
+                            [(ngModel)]="valueEx9" 
+                            [label]="'Ejemplo 9'"
+                            [showLabel]="true"
+                            (inputChange)="onInputChange($event)" >
+                        </sco-input>
+                        <div>{{'Valor: ' + valueEx9}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div code>
+        <sco-tabs>
+        <sco-tab-item tittle="HTLM">
+            <pre><code class="language-markup" pCode ngNonBindable>
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+
+            &lt;!-- 1 --&gt;
+            &lt;div class=&quot;row mt-1&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 1: Sin Label&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx1&quot;
+                        [showLabel]=&quot;false&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx1}}&lt;/div&gt;
+                &lt;/div&gt;  
+            &lt;/div&gt;
+
+            &lt;!-- 2 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 2: Mostrar Label&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx2&quot;
+                        [label]=&quot;'Ejemplo 2'&quot;
+                        [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx2}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 3 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 3: Mostrar Icono Sin Click&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx3&quot; 
+                        [label]=&quot;'Ejemplo 3'&quot;
+                        [showLabel]=&quot;true&quot;  
+                        [icon]=&quot;'fa fa-user'&quot;
+                        [showIcon]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx3}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 4 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 4: Mostrar Icono Con Click&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-12&quot;&gt;
+                        &lt;sco-input
+                            [(ngModel)]=&quot;valueEx4&quot; 
+                            [label]=&quot;'Ejemplo 4'&quot;
+                            [showLabel]=&quot;true&quot;
+                            [icon]=&quot;'fa fa-user'&quot;
+                            [showIcon]=&quot;true&quot; 
+                            [enabledIconClick]=&quot;true&quot;
+                            (iconClick)=&quot;onIconClick($event)&quot; &gt;
+                        &lt;/sco-input&gt;
+                        &lt;div&gt;{{'Valor: ' + valueEx4}}&lt;/div&gt;
+                    &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 5 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 5: Mostrar Place Holder&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx5&quot; 
+                        [label]=&quot;'Ejemplo 5'&quot;
+                        [showLabel]=&quot;true&quot;
+                        [icon]=&quot;'fa fa-user'&quot;
+                        [showIcon]=&quot;true&quot; 
+                        [enabledIconClick]=&quot;true&quot;
+                        [placeHolder]=&quot;'Introduzca un valor'&quot;
+                        (iconClick)=&quot;onIconClick($event)&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx5}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 6 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 6: Readonly&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx6&quot; 
+                        [label]=&quot;'Ejemplo 6'&quot;
+                        [showLabel]=&quot;true&quot;
+                        [readOnly]=&quot;true&quot;&gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx6}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 7 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 7: Disabled&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [(ngModel)]=&quot;valueEx7&quot; 
+                        [label]=&quot;'Ejemplo 7'&quot;
+                        [showLabel]=&quot;true&quot;
+                        [disabled]=&quot;true&quot;&gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx7}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 8 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 8: Tipo Password&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [type]=&quot;scoConstants.ScoInputTypeConstants.PASSWORD&quot;
+                        [(ngModel)]=&quot;valueEx8&quot; 
+                        [label]=&quot;'Ejemplo 8'&quot;
+                        [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx8}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 9 --&gt;
+            &lt;div class=&quot;row mt-3&quot;&gt;
+                &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                    &lt;span&gt;Ejemplo 9: Tipo Numero&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;sco-input
+                        [type]=&quot;scoConstants.ScoInputTypeConstants.NUMBER&quot;
+                        [(ngModel)]=&quot;valueEx9&quot; 
+                        [label]=&quot;'Ejemplo 9'&quot;
+                        [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                    &lt;div&gt;{{'Valor: ' + valueEx9}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+            </code></pre>
+        </sco-tab-item>
+        
+        <sco-tab-item tittle="CSS">
+            <pre><code class="language-css" pCode ngNonBindable>
+            </code></pre>
+        </sco-tab-item>
+    
+        <sco-tab-item tittle="TS">
+            <pre><code class="language-typescript" pCode ngNonBindable>
+    import &#123; ScoToastService, ScoConstantsService, ScoCacheService &#125; from 'sco-components-lib';
+    import &#123; Component &#125; from '@angular/core';
+
+    @Component(&#123;
+    selector: 'app-showcase-sco-input',
+    templateUrl: './showcase-sco-input.component.html',
+    styleUrls: ['./showcase-sco-input.component.scss']
+    &#125;)
+
+    export class ShowcaseScoInputComponent &#123;
+
+    public valueEx1: string;
+    public valueEx2: string;
+    public valueEx3: string;
+    public valueEx4: string;
+    public valueEx5: string;
+    public valueEx6: string;
+    public valueEx7: string;
+    public valueEx8: string;
+    public valueEx9: string;
+
+    constructor(
+        public scoCache: ScoCacheService,
+        public ScoToast: ScoToastService,
+        public scoConstants: ScoConstantsService
+    ) &#123; 
+        this.scoCache.setElement("title", "Input");
+    &#125;
+    
+    onIconClick($event: boolean) &#123;
+        console.log($event);
+        this.ScoToast.addSuccessMessage("Éito", "Pulsado el evento del icono: " + $event);
+    &#125;
+    &#125; 
+            </code></pre>
+        </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Indica el tipo del input</td>
+            <td>string</td>
+            <td>ScoInputTypeConstants.TEXT</td>
+            <td>
+                <ul>
+                    <li>ScoInputTypeConstants.TEXT</li>
+                    <li>ScoInputTypeConstants.PASSWORD</li>
+                    <li>ScoInputTypeConstants.NUMBER</li>
+                    <li>ScoInputTypeConstants.EMAIL</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>Texto de la etiqueta del input</td>
+            <td>string</td>
+            <td>undefined</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>showLabel</td>
+            <td>Indica si se muestra la etiqueta del input</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>Clase de boostrap para mostrar en el icono</td>
+            <td>string</td>
+            <td>undefined</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>showIcon</td>
+            <td>Indica si se muestra o no el icono del input</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>enabledIconClick</td>
+            <td>Indica si está hábilitado el evento click del icono</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>readOnly</td>
+            <td>Indica si el input esta en modo solo lectura</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>disabled</td>
+            <td>Indica si el input esta deshabilitado</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>placeHolder</td>
+            <td>Texto a mostrar en el input mientras no contenga valor</td>
+            <td>string</td>
+            <td>''</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>inLine</td>
+            <td>Indica si el input esta en modo en linea (Label - Input)</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>require</td>
+            <td>Indica si el input es obligatorio</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+    </tbody>
+  </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcción</th>
+                <th>Valor devuelto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>iconClick</td>
+                <td>Evento al pulsar el icono del input</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>inputChange</td>
+                <td>Evento al cambiar el valor del input</td>
+                <td>boolean</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</base-showcase>

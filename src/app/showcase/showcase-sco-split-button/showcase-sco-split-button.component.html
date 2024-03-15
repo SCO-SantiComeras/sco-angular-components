@@ -1,0 +1,132 @@
+
+
+
+<base-showcase>
+
+  <div examples>
+
+<div class="row">
+  <div class="col-12">
+      <p>Ejemplo 1: estandar</p>
+  </div>
+  <div class="col-12">
+    <sco-split-button
+      [actions]="actionsEx1"
+      (selectAction)="selectActionEx1($event)">
+
+    </sco-split-button>
+  </div>
+</div>
+
+
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+        <pre >
+          <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 1: estandar&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-split-button
+      [actions]=&quot;actionsEx1&quot;
+      (selectAction)=&quot;selectActionEx1($event)&quot;&gt;
+
+    &lt;/sco-split-button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+        <pre >
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; animate, state, style, transition, trigger &#125; from '@angular/animations';
+import &#123; Component &#125; from '@angular/core';
+import &#123; ScoAction, ScoCacheService, ScoToastService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-split-button-showcase',
+  templateUrl: './split-button-showcase.component.html',
+  styleUrls: ['./split-button-showcase.component.scss']
+&#125;)
+export class SplitButtonShowcaseComponent &#123;
+
+  public actionsEx1: ScoAction&lt;string&gt;[] = [
+    &#123; label: 'Save', value: 'SAVE', item: 'save', icon: 'fa fa-floppy-o'&#125;,
+    &#123; label: 'Update', value: 'UPDATE', item: 'update', icon: 'fa fa-refresh'&#125;,
+    &#123; label: 'Delete', value: 'DELETE', item: 'delete', icon: 'fa fa-trash'&#125;,
+  ];
+
+  constructor(
+    public cacheService: ScoCacheService,
+    public toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement('title', 'Split-button');
+  &#125;
+  
+  selectActionEx1($event)&#123;
+    this.toastService.addSuccessMessage("Accion seleccionada ejemplo 1", JSON.stringify($event));
+  &#125;
+
+&#125;
+
+          </code>
+        </pre>
+
+      </sco-tab-item>
+    </sco-tabs>
+
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>actions</td>
+          <td>Acciones a mostrar, la primera sera la acción por defecto</td>
+          <td>ScoAction&lt;T&gt;</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+      </tbody>
+   
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>selectAction</td>
+          <td>Evento al seleccionar una acción</td>
+          <td>T</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+</base-showcase>

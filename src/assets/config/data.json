@@ -1,0 +1,182 @@
+{
+    "variable1": "variable1",
+    "variable2": "variable2",
+    "showElement": true,
+    "variable3": {
+        "subvariable1": "soy un valor anidado"
+    },
+    "values": [
+        {
+            "label": "label1",
+            "value": "value1"
+        },
+        {
+            "label": "label2",
+            "value": "value2"
+        },
+        {
+            "label": "label3",
+            "value": "value3"
+        }
+    ],
+    "menuItems": [
+        {
+            "text": "Servicios",
+            "children": [
+                {
+                    "text": "Config",
+                    "route": "/sco-config"
+                },
+                {
+                    "text": "Resolution",
+                    "route": "/sco-resolution"
+                },
+                {
+                    "text": "Translate",
+                    "route": "/sco-translate"
+                }
+            ]
+        },
+        {
+            "text": "Utilidades",
+            "children": [
+                {
+                    "text": "Spinner",
+                    "route": "/sco-spinner"
+                },
+                {
+                    "text": "Toast",
+                    "route": "/sco-toast"
+                },
+                {
+                    "text": "Card",
+                    "route": "/sco-card"
+                },
+                {
+                    "text": "File uploader",
+                    "route": "/sco-file-uploader"
+                }
+            ]
+        },
+        {
+            "text": "Formularios",
+            "children": [
+                {
+                    "text": "Dropdown",
+                    "route": "/sco-dropdown"
+                },
+                {
+                    "text": "Toggle",
+                    "route": "/sco-toggle"
+                },
+                {
+                    "text": "Input",
+                    "route": "/sco-input"
+                },
+                {
+                    "text": "Text area",
+                    "route": "/sco-text-area"
+                },
+                {
+                    "text": "Buttons",
+                    "route": "/sco-button"
+                },
+                {
+                    "text": "Split Buttons",
+                    "route": "/sco-split-buttons"
+                },
+                {
+                    "text": "Round Buttons",
+                    "route": "/sco-round-buttons"
+                },
+                {
+                    "text": "Multiple Buttons",
+                    "route": "/sco-multiple-buttons"
+                },
+                {
+                    "text": "Badge pill",
+                    "route": "/sco-badge-pill"
+                },
+                {
+                    "text": "Progress bar",
+                    "route": "/sco-progress-bar"
+                },
+                {
+                    "text": "Manage list",
+                    "route": "/sco-manage-list"
+                },
+                {
+                    "text": "Checkbox",
+                    "route": "/sco-checkbox"
+                },
+                {
+                    "text": "Login",
+                    "route": "/sco-login"
+                },
+                {
+                    "text": "Calendar",
+                    "route": "/sco-calendar"
+                },
+                {
+                    "text": "Indicator",
+                    "route": "/sco-indicator"
+                },
+                {
+                    "text": "Graphics",
+                    "route": "/sco-graphics"
+                }
+            ]
+        },
+        {
+            "text": "Contenedores",
+            "children": [
+                {
+                    "text": "Accordion",
+                    "route": "/sco-accordion"
+                },
+                {
+                    "text": "Detail",
+                    "route": "/sco-detail"
+                },
+                {
+                    "text": "Block list",
+                    "route": "/sco-block-list"
+                },
+                {
+                    "text": "Table",
+                    "route": "/sco-table"
+                },
+                {
+                    "text": "Modal",
+                    "route": "/sco-modal"
+                },
+                {
+                    "text": "Tabs",
+                    "route": "/sco-tabs"
+                }
+            ]
+        },
+        {
+            "text": "Pipes",
+            "children": [
+                {
+                    "text": "Join pipe",
+                    "route": "/sco-join-pipe"
+                }
+            ]
+        },
+        {
+            "text": "Directivas",
+            "children": [
+                {
+                    "text": "Click Outside",
+                    "route": "/sco-clickoutside"
+                },
+                {
+                    "text": "Load Iframe",
+                    "route": "/sco-load-iframe"
+                }
+            ]
+        }
+    ]
+}

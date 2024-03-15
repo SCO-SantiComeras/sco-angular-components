@@ -1,0 +1,40 @@
+<div class="sco-block-list-item row" [attr.id]="id"
+  [ngClass]="{
+    'sco-block-list-item__can-select': canSelectItems
+  }"
+  [ngStyle]="{'border-color': showBorder ? blockItem.borderColor : '', 'border-left-width.px': showBorder ? 10 : 1}" >
+
+  <div class="col-md-2 col-12 sco-block-list-item__info-additional" *ngIf="showInfoAdditional">
+    <ng-template *ngTemplateOutlet="templateInfoAdditional; context: {item: blockItem.item}"></ng-template>
+  </div>
+
+  <div class="col-12 sco-block-list-item__data" [ngClass]="{'col-md-10': showInfoAdditional}">
+    <div class="row" *ngIf="showHeader"> 
+      <div class="col-12 sco-block-list-item__data--header">
+        <ng-template *ngTemplateOutlet="templateHeader; context: {item: blockItem.item}"></ng-template>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-12 sco-block-list-item__data--data">
+        <ng-template *ngTemplateOutlet="templateData; context: {item: blockItem.item}"></ng-template>
+      </div>
+    </div>
+  </div>
+
+  <div class="sco-block-list-item__actions" *ngIf="showActions">
+    <i class="fa fa-ellipsis-v" (click)="openActions($event)" scoClickOutside [avoidFirstTime]="false" (clickOutSide)="hideOptions($event)"></i>
+    <ul class="sco-block-list-item__actions--options-panel" *ngIf="showOptions">
+      <li *ngFor="let action of blockItem.actions; let index = index" (click)="sendAction($event, action, index)">
+        <div class="row no-gutters">
+          <div class="col-11">
+            <span>{{action.label}}</span>
+          </div>
+          <div class="col-1">
+            <i [class]="action.icon" *ngIf="action.icon"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>

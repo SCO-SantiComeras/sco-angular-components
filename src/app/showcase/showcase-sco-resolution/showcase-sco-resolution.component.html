@@ -1,0 +1,128 @@
+ <base-showcase [showInputs]="false" [showOutputs]="false">
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Redimensiona la pantalla para cambiar el modo</span>
+            <p>Se debe añadir la directiva resolutionService a un contenedor padre</p>    
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.MOBILE">Modo Mobile</div>
+              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.TABLET">Modo Tablet</div>
+              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.WEB">Modo Web</div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+      <sco-tabs>
+          <sco-tab-item tittle="HTLM">
+              <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Redimensiona la pantalla para cambiar el modo&lt;/span&gt;
+        &lt;p&gt;Se debe a&ntilde;adir la directiva resolutionService a un contenedor padre&lt;/p&gt;    
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.MOBILE&quot;&gt;Modo Mobile&lt;/div&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.TABLET&quot;&gt;Modo Tablet&lt;/div&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.WEB&quot;&gt;Modo Web&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code></pre>
+          </sco-tab-item>
+      
+          <sco-tab-item tittle="CSS">
+              <pre><code class="language-css" pCode ngNonBindable>
+              </code></pre>
+          </sco-tab-item>
+      
+          <sco-tab-item tittle="TS">
+              <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService, ScoConstantsService, resolutionServiceService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-resolution',
+  templateUrl: './showcase-sco-resolution.component.html',
+  styleUrls: ['./showcase-sco-resolution.component.scss']
+&#125;)
+
+export class ShowcaseresolutionServiceComponent &#123;
+
+  constructor(
+    public resolutionService: resolutionServiceService,
+    public scoConstants: ScoConstantsService,
+    private cacheService: ScoCacheService
+  ) &#123; 
+    this.cacheService.setElement("title", "Resolution Service")
+  &#125;
+&#125;
+              </code></pre>
+          </sco-tab-item>
+      </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Nombre</th>
+                  <th>Descripcción</th>
+                  <th>Tipo</th>
+                  <th>Valor por defecto</th>
+                  <th>Posibles valores</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

@@ -1,0 +1,389 @@
+$primary: #000;
+$color-text: #000;
+$border-primary: 1px solid $primary;
+
+$background: #FFF;
+$selected: #aefff48c;
+$content: #FFF;
+
+.theme-default {
+    background-color: $content !important;
+    color: $color-text !important;
+
+    /* Sco-paginator */
+    .ngx-pagination a, .ngx-pagination button{
+        color: $color-text !important;
+    }
+    
+    .ngx-pagination a:hover {
+        color: $color-text !important;
+    }
+
+    sco-accordion {
+        .sco-accordion {
+            &__title { 
+                border: $border-primary;
+            }
+
+            &__content {
+                &--is-opened { 
+                    border-left-color: $primary;
+                    border-right-color: $primary;
+                    border-bottom-color: $primary;
+                }
+            }
+        }
+    }
+
+    sco-detail {
+        .sco-detail {
+            border: $border-primary;
+            background: $background;
+        }
+    }
+
+    sco-dropdown {
+        .sco-dropdown {
+            .form-control {
+                background: $background;
+                color: $color-text;
+            }
+
+            &__title { 
+                &--require {
+                    color: $color-text;
+                }
+        
+                &--label {
+                    color: $color-text;
+                }
+            }
+
+            &__panel-items { 
+                background: $background;
+
+                ul { 
+                    li {
+                        &:hover { 
+                            background: $selected;
+                        }
+                    }
+                }
+            }
+
+            .input-group-append i {
+                color: $color-text;
+            }
+        }
+    }
+
+    sco-modal { 
+        .sco-modal {
+            background: $background;
+
+            .card { 
+                background: $background;
+            }
+        }
+    }
+
+    sco-toggle { 
+        .sco-toggle { 
+            &__btn { 
+                &::after { 
+                    background: $background;
+                }
+            }
+        }
+    }
+
+    sco-table {
+        .sco-table {
+            &__table {
+                width: 100%;
+                
+                &--thead {
+                    background-color: #454545;
+                    color: $background;
+                }
+
+                &--tbody {
+                    color: $color-text;
+                    
+
+                    &__row {
+                        &:hover {
+                            background-color: $selected; 
+                        }
+        
+                        &--can-select {
+                            cursor: pointer;
+                        }
+        
+                        &--pair {
+                            background-color: #d3d3d3;
+                        }
+        
+                        &--no-pair {
+                            background-color: $background;
+                        }
+                    }
+
+                    &__actions { 
+                        &--options-panel { 
+                            border: $border-primary;
+                            background-color: $background;
+
+                            &--panel {
+                                &:hover {
+                                    background-color: $selected;
+                                }
+                            }
+                        }   
+                    }
+                }
+
+                &--tfoot {
+                    color: $color-text;
+                }
+        
+                &--no-result {
+                    color: $color-text;
+                }
+        
+                &--pagination {
+                    color: $color-text;
+                }
+            }
+        }
+    }
+
+    sco-block-list-item { 
+        .sco-block-list-item { 
+            /* border: $border-primary; */
+            border: 1px solid #161c2d;
+            background: $background;
+
+            &:hover {
+                background: $selected;
+            }
+
+            &__actions { 
+                &--options-panel { 
+                    border: $border-primary;
+                    background: $background;
+                }
+
+                li {
+                    &:hover {
+                        background: $selected;
+                    }
+                }
+            }
+        }
+    }
+
+    sco-block-list-data { 
+        .sco-block-list-data {
+    
+            &__label {
+                color: #c8c8c8;
+            }
+        
+            &__value {
+                color: $primary;
+            }
+        }
+    }
+
+    sco-tabs {
+        .sco-tabs {
+            &__tittle {
+                color: $color-text;
+
+                &--selected {
+                    border-bottom-color: $primary;
+                }
+            }
+        }
+    }
+
+    sco-input {
+        .sco-input {
+
+            .input-group {
+                .form-control {
+                    background: $background;
+                    color: $color-text;
+                }
+    
+            }
+            
+            .input-group-append i {
+                color: $color-text;
+            }
+        }  
+
+        &__label { 
+
+            &--title {
+                color: $color-text;
+            }
+    
+            &--require {
+                color: $color-text;
+            }
+        }
+    }
+
+    sco-login {
+        .sco-login {
+            border: $border-primary;
+
+            &--option {
+                //color: #000;
+        
+                &:hover {
+                    //color: #000;
+                }
+            }
+        }
+    }
+
+    sco-card {
+        .sco-card {
+            border: 0.1px solid #343a40;
+
+            &__title {
+                height: 60px;
+                background-color: #343a40;
+            }
+
+            &__body {
+                background-color: $background;
+            }
+        }
+    }
+
+    sco-button {
+        .btn-sco-comp {
+          &--border {
+            border-color: $primary;
+          }
+    
+          &--mode-default {
+            color: #fff;
+            border-color: #343a40;
+            background: #343a40;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--mode-save {
+            border-color: #28a745;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--mode-danger {
+            border-color: #dc3545;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--disabled {
+            color: #fff;
+            border-color: rgb(207, 207, 207);
+            background: rgb(207, 207, 207);
+            font-family: 'sco semi bold' !important;
+          }
+
+          &--text {
+            color: #FFF;
+            font-family: 'sco semi bold' !important;
+          }
+        }
+    }
+
+    sco-badge-pill {
+        .sco-badge {
+          &--info {
+            background: #343a40;
+            color: #fff;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--danger {
+            background: #dc3545;
+            color: #fff;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--warning {
+            background: #ffc107;
+            color: #fff;
+            font-family: 'sco semi bold' !important;
+          }
+    
+          &--success {
+            background: #28a745;
+            color: #fff;
+            font-family: 'sco semi bold' !important;
+          }
+    
+        }
+    }
+
+    sco-textarea {
+        .sco-textarea {
+          &__textarea-container {
+            &--textarea {
+              border: 2px solid rgb(52, 58, 64, 0.7);
+            }
+          }
+        }
+    }
+
+    sco-round-button {
+        .sco-round-button {
+          &__container {
+            &--input {
+              border-color: #000;
+    
+              &--active {
+                background-color: #343a40;
+                border: 5px solid #000;
+              }
+            }
+          }
+        }
+    }
+
+    sco-progress-bar {
+        .sco-progress-bar {
+            background-color: lightgray;
+            
+          .progress-bar {
+            background-color: #343a40;
+          }
+        }
+    }
+
+    sco-checkbox {
+        .sco-checkbox {
+          &__container {
+            &--input {
+              &--active {
+                background-color: #343a40;
+                border: #343a40;
+              }
+            }
+          }
+        }
+    }
+
+    sco-split-button {
+        .sco-split-button {
+            &__options {
+                background: #fff;
+            }
+        }
+    }
+}

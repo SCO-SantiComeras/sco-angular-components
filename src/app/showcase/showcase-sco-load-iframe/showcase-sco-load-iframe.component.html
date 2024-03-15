@@ -1,0 +1,132 @@
+<base-showcase [showInputs]="false">
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Load Iframe</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <iframe src="https://santiagocomerasoteo.es" scoLoadIframe (loadIframe)="load()" class="iframe">
+              </iframe>
+              <sco-spinner></sco-spinner>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+      <sco-tabs>
+          <sco-tab-item tittle="HTLM">
+              <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Load Iframe&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;iframe src=&quot;https://www.discoduroderoer.es/&quot; scoLoadIframe (loadIframe)=&quot;load()&quot;&gt;&lt;/iframe&gt;
+          &lt;sco-spinner&gt;&lt;/sco-spinner&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code></pre>
+          </sco-tab-item>
+      
+          <sco-tab-item tittle="CSS">
+              <pre><code class="language-css" pCode ngNonBindable>
+              </code></pre>
+          </sco-tab-item>
+      
+          <sco-tab-item tittle="TS">
+              <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService, ScoSpinnerService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'showcase-sco-load-iframe',
+  templateUrl: './showcase-sco-load-iframe.component.html',
+  styleUrls: ['./showcase-sco-load-iframe.component.scss']
+&#125;)
+
+export class ShowcaseScoLoadIframeComponent &#123;
+
+  constructor(
+    private spinnerService: ScoSpinnerService,
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService
+  ) &#123;
+    this.cacheService.setElement("title", "Load Iframe");
+    this.spinnerService.showSpinner();
+   &#125;
+
+  load() &#123;
+    console.log("Iframe cargado!");
+    this.toastService.addSuccessMessage("Éxito", "Iframe cargado!");
+    this.spinnerService.hideSpinner();
+  &#125;
+&#125;
+              </code></pre>
+          </sco-tab-item>
+      </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Nombre</th>
+                  <th>Descripcción</th>
+                  <th>Tipo</th>
+                  <th>Valor por defecto</th>
+                  <th>Posibles valores</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div class="scrollable" outputs>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Nombre</th>
+                  <th>Descripcción</th>
+                  <th>Valor devuelto</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>loadIframe</td>
+                  <td>Evento al cargar el Iframe</td>
+                  <td>boolean</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+</base-showcase>

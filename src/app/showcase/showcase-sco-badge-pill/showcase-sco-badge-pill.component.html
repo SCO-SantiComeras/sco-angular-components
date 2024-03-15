@@ -1,0 +1,289 @@
+<base-showcase>
+
+  <div examples>
+
+    <div class="row mb-2">
+      <div class="col-12 ">
+        Ejemplo 1: Estandar
+      </div>
+      <div class="col-12">
+        <sco-badge-pill 
+          text="Ejemplo 1"
+          [type]="constantsService.ScoBadgeConstants.INFO"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+        <sco-badge-pill  
+          text="Ejemplo 2" 
+          [type]="constantsService.ScoBadgeConstants.DANGER"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+        <sco-badge-pill  
+          text="Ejemplo 3" 
+          [type]="constantsService.ScoBadgeConstants.WARNING"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+        <sco-badge-pill  
+          text="Ejemplo 4" 
+          [type]="constantsService.ScoBadgeConstants.SUCCESS"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+      <div class="col-12">
+        Ejemplo 2: Tamaños
+      </div>
+      <div class="col-12">
+        <sco-badge-pill  
+          text="Pequeño"
+          [size]="constantsService.ScoBadgeConstants.SIZE_SMALL"
+          [type]="constantsService.ScoBadgeConstants.INFO"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+        <sco-badge-pill  
+          text="Mediano"
+          [size]="constantsService.ScoBadgeConstants.SIZE_MEDIUM"
+          [type]="constantsService.ScoBadgeConstants.INFO"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+        <sco-badge-pill  
+          text="Grande"
+          [size]="constantsService.ScoBadgeConstants.SIZE_LARGE"
+          [type]="constantsService.ScoBadgeConstants.INFO"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+      <div class="col-12">
+        Ejemplo 3: Personalizado
+      </div>
+      <div class="col-12">
+        <sco-badge-pill  
+          text="Ejemplo 3" 
+          customClass="myclass"
+          (clickBadge)="clickBadge($event)">
+        </sco-badge-pill >
+      </div>
+    </div>
+
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+
+        <pre>
+          <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row mb-2&quot;&gt;
+  &lt;div class=&quot;col-12 &quot;&gt;
+    Ejemplo 1: Estandar
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-badge-pill  
+      text=&quot;Ejemplo 1&quot;
+      [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+    &lt;sco-badge-pill  
+      text=&quot;Ejemplo 2&quot; 
+      [type]=&quot;constantsService.ScoBadgeConstants.DANGER&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+    &lt;sco-badge-pill  
+      text=&quot;Ejemplo 3&quot; 
+      [type]=&quot;constantsService.ScoBadgeConstants.WARNING&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+    &lt;sco-badge-pill  
+      text=&quot;Ejemplo 4&quot; 
+      [type]=&quot;constantsService.ScoBadgeConstants.SUCCESS&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2 mb-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    Ejemplo 2: Tama&ntilde;os
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-badge-pill  
+      text=&quot;Peque&ntilde;o&quot;
+      [size]=&quot;constantsService.ScoBadgeConstants.SIZE_SMALL&quot;
+      [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+    &lt;sco-badge-pill  
+      text=&quot;Mediano&quot;
+      [size]=&quot;constantsService.ScoBadgeConstants.SIZE_MEDIUM&quot;
+      [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+    &lt;sco-badge-pill  
+      text=&quot;Grande&quot;
+      [size]=&quot;constantsService.ScoBadgeConstants.SIZE_LARGE&quot;
+      [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2 mb-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    Ejemplo 3: Personalizado
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-badge-pill  
+      text=&quot;Ejemplo 3&quot; 
+      customClass=&quot;myclass&quot;
+      (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+    &lt;/sco-badge-pill &gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+        
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+        .myclass&#123;
+          background: orange;
+          color: white;
+        &#125;
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, OnInit, ViewEncapsulation &#125; from '@angular/core';
+import &#123; ScoToastService &#125; from 'projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
+import &#123; ScoCacheService &#125; from 'projects/sco-components-lib/src/services/sco-cache.service';
+import &#123; ScoConstantsService &#125; from 'projects/sco-components-lib/src/services/sco-constants.service';
+
+@Component(&#123;
+  selector: 'app-badge-showcase',
+  templateUrl: './badge-showcase.component.html',
+  styleUrls: ['./badge-showcase.component.scss'],
+  encapsulation: ViewEncapsulation.None
+&#125;)
+export class BadgeShowcaseComponent implements OnInit &#123;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService,
+    public constants: ScoConstantsService
+  ) &#123; 
+    this.cacheService.setElement('title', 'Badge');
+  &#125;
+  ngOnInit() &#123;
+  &#125;
+
+  clickBadge($event)&#123;
+    this.toastService.addSuccessMessage("Exito", "Click en el badge");
+    console.log($event);    
+  &#125;
+
+&#125;
+
+          </code>
+        </pre>
+
+      </sco-tab-item>
+    </sco-tabs>
+
+  </div>
+
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th>text</th>
+          <th>Texto dentro del badge</th>
+          <th>string</th>
+          <th>''</th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <th>customClass</th>
+          <th>Clase personalizada del badge</th>
+          <th>string</th>
+          <th>''</th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <th>type</th>
+          <th>Tipo predefinido del badge</th>
+          <th>string</th>
+          <th>undefined</th>
+          <th>
+            <ul>
+              <li>ScoBadgeConstants.INFO</li>
+              <li>ScoBadgeConstants.DANGER</li>
+              <li>ScoBadgeConstants.WARNING</li>
+              <li>ScoBadgeConstants.SUCCESS</li>
+            </ul>
+          </th>
+        </tr>
+
+        <tr>
+          <th>size</th>
+          <th>Tamaño del texto del badge</th>
+          <th>string</th>
+          <th>ScoBadgeConstants.SIZE_MEDIUM</th>
+          <th>
+            <ul>
+              <li>ScoBadgeConstants.SIZE_SMALL</li>
+              <li>ScoBadgeConstants.SIZE_MEDIUM</li>
+              <li>ScoBadgeConstants.SIZE_LARGE</li>
+            </ul>
+          </th>
+
+
+        <tr>
+          <th>canClick</th>
+          <th>Indica si se puede o no clickar</th>
+          <th>boolean</th>
+          <th>true</th>
+          <th></th>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>clickBadge</th>
+          <th>Evento al clickar el badge</th>
+          <th>MouseEvent</th>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</base-showcase>

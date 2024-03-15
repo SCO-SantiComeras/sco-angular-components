@@ -1,0 +1,15 @@
+<span
+  [class]="'sco-badge badge badge-pill ' + customClass"
+  [ngClass]="{
+    'sco-badge--clickable': canClick,
+    'sco-badge--info': type === constantsService.ScoBadgeConstants.INFO,
+    'sco-badge--danger': type === constantsService.ScoBadgeConstants.DANGER,
+    'sco-badge--warning': type === constantsService.ScoBadgeConstants.WARNING,
+    'sco-badge--success': type === constantsService.ScoBadgeConstants.SUCCESS,
+    'sco-badge--small': size === constantsService.ScoBadgeConstants.SIZE_SMALL,
+    'sco-badge--medium': size === constantsService.ScoBadgeConstants.SIZE_MEDIUM,
+    'sco-badge--large': size === constantsService.ScoBadgeConstants.SIZE_LARGE
+  }"
+  (click)="onclickBadge($event)">
+  {{text}}
+</span>

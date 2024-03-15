@@ -1,0 +1,246 @@
+<base-showcase [showInputs]="false" [showOutputs]="false">
+
+    <div examples>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- 1 -->
+                <div class="row mt-1">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 1: Recoger un valor simple</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <p>{{'variable1' | scoConfig}}</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 2: Recoger un valor anidado</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <p>{{'variable3.subvariable1' | scoConfig}}</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 3: Recoger un valor segun un estado</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <p *ngIf="'showElement' | scoConfig">
+                            Me puedo mostrar
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 4: Mostrando varios valores</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <p *ngFor="let item of ('values' | scoConfig)">
+                            {{item.label + ' - ' + item.value}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+
+        &lt;!-- 1 --&gt;
+        &lt;div class=&quot;row mt-1&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 1: Recoger un valor simple&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;p&gt;{{'variable1' | scoConfig}}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 2 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 2: Recoger un valor anidado&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;p&gt;{{'variable3.subvariable1' | scoConfig}}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 3 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 3: Recoger un valor segun un estado&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;p *ngIf=&quot;'showElement' | scoConfig&quot;&gt;
+                    Me puedo mostrar
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 4 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 4: Mostrando varios valores&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;p *ngFor=&quot;let item of ('values' | scoConfig)&quot;&gt;
+                    {{item.label + ' - ' + item.value}}
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="TS">
+                -- Showcase
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService, scoConfigService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-config',
+  templateUrl: './showcase-sco-config.component.html',
+  styleUrls: ['./showcase-sco-config.component.scss']
+&#125;)
+
+export class ShowcasescoConfigComponent &#123;
+
+  constructor(
+    private scoConfig: scoConfigService,
+    private cacheService: ScoCacheService
+  ) &#123; 
+    this.cacheService.setElement("title", "Config Service");
+    console.log("All Data: " + this.scoConfig.getAllData());
+    console.log("Variable2: " + this.scoConfig.getData('variable2'));
+  &#125;
+&#125;
+
+                </code></pre>
+
+                -- App.Module
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; APP_INITIALIZER, NgModule &#125; from '@angular/core';
+import &#123; BrowserModule, &#125; from '@angular/platform-browser';
+import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
+import &#123; ScoComponentsLibModule &#125; from 'sco-components-lib';
+import &#123; scoConfigService &#125; from 'sco-components-lib';
+                    
+export function configFactory(provider: scoConfigService) &#123;
+    return () => provider.getDataFromJson('assets/config/data.json');
+&#125;
+
+@NgModule(&#123;
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        ScoComponentsLibModule,
+    ],
+    providers: [
+        scoConfigService, 
+        &#123;
+            provide: APP_INITIALIZER,
+            useFactory: configFactory,
+            deps: [
+                scoConfigService
+                ],
+            multi: true
+        &#125;
+    ],
+    bootstrap: [AppComponent]
+&#125;)
+
+export class AppModule &#123; &#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

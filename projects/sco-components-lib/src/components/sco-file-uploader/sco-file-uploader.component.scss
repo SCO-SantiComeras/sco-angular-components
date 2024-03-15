@@ -1,0 +1,85 @@
+.sco-file-uploader {
+
+    &__container {
+        
+        &--show-border {
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        &--title {
+            font-size: 18px;
+            font-family: 'sco regular';
+        }
+
+        &--require {
+            font-size: 18px;
+            font-family: 'sco regular';
+        }
+
+        &__file {
+            margin-top: 5px;
+           
+            &--only-file {
+                margin-bottom: 5px;
+            }
+
+            &--input {
+                font-family: 'sco regular';
+                font-size: 16px;
+                
+                &::file-selector-button {
+                    border: 0.5px solid darkgrey;
+                    border-radius: 4px;
+                    background-color: darkgrey;
+                }
+                  
+                &::file-selector-button:hover {
+                    cursor: pointer;
+                    background-color: lightgray;
+                }
+            }
+
+            &--upload-btn {
+                font-family: 'sco regular';
+                margin-left: 10px;
+            }
+
+            &--clean-btn {
+                font-family: 'sco regular';
+                margin-left: 10px;
+            }
+        }
+
+        &__base64 {
+            margin-bottom: 5px;
+
+            &--header {
+                &--title-container {
+                    position: relative;
+
+                    &--title {
+                        bottom: 0; 
+                        position: absolute;
+                        font-size: 16px;
+                        font-family: 'sco bold';
+                    }   
+                }   
+
+                &--btns-container {
+                    text-align: right;
+
+                    &--btn {
+                        font-family: 'sco regular';
+                        font-size: 13px;
+                        margin-bottom: 2.5px;
+
+                        &--icon {
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

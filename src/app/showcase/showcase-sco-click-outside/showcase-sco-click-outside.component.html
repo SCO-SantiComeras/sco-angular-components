@@ -1,0 +1,250 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openEstandar()">Activar</button>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 2: Delay</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openDelay()">Delay</button>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 3: Desactivado</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openDesactivated()">Desactivated</button>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <p class="text-info">{{'Modo actual: ' + mode}}</p>
+            
+            <div *ngIf="mode == 'estandar'" class="block" scoClickOutside (clickOutSide)="clickOutSide($event)">
+              <p>Click Outside</p>
+            </div>
+
+            <div *ngIf="mode == 'delay'" class="block" scoClickOutside (clickOutSide)="clickOutSide($event)" [clickOutsideDelay]="5000">
+              <p>Click Outside</p>
+            </div>
+
+            <div *ngIf="mode == 'desactivated'" class="block" scoClickOutside (clickOutSide)="clickOutSide($event)" [clickOutsideEnabled]="false">
+              <p>Click Outside</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openEstandar()&quot;&gt;Activar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Delay&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openDelay()&quot;&gt;Delay&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 3 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 3: Desactivado&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openDesactivated()&quot;&gt;Desactivated&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;p class=&quot;text-info&quot;&gt;{{'Modo actual: ' + mode}}&lt;/p&gt;
+        
+        &lt;div *ngIf=&quot;mode == 'estandar'&quot; class=&quot;block&quot; scoClickOutside (clickOutSide)=&quot;clickOutSide($event)&quot;&gt;
+          &lt;p&gt;Click Outside&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf=&quot;mode == 'delay'&quot; class=&quot;block&quot; scoClickOutside (clickOutSide)=&quot;clickOutSide($event)&quot; [clickOutsideDelay]=&quot;5000&quot;&gt;
+          &lt;p&gt;Click Outside&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf=&quot;mode == 'desactivated'&quot; class=&quot;block&quot; scoClickOutside (clickOutSide)=&quot;clickOutSide($event)&quot; [clickOutsideEnabled]=&quot;false&quot;&gt;
+          &lt;p&gt;Click Outside&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+.block &#123;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-click-outside',
+  templateUrl: './showcase-sco-click-outside.component.html',
+  styleUrls: ['./showcase-sco-click-outside.component.scss']
+&#125;)
+
+export class ShowcasescoClickOutsideComponent &#123;
+
+  public mode: string;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService
+  ) &#123;
+    this.cacheService.setElement("title", "Click Outside");
+    this.mode = "estandar";
+  &#125;
+
+  openEstandar() &#123;
+    this.mode = "estandar";
+  &#125;
+
+  openDelay() &#123;
+    this.mode = "delay";
+  &#125;
+
+  openDesactivated() &#123;
+    this.mode = "desactivated";
+  &#125;
+
+  clickOutSide($event) &#123;
+    console.log("Event: " + $event)
+    this.toastService.addSuccessMessage("Éxito", "Click Outside");
+  &#125;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>clickOutsideEnabled</td>
+                    <td>Indica si la directiva esta habilitada o no</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>clickOutsideDelay</td>
+                    <td>Indica el tiempo de retraso de la directiva en clickar fuera</td>
+                    <td>number</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                  <td>avoidFirstTime</td>
+                  <td>Evita el primer intento de clickar fuera</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                  <td></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>clickOutSide</td>
+                    <td>Evento al clickar fuera del evento</td>
+                    <td>MouseEvent</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

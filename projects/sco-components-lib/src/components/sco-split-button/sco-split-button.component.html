@@ -1,0 +1,36 @@
+<div class="sco-split-button" *ngIf="actions?.length > 0">
+  <sco-button *ngIf="showFirst"
+    class="sco-split-button__action-principal"
+    [ngClass]="{'sco-split-button__action-principal--more-actions': actions.length > 1}"
+    [text]="actions[0]?.label"
+    [icon]="actions[0]?.icon"
+    (action)="sendAction(actions[0])">
+  </sco-button>
+  <sco-button *ngIf="actions?.length > 1 || !showFirst"
+    [ngClass]="{
+      'sco-split-button__action-secondaries-no-border-left': showFirst, 
+      'sco-split-button__action-secondaries': !showFirst
+    }"
+    icon="fa fa-caret-down"
+    (action)="openCloseOptions()">
+  </sco-button>
+
+  <div *ngIf="showOptions" 
+    class="sco-split-button__options" 
+    [@overlayAnimation]="{ value: 'visible' }" 
+    scoClickOutside [avoidFirstTime]="false" [clickOutsideEnabled]="true"
+    (clickOutside)="hideOptions()">
+    <ul>
+      <li *ngFor="let action of actions" (click)="sendAction(action)">
+        <div class="row">
+          <div class="col-3 text-right">
+            <i [class]="action.icon"></i> 
+          </div>
+          <div class="col-9 text-left">
+            {{action.label}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

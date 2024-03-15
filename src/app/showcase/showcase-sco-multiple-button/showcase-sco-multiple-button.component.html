@@ -1,0 +1,270 @@
+<base-showcase>
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-multiple-button
+              [buttons]="buttonsEx1"
+              (action)="actionEx1($event)"
+            >
+            </sco-multiple-button>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 2: 2 botones y solo iconos</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-multiple-button
+              [buttons]="buttonsEx2"
+              (action)="actionEx2($event)"
+            >
+            </sco-multiple-button>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 3: Un boton</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-multiple-button
+              [buttons]="buttonsEx3"
+              (action)="actionEx3($event)"
+            >
+            </sco-multiple-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+        <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-multiple-button 
+          [buttons]=&quot;buttonsEx1&quot; 
+          (action)=&quot;actionEx1($event)&quot;&gt;
+        &lt;/sco-multiple-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 2: 2 botones y solo iconos&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-multiple-button 
+          [buttons]=&quot;buttonsEx2&quot; 
+          (action)=&quot;actionEx2($event)&quot;&gt;
+        &lt;/sco-multiple-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Un boton&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-multiple-button 
+          [buttons]=&quot;buttonsEx3&quot; 
+          (action)=&quot;actionEx3($event)&quot;&gt;
+        &lt;/sco-multiple-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS"> 
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; ScoButton, ScoCacheService, ScoToastService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-multiple-button-showcase',
+  templateUrl: './multiple-button-showcase.component.html',
+  styleUrls: ['./multiple-button-showcase.component.scss']
+&#125;)
+export class MultipleButtonShowcaseComponent implements OnInit &#123;
+
+  public buttonsEx1: ScoButton[];
+  public buttonsEx2: ScoButton[];
+  public buttonsEx3: ScoButton[];
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement('title', 'Multiple button');
+  &#125;
+
+  ngOnInit() &#123;
+    this.buttonsEx1 = [
+      &#123;
+        text: 'Button1',
+        icon: 'fa fa-check',
+        value: 'BUTTON_1_EX1'
+      &#125;,
+      &#123;
+        text: 'Button2',
+        icon: 'fa fa-check',
+        value: 'BUTTON_2_EX1'
+      &#125;,
+      &#123;
+        text: 'Button3',
+        icon: 'fa fa-trash',
+        value: 'BUTTON_3_EX1'
+      &#125;
+    ];
+    this.buttonsEx2 = [
+      &#123;
+        text: '',
+        icon: 'fa fa-check',
+        value: 'BUTTON_1_EX2'
+      &#125;,
+      &#123;
+        text: '',
+        icon: 'fa fa-trash',
+        value: 'BUTTON_2_EX2'
+      &#125;
+    ]
+    this.buttonsEx3 = [
+      &#123;
+        text: 'Button1',
+        icon: 'fa fa-check',
+        value: 'BUTTON_1_EX3'
+      &#125;
+    ]
+  &#125;
+
+  actionEx1($event: ScoButton)&#123;
+    switch($event.value)&#123;
+      case 'BUTTON_1_EX1':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el primer boton del primer ejemplo')
+        break;
+      case 'BUTTON_2_EX1':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el segundo boton del primer ejemplo')
+        break;
+      case 'BUTTON_3_EX1':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el tercero boton del primer ejemplo')
+        break;
+    &#125;
+  &#125;
+
+  actionEx2($event: ScoButton)&#123;
+    switch($event.value)&#123;
+      case 'BUTTON_1_EX2':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el primer boton del segundo ejemplo')
+        break;
+      case 'BUTTON_2_EX2':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el segundo boton del segundo ejemplo')
+        break;
+    &#125;
+  &#125;
+
+  actionEx3($event: ScoButton)&#123;
+    switch($event.value)&#123;
+      case 'BUTTON_1_EX3':
+        this.toastService.addSuccessMessage('Éxito', 'Has pulsado el primer boton del tercer ejemplo')
+        break;
+    &#125;
+  &#125;
+
+&#125;</code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>buttons</td>
+          <td>Botones</td>
+          <td>ScoButton[]</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>modeButtonsSize</td>
+          <td>Tamaño de los botones</td>
+          <td>string</td>
+          <td>ScoButtonConstants.SIZE_MEDIUM</td>
+          <td>
+            <ul>
+              <li>ScoButtonConstants.SIZE_SMALL</li>
+              <li>ScoButtonConstants.SIZE_MEDIUM</li>
+              <li>ScoButtonConstants.SIZE_LARGE</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>action</td>
+          <td>Evento al hacer click en uno de los botones</td>
+          <td>ScoButton</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</base-showcase>

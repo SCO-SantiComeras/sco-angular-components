@@ -1,0 +1,131 @@
+<base-showcase [showInputs]="false" [showOutputs]="false">
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Array nulo</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 answer-sco">
+            {{ valoresNulo | join }}
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 2: Valores separados con ',' (Por defecto)</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 answer-sco">
+            {{ valores | join }}
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 3: Valores separados con '|' (Con parametro)</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 answer-sco">
+            {{ valores | join: '|' }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item [tittle]="'HTML'">
+        <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Array nulo&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+        {{ valoresNulo | join }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 2: Valores separados con ',' (Por defecto)&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+        {{ valores | join }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 3 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Valores separados con '|' (Con parametro)&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+        {{ valores | join: '|' }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+      </sco-tab-item>
+
+      <sco-tab-item [tittle]="'CSS'">
+        <pre><code class="language-css" pCode ngNobindable></code></pre>
+      </sco-tab-item>
+
+      <sco-tab-item [tittle]="'TS'">
+        <pre><code class="language-typescript" pCode ngNobindable>
+import &#123; ScoCacheService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'showcase-sco-join-p',
+  templateUrl: './showcase-sco-join-p.component.html',
+  styleUrls: ['./showcase-sco-join-p.component.scss']
+&#125;)
+
+export class ShowcaseScoJoinPComponent &#123;
+
+  public valoresNulo = null;
+  public valores: string[];
+
+  constructor(private scoCache: ScoCacheService) &#123; 
+    this.scoCache.setElement("title", "Join Pipe");
+    this.valores = [
+      "1", "2", "3", "4"
+    ]
+  &#125;
+&#125;
+        </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+</base-showcase>

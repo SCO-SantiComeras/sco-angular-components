@@ -1,0 +1,190 @@
+<base-showcase [showOutputs]="false">
+
+    <div examples>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- 1 -->
+                <div class="row mt-1">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 1: Estandar</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary" (click)="showSpinnerExample1()">Activar spinner</button>
+                        <sco-spinner *ngIf="!embedded"></sco-spinner>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="row mt-3">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 2: Embebido</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary" (click)="showSpinnerExample2()">Activar spinner</button>
+                        <div class="embedded">
+                            <sco-spinner *ngIf="embedded" [embedded]="true"></sco-spinner>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta, deserunt atque, esse incidunt modi harum voluptates beatae sed quod dolorum optio impedit eum dolorem ex iusto natus provident unde?</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+
+        &lt;!-- 1 --&gt;
+        &lt;div class=&quot;row mt-1&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showSpinnerExample1()&quot;&gt;Activar spinner&lt;/button&gt;
+                &lt;sco-spinner *ngIf=&quot;!embedded&quot;&gt;&lt;/sco-spinner&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 2 --&gt;
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 2: Embebido&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;showSpinnerExample2()&quot;&gt;Activar spinner&lt;/button&gt;
+                &lt;div class=&quot;embedded&quot;&gt;
+                    &lt;sco-spinner *ngIf=&quot;embedded&quot; [embedded]=&quot;true&quot;&gt;&lt;/sco-spinner&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta, deserunt atque, esse incidunt modi harum voluptates beatae sed quod dolorum optio impedit eum dolorem ex iusto natus provident unde?&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+.embedded &#123;
+    position: relative;
+    border: 1px solid #000;
+    width: 100%;
+    height: 200px;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+
+            <sco-tab-item tittle="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService, ScoSpinnerService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-spinner',
+  templateUrl: './showcase-sco-spinner.component.html',
+  styleUrls: ['./showcase-sco-spinner.component.scss']
+&#125;)
+
+export class ShowcaseScoSpinnerComponent &#123;
+
+  public embedded: boolean;
+
+  constructor(
+    public ScoSpinnerService: ScoSpinnerService,
+    private cacheService: ScoCacheService
+  ) &#123; 
+    this.cacheService.setElement("title", "Spinner");
+    this.embedded = false;
+  &#125;
+
+  showSpinnerExample1() &#123;
+    this.embedded = false;
+    this.ScoSpinnerService.showSpinner();
+    setTimeout(() => &#123;
+      this.ScoSpinnerService.hideSpinner();
+    }, 5000); // Espera 5 segundos  || 50000 == 50 segs ...
+  &#125;
+
+  showSpinnerExample2() &#123;
+    this.embedded = true;
+    this.ScoSpinnerService.showSpinner();
+    setTimeout(() => &#123;
+      this.ScoSpinnerService.hideSpinner();
+    }, 5000); // Espera 5 segundos  || 50000 == 50 segs ...
+  &#125;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>embedded</td>
+                    <td>Indica si el spinner esta embebido o no</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>pathImg</td>
+                    <td>Indica la ruta de la imagen del spinner</td>
+                    <td>string</td>
+                    <td>"resources/img/spinner.gif"</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

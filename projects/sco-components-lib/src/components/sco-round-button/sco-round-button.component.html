@@ -1,0 +1,8 @@
+<div class="sco-round-button">
+  <div 
+    class="sco-round-button__container--input" 
+    [ngClass]="{'sco-round-button__container--input--active': value, 'sco-round-button__container--input--desactive': !value}" 
+    [ngStyle]="{'width.px': width,'height.px': height}"
+    (click)="onclickCheck()">
+  </div>
+</div>

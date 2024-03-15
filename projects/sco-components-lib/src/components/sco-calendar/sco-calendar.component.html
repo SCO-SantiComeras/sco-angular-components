@@ -1,0 +1,14 @@
+<span class="sco-calendar">
+  <div class="sco-calendar__label" *ngIf="label">
+    <label>{{ label }}</label>
+  </div>
+
+  <p-calendar  [defaultDate]="defaultDate" [minDate]="minDate" [maxDate]="maxDate" [disabled]="disabled"
+    [readonlyInput]="readonlyInput" [dateFormat]="dateFormat" [inputStyleClass]="'form-control ' + inputStyleClass"
+    [showButtonBar]="showButtonBar" [selectionMode]="selectionMode" [inline]="inline" [inputId]="inputId" [name]="name"
+    [hourFormat]="hourFormat" [showTime]="showTime" [timeOnly]="timeOnly" [stepHour]="stepHour"
+    [stepMinute]="stepMinute" [touchUI]="touchUI" [placeholder]="placeholder" [(ngModel)]="value"
+    (onSelect)="onSelect($event)" (onClose)="onClose($event)" (onTodayClick)="onTodayClick($event)"
+    (onClearClick)="onClearClick($event)" ngDefaultControl>
+  </p-calendar>
+</span>

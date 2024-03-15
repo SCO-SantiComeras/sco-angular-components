@@ -1,0 +1,32 @@
+.sco-detail {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    padding-top: 0px;
+    z-index: 9999;
+    height: 100%;
+    
+    &__close {
+        font-size: 26px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 992px) {
+    .sco-detail { 
+        width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .sco-detail { 
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sco-detail { 
+        width: 100%;
+    }
+}

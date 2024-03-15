@@ -1,0 +1,17 @@
+.sco-block-list-data {
+    
+    display: inline-block;
+    margin-right: 25px;
+
+    &__label {
+        color: #c8c8c8; // WIP - No se puede modificar propiedad desde el theme ?
+        font-size: 18px;
+        font-family: 'sco medium';
+    }
+
+    &__value {
+        margin-left: 2px;
+        font-size: 16px;
+        font-family: 'sco regular';
+    }
+}

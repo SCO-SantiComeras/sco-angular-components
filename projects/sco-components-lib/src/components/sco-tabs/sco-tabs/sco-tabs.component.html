@@ -1,0 +1,15 @@
+<div class="sco-tabs">
+
+  <div *ngFor="let tab of tabsItems" 
+    class="sco-tabs__tittle" 
+    (click)="open(tab)" 
+    [ngClass]="{'sco-tabs__tittle--selected': tab.selected}" 
+  >
+    <span>{{tab.tittle}}</span>
+  </div>
+
+  <div class="sco-tabs__content" *ngIf="contentTemplate">
+    <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
+  </div>
+
+</div>

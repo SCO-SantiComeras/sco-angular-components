@@ -1,0 +1,163 @@
+<base-showcase>
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-manage-list
+              [labelAddItem]="'Añadir elemento'"
+              [labelEmpty]="'Sin elementos'"
+            >
+            </sco-manage-list>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <span>Ejemplo 2: Lista inicial</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-manage-list
+              [label]="'Filas:'"
+              [labelAddItem]="'Añadir elemento'"
+              [labelEmpty]="'Sin elementos'"
+              [(ngModel)]="listEx2"
+            >
+            </sco-manage-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+        <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;base-showcase&gt;
+&lt;div examples&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;row mt-3&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-manage-list
+            [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
+            [labelEmpty]=&quot;'Sin elementos'&quot;
+          &gt;
+          &lt;/sco-manage-list&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row mt-3&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Lista inicial&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-manage-list
+            [label]=&quot;'Filas:'&quot;
+            [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
+            [labelEmpty]=&quot;'Sin elementos'&quot;
+            [(ngModel)]=&quot;listEx2&quot;
+          &gt;
+          &lt;/sco-manage-list&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component &#125; from '@angular/core';
+import &#123; ScoCacheService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-manage-list-showcase',
+  templateUrl: './manage-list-showcase.component.html',
+  styleUrls: ['./manage-list-showcase.component.scss']
+&#125;)
+export class ManageListShowcaseComponent &#123;
+
+  public listEx2: string[];
+
+  constructor(
+    private cacheService: ScoCacheService,
+  ) &#123; 
+    this.cacheService.setElement('title', 'Manage list');
+    this.listEx2 = [
+      &quot;1&quot;,
+      &quot;2&quot;,
+      &quot;3&quot;,
+      &quot;4&quot;,
+      &quot;5&quot;
+    ];
+  &#125;
+&#125;
+          </code>
+        </pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>labelAddItem</td>
+          <td>Texto boton añadir elemento</td>
+          <td>text</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelEmpty</td>
+          <td>Texto cuando no hay items</td>
+          <td>text</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>Titulo de el manage list</td>
+          <td>text</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</base-showcase>

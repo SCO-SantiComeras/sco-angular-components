@@ -1,0 +1,392 @@
+<base-showcase [showOutputs]="false">
+
+  <div examples>
+    
+<div class="row">
+  <div class="col-12">
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 1: Gráfica tipo bar</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-graphics [type]="constantsService.ScoGraphicsConstants.TYPE_BAR" [data]="dataBar" (selectData)="selectDataBar($event)"></sco-graphics>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 2: Gráfica tipo línea</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-graphics [type]="constantsService.ScoGraphicsConstants.TYPE_LINE" [data]="dataLine" (selectData)="selectDataLine($event)"></sco-graphics>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 3: Gráfica tipo radar</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-graphics [type]="constantsService.ScoGraphicsConstants.TYPE_RADAR" [data]="dataRadar" (selectData)="selectDataRadar($event)"></sco-graphics>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 4: Gráfica tipo doughnut</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-graphics [type]="constantsService.ScoGraphicsConstants.TYPE_DOUGHNUT" [data]="dataDoughnut" (selectData)="selectDataDoughnut($event)"></sco-graphics>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <span>Ejemplo 4: Gráfica tipo pie</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-graphics [type]="constantsService.ScoGraphicsConstants.TYPE_PIE" [data]="dataPie" (selectData)="selectDataPie($event)"></sco-graphics>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+       <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Gr&aacute;fica tipo bar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-graphics [type]=&quot;constantsService.ScoGraphicsConstants.TYPE_BAR&quot; [data]=&quot;dataBar&quot; (selectData)=&quot;selectDataBar($event)&quot;&gt;&lt;/sco-graphics&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 2: Gr&aacute;fica tipo l&iacute;nea&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-graphics [type]=&quot;constantsService.ScoGraphicsConstants.TYPE_LINE&quot; [data]=&quot;dataLine&quot; (selectData)=&quot;selectDataLine($event)&quot;&gt;&lt;/sco-graphics&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Gr&aacute;fica tipo radar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-graphics [type]=&quot;constantsService.ScoGraphicsConstants.TYPE_RADAR&quot; [data]=&quot;dataRadar&quot; (selectData)=&quot;selectDataRadar($event)&quot;&gt;&lt;/sco-graphics&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 4: Gr&aacute;fica tipo doughnut&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-graphics [type]=&quot;constantsService.ScoGraphicsConstants.TYPE_DOUGHNUT&quot; [data]=&quot;dataDoughnut&quot; (selectData)=&quot;selectDataDoughnut($event)&quot;&gt;&lt;/sco-graphics&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 4: Gr&aacute;fica tipo pie&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-graphics [type]=&quot;constantsService.ScoGraphicsConstants.TYPE_PIE&quot; [data]=&quot;dataPie&quot; (selectData)=&quot;selectDataPie($event)&quot;&gt;&lt;/sco-graphics&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+       </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, Input, OnInit &#125; from '@angular/core';
+import &#123; ScoConstantsService, ScoToastService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-graphics-showcase',
+  templateUrl: './graphics-showcase.component.html',
+  styleUrls: ['./graphics-showcase.component.scss']
+&#125;)
+export class GraphicsShowcaseComponent implements OnInit &#123;
+
+  dataBar: any;
+  dataLine: any;
+  dataRadar: any;
+  dataDoughnut: any;
+  dataPie: any;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    public constants: ScoConstantsService,
+    private toast: ScoToastService
+  ) &#123;
+    this.cacheService.setElement('title', 'Graphics');
+  &#125;
+
+  ngOnInit() &#123;
+
+    this.dataBar = &#123;
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          &#123;
+              label: 'My First dataset',
+              backgroundColor: '#42A5F5',
+              data: [65, 59, 80, 81, 56, 55, 40]
+          &#125;,
+          &#123;
+              label: 'My Second dataset',
+              backgroundColor: '#FFA726',
+              data: [28, 48, 40, 19, 86, 27, 90]
+          &#125;
+      ]
+    &#125;;
+
+    this.dataLine = &#123;
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          &#123;
+              label: 'First Dataset',
+              data: [65, 59, 80, 81, 56, 55, 40],
+              fill: false,
+              borderColor: '#42A5F5',
+              tension: .4
+          &#125;,
+          &#123;
+              label: 'Second Dataset',
+              data: [28, 48, 40, 19, 86, 27, 90],
+              fill: false,
+              borderColor: '#FFA726',
+              tension: .4
+          &#125;
+      ]
+    &#125;
+
+    this.dataRadar = &#123;
+      labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+      datasets: [
+          &#123;
+              label: 'My First dataset',
+              backgroundColor: 'rgba(179,181,198,0.2)',
+              borderColor: 'rgba(179,181,198,1)',
+              pointBackgroundColor: 'rgba(179,181,198,1)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgba(179,181,198,1)',
+              data: [65, 59, 90, 81, 56, 55, 40]
+          &#125;,
+          &#123;
+              label: 'My Second dataset',
+              backgroundColor: 'rgba(255,99,132,0.2)',
+              borderColor: 'rgba(255,99,132,1)',
+              pointBackgroundColor: 'rgba(255,99,132,1)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgba(255,99,132,1)',
+              data: [28, 48, 40, 19, 96, 27, 100]
+          &#125;
+        ]
+    &#125;;
+
+    this.dataDoughnut = &#123;
+      labels: ['A','B','C'],
+      datasets: [
+          &#123;
+              data: [300, 50, 100],
+              backgroundColor: [
+                  "#FF6384",
+                  "#36A2EB",
+                  "#FFCE56"
+              ],
+              hoverBackgroundColor: [
+                  "#FF6384",
+                  "#36A2EB",
+                  "#FFCE56"
+              ]
+          &#125;
+      ]
+  &#125;;
+    
+    this.dataPie = &#123;
+      labels: ['A','B','C'],
+      datasets: [
+          &#123;
+              data: [300, 50, 100],
+              backgroundColor: [
+                  "#42A5F5",
+                  "#66BB6A",
+                  "#FFA726"
+              ],
+              hoverBackgroundColor: [
+                  "#64B5F6",
+                  "#81C784",
+                  "#FFB74D"
+              ]
+          &#125;
+      ]
+    &#125;;
+
+  &#125;
+
+  selectDataBar($event)&#123;
+    console.log($event);
+    this.toast.addSuccessMessage("Datos", JSON.stringify($event, this.getCircularReplacer()));
+  &#125;
+
+
+  selectDataLine($event)&#123;
+    console.log($event);
+    this.toast.addSuccessMessage("Datos", JSON.stringify($event, this.getCircularReplacer()));
+  &#125;
+
+  selectDataRadar($event)&#123;
+    console.log($event);
+    this.toast.addSuccessMessage("Datos", JSON.stringify($event, this.getCircularReplacer()));
+  &#125;
+
+  selectDataDoughnut($event)&#123;
+    console.log($event);
+    this.toast.addSuccessMessage("Datos", JSON.stringify($event, this.getCircularReplacer()));
+  &#125;
+
+  selectDataPie($event)&#123;
+    console.log($event);
+    this.toast.addSuccessMessage("Datos", JSON.stringify($event, this.getCircularReplacer()));
+  &#125;
+
+  getCircularReplacer = () => &#123;
+    const seen = new WeakSet();
+    return (key, value) => &#123;
+      if (typeof value === "object" && value !== null) &#123;
+        if (seen.has(value)) &#123;
+          return;
+        &#125;
+        seen.add(value);
+      &#125;
+      return value;
+    &#125;;
+  &#125;;
+
+&#125;</code>
+        </pre>
+      </sco-tab-item>
+    </sco-tabs>
+
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>Tipo de gráfica</td>
+          <td>string</td>
+          <td>ScoScoGraphicsConstants.TYPE_LINE</td>
+          <td>
+            <ul> 
+              <li>ScoScoGraphicsConstants.TYPE_LINE</li>
+              <li>ScoScoGraphicsConstants.TYPE_PIE</li>
+              <li>ScoScoGraphicsConstants.TYPE_DOUGHNUT</li>
+              <li>ScoScoGraphicsConstants.TYPE_POLAR_AREA</li>
+              <li>ScoScoGraphicsConstants.TYPE_RADAR</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>data</td>
+          <td>Estructura de la gráfica.</td>
+          <td>any</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>options</td>
+          <td>Opciones extras de la gráfica</td>
+          <td>any</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Altura de la gráfica. 100% si no se indica</td>
+          <td>number</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>selectData</td>
+          <td>Evento al seleccionar un dato de la grafica.</td>
+          <td>Todos los datos relacionados la gráfica (pendiente de mejorar)</td>
+        </tr>
+      </tbody>
+   
+    </table>
+  </div>
+
+</base-showcase>

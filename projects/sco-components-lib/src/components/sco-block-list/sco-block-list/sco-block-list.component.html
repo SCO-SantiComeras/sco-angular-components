@@ -1,0 +1,66 @@
+
+<div class="sco-block-list row">
+  <div class="col-12">
+
+    <!-- Pagination -->
+    <div class="row sco-block-list__pagination" *ngIf="paginationOnTop">
+      <div class="col-12 p-0 text-center">
+        <!-- [previusLabel]="previusLabel" -->
+        <pagination-controls 
+          [autoHide]="true"
+          [previousLabel]="previousLabel"
+          [nextLabel]="nextLabel"
+          (pageChange)="onPageChange($event)" >
+        </pagination-controls>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="blockItems?.length > 0">
+      <div class="col-12">
+        <div class="">
+          <sco-block-list-item *ngFor="let blockItem of blockItems | paginate: { itemsPerPage: pagination, currentPage: page }; let index = index"
+          [blockItem]="blockItem"
+          [id]="'block-item-' + index"
+          [showHeader]="showHeader"
+          [showInfoAdditional]="showInfoAdditional"
+          [showActions]="showActions"
+          [showBorder]="showBorder"
+          [canSelectItems]="canSelectItems"
+          [templateHeader]="templateHeader"
+          [templateInfoAdditional]="templateInfoAdditional"
+          [templateData]="templateData"
+          (actionSelected)="sendAction($event)"
+          (closeOptions)="closeAllOptionsExcept($event)"
+          (click)="canSelectItems && selectItem(blockItem, index)" >
+          </sco-block-list-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="row sco-block-list__tfoot">
+      <div class="col-12 text-right">
+        <span *ngIf="showTotalItems" class="mr-3">{{totalItemsLabel}}</span>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="blockItems?.length == 0 || !blockItems">
+      <div class="col-12 text-center">
+        <span>{{labelNoResults}}</span>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row sco-block-list__pagination" *ngIf="!paginationOnTop">
+      <div class="col-12 p-0 text-center">
+        <!-- [previusLabel]="previusLabel" -->
+        <pagination-controls 
+          [autoHide]="true"
+          [previousLabel]="previousLabel"
+          [nextLabel]="nextLabel"
+          (pageChange)="onPageChange($event)" >
+        </pagination-controls>
+      </div>
+    </div>
+
+  </div>
+</div>

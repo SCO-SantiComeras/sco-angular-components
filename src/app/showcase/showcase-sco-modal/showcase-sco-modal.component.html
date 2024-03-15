@@ -1,0 +1,509 @@
+<base-showcase>
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Confirmación</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openConfirm()">Mostrar modal</button>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 2: Información</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openInfo()">Mostrar Modal</button>
+            </div>
+        </div>
+
+          <!-- 3 -->
+          <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 3: Sin Botones</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openNoButtons()">Mostrar Modal</button>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 4: Forzar Cierre</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openForceClose()">Mostrar Modal</button>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 5: Big Modal</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openBigModal()">Mostrar Modal</button>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 6: Tamaño dinámico</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mb-2">
+            <button class="btn btn-primary" (click)="openDinamicSize()">Mostrar Modal</button>
+          </div>
+          <div class="col-4">
+            <sco-dropdown
+              [options]="sizeOptions"
+              [(ngModel)]="sizeUnity"
+              labelNoResults="No hay resultados que mostrar"
+              (select)="selectSizeUnity($event)" >
+            </sco-dropdown>
+          </div>
+          <div class="col-4">
+            <sco-input
+              label="Altura"
+              type="text"
+              name="altura"
+              [(ngModel)]="height" >
+            </sco-input>
+          </div>
+          <div class="col-4">
+            <sco-input
+              label="Anchura"
+              type="text"
+              name="anchura"
+              [(ngModel)]="width" >
+            </sco-input>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-modal 
+                [id]="'confirm'"
+                [type]="constantsService.ScoModalTypeConstants.CONFIRM" 
+                [labelConfirm]="'Confirmar'"
+                [labelClose]="'Cerrar'"
+                (close)="closeModal($event)"
+                (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+            <sco-modal 
+              [id]="'info'"
+              [type]="constantsService.ScoModalTypeConstants.INFO" 
+              [labelConfirm]="'Volver'"
+              [labelClose]="'Cerrar'"
+              (close)="closeModal($event)"
+              (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+            <sco-modal 
+              [id]="'no-buttons'"
+              [type]="constantsService.ScoModalTypeConstants.NO_BUTTONS" 
+              [labelConfirm]="'Confirmar'"
+              [labelClose]="'Cerrar'" 
+              (close)="closeModal($event)"
+              (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+            <sco-modal 
+              [id]="'force-close'"
+              [type]="constantsService.ScoModalTypeConstants.INFO" 
+              [labelConfirm]="'Volver'"
+              [labelClose]="'Cerrar'"
+              [forceClose]="true" 
+              (close)="closeModal($event)"
+              (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+            <sco-modal 
+                [id]="'big-modal'"
+                [type]="constantsService.ScoModalTypeConstants.CONFIRM" 
+                [labelConfirm]="'Confirmar'"
+                [labelClose]="'Cerrar'"
+                [big]="true"
+                (close)="closeModal($event)"
+                (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+            <sco-modal 
+              [id]="'modal-dinamic-size'"
+              [type]="constantsService.ScoModalTypeConstants.INFO" 
+              [labelConfirm]="'Volver'"
+              [labelClose]="'Cerrar'"
+              [forceClose]="true" 
+
+              [width]="width"
+              [height]="height"
+              [sizeUnity]="sizeUnity"
+
+              (close)="closeModal($event)"
+              (accept)="acceptModal($event)" >
+                <div modal-title>Titulo</div>
+                <div modal-content>Contenido</div>
+            </sco-modal>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Confirmaci&oacute;n&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openConfirm()&quot;&gt;Mostrar modal&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Informaci&oacute;n&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openInfo()&quot;&gt;Mostrar Modal&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+      &lt;!-- 3 --&gt;
+      &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 3: Sin Botones&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openNoButtons()&quot;&gt;Mostrar Modal&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 4 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 4: Forzar Cierre&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openForceClose()&quot;&gt;Mostrar Modal&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 5 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 5: Big Modal&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openBigModal()&quot;&gt;Mostrar Modal&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-modal 
+            [id]=&quot;'confirm'&quot;
+            [type]=&quot;constantsService.ScoModalTypeConstants.CONFIRM&quot; 
+            [labelConfirm]=&quot;'Confirmar'&quot;
+            [labelClose]=&quot;'Cerrar'&quot;
+            (close)=&quot;closeModal($event)&quot;
+            (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+        &lt;sco-modal 
+          [id]=&quot;'info'&quot;
+          [type]=&quot;constantsService.ScoModalTypeConstants.INFO&quot; 
+          [labelConfirm]=&quot;'Volver'&quot;
+          [labelClose]=&quot;'Cerrar'&quot;
+          (close)=&quot;closeModal($event)&quot;
+          (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+        &lt;sco-modal 
+          [id]=&quot;'no-buttons'&quot;
+          [type]=&quot;constantsService.ScoModalTypeConstants.NO_BUTTONS&quot; 
+          [labelConfirm]=&quot;'Confirmar'&quot;
+          [labelClose]=&quot;'Cerrar'&quot; 
+          (close)=&quot;closeModal($event)&quot;
+          (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+        &lt;sco-modal 
+          [id]=&quot;'force-close'&quot;
+          [type]=&quot;constantsService.ScoModalTypeConstants.INFO&quot; 
+          [labelConfirm]=&quot;'Volver'&quot;
+          [labelClose]=&quot;'Cerrar'&quot;
+          [forceClose]=&quot;true&quot; 
+          (close)=&quot;closeModal($event)&quot;
+          (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+        &lt;sco-modal 
+          [id]=&quot;'big-modal'&quot;
+          [type]=&quot;constantsService.ScoModalTypeConstants.INFO&quot; 
+          [labelConfirm]=&quot;'Volver'&quot;
+          [labelClose]=&quot;'Cerrar'&quot;
+          [forceClose]=&quot;true&quot; 
+          [big]=&quot;true&quot; 
+          (close)=&quot;closeModal($event)&quot;
+          (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+        &lt;sco-modal 
+          [id]=&quot;'modal-dinamic-size'&quot;
+          [type]=&quot;constantsService.ScoModalTypeConstants.INFO&quot; 
+          [labelConfirm]=&quot;'Volver'&quot;
+          [labelClose]=&quot;'Cerrar'&quot;
+          [forceClose]=&quot;true&quot; 
+
+          [width]=&quot;width&quot;
+          [height]=&quot;height&quot;
+          [sizeUnity]=&quot;sizeUnity&quot;
+
+          (close)=&quot;closeModal($event)&quot;
+          (accept)=&quot;acceptModal($event)&quot; &gt;
+            &lt;div modal-title&gt;Titulo&lt;/div&gt;
+            &lt;div modal-content&gt;Contenido&lt;/div&gt;
+        &lt;/sco-modal&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService, ScoModalService, ScoConstantsService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-modal',
+  templateUrl: './showcase-sco-modal.component.html',
+  styleUrls: ['./showcase-sco-modal.component.scss']
+&#125;)
+
+export class ShowcaseScoModalComponent &#123;
+
+  constructor(
+    public constants: ScoConstantsService,
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService,
+    private modalService: ScoModalService,
+  ) &#123;
+    this.cacheService.setElement("title", "Modal");
+   &#125;
+
+  openConfirm() &#123;
+    this.modalService.open("confirm");
+  &#125;
+
+  openInfo() &#123;
+    this.modalService.open("info");
+  &#125;
+
+  openNoButtons() &#123;
+    this.modalService.open("no-buttons");
+  &#125;
+
+  openForceClose() &#123;
+    this.modalService.open("force-close");
+  &#125;
+
+  openBigModal() &#123;
+    this.modalService.open("big-modal");
+  &#125;
+
+  closeModal($event) &#123;
+    this.toastService.addSuccessMessage("Éxito", "Se ha cerrado la ventana modal");
+  &#125;
+
+  acceptModal($event) &#123;
+    this.toastService.addSuccessMessage("Éxito", "Se ha aceptado la ventana modal");
+  &#125;
+&#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Tipo</th>
+            <th>Valor por defecto</th>
+            <th>Posibles valores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>id</td>
+          <td>Identificador de la ventana modal</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>type</td>
+          <td>Tipo de ventana modal</td>
+          <td>string</td>
+          <td>ScoModalTypeConstants.INFO</td>
+          <td>
+            <ul>
+              <li>ScoModalTypeConstants.INFO</li>
+              <li>ScoModalTypeConstants.CONFIRM</li>
+              <li>ScoModalTypeConstants.NO_BUTTONS</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>labelConfirm</td>
+          <td>Texto del botón de confirmar</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelClose</td>
+          <td>Texto del botón de cerrar</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>forceClose</td>
+          <td>Desactiva la directiva Click Outside y fuerza el cierre unicamente desde el botón de la ventana modal</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>big</td>
+          <td>Modifica el tamaño de la ventana modal a más grande</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>Indica la anchura de la ventana modal</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Indica la altura de la ventana modal</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>sizeUnity</td>
+          <td>Indica el tipo de unidad de la anchura y altura de la ventana modal</td>
+          <td>string</td>
+          <td>ScoModalTypeConstants.SIZE_UNITY_PIXELS</td>
+          <td>
+            <ul>
+              <li>ScoModalTypeConstants.SIZE_UNITY_PIXELS</li>
+              <li>ScoModalTypeConstants.SIZE_UNITY_PERCENTAGE</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>close</td>
+          <td>Evento al pulsar el botón de cerrar del modal</td>
+          <td>MouseEvent</td>
+        </tr>
+        <tr>
+          <td>accept</td>
+          <td>Evento al pulsar el botón de confirmar del modal</td>
+          <td>MouseEvent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</base-showcase>

@@ -1,0 +1,8 @@
+<div class="sco-card">
+  <div class="sco-card__title" *ngIf="showTitle">
+    <ng-content select="[card-title]"></ng-content>
+  </div>
+  <div class="sco-card__body">
+    <ng-content select="[card-content]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,178 @@
+<base-showcase [showInputs]="false" [showOutputs]="false">
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Translate</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <p>{{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}</p>
+              <p>{{'label.look.console' | scoTranslate }}</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Translate&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;p&gt;{{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}&lt;/p&gt;
+          &lt;p&gt;{{'label.look.console' | scoTranslate }}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+          -- Showcase
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService, scoTranslateService &#125; from 'sco-components-lib';
+import &#123; Component, OnInit &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-translate',
+  templateUrl: './showcase-sco-translate.component.html',
+  styleUrls: ['./showcase-sco-translate.component.scss']
+&#125;)
+
+export class ShowcasescoTranslateComponent implements OnInit &#123;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private translateService: scoTranslateService,
+    private toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement("title", "Translate Service");
+  &#125;
+
+  ngOnInit() &#123;
+    this.toastService.addInfoMessage("label.example.1", this.translateService.getTranslate('label.example.1'));
+    this.toastService.addInfoMessage("label.example.2", this.translateService.getTranslate('label.example.2'));
+    console.log(this.translateService.getTranslate('label.example.1'));
+    console.log(this.translateService.getTranslate('label.example.2'));
+  &#125;
+&#125;
+          </code></pre>
+          -- JSON (es.json)
+          <pre><code class="language-typescript" pCode ngNonBindable>
+&#123;
+  "label.example.1": "Hola",
+  "label.example.2": "Mundo",
+  "label.look.console": "Mira la consola del navegador"
+&#125;
+          </code></pre>
+          -- JSON (en.json)
+          <pre><code class="language-typescript" pCode ngNonBindable>
+&#123;
+  "label.example.1": "Hello",
+  "label.example.2": "World",
+  "label.look.console": "Look at browser console"
+&#125;
+          </code></pre>
+          -- App.Module
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; APP_INITIALIZER, NgModule &#125; from '@angular/core';
+import &#123; BrowserModule, &#125; from '@angular/platform-browser';
+import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
+import &#123; ScoComponentsLibModule &#125; from 'sco-components-lib';
+import &#123; scoTranslateService &#125; from 'sco-components-lib';
+                    
+export function translateFactory(provider: scoTranslateService) &#123;
+    return () => provider.getData('assets/i18n/');
+&#125;
+
+@NgModule(&#123;
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        ScoComponentsLibModule,
+    ],
+    providers: [
+        scoTranslateService, 
+        &#123;
+          provide: APP_INITIALIZER,
+          useFactory: translateFactory,
+          deps: [
+              scoTranslateService
+          ],
+          multi: true
+        &#125;
+    ],
+    bootstrap: [AppComponent]
+&#125;)
+
+export class AppModule &#123; &#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Tipo</th>
+            <th>Valor por defecto</th>
+            <th>Posibles valores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</base-showcase>

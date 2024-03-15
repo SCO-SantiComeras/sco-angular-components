@@ -1,0 +1,36 @@
+<button
+  [class]="'sco-button cursor-pointer sco-button--mode-' + mode"
+  [ngClass]="{
+    'sco-button--block': block,
+    'sco-button--inline': !block,
+    'sco-button--border': border,
+    'sco-button--no-border': !border,
+    'sco-button--small': size == constantsService.ScoButtonConstants.SIZE_SMALL,
+    'sco-button--medium': size == constantsService.ScoButtonConstants.SIZE_MEDIUM,
+    'sco-button--large': size == constantsService.ScoButtonConstants.SIZE_LARGE,
+    'sco-button--disabled': disabled,
+    'sco-button--floatButton': floatButton,
+    'sco-button--floatButton--left_bottom':
+      position == constantsService.ScoButtonConstants.FLOAT_POSITION_LEFT_BOTTOM,
+    'sco-button--floatButton--center_bottom':
+      position == constantsService.ScoButtonConstants.FLOAT_POSITION_CENTER_BOTTOM,
+    'sco-button--floatButton--right_bottom':
+      position == constantsService.ScoButtonConstants.FLOAT_POSITION_RIGHT_BOTTOM
+  }"
+  [disabled]="disabled"
+  [type]="type"
+  (click)="clickButton($event)"
+>
+  <i
+    *ngIf="icon"
+    [class]="'sco-button--icon ' + icon"
+    [ngClass]="{
+      'sco-button--icon-margin': showText,
+      'sco-button--floatButton--items': floatButton
+    }"
+  >
+  </i>
+  <span *ngIf="text && showText" class="sco-button--text">
+    {{ text }}
+  </span>
+</button>

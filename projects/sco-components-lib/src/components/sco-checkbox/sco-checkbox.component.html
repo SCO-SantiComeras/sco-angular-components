@@ -1,0 +1,32 @@
+<div class="sco-checkbox">
+
+  <ng-container *ngIf="!binary">
+    <div class="row">
+      <div class="sco-checkbox__container" *ngFor="let option of options" [ngClass]="{
+          'col-3': viewMode == constantsService.ScoResolutionConstants.WEB,
+          'col-6': viewMode == constantsService.ScoResolutionConstants.TABLET,
+          'col-12': viewMode == constantsService.ScoResolutionConstants.MOBILE
+        }">
+        <div class="sco-checkbox__container--input"
+          [ngClass]="{'sco-checkbox__container--input--active': option.selected, 'sco-checkbox__container--input--desactive': !option.selected}"
+          (click)="onclickCheck(option)">
+          <i *ngIf="option.selected" class="sco-checkbox__container--input--icon fa fa-check" aria-hidden="true"></i>
+        </div>
+        <label class="sco-checkbox__container--label" *ngIf="option.label">{{option.label}}</label>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="binary">
+    <div class="sco-checkbox__container">
+      <div class="sco-checkbox__container--input"
+        [ngClass]="{'sco-checkbox__container--input--active': value, 'sco-checkbox__container--input--desactive': !value}"
+        (click)="onclickCheck()">
+        <i *ngIf="value" class="sco-checkbox__container--input--icon fa fa-check" aria-hidden="true"></i>
+      </div>
+      <label class="sco-checkbox__container--label" *ngIf="labelBinary">{{labelBinary}}</label>
+
+    </div>
+  </ng-container>
+
+</div>

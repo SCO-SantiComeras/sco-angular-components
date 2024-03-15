@@ -1,0 +1,502 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-12">
+            <sco-accordion 
+              [title]="'File Uploader Options'" 
+              [open]="openAccordionOptions" 
+              (clickOpen)="onCLickAccordionOptions()" 
+            >
+              <div content-accordion>
+                <div class="row">
+                  <div class="col-12">
+
+                    <div class="row">
+                      <div class="col-4">
+                        <sco-toggle 
+                          [(ngModel)]="showBorder"
+                          [label]="'Show border'">
+                        </sco-toggle>
+                      </div>
+                      <div class="col-8">
+                        <sco-input
+                          [(ngModel)]="borderColor"
+                          [label]="'Border color'"
+                          [showLabel]="true" >
+                        </sco-input>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <sco-toggle 
+                          [(ngModel)]="showUploadBtn"
+                          [label]="'Show Upload Button'">
+                        </sco-toggle>
+                      </div>
+                      <div class="col-8">
+                        <sco-input
+                          [(ngModel)]="labelUploadBtn"
+                          [label]="'Label Upload Button'"
+                          [showLabel]="true" >
+                        </sco-input>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <sco-toggle 
+                          [(ngModel)]="showCleanBtn"
+                          [label]="'Show Clean Button'">
+                        </sco-toggle>
+                      </div>
+                      <div class="col-8">
+                        <sco-input
+                          [(ngModel)]="labelCleanBtn"
+                          [label]="'Label Clean Button'"
+                          [showLabel]="true" >
+                        </sco-input>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <sco-toggle 
+                          [(ngModel)]="base64"
+                          [label]="'Show Base64 Decoder'">
+                        </sco-toggle>
+                      </div>
+                      <div class="col-4">
+                        <sco-input
+                          [(ngModel)]="labelBase64Title"
+                          [label]="'Label Base64 Title'"
+                          [showLabel]="true" >
+                        </sco-input>
+                      </div>
+                      <div class="col-4">
+                        <sco-input
+                          [(ngModel)]="base64TextRows"
+                          [type]="'number'"
+                          [label]="'Base64 Textarea Rows'"
+                          [showLabel]="true" >
+                        </sco-input>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 text-right">
+                        <button class="btn btn-success" (click)="openFileUploader()">Mostrar file uploader</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </sco-accordion>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-12">
+            <sco-file-uploader *ngIf="showFileUploader"
+              [showBorder]="showBorder"
+              [colorBorder]="borderColor"
+              [labelUploadBtn]="labelUploadBtn"
+              [showUploadBtn]="showUploadBtn"
+              [labelCleanBtn]="labelCleanBtn"
+              [showCleanBtn]="showCleanBtn"
+              [base64]="base64"
+              [labelBase64Title]="labelBase64Title"
+              [base64TextRows]="base64TextRows"
+              (uploadBtn)="uploadBtn($event)"
+              (cleanBtn)="cleanBtn($event)"
+              (copyBtn)="copyBtn($event)">
+            </sco-file-uploader>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+        <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-accordion 
+          [title]=&quot;'File Uploader Options'&quot; 
+          [open]=&quot;openAccordionOptions&quot; 
+          (clickOpen)=&quot;onCLickAccordionOptions()&quot; 
+        &gt;
+          &lt;div content-accordion&gt;
+            &lt;div class=&quot;row&quot;&gt;
+              &lt;div class=&quot;col-12&quot;&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;showBorder&quot;
+                      [label]=&quot;'Show border'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-8&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;borderColor&quot;
+                      [label]=&quot;'Border color'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;showUploadBtn&quot;
+                      [label]=&quot;'Show Upload Button'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-8&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;labelUploadBtn&quot;
+                      [label]=&quot;'Label Upload Button'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;showCleanBtn&quot;
+                      [label]=&quot;'Show Clean Button'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-8&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;labelCleanBtn&quot;
+                      [label]=&quot;'Label Clean Button'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;base64&quot;
+                      [label]=&quot;'Show Base64 Decoder'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;labelBase64Title&quot;
+                      [label]=&quot;'Label Base64 Title'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;base64TextRows&quot;
+                      [type]=&quot;'number'&quot;
+                      [label]=&quot;'Base64 Textarea Rows'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-12 text-right&quot;&gt;
+                    &lt;button class=&quot;btn btn-success&quot; (click)=&quot;openFileUploader()&quot;&gt;Mostrar file uploader&lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/sco-accordion&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot; &gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-file-uploader *ngIf=&quot;showFileUploader&quot;
+          [showBorder]=&quot;showBorder&quot;
+          [colorBorder]=&quot;borderColor&quot;
+          [labelUploadBtn]=&quot;labelUploadBtn&quot;
+          [showUploadBtn]=&quot;showUploadBtn&quot;
+          [labelCleanBtn]=&quot;labelCleanBtn&quot;
+          [showCleanBtn]=&quot;showCleanBtn&quot;
+          [base64]=&quot;base64&quot;
+          [labelBase64Title]=&quot;labelBase64Title&quot;
+          [base64TextRows]=&quot;base64TextRows&quot;
+          (uploadBtn)=&quot;uploadBtn($event)&quot;
+          (cleanBtn)=&quot;cleanBtn($event)&quot;
+          (copyBtn)=&quot;copyBtn($event)&quot;&gt;
+        &lt;/sco-file-uploader&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+        <pre><code class="language-css" pCode ngNonBindable>
+        </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+        <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; scoTranslateService, ScoCacheService, ScoToastService &#125; from 'sco-components-lib';
+import &#123; Component, OnInit &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-file-uploader',
+  templateUrl: './showcase-sco-file-uploader.component.html',
+  styleUrls: ['./showcase-sco-file-uploader.component.scss']
+&#125;)
+export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
+
+  public openAccordionOptions: boolean;
+
+  public showFileUploader: boolean;
+
+  public showBorder: boolean;
+  public borderColor: string;
+  public showUploadBtn: boolean;
+  public labelUploadBtn: string;
+  public showCleanBtn: boolean;
+  public labelCleanBtn: string;
+  public base64: boolean;
+  public labelBase64Title: string;
+  public base64TextRows: number;
+
+  constructor(
+    private readonly toastService: ScoToastService,
+    private readonly cacheService: ScoCacheService,
+    public readonly translateService: scoTranslateService,
+  ) &#123; 
+    this.cacheService.setElement("title", "File Uploader");
+
+    this.openAccordionOptions = true;
+
+    this.showFileUploader = false;
+
+    this.showBorder = false;
+    this.borderColor = '#000';
+    this.showUploadBtn = true;
+    this.labelUploadBtn = 'Subir';
+    this.showCleanBtn = true;
+    this.labelCleanBtn = 'Limpiar';
+    this.base64 = false;
+    this.labelBase64Title = 'Base64';
+    this.base64TextRows = 4;
+  &#125;
+
+  ngOnInit() &#123;
+    this.openAccordionOptions = true;
+
+    this.showFileUploader = true;
+
+    this.showBorder = false;
+    this.borderColor = '#000';
+    this.showUploadBtn = true;
+    this.labelUploadBtn = 'Subir';
+    this.showCleanBtn = true;
+    this.labelCleanBtn = 'Limpiar';
+    this.base64 = false;
+    this.labelBase64Title = 'Base64';
+    this.base64TextRows = 4;
+  &#125;
+
+  onCLickAccordionOptions() &#123;
+    this.openAccordionOptions = !this.openAccordionOptions;
+  &#125;
+
+  openFileUploader() &#123;
+    this.showFileUploader = true;
+  &#125;
+
+  /* Component Functions */
+  uploadBtn($event) &#123;
+    console.log(`uploadBtn`);
+    console.log($event);
+    this.toastService.addSuccessMessage(
+      "Success",
+      `Botón subir pulsado: $&#123;JSON.stringify($event ? $event.name : null)&#125;`
+    );
+  &#125;
+
+  cleanBtn($event) &#123;
+    console.log(`cleanBtn: $&#123;$event&#125;`)
+    this.toastService.addSuccessMessage(
+      "Success",
+      "Botón limpiar pulsado"
+    );
+  &#125;
+
+  copyBtn($event) &#123;
+    this.toastService.addSuccessMessage(
+      "Success",
+      `Botón copiar pulsado: $&#123;$event[0]&#125; - $&#123;$event[1]&#125;`
+    );
+  &#125;
+&#125;
+
+        </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>label</td>
+          <td>Texto del componente</td>
+          <td>string</td>
+          <td>'Seleccione imagen'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showLabel</td>
+          <td>Indicador para mostrar el texto del componente</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>required</td>
+          <td>Indicador para mostrar el texto de elemento obligatorio</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showBorder</td>
+          <td>Indicador para mostrar el borde o no del componente</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>borderColor</td>
+          <td>Color del borde del componente (Hex, name)</td>
+          <td>string</td>
+          <td>'#000'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showUploadBtn</td>
+          <td>Indicador para mostrar el botón de subida de archivo</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelUploadBtn</td>
+          <td>Texto del botón de subida de archivo</td>
+          <td>string</td>
+          <td>'Subir'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showCleanBtn</td>
+          <td>Indicador para mostrar el botón de limpar archivo</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelCleanBtn</td>
+          <td>Texto del botón de limpiar archivo</td>
+          <td>string</td>
+          <td>'Limpiar'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>base64</td>
+          <td>Indicador para mostrar el decodificador en base64</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelBase64Title</td>
+          <td>Texto del título del decodificador base64</td>
+          <td>string</td>
+          <td>'Base64'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>base64TextRows</td>
+          <td>Número de filas del textarea del decodificar de base64</td>
+          <td>number</td>
+          <td>4</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>uploadBtn</td>
+          <td>Evento al pulsar el botón de subida de archivo</td>
+          <td>File</td>
+        </tr>
+        <tr>
+          <td>cleanBtn</td>
+          <td>Evento al pulsar el botón de limpieza de archivo</td>
+          <td>boolean</td>
+        </tr>
+        <tr>
+          <td>copyBtn</td>
+          <td>Evento al pulsar el botón de copiar valor de un decodificar</td>
+          <td>string['editor', 'valor']</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

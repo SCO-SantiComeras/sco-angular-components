@@ -1,0 +1,328 @@
+<base-showcase>
+
+  <div examples>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <p>Ejemplo 1: estandar</p>
+      </div>
+      <div class="col-12">
+        <sco-checkbox [options]="options1" [(ngModel)]="value1">
+
+        </sco-checkbox>
+      </div>
+      <div class="col-12">
+        <p>{{'Valor :' + (value1 | json)}}</p>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <p>Ejemplo 2: precargado</p>
+      </div>
+      <div class="col-12">
+        <sco-checkbox [options]="options2" [(ngModel)]="value2">
+
+        </sco-checkbox>
+      </div>
+      <div class="col-12">
+        <p>{{'Valor :' + (value2 | json)}}</p>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <p>Ejemplo 3: con objetos</p>
+      </div>
+      <div class="col-12">
+        <sco-checkbox [options]="options3" [(ngModel)]="value3">
+
+        </sco-checkbox>
+      </div>
+      <div class="col-12">
+        <p>{{'Valor :' + (value3 | json)}}</p>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <p>Ejemplo 4: con objetos precargado</p>
+      </div>
+      <div class="col-12">
+        <sco-checkbox [options]="options4" [(ngModel)]="value4">
+
+        </sco-checkbox>
+      </div>
+      <div class="col-12">
+        <p>{{'Valor :' + (value4 | json)}}</p>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <p>Ejemplo 5: Binario</p>
+      </div>
+      <div class="col-12">
+        <sco-checkbox [binary]="true" labelBinary='Acepto todas las condiciones y terminos' [(ngModel)]="value5">
+
+        </sco-checkbox>
+      </div>
+      <div class="col-12">
+        <p>{{'Valor :' + value5}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTML">
+        <pre>
+          <code class="language-markup" pCode>
+
+&lt;div class=&quot;row mt-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 1: estandar&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-checkbox
+      [options]=&quot;options1&quot;
+      [(ngModel)]=&quot;value1&quot;&gt;
+
+    &lt;/sco-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;{{'Valor :' + (value1 | json)}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 2: precargado&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-checkbox
+      [options]=&quot;options2&quot;
+      [(ngModel)]=&quot;value2&quot;&gt;
+
+    &lt;/sco-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;{{'Valor :' + (value2 | json)}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 3: con objetos&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-checkbox
+      [options]=&quot;options3&quot;
+      [(ngModel)]=&quot;value3&quot;&gt;
+
+    &lt;/sco-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;{{'Valor :' + (value3 | json)}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 4: con objetos precargado&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-checkbox
+      [options]=&quot;options4&quot;
+      [(ngModel)]=&quot;value4&quot;&gt;
+
+    &lt;/sco-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;{{'Valor :' + (value4 | json)}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-2&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;Ejemplo 5: Binario&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;sco-checkbox
+      [binary]=&quot;true&quot;
+      labelBinary='Acepto todas las condiciones y terminos'
+      [(ngModel)]=&quot;value5&quot;&gt;
+
+    &lt;/sco-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+      &lt;p&gt;{{'Valor :' + value5}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item tittle="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item tittle="TS">
+        <pre>
+          <code class="language-typescript" pCode>
+import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; ScoCacheService, ScoSelectItem, ScoToastService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-checkbox-showcase',
+  templateUrl: './checkbox-showcase.component.html',
+  styleUrls: ['./checkbox-showcase.component.scss']
+&#125;)
+export class CheckboxShowcaseComponent implements OnInit &#123;
+
+  options1: ScoSelectItem&lt;string&gt;[];
+  options2: ScoSelectItem&lt;string&gt;[];
+  options3: ScoSelectItem&lt;any&gt;[];
+  options4: ScoSelectItem&lt;any&gt;[];
+
+  value1: string[];
+  value2: string[];
+  value3: any[];
+  value4: any[];
+  value5: boolean;
+
+
+  constructor(
+    public cacaheService: ScoCacheService,
+    public toastService: ScoToastService
+  ) &#123; 
+    this.cacaheService.setElement('title', 'Checkbox');
+  &#125;
+
+  ngOnInit() &#123;
+     this.options1 = [
+      &#123;label: 'Java', value: 'java'&#125;,
+      &#123;label: 'Angular', value: 'angular'&#125;,
+      &#123;label: 'NestJS', value: 'nestjs'&#125;,
+      &#123;label: 'Javascript', value: 'javascript'&#125;,
+      &#123;label: 'C', value: 'c'&#125;,
+      &#123;label: 'C++', value: 'cpp'&#125;
+    ];
+
+    this.options2 = [
+      &#123;label: 'Java', value: 'java'&#125;,
+      &#123;label: 'Angular', value: 'angular'&#125;,
+      &#123;label: 'NestJS', value: 'nestjs'&#125;,
+      &#123;label: 'Javascript', value: 'javascript'&#125;,
+      &#123;label: 'C', value: 'c'&#125;,
+      &#123;label: 'C++', value: 'cpp'&#125;
+    ];
+
+    this.options3 = [
+      &#123;label: 'Java', value: &#123;property1: 'p1', property2: 'p2'&#125;&#125;,
+      &#123;label: 'Angular', value: &#123;property1: 'p3', property2: 'p4'&#125;&#125;,
+      &#123;label: 'NestJS', value: &#123;property1: 'p5', property2: 'p6'&#125;&#125;,
+      &#123;label: 'Javascript', value: &#123;property1: 'p7', property2: 'p8'&#125;&#125;,
+      &#123;label: 'C', value: &#123;property1: 'p9', property2: 'p10'&#125;&#125;,
+      &#123;label: 'C++', value: &#123;property1: 'p11', property2: 'p12'&#125;&#125;
+    ];
+
+    this.options4 = [
+      &#123;label: 'Java', value: &#123;property1: 'p1', property2: 'p2'&#125;&#125;,
+      &#123;label: 'Angular', value: &#123;property1: 'p3', property2: 'p4'&#125;&#125;,
+      &#123;label: 'NestJS', value: &#123;property1: 'p5', property2: 'p6'&#125;&#125;,
+      &#123;label: 'Javascript', value: &#123;property1: 'p7', property2: 'p8'&#125;&#125;,
+      &#123;label: 'C', value: &#123;property1: 'p9', property2: 'p10'&#125;&#125;,
+      &#123;label: 'C++', value: &#123;property1: 'p11', property2: 'p12'&#125;&#125;
+    ];
+
+    this.value2 = ['java', 'c'];
+    this.value4 = [&#123;property1: 'p1', property2: 'p2'&#125;, &#123;property1: 'p9', property2: 'p10'&#125;];
+
+    this.value5 = true;
+  &#125;
+
+&#125;
+          </code>
+        </pre>
+
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>options</td>
+          <td>Opciones a mostrar</td>
+          <td>ScoSelectItem&lt;T&gt;[]</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>binary</td>
+          <td>Indica si el checkbox esta en modo binario, solo true o false</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelBinary</td>
+          <td>Label a mostrar en el checkbox (solo en el modo binario)</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>viewMode</td>
+          <td>Modo de vista para los checkboxes</td>
+          <td>string</td>
+          <td>ScoResolutionConstants.WEB</td>
+          <td>
+            <ul>
+              <li>ScoResolutionConstants.WEB</li>
+              <li>ScoResolutionConstants.TABLET</li>
+              <li>ScoResolutionConstants.MOBILE</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>clickCheck</td>
+          <td>Evento al clicar en un checkbox, devuelve todos los elementos seleccionados</td>
+          <td>ScoSelectItem&lt;T&gt;[]</td>
+        </tr>
+        <tr>
+          <td>clickCheckBinary</td>
+          <td>Evento al clicar en un checkbox, devuelve el estado del checkbox (solo en el modo binario)</td>
+          <td>boolean</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</base-showcase>

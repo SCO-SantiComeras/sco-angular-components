@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-12">
+    <p-chart 
+      [type]="type" 
+      [data]="data"
+      [responsive]="true"
+      [options]="options"
+      [height]="height"
+      (onDataSelect)="onSelectData($event)">
+    </p-chart>
+  </div>
+</div>

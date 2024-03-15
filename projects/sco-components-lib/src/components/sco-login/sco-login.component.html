@@ -1,0 +1,55 @@
+<div class="sco-login">
+  <div class="row mt-3">
+    <div class="col-12" >
+
+      <div class="row ml-1 mr-1">
+        <div class="col-12">
+          <sco-input
+              [(ngModel)]="inputUser"
+              [label]="labelUser"
+              [showLabel]="true"  
+              [icon]="'fa fa-user'"
+              [showIcon]="true" 
+              [require]="true" >
+          </sco-input>
+        </div>
+      </div>
+
+      <div class="row mt-3 ml-1 mr-1">
+        <div class="col-12">
+          <sco-input
+              [(ngModel)]="inputPwd"
+              [label]="labelPassword"
+              [showLabel]="true"
+              [type]="showPassword ? constantsService.ScoInputTypeConstants.TEXT : constantsService.ScoInputTypeConstants.PASSWORD "
+              [icon]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye' "
+              [showIcon]="true" 
+              [enabledIconClick]="true"
+              [require]="true"
+              (iconClick)="showHidePassowrd()" >
+          </sco-input>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-1 mr-1" [ngClass]="{'mb-3': (!showLabelPwdRecovery && ! showLabelPwdRecovery)}">
+        <div class="col-6">
+          <button class="btn btn-sco" (click)="cancelButton()">{{labelCancel}}</button>
+        </div>
+        <div class="col-6 text-right">
+          <button class="btn btn-sco" (click)="confirmButton()">{{labelConfirm}}</button>
+        </div>
+      </div>
+
+      <div class="row mt-3 ml-1 mr-1 mb-3" *ngIf="showLabelPwdRecovery || showLabelUserRegister">
+        <div class="col-6 text-left" (click)="passwordRecovery()">
+          <span class="btn-link sco-login--option" *ngIf="showLabelPwdRecovery">{{labelPwdRecovery}}</span>
+        </div>
+
+        <div class="col-6 text-right" (click)="registerNewUser()">
+          <span class="btn-link sco-login--option" *ngIf="showLabelUserRegister">{{labelUserRegister}}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

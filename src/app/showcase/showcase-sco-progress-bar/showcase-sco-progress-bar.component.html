@@ -1,0 +1,483 @@
+<base-showcase [showOutputs]="false">
+
+  <div examples>
+    
+<div class="row">
+  <div class="col-12">
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <span>Ejemplo 1: Estandar</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-progress-bar 
+          [value]="valueEx1">
+        </sco-progress-bar>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <sco-button
+          [text]="'Aumentar'"
+          (action)="increaseEx1()"
+        ></sco-button>
+        <sco-button
+          [text]="'Disminuir'"
+          (action)="decreaseEx1()"
+        ></sco-button>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <span>Ejemplo 2: Label</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-progress-bar 
+          [value]="valueEx2"
+          [label]="valueEx2 + '%'">
+        </sco-progress-bar>
+
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <sco-button
+          [text]="'Aumentar'"
+          (action)="increaseEx2()"
+        ></sco-button>
+        <sco-button
+          [text]="'Disminuir'"
+          (action)="decreaseEx2()"
+        ></sco-button>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <span>Ejemplo 3: striped</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-progress-bar 
+          [value]="valueEx3"
+          [label]="valueEx3 + '%'"
+          [striped]="true">
+        </sco-progress-bar>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <sco-button
+          [text]="'Aumentar'"
+          (action)="increaseEx3()"
+        ></sco-button>
+        <sco-button
+          [text]="'Disminuir'"
+          (action)="decreaseEx3()"
+        ></sco-button>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <span>Ejemplo 4: height</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-progress-bar 
+          [value]="valueEx4"
+          [label]="valueEx4 + '%'"
+          [height]="200"
+          [striped]="true">
+        </sco-progress-bar>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <sco-button
+          [text]="'Aumentar'"
+          (action)="increaseEx4()"
+        ></sco-button>
+        <sco-button
+          [text]="'Disminuir'"
+          (action)="decreaseEx4()"
+        ></sco-button>
+      </div>
+    </div>
+
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <span>Ejemplo 5: animation</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-progress-bar 
+          [value]="valueEx5"
+          [label]="valueEx5 + '%'"
+          [animated]="true"
+          [striped]="true">
+        </sco-progress-bar>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <sco-button
+          [text]="'Aumentar'"
+          (action)="increaseEx5()"
+        ></sco-button>
+        <sco-button
+          [text]="'Disminuir'"
+          (action)="decreaseEx5()"
+        ></sco-button>
+      </div>
+    </div>
+
+  </div>
+</div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+       <pre>
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-3 mb-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-progress-bar 
+          [value]=&quot;valueEx1&quot;&gt;
+        &lt;/sco-progress-bar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-button
+          [text]=&quot;'Aumentar'&quot;
+          (action)=&quot;increaseEx1()&quot;
+        &gt;&lt;/sco-button&gt;
+        &lt;sco-button
+          [text]=&quot;'Disminuir'&quot;
+          (action)=&quot;decreaseEx1()&quot;
+        &gt;&lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3 mb-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 2: Label&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-progress-bar 
+          [value]=&quot;valueEx2&quot;
+          [label]=&quot;valueEx2 + '%'&quot;&gt;
+        &lt;/sco-progress-bar&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-button
+          [text]=&quot;'Aumentar'&quot;
+          (action)=&quot;increaseEx2()&quot;
+        &gt;&lt;/sco-button&gt;
+        &lt;sco-button
+          [text]=&quot;'Disminuir'&quot;
+          (action)=&quot;decreaseEx2()&quot;
+        &gt;&lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3 mb-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 3: striped&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-progress-bar 
+          [value]=&quot;valueEx3&quot;
+          [label]=&quot;valueEx3 + '%'&quot;
+          [striped]=&quot;true&quot;&gt;
+        &lt;/sco-progress-bar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-button
+          [text]=&quot;'Aumentar'&quot;
+          (action)=&quot;increaseEx3()&quot;
+        &gt;&lt;/sco-button&gt;
+        &lt;sco-button
+          [text]=&quot;'Disminuir'&quot;
+          (action)=&quot;decreaseEx3()&quot;
+        &gt;&lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3 mb-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 4: height&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-progress-bar 
+          [value]=&quot;valueEx4&quot;
+          [label]=&quot;valueEx4 + '%'&quot;
+          [height]=&quot;200&quot;
+          [striped]=&quot;true&quot;&gt;
+        &lt;/sco-progress-bar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-button
+          [text]=&quot;'Aumentar'&quot;
+          (action)=&quot;increaseEx4()&quot;
+        &gt;&lt;/sco-button&gt;
+        &lt;sco-button
+          [text]=&quot;'Disminuir'&quot;
+          (action)=&quot;decreaseEx4()&quot;
+        &gt;&lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class=&quot;row mt-3 mb-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;span&gt;Ejemplo 5: animation&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-progress-bar 
+          [value]=&quot;valueEx5&quot;
+          [label]=&quot;valueEx5 + '%'&quot;
+          [animated]=&quot;true&quot;
+          [striped]=&quot;true&quot;&gt;
+        &lt;/sco-progress-bar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-2&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-button
+          [text]=&quot;'Aumentar'&quot;
+          (action)=&quot;increaseEx5()&quot;
+        &gt;&lt;/sco-button&gt;
+        &lt;sco-button
+          [text]=&quot;'Disminuir'&quot;
+          (action)=&quot;decreaseEx5()&quot;
+        &gt;&lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; ScoCacheService &#125; from 'projects/sco-components/src/public-api';
+
+@Component(&#123;
+  selector: 'app-progress-bar-showcase',
+  templateUrl: './progress-bar-showcase.component.html',
+  styleUrls: ['./progress-bar-showcase.component.scss']
+&#125;)
+export class ProgressBarShowcaseComponent &#123;
+
+  public valueEx1 = 0;
+  public valueEx2 = 0;
+  public valueEx3 = 0;
+  public valueEx4 = 0;
+  public valueEx5 = 0;
+
+  constructor(
+    private cacaheService: ScoCacheService,
+  ) &#123; 
+    this.cacaheService.setElement('title', 'Progress bar');
+  &#125;
+
+  increaseEx1()&#123;
+    if(this.valueEx1 + 10 > 100)&#123;
+      this.valueEx1 = 100;
+    &#125;else&#123;
+      this.valueEx1 = this.valueEx1 + 10;
+    &#125;
+  &#125;
+
+  decreaseEx1()&#123;
+    if(this.valueEx1 - 10 > 100)&#123;
+      this.valueEx1 = 100;
+    &#125;else&#123;
+      this.valueEx1 = this.valueEx1 - 10;
+    &#125;
+  &#125;
+
+  increaseEx2()&#123;
+    if(this.valueEx2 + 10 > 100)&#123;
+      this.valueEx2 = 100;
+    &#125;else&#123;
+      this.valueEx2 = this.valueEx2 + 10;
+    &#125;
+  &#125;
+
+  decreaseEx2()&#123;
+    if(this.valueEx2 - 10 > 100)&#123;
+      this.valueEx2 = 100;
+    &#125;else&#123;
+      this.valueEx2 = this.valueEx2 - 10;
+    &#125;
+  &#125;
+
+  increaseEx3()&#123;
+    if(this.valueEx3 + 10 > 100)&#123;
+      this.valueEx3 = 100;
+    &#125;else&#123;
+      this.valueEx3 = this.valueEx3 + 10;
+    &#125;
+  &#125;
+
+  decreaseEx3()&#123;
+    if(this.valueEx3 - 10 > 100)&#123;
+      this.valueEx3 = 100;
+    &#125;else&#123;
+      this.valueEx3 = this.valueEx3 - 10;
+    &#125;
+  &#125;
+
+  increaseEx4()&#123;
+    if(this.valueEx4 + 10 > 100)&#123;
+      this.valueEx4 = 100;
+    &#125;else&#123;
+      this.valueEx4 = this.valueEx4 + 10;
+    &#125;
+  &#125;
+
+  decreaseEx4()&#123;
+    if(this.valueEx4 - 10 > 100)&#123;
+      this.valueEx4 = 100;
+    &#125;else&#123;
+      this.valueEx4 = this.valueEx4 - 10;
+    &#125;
+  &#125;
+
+  increaseEx5()&#123;
+    if(this.valueEx5 + 10 > 100)&#123;
+      this.valueEx5 = 100;
+    &#125;else&#123;
+      this.valueEx5 = this.valueEx5 + 10;
+    &#125;
+  &#125;
+
+  decreaseEx5()&#123;
+    if(this.valueEx5 - 10 > 100)&#123;
+      this.valueEx5 = 100;
+    &#125;else&#123;
+      this.valueEx5 = this.valueEx5 - 10;
+    &#125;
+  &#125;
+
+&#125;
+            </code>
+        </pre>
+      </sco-tab-item>
+    </sco-tabs>
+
+  </div>
+
+  <div inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>value</td>
+          <td>Indica el porcentaje de la barra de progreso. Entre 0 y 100.</td>
+          <td>number</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>Indica el texto que dentro de la barra de progreso</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Altura de la barra de progreso.</td>
+          <td>number</td>
+          <td>16</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>striped</td>
+          <td>Estilo con lineas en la barra de progreso.</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>animated</td>
+          <td>Indica si anima la barra de progreso. Es necesario que striped este activo</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

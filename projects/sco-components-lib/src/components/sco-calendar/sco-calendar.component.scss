@@ -1,0 +1,23 @@
+.sco-calendar .p-calendar {
+  display: block;
+}
+
+.sco-calendar .p-calendar .p-inputtext {
+  width: 100%;
+}
+
+.sco-calendar .p-datepicker table th {
+  text-align: center;
+}
+
+.sco-calendar .p-calendar .p-datepicker.p-datepicker-inline {
+  min-width: auto;
+}
+
+.sco-calendar {
+  &__label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,25 @@
+<div class="sco-multiple-button" *ngIf="buttons && buttons.length > 0">
+  <ng-container *ngIf="buttons.length == 1">
+    <sco-button
+      [text]="buttons[0].text"
+      [icon]="buttons[0].icon"
+      [size]="modeButtonsSize"
+      (action)="clickButton(buttons[0])"
+    ></sco-button>
+  </ng-container>
+  <ng-container *ngIf="buttons.length > 1">
+    <sco-button
+      *ngFor="let button of buttons; let index = index"
+      [ngClass]="{
+        'sco-multiple-button__first-button': index == 0,
+        'sco-multiple-button__intermediate-button':
+          index > 0 && index < buttons.length - 1,
+        'sco-multiple-button__last-button': index == buttons.length - 1
+      }"
+      [text]="button.text"
+      [icon]="button.icon"
+      [size]="modeButtonsSize"
+      (action)="clickButton(button)"
+    ></sco-button>
+  </ng-container>
+</div>

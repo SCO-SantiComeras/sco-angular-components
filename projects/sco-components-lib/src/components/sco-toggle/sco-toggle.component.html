@@ -1,0 +1,10 @@
+<div class="sco-toggle" [ngClass]="{'sco-toggle__flex': inLine}">
+  <div class="sco-toggle__label" [ngClass]="{'sco-toggle__label--si-flex': inLine}">
+    <label>{{label}}</label>
+  </div>
+
+  <button class="sco-toggle__btn"
+   [ngClass]="{'sco-toggle__btn--on': value, 'sco-toggle__btn--off': !value}"
+   (click)="onClick()">
+  </button>
+</div>

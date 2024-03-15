@@ -1,0 +1,183 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-card
+                [showTitle]="showTitleEx1" >
+                <p card-title>Titulo</p>
+                <span card-content>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+                  earum corporis mollitia delectus necessitatibus perspiciatis,
+                  temporibus sed nam veritatis nostrum quaerat deserunt placeat
+                  eveniet libero eaque enim, porro neque quod!
+                </span>
+              </sco-card>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 2: Sin título</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-card
+                [showTitle]="showTitleEx2" >
+                <p card-title>Titulo</p>
+                <span card-content>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+                  earum corporis mollitia delectus necessitatibus perspiciatis,
+                  temporibus sed nam veritatis nostrum quaerat deserunt placeat
+                  eveniet libero eaque enim, porro neque quod!
+                </span>
+              </sco-card>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-card
+            [showTitle]=&quot;showTitleEx1&quot; &gt;
+            &lt;p card-title&gt;Titulo&lt;/p&gt;
+            &lt;span card-content&gt;
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+              earum corporis mollitia delectus necessitatibus perspiciatis,
+              temporibus sed nam veritatis nostrum quaerat deserunt placeat
+              eveniet libero eaque enim, porro neque quod!
+            &lt;/span&gt;
+          &lt;/sco-card&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Sin t&iacute;tulo&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-card
+            [showTitle]=&quot;showTitleEx2&quot; &gt;
+            &lt;p card-title&gt;Titulo&lt;/p&gt;
+            &lt;span card-content&gt;
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+              earum corporis mollitia delectus necessitatibus perspiciatis,
+              temporibus sed nam veritatis nostrum quaerat deserunt placeat
+              eveniet libero eaque enim, porro neque quod!
+            &lt;/span&gt;
+          &lt;/sco-card&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-card',
+  templateUrl: './showcase-sco-card.component.html',
+  styleUrls: ['./showcase-sco-card.component.scss']
+&#125;)
+
+export class ShowcaseScoCardComponent &#123;
+
+  public showTitleEx1: boolean;
+  public showTitleEx2: boolean;
+
+  constructor(
+    private readonly cacheService: ScoCacheService
+  ) &#123;
+    this.cacheService.setElement("title", "Card");
+    this.showTitleEx1 = true;
+    this.showTitleEx2 = false;
+  &#125;
+&#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+<div class="scrollable" inputs>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>showTitle</td>
+          <td>Indica si mostrar o no el título del componente</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

@@ -1,0 +1,10 @@
+<div class="sco-spinner" *ngIf="spinnerService.show" [ngClass]="{
+    'sco-spinner--overlay': !embedded,
+    'sco-spinner--overlay--embedded': embedded
+}" >
+
+  <div class="sco-spinner__spinner">
+    <img [src]="pathImg">
+  </div>
+
+</div>

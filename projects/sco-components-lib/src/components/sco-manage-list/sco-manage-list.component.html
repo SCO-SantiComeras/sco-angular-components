@@ -1,0 +1,43 @@
+<div class="row sco-manage-list">
+  <div class="col-12 mt-2 mb-2">
+
+    <label *ngIf="label" class="sco-manage-list--label">
+      {{ label }}
+    </label>
+
+    <div class="row">
+      <ng-container *ngIf="value && listShow?.length > 0">
+        <div class="col-12" *ngFor="let item of listShow; let index = index">
+          <sco-input
+            [(ngModel)]="value[index]"
+            [showLabel]="false"
+            [icon]="'fa fa-trash'"
+            [showIcon]="true" 
+            [enabledIconClick]="true"
+            (iconClick)="deleteListItem(index)" >
+          </sco-input>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!listShow || listShow.length == 0">
+        <div class="col-12 sco-manage-list__no-results">
+          {{ labelEmpty }}
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <sco-button
+          class="w-100"
+          [block]="true"
+          [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+          [icon]="'fa fa-plus'"
+          [size]="constantsService.ScoButtonConstants.SIZE_LARGE"
+          [text]="labelAddItem"
+          (action)="addItemList()" >
+        </sco-button>
+      </div>
+    </div>
+
+  </div>
+</div>

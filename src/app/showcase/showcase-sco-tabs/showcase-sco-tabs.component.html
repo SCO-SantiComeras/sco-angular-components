@@ -1,0 +1,146 @@
+<base-showcase [showOutputs]="false">
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-tabs>
+                <sco-tab-item [tittle]="'Tab1'">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at eaque consectetur id dolor perferendis inventore earum ipsum sunt? Sapiente explicabo reprehenderit inventore, consectetur aut libero praesentium doloremque repudiandae accusantium.
+                </sco-tab-item>
+                <sco-tab-item [tittle]="'Tab2'">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem unde dolores sed accusantium, repellat, magni iusto eaque labore atque cum deserunt tempora. Sit, corporis animi distinctio rem vel quisquam magnam.
+                  Atque sequi, voluptates ullam aliquam exercitationem omnis vitae accusantium recusandae eos, a repellat quasi expedita. Doloremque vel, totam ut quibusdam possimus consequatur amet ratione in dicta ad eius porro voluptates!
+                </sco-tab-item>
+                <sco-tab-item [tittle]="'Tab3'">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique pariatur laudantium illum, nobis dolor a iure dolorum ipsa fugiat voluptatum et architecto voluptatem itaque quos obcaecati eum repudiandae doloremque iusto?
+                  Delectus quaerat dolor debitis odit tempora? Eveniet, totam? Quam officiis natus molestiae tenetur soluta doloremque assumenda obcaecati minima voluptatibus quod? Voluptate quo, accusantium vel ex est eum aliquam voluptates debitis.
+                  Voluptatibus minima deserunt, expedita cupiditate fugiat quae laborum. Soluta, asperiores sapiente illum id assumenda quisquam impedit deleniti sed, accusantium ea consequatur aspernatur temporibus aut in amet repellat dignissimos reiciendis autem!
+                </sco-tab-item>
+              </sco-tabs>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item tittle="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-tabs&gt;
+            &lt;sco-tab-item [tittle]=&quot;'Tab1'&quot;&gt;
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at eaque consectetur id dolor perferendis inventore earum ipsum sunt? Sapiente explicabo reprehenderit inventore, consectetur aut libero praesentium doloremque repudiandae accusantium.
+            &lt;/sco-tab-item&gt;
+            &lt;sco-tab-item [tittle]=&quot;'Tab2'&quot;&gt;
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem unde dolores sed accusantium, repellat, magni iusto eaque labore atque cum deserunt tempora. Sit, corporis animi distinctio rem vel quisquam magnam.
+              Atque sequi, voluptates ullam aliquam exercitationem omnis vitae accusantium recusandae eos, a repellat quasi expedita. Doloremque vel, totam ut quibusdam possimus consequatur amet ratione in dicta ad eius porro voluptates!
+            &lt;/sco-tab-item&gt;
+            &lt;sco-tab-item [tittle]=&quot;'Tab3'&quot;&gt;
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique pariatur laudantium illum, nobis dolor a iure dolorum ipsa fugiat voluptatum et architecto voluptatem itaque quos obcaecati eum repudiandae doloremque iusto?
+              Delectus quaerat dolor debitis odit tempora? Eveniet, totam? Quam officiis natus molestiae tenetur soluta doloremque assumenda obcaecati minima voluptatibus quod? Voluptate quo, accusantium vel ex est eum aliquam voluptates debitis.
+              Voluptatibus minima deserunt, expedita cupiditate fugiat quae laborum. Soluta, asperiores sapiente illum id assumenda quisquam impedit deleniti sed, accusantium ea consequatur aspernatur temporibus aut in amet repellat dignissimos reiciendis autem!
+            &lt;/sco-tab-item&gt;
+          &lt;/sco-tabs&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item tittle="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCacheService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-tabs',
+  templateUrl: './showcase-sco-tabs.component.html',
+  styleUrls: ['./showcase-sco-tabs.component.scss']
+&#125;)
+
+export class ShowcaseScoTabsComponent &#123;
+
+  constructor(
+    private scoCache: ScoCacheService
+  ) &#123; 
+    this.scoCache.setElement("title", "Tabs");
+  &#125;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+
+      <span class="title-sco">sco-tab-item</span>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Nombre</th>
+                  <th>Descripcción</th>
+                  <th>Tipo</th>
+                  <th>Valor por defecto</th>
+                  <th>Posibles valores</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>tittle</td>
+                  <td>Indica el título del tab</td>
+                  <td>string</td>
+                  <td>undefined</td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</base-showcase>

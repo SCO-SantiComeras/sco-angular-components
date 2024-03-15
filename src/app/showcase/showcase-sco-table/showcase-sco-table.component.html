@@ -1,0 +1,366 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-table
+                [cols]="cols"
+                [tableItems]="tableItems"
+                [previousLabel]="'Previous'"
+                [nextLabel]="'Next'"
+                (itemSelected)="onItemSelected($event)"
+                (actionSelected)="onActionSelected($event)"
+                (closeOptions)="onCloseOptions($event)" >   
+
+                <ng-template #templateRow let-item="item" let-cols="cols">
+                  <td *ngFor="let col of cols" [ngSwitch]="col.label">     
+                    <span *ngSwitchCase="'Mascota'">{{ item.pet.name }}</span>
+                    <span *ngSwitchDefault>{{item[col.property]}}</span>
+                  </td>
+                </ng-template>
+
+              </sco-table>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-table
+            [cols]=&quot;cols&quot;
+            [tableItems]=&quot;tableItems&quot;
+            (itemSelected)=&quot;onItemSelected($event)&quot;
+            (actionSelected)=&quot;onActionSelected($event)&quot;
+            (closeOptions)=&quot;onCloseOptions($event)&quot; &gt;   
+
+            &lt;ng-template #templateRow let-item=&quot;item&quot; let-cols=&quot;cols&quot;&gt;
+              &lt;td *ngFor=&quot;let col of cols&quot; [ngSwitch]=&quot;col.label&quot;&gt;     
+                &lt;span *ngSwitchCase=&quot;'Mascota'&quot;&gt;&#123;&#123; item.pet.name &#125;&#125;&lt;/span&gt;
+                &lt;span *ngSwitchDefault&gt;&#123;&#123;item[col.property]&#125;&#125;&lt;/span&gt;
+              &lt;/td&gt;
+            &lt;/ng-template&gt;
+
+          &lt;/sco-table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoSelectedItem, ScoCacheService, ScoTableCol, ScoAction, ScoTableItem &#125; from 'sco-components-lib';
+import &#123; Component, OnInit &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-table',
+  templateUrl: './showcase-sco-table.component.html',
+  styleUrls: ['./showcase-sco-table.component.scss']
+&#125;)
+export class ShowcaseScoTableComponent&lt;T&gt; implements OnInit &#123;
+
+  public cols: ScoTableCol[];
+  public tableItems: ScoTableItem&lt;T&gt;[];
+
+  constructor(
+    private readonly cacheService: ScoCacheService,
+    private readonly toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement(&quot;title&quot;, &quot;Table&quot;);
+    this.cols = [];
+    this.tableItems = [];
+  &#125;
+
+  ngOnInit() &#123;
+    this.cols = [
+      &#123;label: &quot;Fecha&quot;, property: &quot;date&quot;&#125;,
+      &#123;label: &quot;Estado&quot;, property: &quot;status&quot;&#125;,
+      &#123;label: &quot;Nombre&quot;, property: &quot;name&quot;&#125;,
+      &#123;label: &quot;Edad&quot;, property: &quot;age&quot;&#125;,
+    ]
+
+    let appointments : any[] = [
+      &#123;
+        date: '2022-08-12',
+        status: 'complete',
+        name: 'Santi',
+        age: 28,
+        pet: &#123;
+          name: 'Mascota 1'
+        &#125;
+      &#125;,
+      &#123;
+        date: '2022-08-12',
+        status: 'canceled',
+        name: 'Carol',
+        age: 26,
+        pet: &#123;
+          name: 'Mascota 2'
+        &#125;
+      &#125;,
+      &#123;
+        date: '2022-08-12',
+        status: 'in course',
+        name: 'Mendoline',
+        age: 20,
+        pet: &#123;
+          name: 'Mascota 3'
+        &#125;
+      &#125;,
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        name: 'Prubleme',
+        age: 21,
+        pet: &#123;
+          name: 'Mascota 4'
+        &#125;
+      &#125;,
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        name: 'Client 1',
+        age: 21,
+        pet: &#123;
+          name: 'Mascota 5'
+        &#125;
+      &#125;,
+      &#123;
+        date: '2022-08-12',
+        status: 'unknow',
+        name: 'Client 2',
+        age: 21,
+        pet: &#123;
+          name: 'Mascota 6'
+        &#125;
+      &#125;,
+    ];
+    this.createItems(appointments);
+  &#125;
+
+  private createItems(appointments: any[]) &#123;
+    let actions: ScoAction&lt;any&gt;[] = [
+      &#123;
+        label: 'Editar',
+        value: 'edit',
+        icon : 'fa fa-edit'
+      &#125;,
+      &#123;
+        label: 'Eliminar',
+        value : 'delete',
+        icon: 'fa fa-file'
+      &#125;
+    ];
+    
+    let cont: number = 0;
+
+    appointments.forEach(ap =&gt;  &#123;
+      let tableItem = new ScoTableItem&lt;any&gt;();
+      tableItem.item = ap;
+      tableItem.actions = actions;
+      tableItem.index = cont;
+
+      cont++;
+
+      this.tableItems.push(tableItem);
+    &#125;); 
+  &#125;
+
+  onItemSelected($event: ScoSelectedItem&lt;any&gt;) &#123;
+    console.log(&quot;Item seleccionado: &quot; + JSON.stringify($event));
+    this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Item seleccionado: &quot; + JSON.stringify($event));
+  &#125;
+
+  onActionSelected($event: ScoAction&lt;any&gt;) &#123;
+    console.log(&quot;Accion seleccionada: &quot; + JSON.stringify($event));
+    this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Accion seleccionada:&quot; + JSON.stringify($event));
+  &#125;
+
+  onCloseOptions($event: number) &#123;
+    console.log(&quot;Opciones Cerradas: &quot; + JSON.stringify($event));
+    this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Opciones Cerradas: &quot; + JSON.stringify($event));
+  &#125;
+&#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+<div class="scrollable" inputs>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>cols</td>
+        <td>Columnas de la tabla</td>
+        <td>ScoTableCol []</td>
+        <td>[]</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>tableItems</td>
+        <td>Elementos de la tabla</td>
+        <td>ScoTableItem&lt;T&gt; []</td>
+        <td>[]</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>labelTotalResults</td>
+        <td>Texto de total de elementos</td>
+        <td>string</td>
+        <td>'Total elementos'</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>labelNoResults</td>
+        <td>Texto de no elementos</td>
+        <td>string</td>
+        <td>'No hay elementos que mostrar'</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>showActions</td>
+        <td>Muestra la acciones del elemento</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>showTotalItems</td>
+        <td>Muestra el texto total de elementos</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>showTableIndex</td>
+        <td>Muestra el indicador de cada elemento</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>canSelectItems</td>
+        <td>Permite poder seleccionar un elemento</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>pagination</td>
+        <td>Indica la cantidad de elementos por pagina</td>
+        <td>number</td>
+        <td>ScoTableConstants.PAGINATION_DEFAULT</td>
+        <td>
+          <ul>
+            <li>ScoTableConstants.PAGINATION_DEFAULT</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>previousLabel</td>
+        <td>Texto del boton previo de la paginacion</td>
+        <td>string</td>
+        <td>'Anterior'</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>nextLabel</td>
+        <td>Texto del boton siguiente de la paginacion</td>
+        <td>string</td>
+        <td>'Siguiente'</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>paginationOnTop</td>
+        <td>Indicador para mostrar los controles de paginacion Arriba o Abajo</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>templateRowInput</td>
+        <td>Template para las filas de la tabla</td>
+        <td>TemplateRef&lt;any&gt;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>itemSelected</td>
+            <td>Evento al seleccioniar un elemento de la tabla</td>
+            <td>ScoSelectedItem &lt;T&gt;</td>
+        </tr>
+        <tr>
+          <td>actionSelected</td>
+          <td>Evento al seleccionar una accioni de un elemento de la tabla</td>
+          <td>ScoAction&lt;T&gt;</td>
+        </tr>
+        <tr>
+          <td>closeOptions</td>
+          <td>Evento al cerrar el panel de acciones de un elemento de la tabla</td>
+          <td>number</td>
+        </tr>
+        <tr>
+          <td>changePage</td>
+          <td>Evento al cambiar la página de la tabla</td>
+          <td>number</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

@@ -1,0 +1,259 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <!-- 1 -->
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-toggle 
+                (toggled)="changeToggle($event)" >
+              </sco-toggle>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 2: Label</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-toggle 
+                [label]="'Toggle'"
+                (toggled)="changeToggle($event)" >
+              </sco-toggle>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 3: Ng Model</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-toggle 
+                [(ngModel)]="valueExample3"
+                [label]="'Toggle'"
+                (toggled)="changeToggle($event)" >
+              </sco-toggle>
+              <div>
+                <span>{{'Value: ' + valueExample3}}</span>
+              </div>
+            </div>
+        </div>
+
+          <!-- 4 -->
+          <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 4: In Line</span>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <sco-toggle 
+                [inLine]="true"
+                [(ngModel)]="valueExample4"
+                [label]="'Toggle'"
+                (toggled)="changeToggle($event)" >
+              </sco-toggle>
+              <div>
+                <span>{{'Value: ' + valueExample4}}</span>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item tittle="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-toggle 
+            (toggled)=&quot;changeToggle($event)&quot; &gt;
+          &lt;/sco-toggle&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 2: Label&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-toggle 
+            [label]=&quot;'Toggle'&quot;
+            (toggled)=&quot;changeToggle($event)&quot; &gt;
+          &lt;/sco-toggle&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 3 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 3: Ng Model&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-toggle 
+            [(ngModel)]=&quot;valueExample3&quot;
+            [label]=&quot;'Toggle'&quot;
+            (toggled)=&quot;changeToggle($event)&quot; &gt;
+          &lt;/sco-toggle&gt;
+          &lt;div&gt;
+            &lt;span&gt;{{'Value: ' + valueExample3}}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+      &lt;!-- 4 --&gt;
+      &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 4: In Line&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;sco-toggle 
+            [inLine]=&quot;true&quot;
+            [(ngModel)]=&quot;valueExample4&quot;
+            [label]=&quot;'Toggle'&quot;
+            (toggled)=&quot;changeToggle($event)&quot; &gt;
+          &lt;/sco-toggle&gt;
+          &lt;div&gt;
+            &lt;span&gt;{{'Value: ' + valueExample4}}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item tittle="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
+  
+      <sco-tab-item tittle="TS">
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoToastService, ScoCacheService &#125; from 'sco-components-lib';
+import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-showcase-sco-toggle',
+  templateUrl: './showcase-sco-toggle.component.html',
+  styleUrls: ['./showcase-sco-toggle.component.scss']
+&#125;)
+
+export class ShowcaseScoToggleComponent &#123;
+
+  public valueExample3: boolean;
+  public valueExample4: boolean;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService
+  ) &#123; 
+    this.cacheService.setElement("title", "Toggle");
+    this.valueExample3 = false;
+    this.valueExample4 = false;
+  &#125;
+
+  changeToggle($event) &#123;
+    if ($event) &#123;
+      this.toastService.addSuccessMessage("Éxito", "El toggle se ha activado");
+    &#125; else &#123;
+      this.toastService.addSuccessMessage("Éxito", "El toggle se ha desactivado");
+    &#125;
+  &#125;
+&#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Tipo</th>
+            <th>Valor por defecto</th>
+            <th>Posibles valores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>label</td>
+          <td>Texto del toggle</td>
+          <td>string</td>
+          <td>undefined</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>inLine</td>
+          <td>Pone el Toggle y su label en línea</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcción</th>
+            <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>toggled</td>
+            <td>Evento al cambiar el toggle de estado</td>
+            <td>boolean</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>
