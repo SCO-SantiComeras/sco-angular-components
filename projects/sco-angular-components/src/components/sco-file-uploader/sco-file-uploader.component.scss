@@ -1,7 +1,8 @@
 .sco-file-uploader {
 
     &__container {
-        
+        font-family: 'sco regular';
+
         &--show-border {
             border-style: solid;
             border-width: 1px;
@@ -9,12 +10,12 @@
 
         &--title {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold' !important;
         }
 
         &--require {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold' !important;
         }
 
         &__file {

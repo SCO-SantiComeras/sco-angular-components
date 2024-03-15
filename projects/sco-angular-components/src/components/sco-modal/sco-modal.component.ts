@@ -12,14 +12,14 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
 export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() id: string;
-  @Input() type: string = this.constatnsService.ScoModalTypeConstants.INFO;
+  @Input() type: string = this.constantsService.ScoModalTypeConstants.INFO;
   @Input() labelConfirm: string;
   @Input() labelClose: string;
   @Input() forceClose: boolean = false;
   @Input() big: boolean = false;
   @Input() width: string = undefined;
   @Input() height: string = undefined;
-  @Input() sizeUnity: string = this.constatnsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS;
+  @Input() sizeUnity: string = this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS;
 
   @Output() close: EventEmitter<MouseEvent>;
   @Output() accept: EventEmitter<MouseEvent>;
@@ -31,7 +31,7 @@ export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
   public left: string = undefined;
 
   constructor(
-    public readonly constatnsService: ScoConstantsService,
+    public readonly constantsService: ScoConstantsService,
     private readonly modalsService: ScoModalService
   ) { 
     this.close = new EventEmitter<MouseEvent>();
@@ -60,9 +60,9 @@ export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
       if (changes['width']) {
         this.width = changes['width'].currentValue;
         
-        if (this.sizeUnity === this.constatnsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS) {     
+        if (this.sizeUnity === this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS) {     
           this.width = this.width + 'px';     
-        } else if (this.sizeUnity === this.constatnsService.ScoModalTypeConstants.SIZE_UNITY_PERCENTAGE) {
+        } else if (this.sizeUnity === this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PERCENTAGE) {
           /* Calcula el ancho en píxeles con el ancho de la ventana y el porcentaje actual de width, 
           concatena la cadena 'px' al resultado y lo asigna a this.width */
           this.width = window.innerWidth * (parseInt(changes['width'].currentValue) / 100) + 'px';
@@ -73,9 +73,9 @@ export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
       }
       
       if (changes['height']) {
-        if (this.sizeUnity === this.constatnsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS) {
+        if (this.sizeUnity === this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS) {
           this.height = this.height + 'px';
-        } else if (this.sizeUnity === this.constatnsService.ScoModalTypeConstants.SIZE_UNITY_PERCENTAGE) {
+        } else if (this.sizeUnity === this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PERCENTAGE) {
           /* Calcula el largo en píxeles con el largo de la ventana  y el porcentaje actual de height, 
           concatena la cadena 'px' al resultado y lo asigna a this.height */
           this.height = window.innerHeight * (parseInt(changes['height'].currentValue) / 100) + 'px';

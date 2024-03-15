@@ -1,6 +1,11 @@
-<div class="sco-detail" *ngIf="showDetail" [@slide] 
-  scoClickOutside [avoidFirstTime]="false" [clickOutsideEnabled]="clickOutsideEnabled" (clickOutSide)="closeDetail($event)" (click)="closeOnClick && closeDetail($event)">
-
+<div *ngIf="showDetail"
+  class="sco-detail" 
+  [@slide] 
+  scoClickOutside 
+  [avoidFirstTime]="false" 
+  [clickOutsideEnabled]="clickOutsideEnabled" 
+  (clickOutSide)="closeDetail($event)" (click)="closeOnClick && closeDetail($event)"
+>
   <div class="row sco-detail__title" *ngIf="showTitle">
     <div class="col-lg-11 col-md-11 col-11">
       <ng-content select="[detail-title]"></ng-content>
@@ -10,13 +15,10 @@
     </div>
   </div>
 
-
   <div class="row sco-detail__content">
     <div class="col-12">
       <ng-content select="[detail-content]"></ng-content>
     </div>
   </div>
-
 </div>
-
 <div class="sco-overlay" *ngIf="showDetail && showOverlay"></div>

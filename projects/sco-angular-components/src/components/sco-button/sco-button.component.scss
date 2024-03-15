@@ -6,7 +6,7 @@
   text-align: center;
   font-family: 'sco bold';
 
-  &--border{
+  &--border {
     border-width: 1px;
     border-style: solid;
   }
@@ -20,13 +20,14 @@
     display: block;
   }
 
-  // &--disabled{
-  //   color: #fff;
-  //   border-color: rgb(207, 207, 207)!important;
-  //   background: rgb(207, 207, 207)!important;
-  // }
+  &--disabled {
+    color: #fff;
+    border-color: rgb(207, 207, 207) !important;
+    background: rgb(207, 207, 207) !important;
+    cursor: default;
+  }
   
-  &--floatButton{
+  &--floatButton {
     position:fixed;
     padding: 30px;
     border-radius: 50%;
@@ -35,19 +36,23 @@
     background: #FF4F79;
     box-shadow: 2.5px 2.5px 1.25px #aaaaaa;
     z-index: 1000;
-    &--left_bottom{
+
+    &--left_bottom {
       bottom: 30px;
       left: 40px;
     }
-    &--right_bottom{
+
+    &--right_bottom {
       bottom: 30px;
       right: 40px;
     }
-    &--center_bottom{
+
+    &--center_bottom {
       bottom: 30px;
       right: 50%;
     }
-    &--items{
+    
+    &--items {
       display:flex;
       align-items:center;
       justify-content:center;
@@ -63,25 +68,81 @@
 
   &--mode-default {
     color: #fff;
-    border-color: hwb(210 20% 75%);
+    border-color: #343a40;
     background: #343a40;
+
+    &:hover {
+      border-color: rgb(52, 58, 64, 0.4) !important;
+      background: rgb(52, 58, 64, 0.4) !important;
+    }
   }
 
   &--mode-save {
     color: #fff;
     border-color: #28a745;
     background: #28a745;
+
+    &:hover {
+      border-color: rgb(40, 167, 69, 0.7) !important;
+      background: rgb(40, 167, 69, 0.7) !important;
+    }
   }
 
   &--mode-danger {
     color: #fff;
     border-color: #dc3545;
     background: #dc3545;
+
+    &:hover {
+      border-color: rgb(220, 53, 69, 0.4) !important;
+      background: rgb(220, 53, 69, 0.4) !important;
+    }
   }
 
-  &--mode-transparent {
-    color: #000;
-    background: transparent;
+  &--mode-info {
+    color: #fff;
+    border-color: #17a2b8;
+    background: #17a2b8;
+
+    &:hover {
+      border-color: rgb(23, 162, 184, 0.4) !important;
+      background: rgb(23, 162, 184, 0.4) !important;
+    }
+  }
+
+  &--mode-warning {
+    color: #fff;
+    border-color: #ffc107;
+    background: #ffc107;
+
+    &:hover {
+      border-color: rgb(255, 193, 7, 0.4) !important;
+      background: rgb(255, 193, 7, 0.4) !important;
+    }
+  }
+
+  &--mode-link {
+    border: none !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+
+    .sco-button {
+      &--text {
+        color: #007bff !important;
+        font-family: 'sco regular';
+      }
+    }
+
+    &:hover {
+      .sco-button {
+        &--text {
+          color: #007bff !important;
+          font-family: 'sco semi bold';
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   &--icon-margin {

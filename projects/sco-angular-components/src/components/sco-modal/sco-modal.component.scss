@@ -1,76 +1,71 @@
 .sco-modal {
+  .card {
+    -webkit-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+  }
 
-    .card {
-      -webkit-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
-      box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.75);
+  &--overlay {
+    &__content {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: 'sco regular';
 
-      
-    }
-  
-    &--overlay {
-  
-      &__content {
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-        font-family: 'sco regular';
+      &--big {
+        width: 80%;
+        left: 10vw;
+        top: 10vh;
 
-        &--big {
-          width: 80%;
-          left: 10vw;
-          top: 10vh;
-  
-          .card {
-            height: 80vh;
-          }
-        }
-  
-        &--small {
-  
-          @media (max-width: 568px) {
-            width: 100%;
-            left: 0vw;
-            top: 40vh;
-          }
-  
-          @media (min-width: 568px) {
-            width: 50%;
-            left: 25vw;
-            top: 40vh;
-          }
-  
-  
-          .card {
-            max-height: 25vh;
-          }
-        }
-  
-        .card-body {
-          overflow: auto;
-          margin-bottom: 15px;
-        }
-  
-        &--title {
-          font-size: 18px;
-          text-decoration: underline;
-          text-align: center;
-          padding-top: 15px;
-          justify-content: center;
-          font-family: "sco bold";
-        }
-  
-        &--card-buttons {
-          margin-left: 5px;
-          padding-bottom: 15px;
-          padding-right: 5px;
-  
-          &__button {
-            margin-right: 10px;
-            font-family: 'sco semi bold' !important;
-          }
+        .card {
+          height: 80vh;
         }
       }
-  
+
+      &--small {
+
+        @media (max-width: 568px) {
+          width: 100%;
+          left: 0vw;
+          top: 40vh;
+        }
+
+        @media (min-width: 568px) {
+          width: 50%;
+          left: 25vw;
+          top: 40vh;
+        }
+
+
+        .card {
+          max-height: 25vh;
+        }
+      }
+
+      .card-body {
+        overflow: auto;
+        margin-bottom: 15px;
+      }
+
+      &--title {
+        font-size: 18px;
+        text-decoration: underline;
+        text-align: center;
+        padding-top: 15px;
+        justify-content: center;
+        font-family: "sco bold";
+      }
+
+      &--card-buttons {
+        margin-left: 5px;
+        padding-bottom: 15px;
+        padding-right: 5px;
+
+        &__button {
+          margin-right: 10px;
+          font-family: 'sco semi bold' !important;
+        }
+      }
     }
   }
+}

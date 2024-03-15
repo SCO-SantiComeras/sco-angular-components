@@ -2,22 +2,41 @@
     margin-left: 5px;
     margin-right: 5px;
 
+    font-family: 'sco semi bold';
+    color: #fff;
+
     &--clickable{
         cursor: pointer;
     }
 
     &--small{
         font-size: 14px;
-        padding-top: 5px;
+        padding-top: 4px;
     }
 
     &--medium {
         font-size: 18px;
-        padding-top: 7px;
+        padding-top: 6px;
     }
 
     &--large {
         font-size: 24px;
-        padding-top: 10px;
+        padding-top: 6px;
+    }
+
+    &--info {
+        background: #343a40;
+    }
+
+    &--danger {
+        background: #dc3545;
+    }
+
+    &--warning {
+        background: #ffc107;
+    }
+
+    &--success {
+        background: #28a745;
     }
 }

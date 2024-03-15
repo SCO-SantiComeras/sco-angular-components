@@ -1,5 +1,4 @@
 .sco-accordion {
-
     border-radius: 4px;
     margin-bottom: 10px;
     -webkit-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
@@ -7,7 +6,6 @@
     box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
 
     &__title {
-
         padding: 5px;
         cursor: pointer;
         border-radius: 4px;
@@ -24,6 +22,7 @@
 
         &--text {
             font-size: 24px;
+            font-family: 'sco bold';
         }
 
         &--icon {
@@ -35,6 +34,7 @@
 
 
     &__content {
+        font-family: 'sco regular' !important;
 
         &--is-opened {
             padding: 10px;

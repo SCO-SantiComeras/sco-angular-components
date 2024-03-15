@@ -4,6 +4,7 @@
 
 .sco-calendar .p-calendar .p-inputtext {
   width: 100%;
+  font-family: 'sco regular';
 }
 
 .sco-calendar .p-datepicker table th {
@@ -17,7 +18,7 @@
 .sco-calendar {
   &__label {
     text-transform: uppercase;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    font-family: 'sco semi bold';
+    font-size: 18px;
   }
 }

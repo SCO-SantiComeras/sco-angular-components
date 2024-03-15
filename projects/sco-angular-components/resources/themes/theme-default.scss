@@ -160,7 +160,6 @@ $content: #FFF;
 
     sco-block-list-item { 
         .sco-block-list-item { 
-            /* border: $border-primary; */
             border: 1px solid #161c2d;
             background: $background;
 
@@ -185,7 +184,6 @@ $content: #FFF;
 
     sco-block-list-data { 
         .sco-block-list-data {
-    
             &__label {
                 color: #c8c8c8;
             }
@@ -266,38 +264,18 @@ $content: #FFF;
     }
 
     sco-button {
-        .btn-sco-comp {
-          &--border {
-            border-color: $primary;
-          }
-    
+        .sco-button { 
           &--mode-default {
             color: #fff;
             border-color: #343a40;
             background: #343a40;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--mode-save {
-            border-color: #28a745;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--mode-danger {
-            border-color: #dc3545;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--disabled {
-            color: #fff;
-            border-color: rgb(207, 207, 207);
-            background: rgb(207, 207, 207);
-            font-family: 'sco semi bold' !important;
           }
 
-          &--text {
-            color: #FFF;
-            font-family: 'sco semi bold' !important;
+          &--disabled {
+            color: #FFF !important;
+            border-color: rgb(207, 207, 207) !important;
+            background: rgb(207, 207, 207) !important;
+            cursor: default;
           }
         }
     }
@@ -305,29 +283,9 @@ $content: #FFF;
     sco-badge-pill {
         .sco-badge {
           &--info {
-            background: #343a40;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
+            background: #343a40 !important;
+            color: #fff !important;
           }
-    
-          &--danger {
-            background: #dc3545;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--warning {
-            background: #ffc107;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--success {
-            background: #28a745;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
         }
     }
 

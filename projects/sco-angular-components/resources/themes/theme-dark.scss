@@ -196,10 +196,10 @@ $content: #121212;
     sco-tabs {
         .sco-tabs {
             &__tittle {
-                color: $color-text;
+                color: $color-text !important;
 
                 &--selected {
-                    border-bottom-color: $primary;
+                    border-bottom-color: #FFF !important;
                 }
             }
         }
@@ -263,39 +263,29 @@ $content: #121212;
     }
 
     sco-button {
-        .btn-sco-comp {
-          &--border {
-            border-color: $primary;
-          }
-    
+        .sco-button {
           &--mode-default {
-            color: #212529;
-            border-color: #f8f9fa;
-            background: #f8f9fa;
-            background-color: #f8f9fa !important;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--mode-save {
-            border-color: #28a745;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--mode-danger {
-            border-color: #dc3545;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--disabled {
-            color: #212529;
-            border-color: rgb(207, 207, 207);
-            background: rgb(207, 207, 207);
-            font-family: 'sco semi bold' !important;
+            color: #FFF !important;
+            border-color:  rgb(52, 58, 64, 0.9) !important;
+            background-color: rgb(52, 58, 64, 0.9) !important;
+
+            &:hover {
+                border-color: rgb(207, 207, 207, 0.3) !important;
+                background: rgb(207, 207, 207, 0.3) !important;
+            }
+
+            .sco-button {
+                &--text {
+                    color: #FFF !important;
+                }
+            }
           }
 
-          &--text {
-            color: #212529;
-            font-family: 'sco semi bold' !important;
+          &--disabled {
+            color: #FFF !important;
+            border-color: rgb(211, 211, 211, 0.9) !important;
+            background: rgb(211, 211, 211, 0.9) !important;
+            pointer-events: none !important; 
           }
 
           &--floatButton{ 
@@ -309,37 +299,20 @@ $content: #121212;
     sco-badge-pill {
         .sco-badge {
           &--info {
-            background: #f8f9fa;
-            color: #212529;
-            font-family: 'sco semi bold' !important;
+            background: #f8f9fa !important;
+            color: #212529 !important;
           }
     
-          &--danger {
-            background: #dc3545;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--warning {
-            background: #ffc107;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
-          &--success {
-            background: #28a745;
-            color: #fff;
-            font-family: 'sco semi bold' !important;
-          }
-    
-        }
+        } 
     }
 
     sco-textarea {
         .sco-textarea {
           &__textarea-container {
             &--textarea {
-              border: 2px solid $primary;
+              border: 2px solid #fff;
+              color: #FFF;
+              background-color: $background;
             }
           }
         }
@@ -349,12 +322,11 @@ $content: #121212;
         .sco-round-button {
           &__container {
             &--input {
-              border-color: grey;
-    
+              background-color: #f8f9fa;
+              border: 5px solid grey;
+
               &--active {
-                background-color: #f8f9fa;
-                border: 5px solid #f8f9fa;
-                border-color: grey;
+                background-color: $primary;
               }
             }
           }
@@ -367,6 +339,7 @@ $content: #121212;
 
           .progress-bar {
             background-color: lightgray;
+            color: #000;
           }
         }
     }
@@ -376,10 +349,11 @@ $content: #121212;
           &__container {
             &--input {
                 background-color: #FFF;
+
               &--active {
-                background-color: $primary;
-                border: $primary;
-                color: #FFF;
+                color: #FFF !important;
+                border-color:  rgb(52, 58, 64, 0.9) !important;
+                background-color: rgb(52, 58, 64, 0.9) !important;
               }
             }
           }
@@ -390,6 +364,31 @@ $content: #121212;
         .sco-split-button {
             &__options {
                 background: $background;
+            }
+        }
+    }
+
+    /* Sco-calendar only in dark modes */
+    sco-calendar {
+        .sco-calendar { 
+            .p-inputtext {
+                background: $background !important;
+                color: #fff !important;
+            }
+
+            .p-datepicker {
+                background: $background !important;
+                color: #fff !important;
+            }
+
+            .p-datepicker-today {
+                background: $background !important;
+                color: #fff !important;
+            }
+            
+            .p-datepicker-header {
+                background: $background !important;
+                color: #fff !important;
             }
         }
     }

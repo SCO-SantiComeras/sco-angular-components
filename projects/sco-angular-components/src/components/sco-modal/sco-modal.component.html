@@ -23,19 +23,20 @@
           <ng-content select="[modal-content]"></ng-content>
         </div>
 
-        <div class="row sco-modal--overlay__content--card-buttons" *ngIf="type !== constatnsService.ScoModalTypeConstants.NO_BUTTONS">
+        <div class="row sco-modal--overlay__content--card-buttons" *ngIf="type !== constantsService.ScoModalTypeConstants.NO_BUTTONS">
           <div class="col-12 text-right">
-            <button *ngIf="type === constatnsService.ScoModalTypeConstants.CONFIRM || 
-            type === constatnsService.ScoModalTypeConstants.INFO"
-            (click)="onConfirm($event)"
-            class="btn btn-primary sco-modal--overlay__content--card-buttons__button">
-            {{labelConfirm}}
-          </button>
-          <button *ngIf="type === constatnsService.ScoModalTypeConstants.CONFIRM"
-            (click)="onClose($event)"
-            class="btn btn-danger sco-modal--overlay__content--card-buttons__button">
-            {{labelClose}}
-          </button>
+            <sco-button *ngIf="type === constantsService.ScoModalTypeConstants.CONFIRM"
+              class="sco-modal--overlay__content--card-buttons__button"
+              [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
+              [text]="labelClose"
+              (action)="onClose($event)">
+            </sco-button>
+            <sco-button *ngIf="type === constantsService.ScoModalTypeConstants.CONFIRM || type === constantsService.ScoModalTypeConstants.INFO"
+              class="sco-modal--overlay__content--card-buttons__button"
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+              [text]="labelConfirm"
+              (action)="onConfirm($event)">
+            </sco-button>
           </div>
         </div>
       </div>

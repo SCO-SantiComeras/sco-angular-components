@@ -33,12 +33,12 @@
 
         &--require {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold';
         }
 
         &--label {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold';
         }
     }
 
@@ -46,6 +46,7 @@
         position: absolute;
         width: 100%;
         z-index: 9999;
+        font-family: 'sco regular';
 
         &--search {
             

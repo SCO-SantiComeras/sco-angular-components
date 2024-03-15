@@ -1,8 +1,8 @@
 .sco-input {
-    
     min-width: 100px;
     position: relative;
     display: block;
+    font-family: 'sco regular';
 
     .input-group {
         border-radius: 4px;
@@ -49,12 +49,12 @@
 
         &--title {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold' !important;
         }
 
         &--require {
             font-size: 18px;
-            font-family: 'sco regular';
+            font-family: 'sco semi bold' !important;
         }
     }
 }
