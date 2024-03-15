@@ -1,8 +1,8 @@
 /*
- * Public API Surface of sco-components-lib
+ * Public API Surface of sco-angular-components
  */
 
-export * from './sco-components-lib.module';
+export * from './sco-angular-components.module';
 
 // SCO Constants
 export * from './services/sco-constants.service';

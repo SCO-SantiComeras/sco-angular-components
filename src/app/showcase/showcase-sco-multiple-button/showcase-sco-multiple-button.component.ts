@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ScoButton } from 'projects/sco-components-lib/src/components/sco-multiple-button/bean/sco-button';
-import { ScoToastService } from 'projects/sco-components-lib/src/public-api';
-import { ScoCacheService } from 'projects/sco-components-lib/src/services/sco-cache.service';
+import { ScoButton } from 'projects/sco-angular-components/src/components/sco-multiple-button/bean/sco-button';
+import { ScoToastService } from 'projects/sco-angular-components/src/public-api';
+import { ScoCacheService } from 'projects/sco-angular-components/src/services/sco-cache.service';
 
 @Component({
   selector: 'app-showcase-sco-multiple-button',

@@ -1,5 +1,5 @@
-import { ScoCacheService } from '../../../../projects/sco-components-lib/src/services/sco-cache.service';
-import { ScoSpinnerService } from './../../../../projects/sco-components-lib/src/components/sco-spinner/sco-spinner.service';
+import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import { ScoSpinnerService } from './../../../../projects/sco-angular-components/src/components/sco-spinner/sco-spinner.service';
 import { Component } from '@angular/core';
 
 @Component({

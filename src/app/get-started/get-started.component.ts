@@ -1,4 +1,4 @@
-import { ScoCacheService } from '../../../projects/sco-components-lib/src/services/sco-cache.service';
+import { ScoCacheService } from '../../../projects/sco-angular-components/src/services/sco-cache.service';
 import { Component } from '@angular/core';
 
 @Component({

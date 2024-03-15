@@ -1,9 +1,9 @@
-import { ScoToastService } from './../../../../projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
-import { ScoCacheService } from '../../../../projects/sco-components-lib/src/services/sco-cache.service';
-import { ScoSelectedItem } from '../../../../projects/sco-components-lib/src/common/sco-selected-item';
-import { ScoAction } from '../../../../projects/sco-components-lib/src/common/sco-action';
+import { ScoToastService } from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import { ScoSelectedItem } from '../../../../projects/sco-angular-components/src/common/sco-selected-item';
+import { ScoAction } from '../../../../projects/sco-angular-components/src/common/sco-action';
 import { Appointment } from './model/Appointment';
-import { ScoBlockItem } from './../../../../projects/sco-components-lib/src/components/sco-block-list/model/sco-block-item';
+import { ScoBlockItem } from './../../../../projects/sco-angular-components/src/components/sco-block-list/model/sco-block-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

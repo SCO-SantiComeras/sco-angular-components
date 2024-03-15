@@ -118,4 +118,4 @@ import { ScoGraphicsModule } from './components/sco-graphics/sco-graphics.module
   ]
 })
 
-export class ScoComponentsLibModule { }
+export class ScoAngularComponentsModule { }

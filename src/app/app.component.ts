@@ -1,6 +1,6 @@
-import { ScoResolutionService } from 'projects/sco-components-lib/src/public-api';
-import { ScoConstantsService } from '../../projects/sco-components-lib/src/services/sco-constants.service';
-import { ScoThemeService } from '../../projects/sco-components-lib/src/services/sco-theme.service';
+import { ScoResolutionService } from 'projects/sco-angular-components/src/public-api';
+import { ScoConstantsService } from '../../projects/sco-angular-components/src/services/sco-constants.service';
+import { ScoThemeService } from '../../projects/sco-angular-components/src/services/sco-theme.service';
 import { Component, HostListener } from '@angular/core';
 
 @Component({

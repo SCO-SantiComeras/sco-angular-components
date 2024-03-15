@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScoCacheService, ScoConstantsService, ScoToastService } from 'projects/sco-components-lib/src/public-api';
+import { ScoCacheService, ScoConstantsService, ScoToastService } from 'projects/sco-angular-components/src/public-api';
 
 @Component({
   selector: 'app-showcase-sco-button',

@@ -53,7 +53,7 @@
       <sco-tab-item tittle="TS">
           -- Showcase
           <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoToastService, ScoCacheService, scoTranslateService &#125; from 'sco-components-lib';
+import &#123; ScoToastService, ScoCacheService, scoTranslateService &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
 @Component(&#123;
@@ -101,8 +101,8 @@ export class ShowcasescoTranslateComponent implements OnInit &#123;
 import &#123; APP_INITIALIZER, NgModule &#125; from '@angular/core';
 import &#123; BrowserModule, &#125; from '@angular/platform-browser';
 import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
-import &#123; ScoComponentsLibModule &#125; from 'sco-components-lib';
-import &#123; scoTranslateService &#125; from 'sco-components-lib';
+import &#123; ScoComponentsLibModule &#125; from 'sco-angular-components';
+import &#123; scoTranslateService &#125; from 'sco-angular-components';
                     
 export function translateFactory(provider: scoTranslateService) &#123;
     return () => provider.getData('assets/i18n/');

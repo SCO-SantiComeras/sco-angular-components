@@ -29,18 +29,18 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              {"glob": "**/*", "input": "node_modules/sco-components-lib/resources/img", "output": "resources/img/"}
+              {"glob": "**/*", "input": "node_modules/sco-angular-components/resources/img", "output": "resources/img/"}
             ],
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/prismjs/themes/prism.css",
-              "node_modules/sco-components-lib/resources/scss/sco-styles.scss",
-              "node_modules/sco-components-lib/resources/scss/font.scss",
-              "node_modules/sco-components-lib/resources/themes/theme-default.scss",
-              "node_modules/sco-components-lib/resources/themes/theme-dark.scss",
-              "node_modules/sco-components-lib/resources/themes/theme-blue.scss",
+              "node_modules/sco-angular-components/resources/scss/sco-styles.scss",
+              "node_modules/sco-angular-components/resources/scss/font.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-default.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-dark.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-blue.scss",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
@@ -116,12 +116,12 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "node_modules/sco-components-lib/resources/scss/sco-styles.scss",
-              "node_modules/sco-components-lib/resources/scss/font.scss",
+              "node_modules/sco-angular-components/resources/scss/sco-styles.scss",
+              "node_modules/sco-angular-components/resources/scss/font.scss",
               "node_modules/prismjs/themes/prism.css",
-              "node_modules/sco-components-lib/resources/themes/theme-default.scss",
-              "node_modules/sco-components-lib/resources/themes/theme-dark.scss",
-              "node_modules/sco-components-lib/resources/themes/theme-blue.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-default.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-dark.scss",
+              "node_modules/sco-angular-components/resources/themes/theme-blue.scss",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
@@ -133,23 +133,23 @@
         }
       }
     },
-    "sco-components-lib": {
+    "sco-angular-components": {
       "projectType": "library",
-      "root": "projects/sco-components-lib",
-      "sourceRoot": "projects/sco-components-lib/src",
+      "root": "projects/sco-angular-components",
+      "sourceRoot": "projects/sco-angular-components/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/sco-components-lib/ng-package.json"
+            "project": "projects/sco-angular-components/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/sco-components-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/sco-angular-components/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/sco-components-lib/tsconfig.lib.json"
+              "tsConfig": "projects/sco-angular-components/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -157,9 +157,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/sco-components-lib/src/test.ts",
-            "tsConfig": "projects/sco-components-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/sco-components-lib/karma.conf.js"
+            "main": "projects/sco-angular-components/src/test.ts",
+            "tsConfig": "projects/sco-angular-components/tsconfig.spec.json",
+            "karmaConfig": "projects/sco-angular-components/karma.conf.js"
           }
         }
       }

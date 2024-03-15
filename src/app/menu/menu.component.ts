@@ -1,12 +1,12 @@
-import { ScoResolutionService } from './../../../projects/sco-components-lib/src/services/sco-resolution/sco-resolution.service';
+import { ScoResolutionService } from './../../../projects/sco-angular-components/src/services/sco-resolution/sco-resolution.service';
 import { Component, ViewChild, ViewEncapsulation, ElementRef, HostListener } from '@angular/core';
-import { ScoThemeService } from '../../../projects/sco-components-lib/src/services/sco-theme.service';
-import { ScoSelectItem } from '../../../projects/sco-components-lib/src/common/sco-select-item';
-import { ScoConstantsService } from '../../../projects/sco-components-lib/src/services/sco-constants.service';
-import { ScoModalService } from '../../../projects/sco-components-lib/src/components/sco-modal/sco-modal.service';
-import { ScoConfigService } from '../../../projects/sco-components-lib/src/services/sco-config/sco-config.service';
-import { ScoDetailComponent } from '../../../projects/sco-components-lib/src/components/sco-detail/sco-detail.component';
-import { ScoCacheService } from '../../../projects/sco-components-lib/src/services/sco-cache.service';
+import { ScoThemeService } from '../../../projects/sco-angular-components/src/services/sco-theme.service';
+import { ScoSelectItem } from '../../../projects/sco-angular-components/src/common/sco-select-item';
+import { ScoConstantsService } from '../../../projects/sco-angular-components/src/services/sco-constants.service';
+import { ScoModalService } from '../../../projects/sco-angular-components/src/components/sco-modal/sco-modal.service';
+import { ScoConfigService } from '../../../projects/sco-angular-components/src/services/sco-config/sco-config.service';
+import { ScoDetailComponent } from '../../../projects/sco-angular-components/src/components/sco-detail/sco-detail.component';
+import { ScoCacheService } from '../../../projects/sco-angular-components/src/services/sco-cache.service';
 import { Router } from '@angular/router';
 import { cloneDeep } from 'lodash-es';
 

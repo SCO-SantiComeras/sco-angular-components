@@ -1,10 +1,10 @@
 
 import { Component } from '@angular/core';
-import { ScoToastService } from './../../../../projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
-import { ScoCacheService } from '../../../../projects/sco-components-lib/src/services/sco-cache.service';
-import { ScoModalService } from '../../../../projects/sco-components-lib/src/components/sco-modal/sco-modal.service';
-import { ScoConstantsService } from '../../../../projects/sco-components-lib/src/services/sco-constants.service';
-import { ScoSelectItem } from 'projects/sco-components-lib/src/common/sco-select-item';
+import { ScoToastService } from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import { ScoModalService } from '../../../../projects/sco-angular-components/src/components/sco-modal/sco-modal.service';
+import { ScoConstantsService } from '../../../../projects/sco-angular-components/src/services/sco-constants.service';
+import { ScoSelectItem } from 'projects/sco-angular-components/src/common/sco-select-item';
 
 @Component({
   selector: 'app-showcase-sco-modal',

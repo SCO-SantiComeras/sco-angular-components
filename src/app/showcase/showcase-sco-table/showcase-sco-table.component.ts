@@ -1,9 +1,9 @@
-import { ScoToastService } from './../../../../projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
-import { ScoSelectedItem } from '../../../../projects/sco-components-lib/src/common/sco-selected-item';
-import { ScoCacheService } from '../../../../projects/sco-components-lib/src/services/sco-cache.service';
-import { ScoTableCol } from './../../../../projects/sco-components-lib/src/components/sco-table/model/sco-table-cols';
-import { ScoAction } from '../../../../projects/sco-components-lib/src/common/sco-action';
-import { ScoTableItem } from './../../../../projects/sco-components-lib/src/components/sco-table/model/sco-table.item';
+import { ScoToastService } from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import { ScoSelectedItem } from '../../../../projects/sco-angular-components/src/common/sco-selected-item';
+import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import { ScoTableCol } from './../../../../projects/sco-angular-components/src/components/sco-table/model/sco-table-cols';
+import { ScoAction } from '../../../../projects/sco-angular-components/src/common/sco-action';
+import { ScoTableItem } from './../../../../projects/sco-angular-components/src/components/sco-table/model/sco-table.item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

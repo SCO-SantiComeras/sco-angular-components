@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Libreria
-import { ScoComponentsLibModule } from '../../projects/sco-components-lib/src/sco-components-lib.module';
-import { ScoTranslateService } from '../../projects/sco-components-lib/src/services/sco-translate/sco-translate.service';
-import { ScoConfigService } from '../../projects/sco-components-lib/src/services/sco-config/sco-config.service';
+import { ScoAngularComponentsModule } from '../../projects/sco-angular-components/src/sco-angular-components.module';
+import { ScoTranslateService } from '../../projects/sco-angular-components/src/services/sco-translate/sco-translate.service';
+import { ScoConfigService } from '../../projects/sco-angular-components/src/services/sco-config/sco-config.service';
 
 // Componentes
 import { ShowcaseScoJoinPComponent } from './showcase/showcase-sco-join-p/showcase-sco-join-p.component';
@@ -101,7 +101,7 @@ export function translateFactory(provider: ScoTranslateService) {
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ScoComponentsLibModule,
+    ScoAngularComponentsModule,
     FormsModule,
     CodeHighlighterModule
   ],

@@ -19,8 +19,8 @@
       "@angular/*": [
         "./node_modules/@angular/*"
       ],
-      "sco-components-lib": [
-        "../sco-components-lib/projects/sco-components-lib/src/public-api"
+      "sco-angular-components": [
+        "../sco-angular-components/projects/sco-angular-components/src/public-api"
       ]
     },
     "importHelpers": true,

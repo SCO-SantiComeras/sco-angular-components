@@ -9,7 +9,7 @@
 
 # dependencies
 /node_modules
-/projects/sco-components-lib/node_modules
+/projects/sco-angular-components/node_modules
 # profiling files
 chrome-profiler-events*.json
 

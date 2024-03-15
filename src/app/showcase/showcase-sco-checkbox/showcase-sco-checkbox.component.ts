@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ScoSelectItem } from 'projects/sco-components-lib/src/common/sco-select-item';
-import { ScoToastService } from 'projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
-import { ScoCacheService } from 'projects/sco-components-lib/src/services/sco-cache.service';
+import { ScoSelectItem } from 'projects/sco-angular-components/src/common/sco-select-item';
+import { ScoToastService } from 'projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import { ScoCacheService } from 'projects/sco-angular-components/src/services/sco-cache.service';
 
 @Component({
   selector: 'app-showcase-sco-checkbox',

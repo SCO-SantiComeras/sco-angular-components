@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ScoCacheService } from 'projects/sco-components-lib/src/public-api';
+import { ScoCacheService } from 'projects/sco-angular-components/src/public-api';
 
 @Component({
   selector: 'app-showcase-sco-text-area',

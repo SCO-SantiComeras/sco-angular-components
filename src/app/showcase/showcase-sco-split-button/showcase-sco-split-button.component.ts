@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ScoAction } from 'projects/sco-components-lib/src/common/sco-action';
-import { ScoToastService } from 'projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
-import { ScoCacheService } from 'projects/sco-components-lib/src/services/sco-cache.service';
+import { ScoAction } from 'projects/sco-angular-components/src/common/sco-action';
+import { ScoToastService } from 'projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import { ScoCacheService } from 'projects/sco-angular-components/src/services/sco-cache.service';
 
 @Component({
   selector: 'app-showcase-sco-split-button',

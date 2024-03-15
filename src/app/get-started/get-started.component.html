@@ -25,7 +25,7 @@
       <div class="col-12 answer-sco">
         <span>Para instalar la biblioteca se debe ejecutar el siguiente comando: </span>
         <pre><code class="language-markup" ngNobindable pCode>
-  npm i sco-components-lib
+  npm i sco-angular-components
         </code></pre>
       </div>
     </div>
@@ -41,7 +41,7 @@
       <div class="col-12 answer-sco">
         <span>Añadiremos lo siguiente en assets: </span>
         <pre><code class="language-markup" ngNobindable pCode>
-  &#123;&quot;glob&quot;: &quot;**/*&quot;, &quot;input&quot;: &quot;node_modules/sco-components-lib/resources/img&quot;, &quot;output&quot;: &quot;resources/img/&quot;&#125;
+  &#123;&quot;glob&quot;: &quot;**/*&quot;, &quot;input&quot;: &quot;node_modules/sco-angular-components/resources/img&quot;, &quot;output&quot;: &quot;resources/img/&quot;&#125;
         </code></pre>
       </div>
     </div>
@@ -52,11 +52,11 @@
         <pre><code class="language-markup" ngNobindable pCode>
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "node_modules/font-awesome/css/font-awesome.min.css",
-  "node_modules/sco-components-lib/resources/scss/sco-styles.scss",
-  "node_modules/sco-components-lib/resources/scss/font.scss",
-  "node_modules/sco-components-lib/resources/themes/theme-default.scss",
-  "node_modules/sco-components-lib/resources/themes/theme-dark.scss",
-  "node_modules/sco-components-lib/resources/themes/theme-blue.scss",
+  "node_modules/sco-angular-components/resources/scss/sco-styles.scss",
+  "node_modules/sco-angular-components/resources/scss/font.scss",
+  "node_modules/sco-angular-components/resources/themes/theme-default.scss",
+  "node_modules/sco-angular-components/resources/themes/theme-dark.scss",
+  "node_modules/sco-angular-components/resources/themes/theme-blue.scss",
   "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
   "node_modules/primeng/resources/primeng.min.css"
         </code></pre>
@@ -74,7 +74,7 @@
       <div class="col-12 answer-sco">
         <span>Añadiremos lo siguiente en el App.module: </span>
         <pre><code class="language-typescript" ngNobindable pCode>
-  import &#123; ScoComponentsLibModule &#125; from 'sco-components-lib';
+  import &#123; ScoComponentsLibModule &#125; from 'sco-angular-components';
   import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
   @NgModule(&#123;
     imports: &#123;
@@ -276,7 +276,7 @@
               
                   <sco-tab-item tittle="TS">
                     <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoConstantsService, ScoThemeService, scoConfigService, ScoCacheService, scoTranslateService, ScoResolutionService &#125; from 'sco-components-lib';
+import &#123; ScoConstantsService, ScoThemeService, scoConfigService, ScoCacheService, scoTranslateService, ScoResolutionService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
 import &#123; Title &#125; from '@angular/platform-browser';
 import &#123; Router &#125; from '@angular/router';

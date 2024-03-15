@@ -1,6 +1,6 @@
-import { ScoTranslateService } from '../../../../projects/sco-components-lib/src/services/sco-translate/sco-translate.service';
-import { ScoCacheService } from '../../../../projects/sco-components-lib/src/services/sco-cache.service';
-import { ScoToastService } from './../../../../projects/sco-components-lib/src/components/sco-toast/sco-toast.service';
+import { ScoTranslateService } from '../../../../projects/sco-angular-components/src/services/sco-translate/sco-translate.service';
+import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import { ScoToastService } from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
