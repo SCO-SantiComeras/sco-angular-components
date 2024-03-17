@@ -27,12 +27,14 @@ export class ScoTableComponent<T> implements OnInit {
   @Input() previousLabel: string = "Anterior";
   @Input() nextLabel: string = "Siguiente";
   @Input() paginationOnTop: boolean = false;
-  @Input() templateRowInput: TemplateRef<any>
+  @Input() templateRowInput: TemplateRef<any>;
+  @Input() showAddCrudBtn: boolean = true;
 
   @Output() itemSelected: EventEmitter<ScoSelectedItem<T>>;
   @Output() actionSelected: EventEmitter<ScoAction<T>>;
   @Output() closeOptions: EventEmitter<MouseEvent>;
   @Output() changePage: EventEmitter<number>;
+  @Output() onnAddCrud: EventEmitter<boolean>;
 
   @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
 
@@ -49,6 +51,7 @@ export class ScoTableComponent<T> implements OnInit {
     this.actionSelected = new EventEmitter<ScoAction<T>>();
     this.closeOptions = new EventEmitter<MouseEvent>();
     this.changePage = new EventEmitter<number>();
+    this.onnAddCrud = new EventEmitter<boolean>();
     this.page = 1;
     this.showOptions = false;
     this.showOptionsIndex = -1;
@@ -111,5 +114,9 @@ export class ScoTableComponent<T> implements OnInit {
   onPageChange($event) {
     this.page = $event;
     this.changePage.emit(this.page);
+  }
+
+  onClickAddCrudBtn() {
+    this.onnAddCrud.emit(true);
   }
 }

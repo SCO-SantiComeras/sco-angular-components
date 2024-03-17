@@ -1,153 +1,183 @@
 <base-showcase [showOutputs]="false">
 
   <div examples>
-    
-<div class="row">
-  <div class="col-12">
-
-    <div class="row mt-3">
-      <div class="col-12">
-        <span>Ejemplo 1: Estandar</span>
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-12">
-        <sco-indicator [(ngModel)]="value1"></sco-indicator>
-      </div>
-    </div>
 
-    <div class="row mt-3">
-      <div class="col-12">
-        <span>Ejemplo 2: tamaño</span>
-      </div>
-    </div>
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Estandar</span>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-12">
-        <sco-indicator [(ngModel)]="value2" [size]="200"></sco-indicator>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-12">
-        <span>Ejemplo 3: Tamaño borde</span>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-indicator 
+              [(ngModel)]="value1">
+            </sco-indicator>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-12">
-        <sco-indicator [(ngModel)]="value3" [strokeWidth]="5"></sco-indicator>
-      </div>
-    </div>
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 2: tamaño</span>
+          </div>
+        </div>
 
-    <div class="row mt-3">
-      <div class="col-12">
-        <span>Ejemplo 4: Mostrar porcentaje</span>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-indicator 
+              [(ngModel)]="value2" 
+              [size]="200">
+            </sco-indicator>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-12">
-        <sco-indicator [(ngModel)]="value4" [showPercentage]="true"></sco-indicator>
-      </div>
-    </div>
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 3: Tamaño borde</span>
+          </div>
+        </div>
 
-    <div class="row mt-3">
-      <div class="col-12">
-        <span>Ejemplo 5: Cambiar color</span>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-indicator 
+              [(ngModel)]="value3" 
+              [strokeWidth]="5">
+            </sco-indicator>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-12">
-        <sco-indicator [(ngModel)]="value5" [color]="'#123'"></sco-indicator>
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 4: Mostrar porcentaje</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-indicator 
+              [(ngModel)]="value4" 
+              [showPercentage]="true">
+            </sco-indicator>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 5: Cambiar color</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-indicator 
+              [(ngModel)]="value5" 
+              [color]="'#123'">
+            </sco-indicator>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
   </div>
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTML">
+      <sco-tab-item title="HTML">
        <pre>
-        <code class="language-markup" pCode ngNonBindable>&lt;div class=&quot;row&quot;&gt;
+        <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
 
-    &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;sco-indicator [(ngModel)]=&quot;value1&quot;&gt;&lt;/sco-indicator&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-indicator 
+          [(ngModel)]=&quot;value1&quot;&gt;
+        &lt;/sco-indicator&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;span&gt;Ejemplo 2: tama&ntilde;o&lt;/span&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 2: tamaño&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;sco-indicator [(ngModel)]=&quot;value2&quot; [size]=&quot;200&quot;&gt;&lt;/sco-indicator&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-indicator 
+          [(ngModel)]=&quot;value2&quot; 
+          [size]=&quot;200&quot;&gt;
+        &lt;/sco-indicator&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;span&gt;Ejemplo 3: Tama&ntilde;o borde&lt;/span&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Tamaño borde&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;sco-indicator [(ngModel)]=&quot;value3&quot; [strokeWidth]=&quot;5&quot;&gt;&lt;/sco-indicator&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-indicator 
+          [(ngModel)]=&quot;value3&quot; 
+          [strokeWidth]=&quot;5&quot;&gt;
+        &lt;/sco-indicator&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 4: Mostrar porcentaje&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;sco-indicator [(ngModel)]=&quot;value4&quot; [showPercentage]=&quot;true&quot;&gt;&lt;/sco-indicator&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-indicator 
+          [(ngModel)]=&quot;value4&quot; 
+          [showPercentage]=&quot;true&quot;&gt;
+        &lt;/sco-indicator&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 5: Cambiar color&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
-        &lt;sco-indicator [(ngModel)]=&quot;value5&quot; [color]=&quot;'#123'&quot;&gt;&lt;/sco-indicator&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-indicator 
+          [(ngModel)]=&quot;value5&quot; 
+          [color]=&quot;'#123'&quot;&gt;
+        &lt;/sco-indicator&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+
   &lt;/div&gt;
 &lt;/div&gt;
-         </code>
+        </code>
        </pre>
       </sco-tab-item>
-      <sco-tab-item tittle="CSS">
-
+      <sco-tab-item title="CSS">
       </sco-tab-item>
-      <sco-tab-item tittle="TS">
-
+      <sco-tab-item title="TS">
         <pre>
           <code class="language-typescript" pCode ngNonBindable>
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; ScoCacheService &#125; from 'projects/sco-components/src/public-api';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-indicator-showcase',
   templateUrl: './indicator-showcase.component.html',
   styleUrls: ['./indicator-showcase.component.scss']
@@ -169,17 +199,17 @@ export class IndicatorShowcaseComponent &#123;
     this.value5 = 100;
   &#125;
 
-&#125;</code>
+&#125;
+          </code>
         </pre>
       </sco-tab-item>
     </sco-tabs>
-
   </div>
 
 
   <div inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -222,8 +252,8 @@ export class IndicatorShowcaseComponent &#123;
   </div>
 
   <div outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>

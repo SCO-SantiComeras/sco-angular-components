@@ -12,8 +12,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <p>{{'variable1' | scoConfig}}</p>
+                    <div class="col-12 answer-sco">
+                        <p>- {{'variable1' | scoConfig}}</p>
                     </div>
                 </div>
 
@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <p>{{'variable3.subvariable1' | scoConfig}}</p>
+                    <div class="col-12 answer-sco">
+                        <p>- {{'variable3.subvariable1' | scoConfig}}</p>
                     </div>
                 </div>
 
@@ -38,10 +38,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <p *ngIf="'showElement' | scoConfig">
-                            Me puedo mostrar
-                        </p>
+                    <div class="col-12 answer-sco">
+                        <p *ngIf="'showElement' | scoConfig">- Me puedo mostrar</p>
                     </div>
                 </div>
 
@@ -53,10 +51,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <p *ngFor="let item of ('values' | scoConfig)">
-                            {{item.label + ' - ' + item.value}}
-                        </p>
+                    <div class="col-12 answer-sco">
+                        <p *ngFor="let item of ('values' | scoConfig)">- {{item.label + ' - ' + item.value}}</p>
                     </div>
                 </div>
 
@@ -66,7 +62,7 @@
 
     <div code>
         <sco-tabs>
-            <sco-tab-item tittle="HTLM">
+            <sco-tab-item title="HTLM">
                 <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-12&quot;&gt;
@@ -79,8 +75,8 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;p&gt;{{'variable1' | scoConfig}}&lt;/p&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;p&gt;- {{'variable1' | scoConfig}}&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -92,8 +88,8 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;p&gt;{{'variable3.subvariable1' | scoConfig}}&lt;/p&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;p&gt;- {{'variable3.subvariable1' | scoConfig}}&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -105,10 +101,8 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;p *ngIf=&quot;'showElement' | scoConfig&quot;&gt;
-                    Me puedo mostrar
-                &lt;/p&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;p *ngIf=&quot;'showElement' | scoConfig&quot;&gt;- Me puedo mostrar &lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -120,10 +114,8 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;p *ngFor=&quot;let item of ('values' | scoConfig)&quot;&gt;
-                    {{item.label + ' - ' + item.value}}
-                &lt;/p&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;p *ngFor=&quot;let item of ('values' | scoConfig)&quot;&gt;- {{item.label + ' - ' + item.value}}&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -132,18 +124,18 @@
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="CSS">
+            <sco-tab-item title="CSS">
                 <pre><code class="language-css" pCode ngNonBindable>
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="TS">
+            <sco-tab-item title="TS">
                 -- Showcase
                 <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService, scoConfigService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-config',
   templateUrl: './showcase-sco-config.component.html',
   styleUrls: ['./showcase-sco-config.component.scss']
@@ -160,7 +152,6 @@ export class ShowcasescoConfigComponent &#123;
     console.log("Variable2: " + this.scoConfig.getData('variable2'));
   &#125;
 &#125;
-
                 </code></pre>
 
                 -- App.Module
@@ -175,7 +166,7 @@ export function configFactory(provider: scoConfigService) &#123;
     return () => provider.getDataFromJson('assets/config/data.json');
 &#125;
 
-@NgModule(&#123;
+&commat;NgModule(&#123;
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -188,7 +179,7 @@ export function configFactory(provider: scoConfigService) &#123;
             useFactory: configFactory,
             deps: [
                 scoConfigService
-                ],
+            ],
             multi: true
         &#125;
     ],
@@ -202,8 +193,8 @@ export class AppModule &#123; &#125;
     </div>
 
     <div class="scrollable" inputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>
@@ -225,8 +216,8 @@ export class AppModule &#123; &#125;
     </div>
 
     <div class="scrollable" outputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>

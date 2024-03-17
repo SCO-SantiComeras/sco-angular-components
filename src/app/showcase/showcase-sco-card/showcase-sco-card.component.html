@@ -10,10 +10,9 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-1">
             <div class="col-12">
-              <sco-card
-                [showTitle]="showTitleEx1" >
+              <sco-card [showTitle]="showTitleEx1">
                 <p card-title>Titulo</p>
                 <span card-content>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
@@ -31,10 +30,9 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row tm-1">
             <div class="col-12">
-              <sco-card
-                [showTitle]="showTitleEx2" >
+              <sco-card [showTitle]="showTitleEx2">
                 <p card-title>Titulo</p>
                 <span card-content>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
@@ -52,7 +50,7 @@
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTLM">
+      <sco-tab-item title="HTLM">
           <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -63,10 +61,9 @@
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
         &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-card
-            [showTitle]=&quot;showTitleEx1&quot; &gt;
+          &lt;sco-card [showTitle]=&quot;showTitleEx1&quot;&gt;
             &lt;p card-title&gt;Titulo&lt;/p&gt;
             &lt;span card-content&gt;
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
@@ -84,10 +81,9 @@
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
         &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-card
-            [showTitle]=&quot;showTitleEx2&quot; &gt;
+          &lt;sco-card [showTitle]=&quot;showTitleEx2&quot;&gt;
             &lt;p card-title&gt;Titulo&lt;/p&gt;
             &lt;span card-content&gt;
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
@@ -104,17 +100,17 @@
           </code></pre>
       </sco-tab-item>
     
-      <sco-tab-item tittle="CSS">
+      <sco-tab-item title="CSS">
           <pre><code class="language-css" pCode ngNonBindable>
           </code></pre>
       </sco-tab-item>
   
-      <sco-tab-item tittle="TS">
+      <sco-tab-item title="TS">
           <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-card',
   templateUrl: './showcase-sco-card.component.html',
   styleUrls: ['./showcase-sco-card.component.scss']
@@ -139,8 +135,8 @@ export class ShowcaseScoCardComponent &#123;
   </div>
 
 <div class="scrollable" inputs>
-  <table class="table">
-    <thead class="thead-dark">
+  <table class="table table-dark table-striped">
+    <thead>
       <tr>
           <th>Nombre</th>
           <th>Descripcción</th>
@@ -162,8 +158,8 @@ export class ShowcaseScoCardComponent &#123;
 </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
             <th>Nombre</th>
             <th>Descripcción</th>

@@ -4,14 +4,24 @@
     <div class="row">
       <div class="col-12">
 
-        <sco-login
-          [showLabelPwdRecovery]="false"
-          [showLabelUserRegister]="true"
-          (cancel)="cancelButton()"
-          (confirm)="confirmButton($event)"
-          (pwdRecovery)="pwdRecovery()"
-          (registerUser)="registerUser()" >
-        </sco-login>
+        <div class="row">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Login estandar</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <sco-login
+              [showLabelPwdRecovery]="true"
+              [showLabelUserRegister]="true"
+              (cancel)="cancelButton()"
+              (confirm)="confirmButton($event)"
+              (pwdRecovery)="pwdRecovery()"
+              (registerUser)="registerUser()">
+            </sco-login>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -19,46 +29,52 @@
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTLM">
-          <pre><code class="language-markup" pCode ngNonBindable>
+      <sco-tab-item title="HTLM">
+        <pre>
+          <code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
 
-    &lt;div class=&quot;row mt-1&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
       &lt;div class=&quot;col-12 title-sco&quot;&gt;
+      &lt;span&gt;Ejemplo 1: Login estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
         &lt;sco-login
           [showLabelPwdRecovery]=&quot;true&quot;
           [showLabelUserRegister]=&quot;true&quot;
           (cancel)=&quot;cancelButton()&quot;
           (confirm)=&quot;confirmButton($event)&quot;
           (pwdRecovery)=&quot;pwdRecovery()&quot;
-          (registerUser)=&quot;registerUser()&quot; &gt;
+          (registerUser)=&quot;registerUser()&quot;&gt;
         &lt;/sco-login&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;
-          </code></pre>
-      </sco-tab-item>
-    
-      <sco-tab-item tittle="CSS">
+          </code>
+        </pre>
+      </sco-tab-item> 
+      <sco-tab-item title="CSS">
           <pre><code class="language-css" pCode ngNonBindable>
           </code></pre>
       </sco-tab-item>
-  
-      <sco-tab-item tittle="TS">
+      <sco-tab-item title="TS">
           <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService, ScoToastService, ILogin &#125; from 'sco-angular-components';
-import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; Component &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-login',
   templateUrl: './showcase-sco-login.component.html',
   styleUrls: ['./showcase-sco-login.component.scss']
 &#125;)
 
-export class ShowcaseScoLoginComponent implements OnInit &#123;
+export class ShowcaseScoLoginComponent &#123;
 
   public inputUser: string;
   public inputPwd: string;
@@ -72,125 +88,119 @@ export class ShowcaseScoLoginComponent implements OnInit &#123;
     this.inputPwd = '';
   &#125;
 
-  ngOnInit() &#123;
-  &#125;
-
   cancelButton() &#123;
-    console.log("cancelButton");
     this.toastService.addSuccessMessage("Exito", "Botón cancelar presionado");
   &#125;
 
   confirmButton($event: ILogin) &#123;
-    console.log("confirmButton: " + JSON.stringify($event));
     this.toastService.addSuccessMessage("Exito", "Botón confirmar presionado: " + JSON.stringify($event));
   &#125;
 
   pwdRecovery() &#123;
-    console.log("pwdRecovery");
     this.toastService.addSuccessMessage("Exito", "Accion recuperar contrasela seleccionada");
   &#125;
 
   registerUser() &#123;
-    console.log("registerUser");
     this.toastService.addSuccessMessage("Exito", "Accion registrar usuario seleccionada");
   &#125;
+
 &#125;
           </code></pre>
       </sco-tab-item>
     </sco-tabs>
   </div>
 
-<div class="scrollable" inputs>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
+  <div class="scrollable" inputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
           <th>Nombre</th>
           <th>Descripcción</th>
           <th>Tipo</th>
           <th>Valor por defecto</th>
           <th>Posibles valores</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td>labelUser</td>
           <td>Texto para la etiqueta del input Usuario</td>
           <td>string</td>
           <td>'Usuario'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>labelPassword</td>
           <td>Texto para la etiqueta del input Contraseña</td>
           <td>string</td>
           <td>'Contraseña'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>labelCancel</td>
           <td>Texto del botón cancelar</td>
           <td>string</td>
           <td>'Cancelar'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>labelConfirm</td>
           <td>Texto del botón Acceder</td>
           <td>string</td>
           <td>'Acceder'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>labelPwdRecovery</td>
           <td>Texto de la acción recuperar contraseña</td>
           <td>string</td>
           <td>'Recuperar contraseña'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>showLabelPwdRecovery</td>
           <td>Indica si mostrar o no la acción recuperar contraseña</td>
           <td>boolean</td>
           <td>true</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>labelUserRegister</td>
           <td>Texto de la acción registrar usuario</td>
           <td>string</td>
           <td>'Registrar usuario'</td>
           <td></td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>showLabelUserRegister</td>
           <td>Indica si mostrar o no la acción registrar usuario</td>
           <td>boolean</td>
           <td>true</td>
           <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Descripcción</th>
-            <th>Valor devuelto</th>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Valor devuelto</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td>cancel</td>
-            <td>Indica pulsación en el botón cancelar</td>
-            <td>boolean</td>
+          <td>cancel</td>
+          <td>Indica pulsación en el botón cancelar</td>
+          <td>boolean</td>
         </tr>
         <tr>
-            <td>confirm</td>
-            <td>Indica pulsación en el botón confirmar. Devuelve usuario y contraseña introducidos</td>
-            <td>ILogin</td>
+          <td>confirm</td>
+          <td>Indica pulsación en el botón confirmar. Devuelve usuario y contraseña introducidos</td>
+          <td>ILogin</td>
         </tr>
         <tr>
           <td>pwdRecovery</td>
@@ -201,18 +211,9 @@ export class ShowcaseScoLoginComponent implements OnInit &#123;
           <td>registerUser</td>
           <td>Indica pulsación en la acción registrar usuario</td>
           <td>boolean</td>
-      </tr>
+        </tr>
       </tbody>
     </table>
   </div>
 
 </base-showcase>
-
-<!-- <sco-login
-  [showLabelPwdRecovery]="true"
-  [showLabelUserRegister]="true"
-  (cancel)="cancelButton()"
-  (confirm)="confirmButton($event)"
-  (pwdRecovery)="pwdRecovery()"
-  (registerUser)="registerUser()" >
-</sco-login> -->

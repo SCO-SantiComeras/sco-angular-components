@@ -8,16 +8,18 @@
         <div class="row mt-1">
           <div class="col-12 title-sco">
             <span>Ejemplo 1: Redimensiona la pantalla para cambiar el modo</span>
-            <p>Se debe añadir la directiva resolutionService a un contenedor padre</p>    
           </div>
         </div>
 
         <div class="row">
-            <div class="col-12">
-              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.MOBILE">Modo Mobile</div>
-              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.TABLET">Modo Tablet</div>
-              <div *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.WEB">Modo Web</div>
-            </div>
+          <div class="col-12 answer-sco">
+            <p>- Se debe añadir la directiva resolutionService a un contenedor padre</p>    
+          </div>
+          <div class="col-12 answer-sco">
+            <p *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.MOBILE">- Current mode: Modo Mobile</p>
+            <p *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.TABLET">- Current mode: Modo Tablet</p>
+            <p *ngIf="resolutionService.size === constantsService.ScoResolutionConstants.WEB">- Current mode: Modo Web</p>
+          </div>
         </div>
 
       </div>
@@ -26,7 +28,7 @@
 
   <div code>
       <sco-tabs>
-          <sco-tab-item tittle="HTLM">
+          <sco-tab-item title="HTLM">
               <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -35,15 +37,23 @@
     &lt;div class=&quot;row mt-1&quot;&gt;
       &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 1: Redimensiona la pantalla para cambiar el modo&lt;/span&gt;
-        &lt;p&gt;Se debe a&ntilde;adir la directiva resolutionService a un contenedor padre&lt;/p&gt;    
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.MOBILE&quot;&gt;Modo Mobile&lt;/div&gt;
-          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.TABLET&quot;&gt;Modo Tablet&lt;/div&gt;
-          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.WEB&quot;&gt;Modo Web&lt;/div&gt;
+        &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+          &lt;p&gt;Se debe a&ntilde;adir la directiva resolutionService a un contenedor padre&lt;/p&gt;    
+        &lt;/div&gt;
+        &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.MOBILE&quot;&gt;
+            &lt;p&gt;Modo Mobile&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.TABLET&quot;&gt;
+            &lt;p&gt;Modo Tablet&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div *ngIf=&quot;resolutionService.size === constantsService.ScoResolutionConstants.WEB&quot;&gt;
+            &lt;p&gt;Modo Web&lt;/p&gt;
+          &lt;/div&gt;   
         &lt;/div&gt;
     &lt;/div&gt;
 
@@ -52,17 +62,17 @@
               </code></pre>
           </sco-tab-item>
       
-          <sco-tab-item tittle="CSS">
+          <sco-tab-item title="CSS">
               <pre><code class="language-css" pCode ngNonBindable>
               </code></pre>
           </sco-tab-item>
       
-          <sco-tab-item tittle="TS">
+          <sco-tab-item title="TS">
               <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService, ScoConstantsService, resolutionServiceService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-resolution',
   templateUrl: './showcase-sco-resolution.component.html',
   styleUrls: ['./showcase-sco-resolution.component.scss']
@@ -84,8 +94,8 @@ export class ShowcaseresolutionServiceComponent &#123;
   </div>
 
   <div class="scrollable" inputs>
-      <table class="table">
-          <thead class="thead-dark">
+      <table class="table table-dark table-striped">
+          <thead>
               <tr>
                   <th>Nombre</th>
                   <th>Descripcción</th>
@@ -107,8 +117,8 @@ export class ShowcaseresolutionServiceComponent &#123;
   </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
             <th>Nombre</th>
             <th>Descripcción</th>

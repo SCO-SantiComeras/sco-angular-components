@@ -9,7 +9,7 @@ import { Component, Input, TemplateRef, ViewChild, ViewEncapsulation } from '@an
 
 export class ScoTabItemComponent {
 
-  @Input() tittle: string;
+  @Input() title: string;
   public selected: boolean;
 
   @ViewChild('contentTemplate', {static: false}) contentTemplate: TemplateRef<any>;

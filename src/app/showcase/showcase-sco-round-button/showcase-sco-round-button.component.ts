@@ -16,7 +16,7 @@ export class ShowcaseScoRoundButtonComponent {
     private readonly cacheService: ScoCacheService,
     private readonly toastService: ScoToastService  
   ) {
-    this.cacheService.setElement('title', 'Round button')
+    this.cacheService.setElement('title', 'Round Button')
   }
 
   clickEx1($event: boolean){

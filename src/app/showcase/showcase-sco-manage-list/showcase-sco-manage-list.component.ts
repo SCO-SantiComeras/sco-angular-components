@@ -11,7 +11,7 @@ export class ShowcaseScoManageListComponent {
   public listEx2: string[];
 
   constructor(private readonly cacheService: ScoCacheService) {
-    this.cacheService.setElement('title', 'Manage list');
+    this.cacheService.setElement('title', 'Manage List');
     this.listEx2 = ['1', '2', '3', '4', '5'];
   }
 }

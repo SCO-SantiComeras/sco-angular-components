@@ -1,7 +1,7 @@
 import { ScoCacheService } from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
 import { ScoToastService } from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
 import { ILogin } from './../../../../projects/sco-angular-components/src/components/sco-login/model/sco-login.model';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-showcase-sco-login',
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./showcase-sco-login.component.scss']
 })
 
-export class ShowcaseScoLoginComponent implements OnInit {
+export class ShowcaseScoLoginComponent {
 
   public inputUser: string;
   public inputPwd: string;
@@ -23,26 +23,19 @@ export class ShowcaseScoLoginComponent implements OnInit {
     this.inputPwd = '';
   }
 
-  ngOnInit() {
-  }
-
   cancelButton() {
-    console.log("cancelButton");
     this.toastService.addSuccessMessage("Exito", "Botón cancelar presionado");
   }
 
   confirmButton($event: ILogin) {
-    console.log("confirmButton: " + JSON.stringify($event));
     this.toastService.addSuccessMessage("Exito", "Botón confirmar presionado: " + JSON.stringify($event));
   }
 
   pwdRecovery() {
-    console.log("pwdRecovery");
     this.toastService.addSuccessMessage("Exito", "Accion recuperar contrasela seleccionada");
   }
 
   registerUser() {
-    console.log("registerUser");
     this.toastService.addSuccessMessage("Exito", "Accion registrar usuario seleccionada");
   }
 }

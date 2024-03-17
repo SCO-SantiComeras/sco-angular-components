@@ -46,6 +46,7 @@ export class ShowcaseScoCheckboxComponent implements OnInit {
       {label: 'C', value: 'c'},
       {label: 'C++', value: 'cpp'}
     ];
+    this.value2 = ['java', 'c'];
 
     this.options3 = [
       {label: 'Java', value: {property1: 'p1', property2: 'p2'}},
@@ -64,8 +65,6 @@ export class ShowcaseScoCheckboxComponent implements OnInit {
       {label: 'C', value: {property1: 'p9', property2: 'p10'}},
       {label: 'C++', value: {property1: 'p11', property2: 'p12'}}
     ];
-
-    this.value2 = ['java', 'c'];
     this.value4 = [{property1: 'p1', property2: 'p2'}, {property1: 'p9', property2: 'p10'}];
 
     this.value5 = true;

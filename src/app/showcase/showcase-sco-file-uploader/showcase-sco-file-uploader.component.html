@@ -6,109 +6,121 @@
 
         <div class="row mt-1">
           <div class="col-12 title-sco">
-            <span>Ejemplo 1: Estandar</span>
+            <span>Ejemplo 1: Parámetros</span>
           </div>
         </div>
 
         <div class="row mt-1">
           <div class="col-12">
-            <sco-accordion 
-              [title]="'File Uploader Options'" 
-              [open]="openAccordionOptions" 
-              (clickOpen)="onCLickAccordionOptions()" 
-            >
-              <div content-accordion>
-                <div class="row">
-                  <div class="col-12">
 
-                    <div class="row">
-                      <div class="col-4">
-                        <sco-toggle 
-                          [(ngModel)]="showBorder"
-                          [label]="'Show border'">
-                        </sco-toggle>
-                      </div>
-                      <div class="col-8">
-                        <sco-input
-                          [(ngModel)]="borderColor"
-                          [label]="'Border color'"
-                          [showLabel]="true" >
-                        </sco-input>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-4">
-                        <sco-toggle 
-                          [(ngModel)]="showUploadBtn"
-                          [label]="'Show Upload Button'">
-                        </sco-toggle>
-                      </div>
-                      <div class="col-8">
-                        <sco-input
-                          [(ngModel)]="labelUploadBtn"
-                          [label]="'Label Upload Button'"
-                          [showLabel]="true" >
-                        </sco-input>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-4">
-                        <sco-toggle 
-                          [(ngModel)]="showCleanBtn"
-                          [label]="'Show Clean Button'">
-                        </sco-toggle>
-                      </div>
-                      <div class="col-8">
-                        <sco-input
-                          [(ngModel)]="labelCleanBtn"
-                          [label]="'Label Clean Button'"
-                          [showLabel]="true" >
-                        </sco-input>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-4">
-                        <sco-toggle 
-                          [(ngModel)]="base64"
-                          [label]="'Show Base64 Decoder'">
-                        </sco-toggle>
-                      </div>
-                      <div class="col-4">
-                        <sco-input
-                          [(ngModel)]="labelBase64Title"
-                          [label]="'Label Base64 Title'"
-                          [showLabel]="true" >
-                        </sco-input>
-                      </div>
-                      <div class="col-4">
-                        <sco-input
-                          [(ngModel)]="base64TextRows"
-                          [type]="'number'"
-                          [label]="'Base64 Textarea Rows'"
-                          [showLabel]="true" >
-                        </sco-input>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-12 text-right">
-                        <button class="btn btn-success" (click)="openFileUploader()">Mostrar file uploader</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
+            <div class="row">
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="showLabel"
+                  [label]="'Show label'">
+                </sco-toggle>
               </div>
-            </sco-accordion>
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="required"
+                  [label]="'Required'">
+                </sco-toggle>
+              </div>
+              <div class="col-4">
+                <sco-input
+                  [(ngModel)]="label"
+                  [label]="'Label'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="showBorder"
+                  [label]="'Show border'">
+                </sco-toggle>
+              </div>
+              <div class="col-8">
+                <sco-input
+                  [(ngModel)]="borderColor"
+                  [label]="'Border color'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="showUploadBtn"
+                  [label]="'Show Upload Button'">
+                </sco-toggle>
+              </div>
+              <div class="col-8">
+                <sco-input
+                  [(ngModel)]="labelUploadBtn"
+                  [label]="'Label Upload Button'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="showCleanBtn"
+                  [label]="'Show Clean Button'">
+                </sco-toggle>
+              </div>
+              <div class="col-8">
+                <sco-input
+                  [(ngModel)]="labelCleanBtn"
+                  [label]="'Label Clean Button'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <sco-toggle 
+                  [(ngModel)]="base64"
+                  [label]="'Show Base64 Decoder'">
+                </sco-toggle>
+              </div>
+              <div class="col-4">
+                <sco-input
+                  [(ngModel)]="labelBase64Title"
+                  [label]="'Label Base64 Title'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+              <div class="col-4">
+                <sco-input
+                  [(ngModel)]="base64TextRows"
+                  [type]="'number'"
+                  [label]="'Base64 Textarea Rows'"
+                  [showLabel]="true" >
+                </sco-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 text-right">
+                <button class="btn btn-success" (click)="openFileUploader()">Mostrar file uploader</button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="row" >
           <div class="col-12">
             <sco-file-uploader *ngIf="showFileUploader"
+              [showLabel]="showLabel"
+              [label]="label"
+              [required]="required"
               [showBorder]="showBorder"
               [colorBorder]="borderColor"
               [labelUploadBtn]="labelUploadBtn"
@@ -131,7 +143,7 @@
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTLM">
+      <sco-tab-item title="HTLM">
         <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -152,6 +164,28 @@
           &lt;div content-accordion&gt;
             &lt;div class=&quot;row&quot;&gt;
               &lt;div class=&quot;col-12&quot;&gt;
+
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;showLabel&quot;
+                      [label]=&quot;'Show label'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-toggle 
+                      [(ngModel)]=&quot;required&quot;
+                      [label]=&quot;'Required'&quot;&gt;
+                    &lt;/sco-toggle&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;sco-input
+                      [(ngModel)]=&quot;label&quot;
+                      [label]=&quot;'Label'&quot;
+                      [showLabel]=&quot;true&quot; &gt;
+                    &lt;/sco-input&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
 
                 &lt;div class=&quot;row&quot;&gt;
                   &lt;div class=&quot;col-4&quot;&gt;
@@ -262,17 +296,17 @@
         </code></pre>
       </sco-tab-item>
     
-      <sco-tab-item tittle="CSS">
+      <sco-tab-item title="CSS">
         <pre><code class="language-css" pCode ngNonBindable>
         </code></pre>
       </sco-tab-item>
   
-      <sco-tab-item tittle="TS">
+      <sco-tab-item title="TS">
         <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; scoTranslateService, ScoCacheService, ScoToastService &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-file-uploader',
   templateUrl: './showcase-sco-file-uploader.component.html',
   styleUrls: ['./showcase-sco-file-uploader.component.scss']
@@ -283,6 +317,9 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
 
   public showFileUploader: boolean;
 
+  public showLabel: boolean;
+  public required: boolean;
+  public label: string;
   public showBorder: boolean;
   public borderColor: string;
   public showUploadBtn: boolean;
@@ -304,6 +341,9 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
 
     this.showFileUploader = false;
 
+    this.showLabel = false;
+    this.required = false;
+    this.label = 'File uploader';
     this.showBorder = false;
     this.borderColor = '#000';
     this.showUploadBtn = true;
@@ -341,8 +381,6 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
 
   /* Component Functions */
   uploadBtn($event) &#123;
-    console.log(`uploadBtn`);
-    console.log($event);
     this.toastService.addSuccessMessage(
       "Success",
       `Botón subir pulsado: $&#123;JSON.stringify($event ? $event.name : null)&#125;`
@@ -350,7 +388,6 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
   &#125;
 
   cleanBtn($event) &#123;
-    console.log(`cleanBtn: $&#123;$event&#125;`)
     this.toastService.addSuccessMessage(
       "Success",
       "Botón limpiar pulsado"
@@ -364,15 +401,14 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
     );
   &#125;
 &#125;
-
         </code></pre>
       </sco-tab-item>
     </sco-tabs>
   </div>
 
   <div class="scrollable" inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripcción</th>
@@ -471,8 +507,8 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
   </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripcción</th>

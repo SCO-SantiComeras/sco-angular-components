@@ -15,11 +15,10 @@ export class ShowcaseScoBadgePillComponent {
     private readonly toastService: ScoToastService,
     public readonly constantsService: ScoConstantsService
   ) { 
-    this.cacheService.setElement('title', 'Badge');
+    this.cacheService.setElement('title', 'Badge Pill');
   }
 
-  clickBadge($event){
+  clickBadge($event: MouseEvent){
     this.toastService.addSuccessMessage("Exito", "Click en el badge");
-    console.log($event);    
   }
 }

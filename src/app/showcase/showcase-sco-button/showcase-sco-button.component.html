@@ -11,32 +11,49 @@
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-button
-            [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
-            [icon]="'fa fa-user'"
-            [text]="'texto'"
-            (action)="click($event)"
-          >
-          </sco-button>
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+              [text]="'texto'"
+              (action)="click($event)">
+            </sco-button>
           </div>
         </div>
 
         <!-- 2 -->
         <div class="row mt-3">
           <div class="col-12 title-sco">
-              <span>Ejemplo 2: Botón save</span>
+              <span>Ejemplo 2: Modes</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-button
               [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
-              [icon]="'fa fa-user'"
-              [text]="'texto'"
-              (action)="click($event)"
-            >
+              [text]="'save'"
+              (action)="click($event)">
+            </sco-button>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
+              [text]="'danger'"
+              (action)="click($event)">
+            </sco-button>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_INFO"
+              [text]="'info'"
+              (action)="click($event)">
+            </sco-button>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_WARNING"
+              [text]="'warning'"
+              (action)="click($event)">
             </sco-button>
           </div>
         </div>
@@ -44,18 +61,17 @@
         <!-- 3 -->
         <div class="row mt-3">
           <div class="col-12 title-sco">
-              <span>Ejemplo 3: Botón danger</span>
+              <span>Ejemplo 3: Botón disabled</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-button
-              [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
-              [icon]="'fa fa-user'"
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
               [text]="'texto'"
-              (action)="click($event)"
-            >
+              [disabled]="true"
+              (action)="click($event)">
             </sco-button>
           </div>
         </div>
@@ -63,58 +79,63 @@
         <!-- 4 -->
         <div class="row mt-3">
           <div class="col-12 title-sco">
-              <span>Ejemplo 4: Botón disabled</span>
+              <span>Ejemplo 4: Botón submit</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
-            <sco-button
-              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
-              [icon]="'fa fa-user'"
-              [text]="'texto'"
-              [disabled]="true"
-              (action)="click($event)"
-            >
-            </sco-button>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="row mt-3">
-          <div class="col-12 title-sco">
-              <span>Ejemplo 5: Botón submit</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <form (ngSubmit)="submitForm()">
               <sco-button
                 [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
                 type="submit"
-                [icon]="'fa fa-user'"
-                [text]="'submit'" >
+                [text]="'submit'">
               </sco-button>
             </form>
           </div>
         </div>
 
-         <!-- 6 -->
+         <!-- 5 -->
          <div class="row mt-3">
           <div class="col-12 title-sco">
-              <span>Ejemplo 6: Botón float (Abajo a la derecha)</span>
+              <span>Ejemplo 5: Botón float (Abajo a la derecha)</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-button
               [floatButton]="true"
+              [icon]="'fa fa-user'"
               [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
               [position]="constantsService.ScoButtonConstants.FLOAT_POSITION_RIGHT_BOTTOM"
-              [icon]="'fa fa-user'"
               (action)="click($event)" >
+            </sco-button>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 6: Sizes</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+              [size]="constantsService.ScoButtonConstants.SIZE_MEDIUM"
+              [text]="'Medium'"
+              (action)="click($event)">
+            </sco-button>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+              [size]="constantsService.ScoButtonConstants.SIZE_LARGE"
+              [text]="'Large'"
+              (action)="click($event)">
             </sco-button>
           </div>
         </div>
@@ -122,40 +143,18 @@
         <!-- 7 -->
         <div class="row mt-3">
           <div class="col-12 title-sco">
-              <span>Ejemplo 7: Botón default medium</span>
+              <span>Ejemplo 7: Icon</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-button
-            [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
-            [size]="constantsService.ScoButtonConstants.SIZE_MEDIUM"
-            [icon]="'fa fa-user'"
-            [text]="'TEXTO'"
-            (action)="click($event)"
-          >
-          </sco-button>
-          </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="row mt-3">
-          <div class="col-12 title-sco">
-              <span>Ejemplo 8: Botón default large</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <sco-button
-            [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
-            [size]="constantsService.ScoButtonConstants.SIZE_LARGE"
-            [icon]="'fa fa-user'"
-            [text]="'TEXTO'"
-            (action)="click($event)"
-          >
-          </sco-button>
+              [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+              [icon]="'fa fa-user'"
+              [text]="'texto'"
+              (action)="click($event)">
+            </sco-button>
           </div>
         </div>
 
@@ -168,68 +167,167 @@
       <sco-tab-item title="HTML">
         <pre>
           <code class="language-markup" pCode ngNonBindable>
-&lt;p&gt;Button default&lt;/p&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
 
-&lt;sco-button
-  [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
-  [icon]=&quot;'fa fa-user'&quot;
-  [text]=&quot;'texto'&quot;
-  (action)=&quot;click($event)&quot;&gt;
-&lt;/sco-button&gt;
+    &lt;!-- 1 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Botón default&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;p&gt;Button save&lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [text]=&quot;'texto'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;sco-button
-  [mode]=&quot;constantsService.ScoButtonConstants.MODE_SAVE&quot;
-  [icon]=&quot;'fa fa-user'&quot;
-  [text]=&quot;'texto'&quot;
-  (action)=&quot;click($event)&quot;&gt;
-&lt;/sco-button&gt;
+    &lt;!-- 2 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Modes&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_SAVE&quot;
+          [text]=&quot;'save'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DANGER&quot;
+          [text]=&quot;'danger'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_INFO&quot;
+          [text]=&quot;'info'&quot;
+          (action)=&quot;click($event)&quot;;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_WARNING&quot;
+          [text]=&quot;'warning'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;p&gt;Button danger&lt;/p&gt;
+    &lt;!-- 3 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 3: Botón disabled&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;sco-button
-  [mode]=&quot;constantsService.ScoButtonConstants.MODE_DANGER&quot;
-  [icon]=&quot;'fa fa-user'&quot;
-  [text]=&quot;'texto'&quot;
-  (action)=&quot;click($event)&quot;&gt;
-&lt;/sco-button&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [text]=&quot;'texto'&quot;
+          [disabled]=&quot;true&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
+    &lt;!-- 4 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 4: Botón submit&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;p&gt;Disabled&lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;form (ngSubmit)=&quot;submitForm()&quot;&gt;
+          &lt;sco-button
+            [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+            type=&quot;submit&quot;
 
-&lt;sco-button
-  [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
-  [icon]=&quot;'fa fa-user'&quot;
-  [text]=&quot;'texto'&quot;
-  [disabled]=&quot;true&quot;
-  (action)=&quot;click($event)&quot;&gt;
-&lt;/sco-button&gt;
+            [text]=&quot;'submit'&quot;&gt;
+          &lt;/sco-button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;p&gt;Flotating Button&lt;/p&gt;
+    &lt;!-- 5 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 5: Botón float&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;sco-button
-  [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
-  [icon]=&quot;'fa fa-user'&quot;
-  [position]=&quot;constantsService.ScoButtonConstants.FLOAT_POSITION_RIGHT_BOTTOM&quot;
-  [floatButton]=&quot;true&quot;
-  (action)=&quot;click($event)&quot;&gt;
-&lt;/sco-button&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [floatButton]=&quot;true&quot;
+          [icon]=&quot;'fa fa-user'&quot;
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [position]=&quot;constantsService.ScoButtonConstants.FLOAT_POSITION_RIGHT_BOTTOM&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;p&gt;Submit&lt;/p&gt;
+    &lt;!-- 6 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 6: Sizes&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;form (ngSubmit)=&quot;submitForm()&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [size]=&quot;constantsService.ScoButtonConstants.SIZE_MEDIUM&quot;
+          [text]=&quot;'Medium'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [size]=&quot;constantsService.ScoButtonConstants.SIZE_LARGE&quot;
+          [text]=&quot;'Large'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-  &lt;sco-button
-    [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
-    type=&quot;submit&quot;
-    [icon]=&quot;'fa fa-user'&quot;
-    [text]=&quot;'submit'&quot;&gt;
-  &lt;/sco-button&gt;
+    &lt;!-- 7 --&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 7: Icon&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;/form&gt;
-          
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+          [icon]=&quot;'fa fa-user'&quot;
+          [text]=&quot;'texto'&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
           </code>
         </pre>
       </sco-tab-item>
@@ -242,7 +340,7 @@
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; ScoCacheService, ScoConstantsService, ScoToastService &#125; from 'projects/sco-angular-components/src/public-api';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-button-showcase',
   templateUrl: './button-showcase.component.html',
   styleUrls: ['./button-showcase.component.scss']
@@ -268,7 +366,6 @@ export class ButtonShowcaseComponent implements OnInit &#123;
   submitForm()&#123;
     this.toastService.addSuccessMessage('Exito', 'accion submit en el form');
   &#125;
-
 &#125;
           </code>
         </pre>
@@ -277,8 +374,8 @@ export class ButtonShowcaseComponent implements OnInit &#123;
   </div>
 
   <div inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -385,8 +482,8 @@ export class ButtonShowcaseComponent implements OnInit &#123;
   </div>
 
   <div outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>

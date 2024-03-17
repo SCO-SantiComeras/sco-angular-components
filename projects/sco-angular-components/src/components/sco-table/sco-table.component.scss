@@ -5,6 +5,7 @@
         
         &--thead {
             font-family: 'sco bold';
+            color: #FFF !important;
             
             @media (min-width: 992px) {
                 font-size: 18px;
@@ -12,6 +13,18 @@
             
             @media (max-width: 992px) {
                 font-size: 16px;
+            }
+
+            &--add-crud {
+                text-align: right;
+
+                &--icon {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: rgb(255, 255, 255, 0.8);
+                    }
+                }
             }
         }
 

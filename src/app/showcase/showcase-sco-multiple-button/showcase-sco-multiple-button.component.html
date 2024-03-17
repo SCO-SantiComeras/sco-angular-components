@@ -1,54 +1,54 @@
 <base-showcase>
+
   <div examples>
     <div class="row">
       <div class="col-12">
+
         <div class="row mt-3">
-          <div class="col-12">
+          <div class="col-12 title-sco">
             <span>Ejemplo 1: Estandar</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-multiple-button
               [buttons]="buttonsEx1"
-              (action)="actionEx1($event)"
-            >
+              (action)="actionEx1($event)">
             </sco-multiple-button>
           </div>
         </div>
 
         <div class="row mt-3">
-          <div class="col-12">
+          <div class="col-12 title-sco">
             <span>Ejemplo 2: 2 botones y solo iconos</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-multiple-button
               [buttons]="buttonsEx2"
-              (action)="actionEx2($event)"
-            >
+              (action)="actionEx2($event)">
             </sco-multiple-button>
           </div>
         </div>
 
         <div class="row mt-3">
-          <div class="col-12">
+          <div class="col-12 title-sco">
             <span>Ejemplo 3: Un boton</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 pl-4 pt-1">
             <sco-multiple-button
               [buttons]="buttonsEx3"
-              (action)="actionEx3($event)"
-            >
+              (action)="actionEx3($event)">
             </sco-multiple-button>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -57,18 +57,18 @@
     <sco-tabs>
       <sco-tab-item title="HTML">
         <pre>
-        <code class="language-markup" pCode ngNonBindable>
+          <code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
         &lt;sco-multiple-button 
           [buttons]=&quot;buttonsEx1&quot; 
           (action)=&quot;actionEx1($event)&quot;&gt;
@@ -77,13 +77,13 @@
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 2: 2 botones y solo iconos&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
         &lt;sco-multiple-button 
           [buttons]=&quot;buttonsEx2&quot; 
           (action)=&quot;actionEx2($event)&quot;&gt;
@@ -92,13 +92,13 @@
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
         &lt;span&gt;Ejemplo 3: Un boton&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;col-12&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
         &lt;sco-multiple-button 
           [buttons]=&quot;buttonsEx3&quot; 
           (action)=&quot;actionEx3($event)&quot;&gt;
@@ -107,10 +107,11 @@
     &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+          </code>
+        </pre>
       </sco-tab-item>
       <sco-tab-item title="CSS"> 
-
       </sco-tab-item>
       <sco-tab-item title="TS">
         <pre>
@@ -118,7 +119,7 @@
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; ScoButton, ScoCacheService, ScoToastService &#125; from 'projects/sco-components/src/public-api';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-multiple-button-showcase',
   templateUrl: './multiple-button-showcase.component.html',
   styleUrls: ['./multiple-button-showcase.component.scss']
@@ -207,15 +208,16 @@ export class MultipleButtonShowcaseComponent implements OnInit &#123;
         break;
     &#125;
   &#125;
-
-&#125;</code></pre>
+  
+&#125;
+        </code></pre>
       </sco-tab-item>
     </sco-tabs>
   </div>
 
   <div inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -250,8 +252,8 @@ export class MultipleButtonShowcaseComponent implements OnInit &#123;
   </div>
 
   <div outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -267,4 +269,5 @@ export class MultipleButtonShowcaseComponent implements OnInit &#123;
       </tbody>
     </table>
   </div>
+
 </base-showcase>

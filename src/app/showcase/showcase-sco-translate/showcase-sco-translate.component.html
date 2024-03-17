@@ -10,9 +10,9 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
-              <p>{{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}</p>
-              <p>{{'label.look.console' | scoTranslate }}</p>
+            <div class="col-12 answer-sco">
+              <p>- {{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}</p>
+              <p>- {{'label.look.console' | scoTranslate }}</p>
             </div>
         </div>
 
@@ -22,7 +22,7 @@
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTLM">
+      <sco-tab-item title="HTLM">
           <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -34,9 +34,9 @@
     &lt;/div&gt;
 
     &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;p&gt;{{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}&lt;/p&gt;
-          &lt;p&gt;{{'label.look.console' | scoTranslate }}&lt;/p&gt;
+        &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+          &lt;p&gt;- {{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}&lt;/p&gt;
+          &lt;p&gt;- {{'label.look.console' | scoTranslate }}&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 
@@ -45,18 +45,18 @@
           </code></pre>
       </sco-tab-item>
     
-      <sco-tab-item tittle="CSS">
+      <sco-tab-item title="CSS">
           <pre><code class="language-css" pCode ngNonBindable>
           </code></pre>
       </sco-tab-item>
   
-      <sco-tab-item tittle="TS">
+      <sco-tab-item title="TS">
           -- Showcase
           <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoToastService, ScoCacheService, scoTranslateService &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-translate',
   templateUrl: './showcase-sco-translate.component.html',
   styleUrls: ['./showcase-sco-translate.component.scss']
@@ -75,8 +75,6 @@ export class ShowcasescoTranslateComponent implements OnInit &#123;
   ngOnInit() &#123;
     this.toastService.addInfoMessage("label.example.1", this.translateService.getTranslate('label.example.1'));
     this.toastService.addInfoMessage("label.example.2", this.translateService.getTranslate('label.example.2'));
-    console.log(this.translateService.getTranslate('label.example.1'));
-    console.log(this.translateService.getTranslate('label.example.2'));
   &#125;
 &#125;
           </code></pre>
@@ -102,13 +100,13 @@ import &#123; APP_INITIALIZER, NgModule &#125; from '@angular/core';
 import &#123; BrowserModule, &#125; from '@angular/platform-browser';
 import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
 import &#123; ScoComponentsLibModule &#125; from 'sco-angular-components';
-import &#123; scoTranslateService &#125; from 'sco-angular-components';
+import &#123; ScoTranslateService &#125; from 'sco-angular-components';
                     
-export function translateFactory(provider: scoTranslateService) &#123;
+export function translateFactory(provider: ScoTranslateService) &#123;
     return () => provider.getData('assets/i18n/');
 &#125;
 
-@NgModule(&#123;
+&commat;NgModule(&#123;
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -120,7 +118,7 @@ export function translateFactory(provider: scoTranslateService) &#123;
           provide: APP_INITIALIZER,
           useFactory: translateFactory,
           deps: [
-              scoTranslateService
+              ScoTranslateService
           ],
           multi: true
         &#125;
@@ -135,8 +133,8 @@ export class AppModule &#123; &#125;
   </div>
 
   <div class="scrollable" inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
             <th>Nombre</th>
             <th>Descripcción</th>
@@ -158,8 +156,8 @@ export class AppModule &#123; &#125;
   </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
             <th>Nombre</th>
             <th>Descripcción</th>

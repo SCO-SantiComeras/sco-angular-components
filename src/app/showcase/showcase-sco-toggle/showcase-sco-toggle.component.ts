@@ -22,7 +22,7 @@ export class ShowcaseScoToggleComponent {
     this.valueExample4 = false;
   }
 
-  changeToggle($event) {
+  changeToggle($event: boolean) {
     if ($event) {
       this.toastService.addSuccessMessage("Éxito", "El toggle se ha activado");
     } else {

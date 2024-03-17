@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-12">
+  <div 
+    [ngClass]="{'col-12': width == undefined}" 
+    [ngStyle]="{'width.px': width != undefined && width > 0 ? width : ''}"
+  >
     <p-chart 
       [type]="type" 
       [data]="data"

@@ -37,7 +37,6 @@ export class ShowcaseScoDropdownComponent<T> implements OnInit {
   }
 
   select($event) {
-    console.log($event);
     this.toastService.addInfoMessage("Éxito", `Has elegido: ${JSON.stringify($event)}`);
   }
 }

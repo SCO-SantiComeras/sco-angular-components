@@ -122,18 +122,15 @@ export class ShowcaseScoTableComponent<T> implements OnInit {
   }
 
   onItemSelected($event: ScoSelectedItem<any>) {
-    console.log("Item seleccionado: " + JSON.stringify($event));
     this.toastService.addSuccessMessage("Éxito", "Item seleccionado: " + JSON.stringify($event));
   }
 
   onActionSelected($event: ScoAction<any>) {
-    console.log("Accion seleccionada: " + JSON.stringify($event));
     this.toastService.addSuccessMessage("Éxito", "Accion seleccionada:" + JSON.stringify($event));
   }
 
   onCloseOptions($event: Event) {
     $event.stopPropagation();
-    console.log("Opciones Cerradas ww: " + JSON.stringify($event));
     this.toastService.addSuccessMessage("Éxito", "Opciones Cerradas: " + JSON.stringify($event));
   }
 }

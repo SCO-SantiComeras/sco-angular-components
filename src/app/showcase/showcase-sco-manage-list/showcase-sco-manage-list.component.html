@@ -1,9 +1,11 @@
 <base-showcase>
+
   <div examples>
     <div class="row">
       <div class="col-12">
-        <div class="row mt-3">
-          <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
             <span>Ejemplo 1: Estandar</span>
           </div>
         </div>
@@ -12,14 +14,13 @@
           <div class="col-12">
             <sco-manage-list
               [labelAddItem]="'Añadir elemento'"
-              [labelEmpty]="'Sin elementos'"
-            >
+              [labelEmpty]="'Sin elementos'">
             </sco-manage-list>
           </div>
         </div>
 
         <div class="row mt-3">
-          <div class="col-12">
+          <div class="col-12 title-sco">
             <span>Ejemplo 2: Lista inicial</span>
           </div>
         </div>
@@ -30,11 +31,11 @@
               [label]="'Filas:'"
               [labelAddItem]="'Añadir elemento'"
               [labelEmpty]="'Sin elementos'"
-              [(ngModel)]="listEx2"
-            >
+              [(ngModel)]="listEx2">
             </sco-manage-list>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -43,52 +44,48 @@
     <sco-tabs>
       <sco-tab-item title="HTML">
         <pre>
-        <code class="language-markup" pCode ngNonBindable>
-&lt;base-showcase&gt;
-&lt;div examples&gt;
-  &lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col-12&quot;&gt;
-      &lt;div class=&quot;row mt-3&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+          <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
 
-      &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-manage-list
-            [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
-            [labelEmpty]=&quot;'Sin elementos'&quot;
-          &gt;
-          &lt;/sco-manage-list&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;row mt-3&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;span&gt;Ejemplo 2: Lista inicial&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-manage-list
-            [label]=&quot;'Filas:'&quot;
-            [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
-            [labelEmpty]=&quot;'Sin elementos'&quot;
-            [(ngModel)]=&quot;listEx2&quot;
-          &gt;
-          &lt;/sco-manage-list&gt;
-        &lt;/div&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-manage-list
+          [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
+          [labelEmpty]=&quot;'Sin elementos'&quot;&gt;
+        &lt;/sco-manage-list&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 2: Lista inicial&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-manage-list
+          [label]=&quot;'Filas:'&quot;
+          [labelAddItem]=&quot;'A&ntilde;adir elemento'&quot;
+          [labelEmpty]=&quot;'Sin elementos'&quot;
+          [(ngModel)]=&quot;listEx2&quot;&gt;
+        &lt;/sco-manage-list&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
   &lt;/div&gt;
 &lt;/div&gt;
-</code>
+          </code>
         </pre>
       </sco-tab-item>
       <sco-tab-item title="CSS">
-
       </sco-tab-item>
       <sco-tab-item title="TS">
         <pre>
@@ -96,7 +93,7 @@
 import &#123; Component &#125; from '@angular/core';
 import &#123; ScoCacheService &#125; from 'projects/sco-components/src/public-api';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-manage-list-showcase',
   templateUrl: './manage-list-showcase.component.html',
   styleUrls: ['./manage-list-showcase.component.scss']
@@ -117,6 +114,7 @@ export class ManageListShowcaseComponent &#123;
       &quot;5&quot;
     ];
   &#125;
+
 &#125;
           </code>
         </pre>
@@ -125,8 +123,8 @@ export class ManageListShowcaseComponent &#123;
   </div>
 
   <div inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -160,4 +158,5 @@ export class ManageListShowcaseComponent &#123;
       </tbody>
     </table>
   </div>
+
 </base-showcase>

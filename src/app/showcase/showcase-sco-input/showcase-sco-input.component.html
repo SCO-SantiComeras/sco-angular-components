@@ -12,10 +12,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx1"
-                            [showLabel]="false" >
+                            [showLabel]="false">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx1}}</div>
                     </div>  
@@ -29,12 +29,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx2"
                             [label]="'Ejemplo 2'"
                             [showLabel]="true"
-                            [require]="true" >
+                            [required]="true">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx2}}</div>
                     </div>
@@ -48,13 +48,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12  pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx3" 
                             [label]="'Ejemplo 3'"
                             [showLabel]="true"  
                             [icon]="'fa fa-user'"
-                            [showIcon]="true" >
+                            [showIcon]="true">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx3}}</div>
                     </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="row">
-                        <div class="col-12">
+                        <div class="col-12  pl-4 pt-1">
                             <sco-input
                                 [(ngModel)]="valueEx4" 
                                 [label]="'Ejemplo 4'"
@@ -76,7 +76,7 @@
                                 [icon]="'fa fa-user'"
                                 [showIcon]="true" 
                                 [enabledIconClick]="true"
-                                (iconClick)="onIconClick($event)" >
+                                (iconClick)="onIconClick($event)">
                             </sco-input>
                             <div>{{'Valor: ' + valueEx4}}</div>
                         </div>
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx5" 
                             [label]="'Ejemplo 5'"
@@ -98,8 +98,8 @@
                             [icon]="'fa fa-user'"
                             [showIcon]="true" 
                             [enabledIconClick]="true"
-                            [placeHolder]="'Introduzca un valor'"
-                            (iconClick)="onIconClick($event)" >
+                            [placeholder]="'Introduzca un valor'"
+                            (iconClick)="onIconClick($event)">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx5}}</div>
                     </div>
@@ -113,12 +113,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx6" 
                             [label]="'Ejemplo 6'"
                             [showLabel]="true"
-                            [readOnly]="true">
+                            [readonly]="true">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx6}}</div>
                     </div>
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx7" 
                             [label]="'Ejemplo 7'"
@@ -151,12 +151,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [type]="constantsService.ScoInputTypeConstants.PASSWORD"
                             [(ngModel)]="valueEx8" 
                             [label]="'Ejemplo 8'"
-                            [showLabel]="true" >
+                            [showLabel]="true">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx8}}</div>
                     </div>
@@ -170,13 +170,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [type]="constantsService.ScoInputTypeConstants.NUMBER"
                             [(ngModel)]="valueEx9" 
                             [label]="'Ejemplo 9'"
                             [showLabel]="true"
-                            (inputChange)="onInputChange($event)" >
+                            (inputChange)="onInputChange($event)">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx9}}</div>
                     </div>
@@ -188,7 +188,7 @@
 
     <div code>
         <sco-tabs>
-        <sco-tab-item tittle="HTLM">
+        <sco-tab-item title="HTLM">
             <pre><code class="language-markup" pCode ngNonBindable>
     &lt;div class=&quot;row&quot;&gt;
         &lt;div class=&quot;col-12&quot;&gt;
@@ -201,10 +201,10 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx1&quot;
-                        [showLabel]=&quot;false&quot; &gt;
+                        [showLabel]=&quot;false&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx1}}&lt;/div&gt;
                 &lt;/div&gt;  
@@ -218,11 +218,11 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx2&quot;
                         [label]=&quot;'Ejemplo 2'&quot;
-                        [showLabel]=&quot;true&quot; &gt;
+                        [showLabel]=&quot;true&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx2}}&lt;/div&gt;
                 &lt;/div&gt;
@@ -236,13 +236,13 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx3&quot; 
                         [label]=&quot;'Ejemplo 3'&quot;
                         [showLabel]=&quot;true&quot;  
                         [icon]=&quot;'fa fa-user'&quot;
-                        [showIcon]=&quot;true&quot; &gt;
+                        [showIcon]=&quot;true&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx3}}&lt;/div&gt;
                 &lt;/div&gt;
@@ -256,7 +256,7 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                    &lt;div class=&quot;col-12&quot;&gt;
+                    &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                         &lt;sco-input
                             [(ngModel)]=&quot;valueEx4&quot; 
                             [label]=&quot;'Ejemplo 4'&quot;
@@ -264,7 +264,7 @@
                             [icon]=&quot;'fa fa-user'&quot;
                             [showIcon]=&quot;true&quot; 
                             [enabledIconClick]=&quot;true&quot;
-                            (iconClick)=&quot;onIconClick($event)&quot; &gt;
+                            (iconClick)=&quot;onIconClick($event)&quot;&gt;
                         &lt;/sco-input&gt;
                         &lt;div&gt;{{'Valor: ' + valueEx4}}&lt;/div&gt;
                     &lt;/div&gt;
@@ -278,7 +278,7 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx5&quot; 
                         [label]=&quot;'Ejemplo 5'&quot;
@@ -287,7 +287,7 @@
                         [showIcon]=&quot;true&quot; 
                         [enabledIconClick]=&quot;true&quot;
                         [placeHolder]=&quot;'Introduzca un valor'&quot;
-                        (iconClick)=&quot;onIconClick($event)&quot; &gt;
+                        (iconClick)=&quot;onIconClick($event)&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx5}}&lt;/div&gt;
                 &lt;/div&gt;
@@ -301,7 +301,7 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx6&quot; 
                         [label]=&quot;'Ejemplo 6'&quot;
@@ -320,7 +320,7 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx7&quot; 
                         [label]=&quot;'Ejemplo 7'&quot;
@@ -339,12 +339,12 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [type]=&quot;scoConstants.ScoInputTypeConstants.PASSWORD&quot;
                         [(ngModel)]=&quot;valueEx8&quot; 
                         [label]=&quot;'Ejemplo 8'&quot;
-                        [showLabel]=&quot;true&quot; &gt;
+                        [showLabel]=&quot;true&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx8}}&lt;/div&gt;
                 &lt;/div&gt;
@@ -358,12 +358,12 @@
             &lt;/div&gt;
 
             &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-12&quot;&gt;
+                &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [type]=&quot;scoConstants.ScoInputTypeConstants.NUMBER&quot;
                         [(ngModel)]=&quot;valueEx9&quot; 
                         [label]=&quot;'Ejemplo 9'&quot;
-                        [showLabel]=&quot;true&quot; &gt;
+                        [showLabel]=&quot;true&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx9}}&lt;/div&gt;
                 &lt;/div&gt;
@@ -374,17 +374,17 @@
             </code></pre>
         </sco-tab-item>
         
-        <sco-tab-item tittle="CSS">
+        <sco-tab-item title="CSS">
             <pre><code class="language-css" pCode ngNonBindable>
             </code></pre>
         </sco-tab-item>
     
-        <sco-tab-item tittle="TS">
+        <sco-tab-item title="TS">
             <pre><code class="language-typescript" pCode ngNonBindable>
     import &#123; ScoToastService, ScoConstantsService, ScoCacheService &#125; from 'sco-angular-components';
     import &#123; Component &#125; from '@angular/core';
 
-    @Component(&#123;
+    &commat;Component(&#123;
     selector: 'app-showcase-sco-input',
     templateUrl: './showcase-sco-input.component.html',
     styleUrls: ['./showcase-sco-input.component.scss']
@@ -411,7 +411,6 @@
     &#125;
     
     onIconClick($event: boolean) &#123;
-        console.log($event);
         this.ScoToast.addSuccessMessage("Éito", "Pulsado el evento del icono: " + $event);
     &#125;
     &#125; 
@@ -421,8 +420,8 @@
     </div>
 
     <div class="scrollable" inputs>
-  <table class="table">
-    <thead class="thead-dark">
+  <table class="table table-dark table-striped">
+    <thead>
       <tr>
           <th>Nombre</th>
           <th>Descripcción</th>
@@ -482,7 +481,7 @@
             <td></td>
         </tr>
         <tr>
-            <td>readOnly</td>
+            <td>readonly</td>
             <td>Indica si el input esta en modo solo lectura</td>
             <td>boolean</td>
             <td>false</td>
@@ -496,21 +495,21 @@
             <td></td>
         </tr>
         <tr>
-            <td>placeHolder</td>
+            <td>placeholder</td>
             <td>Texto a mostrar en el input mientras no contenga valor</td>
             <td>string</td>
             <td>''</td>
             <td></td>
         </tr>
         <tr>
-            <td>inLine</td>
+            <td>inline</td>
             <td>Indica si el input esta en modo en linea (Label - Input)</td>
             <td>boolean</td>
             <td>false</td>
             <td></td>
         </tr>
         <tr>
-            <td>require</td>
+            <td>required</td>
             <td>Indica si el input es obligatorio</td>
             <td>boolean</td>
             <td>false</td>
@@ -521,8 +520,8 @@
     </div>
 
     <div class="scrollable" outputs>
-        <table class="table">
-        <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+        <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Descripcción</th>

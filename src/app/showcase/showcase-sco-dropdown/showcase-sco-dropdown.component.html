@@ -7,68 +7,62 @@
           <!-- 1 -->
           <div class="row mt-1">
             <div class="col-12 title-sco">
-                <span>Ejemplo 1: Estandar</span>
+              <span>Ejemplo 1: Estandar</span>
             </div>
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="options"
-                  [label]="'Example 1'"
-                  [showLabel]="true"
-                  [require]="false"
-                  (selectItem)="select($event)" >
-
-                </sco-dropdown>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="options"
+                [label]="'Example 1'"
+                [showLabel]="true"
+                [required]="false"
+                (selectItem)="select($event)">
+              </sco-dropdown>
+            </div>
           </div>
 
           <!-- 2 -->
           <div class="row mt-3">
             <div class="col-12 title-sco">
-                <span>Ejemplo 2: Ng Model</span>
+              <span>Ejemplo 2: Ng Model</span>
             </div>
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="options"
-                  [(ngModel)]="valueEx2"
-                  [label]="'Example 2'"
-                  [showLabel]="true"
-                  [require]="true"
-                  (selectItem)="select($event)" >
-
-                </sco-dropdown>
-
-                <span>{{'Value: ' + valueEx2}}</span>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="options"
+                [(ngModel)]="valueEx2"
+                [label]="'Example 2'"
+                [showLabel]="true"
+                [required]="true"
+                (selectItem)="select($event)">
+              </sco-dropdown>
+              <span>{{'Value: ' + valueEx2}}</span>
+            </div>
           </div>
 
           <!-- 3 -->
           <div class="row mt-3">
             <div class="col-12 title-sco">
-                <span>Ejemplo 3: Items Template</span>
+              <span>Ejemplo 3: Items Template</span>
             </div>
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="options"
-                  [(ngModel)]="valueEx3"
-                  (selectItem)="select($event)" >
-
-                  <ng-template itemTemplate let-item="item">
-                    {{item.label + " - " + item.value}}
-                  </ng-template>
-
-                </sco-dropdown>
-
-                <span>{{'Value: ' + valueEx3}}</span>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="options"
+                [(ngModel)]="valueEx3"
+                (selectItem)="select($event)">
+                <ng-template itemTemplate let-item="item">
+                  {{item.label + " - " + item.value}}
+                </ng-template>
+              </sco-dropdown>
+              <span>{{'Value: ' + valueEx3}}</span>
+            </div>
           </div>
 
           <!-- 4 -->
@@ -79,42 +73,37 @@
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="[]"
-                  [labelNoResults]="'No hay resultados'"
-                  (selectItem)="select($event)" >
-
-                  <ng-template itemTemplate let-item="item">
-                    {{item.label + " - " + item.value}}
-                  </ng-template>
-
-                </sco-dropdown>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="[]"
+                [labelNoResults]="'No hay resultados'"
+                (selectItem)="select($event)">
+                <ng-template itemTemplate let-item="item">
+                  {{item.label + " - " + item.value}}
+                </ng-template>
+              </sco-dropdown>
+            </div>
           </div>
 
           <!-- 5 -->
           <div class="row mt-3">
             <div class="col-12 title-sco">
-                <span>Ejemplo 5: Opción seleccionada</span>
+              <span>Ejemplo 5: Opción seleccionada</span>
             </div>
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="options"
-                  [(ngModel)]="valueEx5"
-                  (selectItem)="select($event)" >
-
-                  <ng-template itemTemplate let-item="item">
-                    {{item.label + " - " + item.value}}
-                  </ng-template>
-
-                </sco-dropdown>
-
-                <span>{{'Value: ' + valueEx5}}</span>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="options"
+                [(ngModel)]="valueEx5"
+                (selectItem)="select($event)">
+                <ng-template itemTemplate let-item="item">
+                  {{item.label + " - " + item.value}}
+                </ng-template>
+              </sco-dropdown>
+              <span>{{'Value: ' + valueEx5}}</span>
+            </div>
           </div>
 
           <!-- 6 -->
@@ -125,21 +114,18 @@
           </div>
 
           <div class="row">
-              <div class="col-12">
-                <sco-dropdown 
-                  [options]="options"
-                  [(ngModel)]="valueEx5"
-                  [showFilter]="false"
-                  (selectItem)="select($event)" >
-
-                  <ng-template itemTemplate let-item="item">
-                    {{item.label + " - " + item.value}}
-                  </ng-template>
-
-                </sco-dropdown>
-
-                <span>{{'Value: ' + valueEx5}}</span>
-              </div>
+            <div class="col-12 pl-4 pt-1">
+              <sco-dropdown 
+                [options]="options"
+                [(ngModel)]="valueEx5"
+                [showFilter]="false"
+                (selectItem)="select($event)" >
+                <ng-template itemTemplate let-item="item">
+                  {{item.label + " - " + item.value}}
+                </ng-template>
+              </sco-dropdown>
+              <span>{{'Value: ' + valueEx5}}</span>
+            </div>
           </div>
 
         </div>
@@ -148,7 +134,7 @@
 
   <div code>
       <sco-tabs>
-          <sco-tab-item tittle="HTLM">
+          <sco-tab-item title="HTLM">
               <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-12&quot;&gt;
@@ -161,11 +147,10 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;options&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
             &lt;/sco-dropdown&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -178,14 +163,12 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;options&quot;
               [(ngModel)]=&quot;valueEx2&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
             &lt;/sco-dropdown&gt;
-
             &lt;span&gt;{{'Value: ' + valueEx2}}&lt;/span&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -198,18 +181,15 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;options&quot;
               [(ngModel)]=&quot;valueEx3&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
               &lt;ng-template itemTemplate let-item=&quot;item&quot;&gt;
                 {{item.label + &quot; - &quot; + item.value}}
               &lt;/ng-template&gt;
-
             &lt;/sco-dropdown&gt;
-
             &lt;span&gt;{{'Value: ' + valueEx3}}&lt;/span&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -222,16 +202,14 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;[]&quot;
               [labelNoResults]=&quot;'No hay resultados'&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
               &lt;ng-template itemTemplate let-item=&quot;item&quot;&gt;
                 {{item.label + &quot; - &quot; + item.value}}
               &lt;/ng-template&gt;
-
             &lt;/sco-dropdown&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -244,18 +222,15 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;options&quot;
               [(ngModel)]=&quot;valueEx5&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
               &lt;ng-template itemTemplate let-item=&quot;item&quot;&gt;
                 {{item.label + &quot; - &quot; + item.value}}
               &lt;/ng-template&gt;
-
             &lt;/sco-dropdown&gt;
-
             &lt;span&gt;{{'Value: ' + valueEx5}}&lt;/span&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -268,19 +243,16 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-12&quot;&gt;
+          &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
             &lt;sco-dropdown 
               [options]=&quot;options&quot;
               [(ngModel)]=&quot;valueEx5&quot;
               [showFilter]=&quot;false&quot;
-              (selectItem)=&quot;select($event)&quot; &gt;
-
+              (selectItem)=&quot;select($event)&quot;&gt;
               &lt;ng-template itemTemplate let-item=&quot;item&quot;&gt;
                 {{item.label + &quot; - &quot; + item.value}}
               &lt;/ng-template&gt;
-
             &lt;/sco-dropdown&gt;
-
             &lt;span&gt;{{'Value: ' + valueEx5}}&lt;/span&gt;
           &lt;/div&gt;
       &lt;/div&gt;
@@ -290,17 +262,17 @@
               </code></pre>
           </sco-tab-item>
       
-          <sco-tab-item tittle="CSS">
+          <sco-tab-item title="CSS">
               <pre><code class="language-css" pCode ngNonBindable>
               </code></pre>
           </sco-tab-item>
       
-          <sco-tab-item tittle="TS">
+          <sco-tab-item title="TS">
               <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService, ScoToastService, ScoSelectItem &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-dropdown',
   templateUrl: './showcase-sco-dropdown.component.html',
   styleUrls: ['./showcase-sco-dropdown.component.scss']
@@ -334,7 +306,6 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
   &#125;
 
   select($event) &#123;
-    console.log($event);
     this.toastService.addInfoMessage("Éxito", `Has elegido: $&#123;JSON.stringify($event)&#125;`);
   &#125;
 &#125;
@@ -344,8 +315,8 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
   </div>
 
   <div class="scrollable" inputs>
-      <table class="table">
-          <thead class="thead-dark">
+      <table class="table table-dark table-striped">
+          <thead>
               <tr>
                   <th>Nombre</th>
                   <th>Descripcción</th>
@@ -384,7 +355,7 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
               <td></td>
             </tr>
             <tr>
-              <td>require</td>
+              <td>required</td>
               <td>Indica si es obligatorio el valor del dropdown</td>
               <td>boolean</td>
               <td>false</td>
@@ -402,8 +373,8 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
   </div>
 
   <div class="scrollable" outputs>
-      <table class="table">
-          <thead class="thead-dark">
+      <table class="table table-dark table-striped">
+          <thead>
               <tr>
                   <th>Nombre</th>
                   <th>Descripcción</th>

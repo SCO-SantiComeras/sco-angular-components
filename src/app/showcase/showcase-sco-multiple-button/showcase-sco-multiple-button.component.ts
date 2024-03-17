@@ -18,7 +18,7 @@ export class ShowcaseScoMultipleButtonComponent implements OnInit {
     private readonly cacheService: ScoCacheService,
     private readonly toastService: ScoToastService
   ) { 
-    this.cacheService.setElement('title', 'Multiple button');
+    this.cacheService.setElement('title', 'Multiple Button');
   }
 
   ngOnInit() {
@@ -92,5 +92,4 @@ export class ShowcaseScoMultipleButtonComponent implements OnInit {
         break;
     }
   }
-
 }

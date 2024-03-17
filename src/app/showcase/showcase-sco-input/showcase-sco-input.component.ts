@@ -30,12 +30,10 @@ export class ShowcaseScoInputComponent {
   }
   
   onIconClick($event: boolean) {
-    console.log($event);
     this.toastService.addSuccessMessage("Éito", "Pulsado el evento del icono: " + $event);
   }
 
   onInputChange($event) {
-    console.log($event);
     if ($event == true) {
       this.toastService.addSuccessMessage("Éxito", "El valor ha cambiado");
     }

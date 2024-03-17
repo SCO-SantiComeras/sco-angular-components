@@ -33,7 +33,6 @@ export class ShowcaseScoClickOutsideComponent {
   }
 
   clickOutSide($event) {
-    console.log("Event: " + $event)
     this.toastService.addSuccessMessage("Éxito", "Click Outside");
   }
 }

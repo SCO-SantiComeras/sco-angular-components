@@ -23,16 +23,18 @@ export class ShowcaseScoSpinnerComponent {
   showSpinnerExample1() {
     this.embedded = false;
     this.spinnerService.showSpinner();
+
     setTimeout(() => {
       this.spinnerService.hideSpinner();
-    }, 5000); // Espera 5 segundos  || 50000 == 50 segs ...
+    }, 5000);
   }
 
   showSpinnerExample2() {
     this.embedded = true;
     this.spinnerService.showSpinner();
+    
     setTimeout(() => {
       this.spinnerService.hideSpinner();
-    }, 5000); // Espera 5 segundos  || 50000 == 50 segs ...
+    }, 5000);
   }
 }

@@ -53,7 +53,6 @@
         }
 
         &--tittle-close-toast {
-            cursor: pointer;
             position: absolute;
             font-size: 20px;
         }
@@ -66,4 +65,8 @@
 
 .w-10 {
     width: 10% !important;
+}
+
+.c-pointer {
+    cursor: pointer !important;
 }

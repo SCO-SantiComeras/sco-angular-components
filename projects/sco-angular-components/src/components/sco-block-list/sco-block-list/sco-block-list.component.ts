@@ -60,7 +60,7 @@ export class ScoBlockListComponent<T> implements OnInit, OnChanges {
         }
       }
 
-      if (changes['blockItems'].currentValue.length > 0) {
+      if (changes['blockItems'] && changes['blockItems'].currentValue.length > 0) {
         this.totalItemsLabel = `${this.labelTotalResults}: ` + changes['blockItems'].currentValue.length;
       }
 

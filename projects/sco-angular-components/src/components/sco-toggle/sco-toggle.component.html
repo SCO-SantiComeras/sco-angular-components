@@ -1,5 +1,5 @@
 <div class="sco-toggle" [ngClass]="{'sco-toggle__flex': inLine}">
-  <div class="sco-toggle__label" [ngClass]="{'sco-toggle__label--si-flex': inLine}">
+  <div class="sco-toggle__label" [ngClass]="{'sco-toggle__label--si-flex': inLine}" *ngIf="label && label.length > 0">
     <label>{{label}}</label>
   </div>
 

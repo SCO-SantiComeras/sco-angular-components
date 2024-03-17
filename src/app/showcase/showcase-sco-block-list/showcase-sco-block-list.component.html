@@ -13,7 +13,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="addBlock()">Agregar</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="'Agregar'"
+                (action)="addBlock()">
+              </sco-button>
             </div>
         </div>
 
@@ -26,7 +30,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="removeFirstBlock()">Eliminar</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="'Eliminar'"
+                (action)="removeFirstBlock()">
+              </sco-button>
             </div>
         </div>
 
@@ -39,7 +47,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="removeLastBlock()">Eliminar</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="'Eliminar'"
+                (action)="removeLastBlock()">
+              </sco-button>
             </div>
         </div>
 
@@ -52,7 +64,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="showHideHeader()">{{showHeader ? 'Ocultar' : 'Mostrar'}}</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="showHeader ? 'Ocultar' : 'Mostrar'"
+                (action)="showHideHeader()">
+              </sco-button>
             </div>
         </div>
 
@@ -65,7 +81,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="showHideInfoAdditional()">{{showInfoAdditional ? 'Ocultar' : 'Mostrar'}}</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="showInfoAdditional ? 'Ocultar' : 'Mostrar'"
+                (action)="showHideInfoAdditional()">
+              </sco-button>
             </div>
         </div>
 
@@ -78,7 +98,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="showHideActions()">{{showActions ? 'Ocultar' : 'Mostrar'}}</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="showActions ? 'Ocultar' : 'Mostrar'"
+                (action)="showHideActions()">
+              </sco-button>
             </div>
         </div>
 
@@ -91,7 +115,11 @@
 
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-primary" (click)="showHideBorder()">{{showBorder ? 'Ocultar' : 'Mostrar'}}</button>
+              <sco-button
+                [mode]="'default'"
+                [text]="showBorder ? 'Ocultar' : 'Mostrar'"
+                (action)="showHideBorder()">
+              </sco-button>
             </div>
         </div>
 
@@ -141,7 +169,7 @@
 
     <div code>
         <sco-tabs>
-            <sco-tab-item tittle="HTLM">
+            <sco-tab-item title="HTLM">
                 <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -282,12 +310,12 @@
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="CSS">
+            <sco-tab-item title="CSS">
                 <pre><code class="language-css" pCode ngNonBindable>
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="TS">
+            <sco-tab-item title="TS">
                 <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoToastService, ScoCacheService, ScoSelectedItem, ScoAction, ScoBlockItem &#125; from 'sco-angular-components';
 import &#123; Appointment &#125; from './model/Appointment';
@@ -459,8 +487,8 @@ export class ShowcaseScoBlockListComponent implements OnInit &#123;
     </div>
 
     <div class="scrollable" inputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>
@@ -566,8 +594,8 @@ export class ShowcaseScoBlockListComponent implements OnInit &#123;
     </div>
 
     <div class="scrollable" outputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>

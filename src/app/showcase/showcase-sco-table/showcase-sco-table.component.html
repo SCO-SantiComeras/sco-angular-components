@@ -38,8 +38,9 @@
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTLM">
-          <pre><code class="language-markup" pCode ngNonBindable>
+      <sco-tab-item title="HTLM">
+        <pre>
+          <code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
 
@@ -71,20 +72,22 @@
 
   &lt;/div&gt;
 &lt;/div&gt;
-          </code></pre>
+          </code>
+        </pre>
       </sco-tab-item>
-    
-      <sco-tab-item tittle="CSS">
-          <pre><code class="language-css" pCode ngNonBindable>
-          </code></pre>
+      <sco-tab-item title="CSS">
+        <pre>
+          <code class="language-css" pCode ngNonBindable>
+          </code>
+        </pre>
       </sco-tab-item>
-  
-      <sco-tab-item tittle="TS">
-          <pre><code class="language-typescript" pCode ngNonBindable>
+      <sco-tab-item title="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoToastService, ScoSelectedItem, ScoCacheService, ScoTableCol, ScoAction, ScoTableItem &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-table',
   templateUrl: './showcase-sco-table.component.html',
   styleUrls: ['./showcase-sco-table.component.scss']
@@ -199,150 +202,155 @@ export class ShowcaseScoTableComponent&lt;T&gt; implements OnInit &#123;
   &#125;
 
   onItemSelected($event: ScoSelectedItem&lt;any&gt;) &#123;
-    console.log(&quot;Item seleccionado: &quot; + JSON.stringify($event));
     this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Item seleccionado: &quot; + JSON.stringify($event));
   &#125;
 
   onActionSelected($event: ScoAction&lt;any&gt;) &#123;
-    console.log(&quot;Accion seleccionada: &quot; + JSON.stringify($event));
     this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Accion seleccionada:&quot; + JSON.stringify($event));
   &#125;
 
   onCloseOptions($event: number) &#123;
-    console.log(&quot;Opciones Cerradas: &quot; + JSON.stringify($event));
     this.toastService.addSuccessMessage(&quot;&Eacute;xito&quot;, &quot;Opciones Cerradas: &quot; + JSON.stringify($event));
   &#125;
 &#125;
-          </code></pre>
+          </code>
+        </pre>
       </sco-tab-item>
     </sco-tabs>
   </div>
 
-<div class="scrollable" inputs>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
+  <div class="scrollable" inputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
           <th>Nombre</th>
           <th>Descripcción</th>
           <th>Tipo</th>
           <th>Valor por defecto</th>
           <th>Posibles valores</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>cols</td>
-        <td>Columnas de la tabla</td>
-        <td>ScoTableCol []</td>
-        <td>[]</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>tableItems</td>
-        <td>Elementos de la tabla</td>
-        <td>ScoTableItem&lt;T&gt; []</td>
-        <td>[]</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>labelTotalResults</td>
-        <td>Texto de total de elementos</td>
-        <td>string</td>
-        <td>'Total elementos'</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>labelNoResults</td>
-        <td>Texto de no elementos</td>
-        <td>string</td>
-        <td>'No hay elementos que mostrar'</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>showActions</td>
-        <td>Muestra la acciones del elemento</td>
-        <td>boolean</td>
-        <td>true</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>showTotalItems</td>
-        <td>Muestra el texto total de elementos</td>
-        <td>boolean</td>
-        <td>true</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>showTableIndex</td>
-        <td>Muestra el indicador de cada elemento</td>
-        <td>boolean</td>
-        <td>true</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>canSelectItems</td>
-        <td>Permite poder seleccionar un elemento</td>
-        <td>boolean</td>
-        <td>true</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>pagination</td>
-        <td>Indica la cantidad de elementos por pagina</td>
-        <td>number</td>
-        <td>ScoTableConstants.PAGINATION_DEFAULT</td>
-        <td>
-          <ul>
-            <li>ScoTableConstants.PAGINATION_DEFAULT</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>previousLabel</td>
-        <td>Texto del boton previo de la paginacion</td>
-        <td>string</td>
-        <td>'Anterior'</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>nextLabel</td>
-        <td>Texto del boton siguiente de la paginacion</td>
-        <td>string</td>
-        <td>'Siguiente'</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>paginationOnTop</td>
-        <td>Indicador para mostrar los controles de paginacion Arriba o Abajo</td>
-        <td>boolean</td>
-        <td>false</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>templateRowInput</td>
-        <td>Template para las filas de la tabla</td>
-        <td>TemplateRef&lt;any&gt;</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-  <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Descripcción</th>
-            <th>Valor devuelto</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td>itemSelected</td>
-            <td>Evento al seleccioniar un elemento de la tabla</td>
-            <td>ScoSelectedItem &lt;T&gt;</td>
+          <td>cols</td>
+          <td>Columnas de la tabla</td>
+          <td>ScoTableCol []</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>tableItems</td>
+          <td>Elementos de la tabla</td>
+          <td>ScoTableItem&lt;T&gt; []</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelTotalResults</td>
+          <td>Texto de total de elementos</td>
+          <td>string</td>
+          <td>'Total elementos'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>labelNoResults</td>
+          <td>Texto de no elementos</td>
+          <td>string</td>
+          <td>'No hay elementos que mostrar'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showActions</td>
+          <td>Muestra la acciones del elemento</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showTotalItems</td>
+          <td>Muestra el texto total de elementos</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showTableIndex</td>
+          <td>Muestra el indicador de cada elemento</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>canSelectItems</td>
+          <td>Permite poder seleccionar un elemento</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>pagination</td>
+          <td>Indica la cantidad de elementos por pagina</td>
+          <td>number</td>
+          <td>ScoTableConstants.PAGINATION_DEFAULT</td>
+          <td>
+            <ul>
+              <li>ScoTableConstants.PAGINATION_DEFAULT</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>previousLabel</td>
+          <td>Texto del boton previo de la paginacion</td>
+          <td>string</td>
+          <td>'Anterior'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nextLabel</td>
+          <td>Texto del boton siguiente de la paginacion</td>
+          <td>string</td>
+          <td>'Siguiente'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>paginationOnTop</td>
+          <td>Indicador para mostrar los controles de paginacion Arriba o Abajo</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>templateRowInput</td>
+          <td>Template para las filas de la tabla</td>
+          <td>TemplateRef&lt;any&gt;</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showAddCrudBtn</td>
+          <td>Indicador para mostrar o no el botón de añadir nuevo elemento</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>itemSelected</td>
+          <td>Evento al seleccioniar un elemento de la tabla</td>
+          <td>ScoSelectedItem &lt;T&gt;</td>
         </tr>
         <tr>
           <td>actionSelected</td>
@@ -358,6 +366,11 @@ export class ShowcaseScoTableComponent&lt;T&gt; implements OnInit &#123;
           <td>changePage</td>
           <td>Evento al cambiar la página de la tabla</td>
           <td>number</td>
+        </tr>
+        <tr>
+          <td>onnAddCrud</td>
+          <td>Evento al pulsar el botón de añadir nuevo elemento</td>
+          <td>boolean</td>
         </tr>
       </tbody>
     </table>

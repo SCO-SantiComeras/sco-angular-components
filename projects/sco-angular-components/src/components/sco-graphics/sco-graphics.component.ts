@@ -11,7 +11,8 @@ export class ScoGraphicsComponent {
   @Input() type: string = this.contantsService.ScoGraphicsConstants.TYPE_LINE;
   @Input() data: any;
   @Input() options: any = {};
-  @Input() height: string;
+  @Input() height: number;
+  @Input() width: number;
   
   @Output() selectData: EventEmitter<any>;
 

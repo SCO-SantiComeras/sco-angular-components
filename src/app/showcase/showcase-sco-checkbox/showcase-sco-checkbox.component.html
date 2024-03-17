@@ -1,178 +1,180 @@
 <base-showcase>
 
   <div examples>
+    <div class="row">
+      <div class="col-12">
 
-    <div class="row mt-2">
-      <div class="col-12">
-        <p>Ejemplo 1: estandar</p>
-      </div>
-      <div class="col-12">
-        <sco-checkbox [options]="options1" [(ngModel)]="value1">
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: estandar</span>
+          </div>
+        </div>
 
-        </sco-checkbox>
-      </div>
-      <div class="col-12">
-        <p>{{'Valor :' + (value1 | json)}}</p>
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-checkbox [options]="options1" [(ngModel)]="value1">
+            </sco-checkbox>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <span>{{'Valor :' + (value1 | json)}}</span>
+          </div>
+        </div>
+    
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 2: precargado</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-checkbox [options]="options2" [(ngModel)]="value2">
+            </sco-checkbox>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <span>{{'Valor :' + (value2 | json)}}</span>
+          </div>
+        </div>
+    
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 3: con objetos</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-checkbox [options]="options3" [(ngModel)]="value3">
+            </sco-checkbox>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <span>{{'Valor :' + (value3 | json)}}</span>
+          </div>
+        </div>
+    
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 4: con objetos precargado</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-checkbox [options]="options4" [(ngModel)]="value4">
+            </sco-checkbox>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <span>{{'Valor :' + (value4 | json)}}</span>
+          </div>
+        </div>
+    
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 5: Binario</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-checkbox [binary]="true" labelBinary='Acepto todas las condiciones y terminos' [(ngModel)]="value5">
+            </sco-checkbox>
+          </div>
+          <div class="col-12 pl-4 pt-1">
+            <span>{{'Valor :' + value5}}</span>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="row mt-2">
-      <div class="col-12">
-        <p>Ejemplo 2: precargado</p>
-      </div>
-      <div class="col-12">
-        <sco-checkbox [options]="options2" [(ngModel)]="value2">
-
-        </sco-checkbox>
-      </div>
-      <div class="col-12">
-        <p>{{'Valor :' + (value2 | json)}}</p>
-      </div>
-    </div>
-
-    <div class="row mt-2">
-      <div class="col-12">
-        <p>Ejemplo 3: con objetos</p>
-      </div>
-      <div class="col-12">
-        <sco-checkbox [options]="options3" [(ngModel)]="value3">
-
-        </sco-checkbox>
-      </div>
-      <div class="col-12">
-        <p>{{'Valor :' + (value3 | json)}}</p>
-      </div>
-    </div>
-
-    <div class="row mt-2">
-      <div class="col-12">
-        <p>Ejemplo 4: con objetos precargado</p>
-      </div>
-      <div class="col-12">
-        <sco-checkbox [options]="options4" [(ngModel)]="value4">
-
-        </sco-checkbox>
-      </div>
-      <div class="col-12">
-        <p>{{'Valor :' + (value4 | json)}}</p>
-      </div>
-    </div>
-
-    <div class="row mt-2">
-      <div class="col-12">
-        <p>Ejemplo 5: Binario</p>
-      </div>
-      <div class="col-12">
-        <sco-checkbox [binary]="true" labelBinary='Acepto todas las condiciones y terminos' [(ngModel)]="value5">
-
-        </sco-checkbox>
-      </div>
-      <div class="col-12">
-        <p>{{'Valor :' + value5}}</p>
-      </div>
-    </div>
-
   </div>
 
   <div code>
     <sco-tabs>
-      <sco-tab-item tittle="HTML">
+      <sco-tab-item title="HTML">
         <pre>
           <code class="language-markup" pCode>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
 
-&lt;div class=&quot;row mt-2&quot;&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;Ejemplo 1: estandar&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-    &lt;sco-checkbox
-      [options]=&quot;options1&quot;
-      [(ngModel)]=&quot;value1&quot;&gt;
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: estandar&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;/sco-checkbox&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;{{'Valor :' + (value1 | json)}}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-checkbox [options]=&quot;options1&quot; [(ngModel)]=&quot;value1&quot;&gt;
+        &lt;/sco-checkbox&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;div class=&quot;row mt-2&quot;&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;Ejemplo 2: precargado&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-    &lt;sco-checkbox
-      [options]=&quot;options2&quot;
-      [(ngModel)]=&quot;value2&quot;&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 2: precargado&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;/sco-checkbox&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;{{'Valor :' + (value2 | json)}}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-checkbox [options]=&quot;options2&quot; [(ngModel)]=&quot;value2&quot;&gt;
+        &lt;/sco-checkbox&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;div class=&quot;row mt-2&quot;&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;Ejemplo 3: con objetos&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-    &lt;sco-checkbox
-      [options]=&quot;options3&quot;
-      [(ngModel)]=&quot;value3&quot;&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 3: con objetos&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;/sco-checkbox&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;{{'Valor :' + (value3 | json)}}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-checkbox [options]=&quot;options3&quot; [(ngModel)]=&quot;value3&quot;&gt;
+        &lt;/sco-checkbox&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;div class=&quot;row mt-2&quot;&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;Ejemplo 4: con objetos precargado&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-    &lt;sco-checkbox
-      [options]=&quot;options4&quot;
-      [(ngModel)]=&quot;value4&quot;&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 4: con objetos precargado&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;/sco-checkbox&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;{{'Valor :' + (value4 | json)}}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-checkbox [options]=&quot;options4&quot; [(ngModel)]=&quot;value4&quot;&gt;
+        &lt;/sco-checkbox&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-&lt;div class=&quot;row mt-2&quot;&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;Ejemplo 5: Binario&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-    &lt;sco-checkbox
-      [binary]=&quot;true&quot;
-      labelBinary='Acepto todas las condiciones y terminos'
-      [(ngModel)]=&quot;value5&quot;&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 5: Binario&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;/sco-checkbox&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12&quot;&gt;
-      &lt;p&gt;{{'Valor :' + value5}}&lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-checkbox [binary]=&quot;true&quot; labelBinary='Acepto todas las condiciones y terminos' [(ngModel)]=&quot;value5&quot;&gt;
+        &lt;/sco-checkbox&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
   &lt;/div&gt;
 &lt;/div&gt;
           </code>
         </pre>
       </sco-tab-item>
-      <sco-tab-item tittle="CSS">
-
+      <sco-tab-item title="CSS">
       </sco-tab-item>
-      <sco-tab-item tittle="TS">
+      <sco-tab-item title="TS">
         <pre>
           <code class="language-typescript" pCode>
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; ScoCacheService, ScoSelectItem, ScoToastService &#125; from 'projects/sco-components/src/public-api';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-checkbox-showcase',
   templateUrl: './checkbox-showcase.component.html',
   styleUrls: ['./checkbox-showcase.component.scss']
@@ -189,7 +191,6 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
   value3: any[];
   value4: any[];
   value5: boolean;
-
 
   constructor(
     public cacaheService: ScoCacheService,
@@ -216,6 +217,7 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
       &#123;label: 'C', value: 'c'&#125;,
       &#123;label: 'C++', value: 'cpp'&#125;
     ];
+    this.value2 = ['java', 'c'];
 
     this.options3 = [
       &#123;label: 'Java', value: &#123;property1: 'p1', property2: 'p2'&#125;&#125;,
@@ -234,8 +236,6 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
       &#123;label: 'C', value: &#123;property1: 'p9', property2: 'p10'&#125;&#125;,
       &#123;label: 'C++', value: &#123;property1: 'p11', property2: 'p12'&#125;&#125;
     ];
-
-    this.value2 = ['java', 'c'];
     this.value4 = [&#123;property1: 'p1', property2: 'p2'&#125;, &#123;property1: 'p9', property2: 'p10'&#125;];
 
     this.value5 = true;
@@ -244,14 +244,13 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
 &#125;
           </code>
         </pre>
-
       </sco-tab-item>
     </sco-tabs>
   </div>
 
   <div class="scrollable" inputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -301,8 +300,8 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
   </div>
 
   <div class="scrollable" outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -321,7 +320,6 @@ export class CheckboxShowcaseComponent implements OnInit &#123;
           <td>boolean</td>
         </tr>
       </tbody>
-
     </table>
   </div>
 

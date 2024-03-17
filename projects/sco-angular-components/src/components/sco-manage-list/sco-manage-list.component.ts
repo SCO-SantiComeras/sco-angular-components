@@ -18,6 +18,7 @@ import { ScoConstantsService } from '../../services/sco-constants.service';
   ],
 })
 export class ScoManageListComponent extends ScoNgModelBase implements OnInit {
+  
   @Input() labelAddItem: string;
   @Input() labelEmpty: string;
   @Input() label: boolean;

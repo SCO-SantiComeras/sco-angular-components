@@ -4,7 +4,6 @@
     <!-- Pagination -->
     <div class="row sco-table__table--pagination" *ngIf="tableItems?.length > 0 && paginationOnTop">
       <div class="col-12 text-center">
-        <!-- [previusLabel]="previusLabel" -->
         <pagination-controls 
           [autoHide]="true"
           [previousLabel]="previousLabel"
@@ -22,57 +21,58 @@
               'table-sm': resolutionService.size != constantsService.ScoResolutionConstants.WEB
             }"
           >
-          <thead class="sco-table__table--thead">
-            <tr>
-              <th scope="col" *ngIf="showTableIndex">#</th>
-              <th scope="col" *ngFor="let col of cols">{{col.label}}</th>
-              <th scope="col" *ngIf="showActions"></th>
-            </tr>
-          </thead>
-    
-          <tbody class="sco-table__table--tbody">
-            <tr class="sco-table__table--tbody__row" 
-              [ngClass]="{
-              'sco-table__table--tbody__row--can-select': canSelectItems,
-              'sco-table__table--tbody__row--pair': i % 2 == 0,
-              'sco-table__table--tbody__row--no-pair': i % 2 == 1
-              }"
-              *ngFor="let tableItem of tableItems| paginate: { itemsPerPage: pagination, currentPage: page }; let i = index"
-              (click)="canSelectItems && onSelectItem($event, tableItem.item, index)"
-            >
-              <th scope="row" *ngIf="showTableIndex">{{(i+1)}}</th>
-              <ng-container *ngIf="!templateRow && !templateRowInput">
-                <td *ngFor="let col of cols">
-                  {{tableItem.item[col.property]}}
+            <thead class="sco-table__table--thead">
+              <tr>
+                <th scope="col" *ngIf="showTableIndex">#</th>
+                <th scope="col" *ngFor="let col of cols">{{col.label}}</th>
+                <th scope="col" *ngIf="showActions" class="sco-table__table--thead--add-crud">
+                  <i *ngIf="showAddCrudBtn"
+                    class="fa fa-plus sco-table__table--thead--add-crud--icon" 
+                    (click)="onClickAddCrudBtn()">
+                  </i>
+                </th>
+              </tr>
+            </thead>
+      
+            <tbody class="sco-table__table--tbody">
+              <tr class="sco-table__table--tbody__row" 
+                [ngClass]="{
+                'sco-table__table--tbody__row--can-select': canSelectItems,
+                'sco-table__table--tbody__row--pair': i % 2 == 0,
+                'sco-table__table--tbody__row--no-pair': i % 2 == 1
+                }"
+                *ngFor="let tableItem of tableItems| paginate: { itemsPerPage: pagination, currentPage: page }; let i = index"
+                (click)="canSelectItems && onSelectItem($event, tableItem.item, index)"
+              >
+                <th scope="row" *ngIf="showTableIndex">{{(i+1)}}</th>
+                <ng-container *ngIf="!templateRow && !templateRowInput">
+                  <td *ngFor="let col of cols">
+                    {{tableItem.item[col.property]}}
+                  </td>
+                </ng-container>
+                <ng-container *ngIf="templateRow || templateRowInput">
+                  <ng-template *ngTemplateOutlet="templateRow || templateRowInput; context: { item: tableItem.item, cols: cols }" >
+                  </ng-template>
+                </ng-container>
+                <td *ngIf="showActions">
+                  <div class="sco-table__table--tbody__actions" *ngIf="showActions">
+                    <i class="fa fa-ellipsis-v" (click)="openActions($event, tableItem)" scoClickOutside [avoidFirstTime]="false" (clickOutSide)="hideOptions($event)"></i>
+                    <ul class="sco-table__table--tbody__actions--options-panel" *ngIf="showOptions && showOptionsIndex == tableItem.index">
+                      <li class="sco-table__table--tbody__actions--options-panel--panel" *ngFor="let action of tableItem.actions; let index = index" (click)="sendAction($event, action, index)">
+                        <div class="row no-gutters">
+                          <div class="col-11">
+                            <span>{{action.label}}</span>
+                          </div>
+                          <div class="col-1">
+                            <i [class]="action.icon" *ngIf="action.icon"></i>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </td>
-              </ng-container>
-              <ng-container *ngIf="templateRow || templateRowInput">
-                <ng-template *ngTemplateOutlet="templateRow || templateRowInput; context: { item: tableItem.item, cols: cols }" >
-                </ng-template>
-              </ng-container>
-              <td *ngIf="showActions">
-                <div class="sco-table__table--tbody__actions" *ngIf="showActions">
-                  <i class="fa fa-ellipsis-v" (click)="openActions($event, tableItem)" scoClickOutside [avoidFirstTime]="false" (clickOutSide)="hideOptions($event)"></i>
-                  <ul class="sco-table__table--tbody__actions--options-panel" *ngIf="showOptions && showOptionsIndex == tableItem.index">
-                    <li class="sco-table__table--tbody__actions--options-panel--panel" *ngFor="let action of tableItem.actions; let index = index" (click)="sendAction($event, action, index)">
-                      <div class="row no-gutters">
-                        <div class="col-11">
-                          <span>{{action.label}}</span>
-                        </div>
-                        <div class="col-1">
-                          <i [class]="action.icon" *ngIf="action.icon"></i>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-    
-          <tfoot>
-            
-          </tfoot>       
+              </tr>
+            </tbody>    
           </table>
         </div>
       </div>
@@ -93,7 +93,6 @@
     <!-- Pagination -->
     <div class="row sco-table__table--pagination" *ngIf="tableItems?.length > 0 && !paginationOnTop">
       <div class="col-12 text-center">
-        <!-- [previusLabel]="previusLabel" -->
         <pagination-controls 
           [autoHide]="true"
           [previousLabel]="previousLabel"

@@ -22,8 +22,5 @@ export class ShowcaseScoTranslateComponent implements OnInit {
   ngOnInit() {
     this.toastService.addInfoMessage("label.example.1", this.translateService.getTranslate('label.example.1'));
     this.toastService.addInfoMessage("label.example.2", this.translateService.getTranslate('label.example.2'));
-
-    console.log(this.translateService.getTranslate('label.example.1'));
-    console.log(this.translateService.getTranslate('label.example.2'));
   }
 }

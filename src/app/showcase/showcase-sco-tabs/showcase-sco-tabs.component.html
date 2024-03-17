@@ -13,14 +13,14 @@
         <div class="row">
             <div class="col-12">
               <sco-tabs>
-                <sco-tab-item [tittle]="'Tab1'">
+                <sco-tab-item [title]="'Tab1'">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at eaque consectetur id dolor perferendis inventore earum ipsum sunt? Sapiente explicabo reprehenderit inventore, consectetur aut libero praesentium doloremque repudiandae accusantium.
                 </sco-tab-item>
-                <sco-tab-item [tittle]="'Tab2'">
+                <sco-tab-item [title]="'Tab2'">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem unde dolores sed accusantium, repellat, magni iusto eaque labore atque cum deserunt tempora. Sit, corporis animi distinctio rem vel quisquam magnam.
                   Atque sequi, voluptates ullam aliquam exercitationem omnis vitae accusantium recusandae eos, a repellat quasi expedita. Doloremque vel, totam ut quibusdam possimus consequatur amet ratione in dicta ad eius porro voluptates!
                 </sco-tab-item>
-                <sco-tab-item [tittle]="'Tab3'">
+                <sco-tab-item [title]="'Tab3'">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique pariatur laudantium illum, nobis dolor a iure dolorum ipsa fugiat voluptatum et architecto voluptatem itaque quos obcaecati eum repudiandae doloremque iusto?
                   Delectus quaerat dolor debitis odit tempora? Eveniet, totam? Quam officiis natus molestiae tenetur soluta doloremque assumenda obcaecati minima voluptatibus quod? Voluptate quo, accusantium vel ex est eum aliquam voluptates debitis.
                   Voluptatibus minima deserunt, expedita cupiditate fugiat quae laborum. Soluta, asperiores sapiente illum id assumenda quisquam impedit deleniti sed, accusantium ea consequatur aspernatur temporibus aut in amet repellat dignissimos reiciendis autem!
@@ -35,7 +35,7 @@
 
     <div code>
         <sco-tabs>
-            <sco-tab-item tittle="HTLM">
+            <sco-tab-item title="HTLM">
                 <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
@@ -50,14 +50,14 @@
     &lt;div class=&quot;row&quot;&gt;
         &lt;div class=&quot;col-12&quot;&gt;
           &lt;sco-tabs&gt;
-            &lt;sco-tab-item [tittle]=&quot;'Tab1'&quot;&gt;
+            &lt;sco-tab-item [title]=&quot;'Tab1'&quot;&gt;
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at eaque consectetur id dolor perferendis inventore earum ipsum sunt? Sapiente explicabo reprehenderit inventore, consectetur aut libero praesentium doloremque repudiandae accusantium.
             &lt;/sco-tab-item&gt;
-            &lt;sco-tab-item [tittle]=&quot;'Tab2'&quot;&gt;
+            &lt;sco-tab-item [title]=&quot;'Tab2'&quot;&gt;
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem unde dolores sed accusantium, repellat, magni iusto eaque labore atque cum deserunt tempora. Sit, corporis animi distinctio rem vel quisquam magnam.
               Atque sequi, voluptates ullam aliquam exercitationem omnis vitae accusantium recusandae eos, a repellat quasi expedita. Doloremque vel, totam ut quibusdam possimus consequatur amet ratione in dicta ad eius porro voluptates!
             &lt;/sco-tab-item&gt;
-            &lt;sco-tab-item [tittle]=&quot;'Tab3'&quot;&gt;
+            &lt;sco-tab-item [title]=&quot;'Tab3'&quot;&gt;
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique pariatur laudantium illum, nobis dolor a iure dolorum ipsa fugiat voluptatum et architecto voluptatem itaque quos obcaecati eum repudiandae doloremque iusto?
               Delectus quaerat dolor debitis odit tempora? Eveniet, totam? Quam officiis natus molestiae tenetur soluta doloremque assumenda obcaecati minima voluptatibus quod? Voluptate quo, accusantium vel ex est eum aliquam voluptates debitis.
               Voluptatibus minima deserunt, expedita cupiditate fugiat quae laborum. Soluta, asperiores sapiente illum id assumenda quisquam impedit deleniti sed, accusantium ea consequatur aspernatur temporibus aut in amet repellat dignissimos reiciendis autem!
@@ -71,12 +71,12 @@
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="CSS">
+            <sco-tab-item title="CSS">
                 <pre><code class="language-css" pCode ngNonBindable>
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="TS">
+            <sco-tab-item title="TS">
                 <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
@@ -103,8 +103,8 @@ export class ShowcaseScoTabsComponent &#123;
     <div class="scrollable" inputs>
 
       <span class="title-sco">sco-tab-item</span>
-      <table class="table">
-          <thead class="thead-dark">
+      <table class="table table-dark table-striped">
+          <thead>
               <tr>
                   <th>Nombre</th>
                   <th>Descripcción</th>
@@ -115,7 +115,7 @@ export class ShowcaseScoTabsComponent &#123;
           </thead>
           <tbody>
               <tr>
-                  <td>tittle</td>
+                  <td>title</td>
                   <td>Indica el título del tab</td>
                   <td>string</td>
                   <td>undefined</td>
@@ -126,8 +126,8 @@ export class ShowcaseScoTabsComponent &#123;
     </div>
 
     <div class="scrollable" outputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>

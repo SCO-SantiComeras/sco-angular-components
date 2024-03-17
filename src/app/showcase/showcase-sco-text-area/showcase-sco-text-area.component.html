@@ -1,123 +1,100 @@
 <base-showcase>
   <div examples>
-
-<div class="row">
-    <div class="col-12">
-        
-        <div class="row mt-3">
-            <div class="col-12">
-                <p>Ejemplo 1: estandar</p>
-            </div>
-        </div>
-        
-        <div class="row mt-3">
-            <div class="col-12">
-                <sco-textarea 
-                    label="label" 
-                    placeholder="ejemplo 1"
-                    name="example"
-                    [(ngModel)]="value1" >
-                </sco-textarea>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <span>Valor: {{value1}}</span>
-            </div>
-        </div>
+    <div class="row">
+        <div class="col-12">
             
-        <div class="row mt-3">
-            <div class="col-12">
-                <p>Ejemplo 2: Valor inicial</p>
+            <div class="row mt-3">
+                <div class="col-12 title-sco">
+                    <p>Ejemplo 1: estandar</p>
+                </div>
             </div>
-        </div>
             
-        <div class="row mt-3">
-            <div class="col-12">
-                <sco-textarea 
-                    label="label" 
-                    placeholder="ejemplo 2" 
-                    name="example"
-                    [(ngModel)]="value2" >
-                </sco-textarea>
+            <div class="row">
+                <div class="col-12 pl-4 pt-1">
+                    <sco-textarea 
+                      label="label" 
+                      placeholder="ejemplo 1"
+                      name="example"
+                      [(ngModel)]="value1">
+                    </sco-textarea>
+                    <span>Valor: {{value1}}</span>
+                </div>
             </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <span>Valor: {{value2}}</span>
-            </div>
-        </div>
-
                 
-        <div class="row mt-3">
-            <div class="col-12">
-                <p>Ejemplo 3: Validación</p>
+            <div class="row mt-3">
+                <div class="col-12 title-sco">
+                    <p>Ejemplo 2: Valor inicial</p>
+                </div>
             </div>
-        </div>
                 
-        <div class="row mt-3">
-            <div class="col-12">
-                <sco-textarea 
-                    label="label" 
-                    placeholder="ejemplo 3" 
-                    name="example"
-                    [maxlength]="10"
-                    [minlength]="3"
-                    [required]="true"
-                    [validate]="true"
-                    [(ngModel)]="value3">
-
-                    <ng-template #templateValid>
-                        <span>{{'label.valid' | scoTranslate}}</span>
-                    </ng-template>
-
-                    <ng-template #templateErrors let-errors="errors">
-                        <span *ngIf="errors?.required">Valor requerido</span>    
-                        <span *ngIf="errors?.minlength">Se necesitan minimo {{errors?.minlength.requiredLength}} caracteres y llevas {{errors?.minlength?.actualLength}} caracteres</span>
-                    </ng-template>
-
-                </sco-textarea>
+            <div class="row">
+                <div class="col-12 pl-4 pt-1">
+                    <sco-textarea 
+                      label="label" 
+                      placeholder="ejemplo 2" 
+                      name="example"
+                      [(ngModel)]="value2">
+                    </sco-textarea>
+                    <span>Valor: {{value2}}</span>
+                </div>
             </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <span>Valor: {{value3}}</span>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <p>Ejemplo 4: Inline</p>
-            </div>
-        </div>
                 
-        <div class="row mt-3">
-            <div class="col-12">
-                <sco-textarea 
-                    label="label" 
-                    placeholder="ejemplo 4" 
-                    name="example"
-                    [inline]="true"
-                    [maxlength]="10"
-                    [minlength]="3"
-                    [(ngModel)]="value4">
-                </sco-textarea>
+            <div class="row mt-3">
+                <div class="col-12 title-sco">
+                    <p>Ejemplo 3: Validación</p>
+                </div>
             </div>
-        </div>
+                    
+            <div class="row">
+                <div class="col-12 pl-4 pt-1">
+                    <sco-textarea 
+                      label="label" 
+                      placeholder="ejemplo 3" 
+                      name="example"
+                      [maxlength]="10"
+                      [minlength]="3"
+                      [required]="true"
+                      [validate]="true"
+                      [(ngModel)]="value3">
 
-        <div class="row mt-3">
-            <div class="col-12">
-                <span>Valor: {{value4}}</span>
+                      <ng-template #templateValid>
+                          <span>{{'label.valid' | scoTranslate}}</span>
+                      </ng-template>
+
+                      <ng-template #templateErrors let-errors="errors">
+                          <span *ngIf="errors?.required">Valor requerido</span>    
+                          <span *ngIf="errors?.minlength">
+                            Se necesitan minimo {{errors?.minlength.requiredLength}} caracteres y llevas {{errors?.minlength?.actualLength}} caracteres
+                          </span>
+                      </ng-template>
+                    </sco-textarea>
+                    <span>Valor: {{value3}}</span>
+                </div>
             </div>
-        </div>
-   
+
+            <div class="row mt-3">
+                <div class="col-12 title-sco">
+                    <p>Ejemplo 4: Inline</p>
+                </div>
+            </div>
+                    
+            <div class="row">
+                <div class="col-12 pl-4 pt-1">
+                    <sco-textarea 
+                      label="label" 
+                      placeholder="ejemplo 4" 
+                      name="example"
+                      [inline]="true"
+                      [maxlength]="10"
+                      [minlength]="3"
+                      [(ngModel)]="value4">
+                    </sco-textarea>
+                    <span>Valor: {{value4}}</span>
+                </div>
+            </div>
+      
+      </div>
     </div>
-
-</div>
-
   </div>
 
   <div code>
@@ -129,117 +106,92 @@
     &lt;div class=&quot;col-12&quot;&gt;
         
         &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
                 &lt;p&gt;Ejemplo 1: estandar&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                 &lt;sco-textarea 
-                    label=&quot;label&quot; 
-                    placeholder=&quot;ejemplo 1&quot;
-                    name=&quot;example&quot;
-                    [(ngModel)]=&quot;value1&quot; &gt;
+                  label=&quot;label&quot; 
+                  placeholder=&quot;ejemplo 1&quot;
+                  name=&quot;example&quot;
+                  [(ngModel)]=&quot;value1&quot;&gt;
                 &lt;/sco-textarea&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
                 &lt;span&gt;Valor: {{value1}}&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
             
         &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
                 &lt;p&gt;Ejemplo 2: Valor inicial&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
             
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                 &lt;sco-textarea 
-                    label=&quot;label&quot; 
-                    placeholder=&quot;ejemplo 2&quot; 
-                    name=&quot;example&quot;
-                    [(ngModel)]=&quot;value2&quot; &gt;
+                  label=&quot;label&quot; 
+                  placeholder=&quot;ejemplo 2&quot; 
+                  name=&quot;example&quot;
+                  [(ngModel)]=&quot;value2&quot;&gt;
                 &lt;/sco-textarea&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
                 &lt;span&gt;Valor: {{value2}}&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-
                 
         &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
                 &lt;p&gt;Ejemplo 3: Validaci&oacute;n&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
                 
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                 &lt;sco-textarea 
-                    label=&quot;label&quot; 
-                    placeholder=&quot;ejemplo 3&quot; 
-                    name=&quot;example&quot;
-                    [maxlength]=&quot;10&quot;
-                    [minlength]=&quot;3&quot;
-                    [required]=&quot;true&quot;
-                    [validate]=&quot;true&quot;
-                    [(ngModel)]=&quot;value3&quot;&gt;
-
-                    &lt;ng-template #templateValid&gt;
-                        &lt;span&gt;{{'label.valid' | scoTranslate}}&lt;/span&gt;
-                    &lt;/ng-template&gt;
-
-                    &lt;ng-template #templateErrors let-errors=&quot;errors&quot;&gt;
-                        &lt;span *ngIf=&quot;errors?.required&quot;&gt;Valor requerido&lt;/span&gt;    
-                        &lt;span *ngIf=&quot;errors?.minlength&quot;&gt;Se necesitan minimo {{errors?.minlength.requiredLength}} caracteres y llevas {{errors?.minlength?.actualLength}} caracteres&lt;/span&gt;
-                    &lt;/ng-template&gt;
-
+                  label=&quot;label&quot; 
+                  placeholder=&quot;ejemplo 3&quot; 
+                  name=&quot;example&quot;
+                  [maxlength]=&quot;10&quot;
+                  [minlength]=&quot;3&quot;
+                  [required]=&quot;true&quot;
+                  [validate]=&quot;true&quot;
+                  [(ngModel)]=&quot;value3&quot;&gt;
+                  &lt;ng-template #templateValid&gt;
+                      &lt;span&gt;{{'label.valid' | scoTranslate}}&lt;/span&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #templateErrors let-errors=&quot;errors&quot;&gt;
+                      &lt;span *ngIf=&quot;errors?.required&quot;&gt;Valor requerido&lt;/span&gt;    
+                      &lt;span *ngIf=&quot;errors?.minlength&quot;&gt;Se necesitan minimo {{errors?.minlength.requiredLength}} caracteres y llevas {{errors?.minlength?.actualLength}} caracteres&lt;/span&gt;
+                  &lt;/ng-template&gt;
                 &lt;/sco-textarea&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
                 &lt;span&gt;Valor: {{value3}}&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
         &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
                 &lt;p&gt;Ejemplo 4: Inline&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
                 
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                 &lt;sco-textarea 
-                    label=&quot;label&quot; 
-                    placeholder=&quot;ejemplo 4&quot; 
-                    name=&quot;example&quot;
-                    [inline]=&quot;true&quot;
-                    [maxlength]=&quot;10&quot;
-                    [minlength]=&quot;3&quot;
-                    [(ngModel)]=&quot;value4&quot;&gt;
+                  label=&quot;label&quot; 
+                  placeholder=&quot;ejemplo 4&quot; 
+                  name=&quot;example&quot;
+                  [inline]=&quot;true&quot;
+                  [maxlength]=&quot;10&quot;
+                  [minlength]=&quot;3&quot;
+                  [(ngModel)]=&quot;value4&quot;&gt;
                 &lt;/sco-textarea&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&quot;row mt-3&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
                 &lt;span&gt;Valor: {{value4}}&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
    
     &lt;/div&gt;
-
 &lt;/div&gt;
             </code>
           </pre>
@@ -252,7 +204,7 @@
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; ScoCacheService &#125; from 'projects/sco-components/src/services/sco-cache.service';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-textarea-showcase',
   templateUrl: './textarea-showcase.component.html',
   styleUrls: ['./textarea-showcase.component.scss']
@@ -276,10 +228,10 @@ export class TextareaShowcaseComponent &#123;
       </sco-tab-item>
     </sco-tabs>
   </div>
-  <div inputs>
 
-    <table class="table">
-      <thead class="thead-dark">
+  <div inputs>
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -384,13 +336,12 @@ export class TextareaShowcaseComponent &#123;
           <td></td>
         </tr>
       </tbody>
-   
     </table>
   </div>
 
   <div outputs>
-    <table class="table">
-      <thead class="thead-dark">
+    <table class="table table-dark table-striped">
+      <thead>
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
@@ -406,4 +357,5 @@ export class TextareaShowcaseComponent &#123;
       </tbody>
     </table>
   </div>
+
 </base-showcase>

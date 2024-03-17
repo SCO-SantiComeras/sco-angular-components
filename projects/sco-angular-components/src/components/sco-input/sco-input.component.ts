@@ -25,11 +25,11 @@ export class ScoInputComponent extends ScoNgModelBase implements OnInit {
   @Input() icon: string;
   @Input() showIcon: boolean = false;
   @Input() enabledIconClick: boolean = false;
-  @Input() readOnly: boolean = false;
+  @Input() readonly: boolean = false;
   @Input() disabled: boolean = false
-  @Input() placeHolder: string = '';
-  @Input() inLine: boolean = false;
-  @Input() require: boolean = false;
+  @Input() placeholder: string = '';
+  @Input() inline: boolean = false;
+  @Input() required: boolean = false;
 
   @Output() iconClick: EventEmitter<boolean>;
   @Output() inputChange: EventEmitter<boolean>;

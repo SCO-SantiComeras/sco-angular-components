@@ -20,7 +20,7 @@ export class ShowcaseScoSplitButtonComponent {
     public readonly cacheService: ScoCacheService,
     public readonly toastService: ScoToastService
   ) { 
-    this.cacheService.setElement('title', 'Split-button');
+    this.cacheService.setElement('title', 'Split Button');
   }
   
   selectActionEx1($event){

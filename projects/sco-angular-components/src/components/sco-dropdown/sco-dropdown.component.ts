@@ -39,7 +39,7 @@ export class ScoDropdownComponent<T> extends ScoNgModelBase implements OnInit, O
   @Input() labelNoResults: string = "No results";
   @Input() label: string = '';
   @Input() showLabel: boolean = false;
-  @Input() require: boolean = false;
+  @Input() required: boolean = false;
   @Input() showFilter: boolean = true;
 
   @Output() selectItem: EventEmitter<ScoSelectItem<T>>;

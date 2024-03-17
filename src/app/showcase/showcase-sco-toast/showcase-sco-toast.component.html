@@ -12,8 +12,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <button class="btn btn-info" (click)="addInfo()">Mensaje de infor</button>
+                    <div class="col-12 answer-sco">
+                        <sco-button
+                            [mode]="'info'"
+                            [text]="'Mensaje de inf.'"
+                            (action)="addInfo()">
+                        </sco-button>
                     </div>
                 </div>
 
@@ -25,8 +29,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <button class="btn btn-danger" (click)="addError()">Mensaje de error</button>
+                    <div class="col-12 answer-sco">
+                        <sco-button
+                            [mode]="'danger'"
+                            [text]="'Mensaje de error'"
+                            (action)="addError()">
+                        </sco-button>
                     </div>
                 </div>
 
@@ -38,8 +46,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <button class="btn btn-warning" (click)="addWarning()">Mensaje de warning</button>
+                    <div class="col-12 answer-sco">
+                        <sco-button
+                            [mode]="'warning'"
+                            [text]="'Mensaje de warning'"
+                            (action)="addWarning()">
+                        </sco-button>
                     </div>
                 </div>
 
@@ -51,8 +63,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <button class="btn btn-success" (click)="addSuccess()">Mensaje de success</button>
+                    <div class="col-12 answer-sco">
+                        <sco-button
+                            [mode]="'save'"
+                            [text]="'Mensaje de success'"
+                            (action)="addSuccess()">
+                        </sco-button>
                     </div>
                 </div>
 
@@ -62,7 +78,7 @@
 
     <div code>
         <sco-tabs>
-            <sco-tab-item tittle="HTLM">
+            <sco-tab-item title="HTLM">
                 <pre><code class="language-markup" pCode ngNonBindable>
 &lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-12&quot;&gt;
@@ -75,8 +91,12 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;button class=&quot;btn btn-info&quot; (click)=&quot;addInfo()&quot;&gt;Mensaje de infor&lt;/button&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;sco-button
+                    [mode]=&quot;'info'&quot;
+                    [text]=&quot;'Mensaje de inf.'&quot;
+                    (action)=&quot;addInfo()&quot;&gt;
+                &lt;/sco-button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -88,8 +108,12 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;button class=&quot;btn btn-danger&quot; (click)=&quot;addError()&quot;&gt;Mensaje de error&lt;/button&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;sco-button
+                    [mode]=&quot;'danger'&quot;
+                    [text]=&quot;'Mensaje de error'&quot;
+                    (action)=&quot;addError()&quot;&gt;
+                &lt;/sco-button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -101,8 +125,12 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;button class=&quot;btn btn-warning&quot; (click)=&quot;addWarning()&quot;&gt;Mensaje de warning&lt;/button&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;sco-button
+                    [mode]=&quot;'warning'&quot;
+                    [text]=&quot;'Mensaje de warning'&quot;
+                    (action)=&quot;addWarning()&quot;&gt;
+                &lt;/sco-button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -114,8 +142,12 @@
         &lt;/div&gt;
 
         &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;button class=&quot;btn btn-success&quot; (click)=&quot;addSuccess()&quot;&gt;Mensaje de success&lt;/button&gt;
+            &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+                &lt;sco-button
+                    [mode]=&quot;'save&quot;
+                    [text]=&quot;'Mensaje de success'&quot;
+                    (action)=&quot;addSuccess()&quot;&gt;
+                &lt;/sco-button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -124,17 +156,17 @@
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="CSS">
+            <sco-tab-item title="CSS">
                 <pre><code class="language-css" pCode ngNonBindable>
                 </code></pre>
             </sco-tab-item>
         
-            <sco-tab-item tittle="TS">
+            <sco-tab-item title="TS">
                 <pre><code class="language-typescript" pCode ngNonBindable>
 import &#123; ScoCacheService, ScoToastService &#125; from 'sco-angular-components';
 import &#123; Component &#125; from '@angular/core';
 
-@Component(&#123;
+&commat;Component(&#123;
   selector: 'app-showcase-sco-toast',
   templateUrl: './showcase-sco-toast.component.html',
   styleUrls: ['./showcase-sco-toast.component.scss']
@@ -165,15 +197,14 @@ export class ShowcaseScoToastComponent &#123;
     this.toastService.addSuccessMessage("Success", "Mensaje de success");
   &#125;
 &#125;
-            
                 </code></pre>
             </sco-tab-item>
         </sco-tabs>
     </div>
 
     <div class="scrollable" inputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>
@@ -216,8 +247,8 @@ export class ShowcaseScoToastComponent &#123;
     </div>
 
     <div class="scrollable" outputs>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-dark table-striped">
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcción</th>

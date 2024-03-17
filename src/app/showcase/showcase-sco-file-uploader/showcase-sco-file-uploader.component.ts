@@ -14,6 +14,9 @@ export class ShowcaseScoFileUploaderComponent implements OnInit {
 
   public showFileUploader: boolean;
 
+  public showLabel: boolean;
+  public required: boolean;
+  public label: string;
   public showBorder: boolean;
   public borderColor: string;
   public showUploadBtn: boolean;
@@ -35,6 +38,9 @@ export class ShowcaseScoFileUploaderComponent implements OnInit {
 
     this.showFileUploader = false;
 
+    this.showLabel = false;
+    this.required = false;
+    this.label = 'File uploader'
     this.showBorder = false;
     this.borderColor = '#000';
     this.showUploadBtn = true;
@@ -72,8 +78,6 @@ export class ShowcaseScoFileUploaderComponent implements OnInit {
 
   /* Component Functions */
   uploadBtn($event) {
-    console.log(`uploadBtn`);
-    console.log($event);
     this.toastService.addSuccessMessage(
       "Success",
       `Botón subir pulsado: ${JSON.stringify($event ? $event.name : null)}`
@@ -81,7 +85,6 @@ export class ShowcaseScoFileUploaderComponent implements OnInit {
   }
 
   cleanBtn($event) {
-    console.log(`cleanBtn: ${$event}`)
     this.toastService.addSuccessMessage(
       "Success",
       "Botón limpiar pulsado"

@@ -121,12 +121,10 @@ export class ShowcaseScoBlockListComponent implements OnInit {
   }
 
   getAcation($event) {
-    console.log($event);
     this.toastService.addInfoMessage("Accion seleccionada", JSON.stringify($event));
   }
 
   selectItem($event: ScoSelectedItem<Appointment>) {
-    console.log($event);
     this.toastService.addInfoMessage("Item seleccionado", JSON.stringify($event));
   }
 
