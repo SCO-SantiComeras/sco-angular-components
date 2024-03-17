@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sco-components": {
+    "sco-angular-components": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sco-components",
+            "outputPath": "dist/sco-angular-components",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sco-components:build:production"
+              "browserTarget": "sco-angular-components:build:production"
             },
             "development": {
-              "browserTarget": "sco-components:build:development"
+              "browserTarget": "sco-angular-components:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sco-components:build"
+            "browserTarget": "sco-angular-components:build"
           }
         },
         "test": {
@@ -165,5 +165,5 @@
       }
     }
   },
-  "defaultProject": "sco-components"
+  "defaultProject": "sco-angular-components"
 }

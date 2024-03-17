@@ -10,7 +10,7 @@ import { Component, HostListener } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'sco-components';
+  title = 'sco-angular-components';
 
   constructor(
     public themeService: ScoThemeService,
