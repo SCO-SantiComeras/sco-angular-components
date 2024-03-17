@@ -9,6 +9,7 @@ import { ScoDetailComponent } from '../../../projects/sco-angular-components/src
 import { ScoCacheService } from '../../../projects/sco-angular-components/src/services/sco-cache.service';
 import { Router } from '@angular/router';
 import { cloneDeep } from 'lodash-es';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'sco-menu',
