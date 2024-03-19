@@ -1,9 +1,10 @@
-# ScoComponentsLib
-
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+# SCO Angular Components
 
 # Documentation
 https://scoapps.es/sco-angular-components/#/get-started
+
+# Modules
+
 
 ## Changelog
 13.1.1:
