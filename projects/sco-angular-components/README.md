@@ -12,3 +12,8 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.2:
     - Update Documentation link readme
+
+13.1.3:
+    - Add icon button mode
+    - Add icon transparent input
+    - Update button showcase
