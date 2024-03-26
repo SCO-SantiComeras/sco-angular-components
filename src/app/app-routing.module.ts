@@ -34,6 +34,7 @@ import { ShowcaseScoCheckboxComponent } from './showcase/showcase-sco-checkbox/s
 import { ShowcaseScoCalendarComponent } from './showcase/showcase-sco-calendar/showcase-sco-calendar.component';
 import { ShowcaseScoIndicatorComponent } from './showcase/showcase-sco-indicator/showcase-sco-indicator.component';
 import { ShowcaseScoGraphicsComponent } from './showcase/showcase-sco-graphics/showcase-sco-graphics.component';
+import { ShowcaseScoMenuComponent } from './showcase/showcase-sco-menu/showcase-sco-menu.component';
 
 const routes: Routes = [
   {path: 'sco-join-pipe', component: ShowcaseScoJoinPComponent},
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path: 'sco-calendar', component: ShowcaseScoCalendarComponent},
   {path: 'sco-indicator', component: ShowcaseScoIndicatorComponent},
   {path: 'sco-graphics', component: ShowcaseScoGraphicsComponent},
+  {path: 'sco-menu', component: ShowcaseScoMenuComponent},
   
   //
   {path: '**', pathMatch: 'full', redirectTo: 'get-started'},

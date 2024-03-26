@@ -55,6 +55,10 @@
                 {
                     "text": "File uploader",
                     "route": "/sco-file-uploader"
+                },
+                {
+                    "text": "Menú",
+                    "route": "/sco-menu"
                 }
             ]
         },

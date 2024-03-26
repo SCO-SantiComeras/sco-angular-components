@@ -168,3 +168,7 @@ export * from './components/sco-indicator/sco-indicator.module';
 // SCO Graphics
 export * from './components/sco-graphics/sco-graphics.module';
 export * from './components/sco-graphics/sco-graphics.component';
+
+// SCO Menu
+export * from './components/sco-menu/sco-menu.module';
+export * from './components/sco-menu/sco-menu.component';

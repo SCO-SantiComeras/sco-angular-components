@@ -12,7 +12,7 @@ import { cloneDeep } from 'lodash-es';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'sco-menu',
+  selector: 'app-sco-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
   encapsulation: ViewEncapsulation.None

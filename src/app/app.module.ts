@@ -49,6 +49,7 @@ import { MenuComponent } from './menu/menu.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { BaseShowcaseComponent } from './showcase/base-showcase/base-showcase.component';
+import { ShowcaseScoMenuComponent } from './showcase/showcase-sco-menu/showcase-sco-menu.component';
 
 export function configFactory(provider: ScoConfigService) {
   return () => provider.getDataFromJson('assets/config/data.json');
@@ -93,6 +94,7 @@ export function translateFactory(provider: ScoTranslateService) {
     ShowcaseScoCalendarComponent,
     ShowcaseScoIndicatorComponent,
     ShowcaseScoGraphicsComponent,
+    ShowcaseScoMenuComponent,
     MenuComponent,
     GetStartedComponent,
     BaseShowcaseComponent,
