@@ -21,6 +21,7 @@ export class ScoButtonComponent implements OnInit {
   @Input() position: string = this.constantsService.ScoButtonConstants.FLOAT_POSITION_RIGHT_BOTTOM;
   @Input() border: boolean = true;
   @Input() floatButton: boolean = false;
+  @Input() transparent: boolean = false;
 
   /* Outputs */
   @Output() action: EventEmitter<MouseEvent>;

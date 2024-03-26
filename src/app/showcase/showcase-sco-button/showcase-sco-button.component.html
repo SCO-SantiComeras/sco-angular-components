@@ -158,6 +158,41 @@
           </div>
         </div>
 
+        <!-- 8 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 8: Icon button</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+              [icon]="'fa fa-bars'"
+              (action)="click($event)">
+            </sco-button>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="row mt-3">
+          <div class="col-12 title-sco">
+              <span>Ejemplo 9: Icon button transparent</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-button
+                [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+                [icon]="'fa fa-bars'"
+                [transparent]="true"
+                (action)="click($event)">
+              </sco-button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -326,6 +361,41 @@
       &lt;/div&gt;
     &lt;/div&gt;
 
+    &lt;!-- 8 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 8: Icon button &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_ICON&quot;
+          [icon]=&quot;'fa fa-bars'&quot;
+          (action)=&quot;click($event)"&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;div&gt;
+
+    &lt;!-- 9 --&gt;
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 9: Icon button transparent&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_ICON&quot;
+          [icon]=&quot;'fa fa-bars'&quot;
+          [transparent]=&quot;true&quot;
+          (action)=&quot;click($event)&quot;&gt;
+        &lt;/sco-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
   &lt;/div&gt;
 &lt;/div&gt;
           </code>
@@ -418,6 +488,14 @@ export class ButtonShowcaseComponent implements OnInit &#123;
         </tr>
 
         <tr>
+          <td>showText</td>
+          <td>Indica si el botón debe mostrar el texto (Label)</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+
+        <tr>
           <td>type</td>
           <td>Tipo del botón</td>
           <td>string</td>
@@ -440,6 +518,11 @@ export class ButtonShowcaseComponent implements OnInit &#123;
               <li>ScoButtonConstants.MODE_DEFAULT</li>
               <li>ScoButtonConstants.MODE_SAVE</li>
               <li>ScoButtonConstants.MODE_DANGER</li>
+              <li>ScoButtonConstants.MODE_INFO</li>
+              <li>ScoButtonConstants.MODE_WARNING</li>
+              <li>ScoButtonConstants.MODE_DISABLED</li>
+              <li>ScoButtonConstants.MODE_LINK</li>
+              <li>ScoButtonConstants.MODE_ICON</li>
             </ul>
           </td>
         </tr>
@@ -458,13 +541,6 @@ export class ButtonShowcaseComponent implements OnInit &#123;
         </tr>
 
         <tr>
-          <td>floatButton</td>
-          <td>Boton flotante</td>
-          <td>boolean</td>
-          <td>false</td>
-          <td></td>
-        </tr>
-        <tr>
           <td>position</td>
           <td>Posicion del float button</td>
           <td>string</td>
@@ -477,6 +553,31 @@ export class ButtonShowcaseComponent implements OnInit &#123;
             </ul>
           </td>
         </tr>
+
+        <tr>
+          <td>border</td>
+          <td>Indicador para mostrar o no el borde del botón</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>floatButton</td>
+          <td>Boton flotante</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>transparent</td>
+          <td>Indicador para que el botón tenga un background y border transparent (Icon)</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
       </tbody>
     </table>
   </div>

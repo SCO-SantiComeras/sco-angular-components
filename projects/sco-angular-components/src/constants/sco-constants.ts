@@ -68,9 +68,9 @@ export class ScoButtonConstants {
     static MODE_DANGER: string = 'danger';
     static MODE_INFO: string = 'info';
     static MODE_WARNING: string = 'warning';
-    static MODE_TRANSPARENT: string = 'transparent';
     static MODE_DISABLED: string = 'disabled';
     static MODE_LINK: string = 'link';
+    static MODE_ICON: string = 'icon';
 
     static TYPE_BUTTON: string = 'button';
     static TYPE_SUBMIT: string = 'submit';

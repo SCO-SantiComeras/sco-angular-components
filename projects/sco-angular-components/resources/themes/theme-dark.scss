@@ -289,11 +289,28 @@ $content: #121212;
             pointer-events: none !important; 
           }
 
-          /* &--floatButton{ 
-            &--items {
-                color: #212529;
+          &--icon-type {
+            color: #FFF !important;
+            border-color:  rgb(52, 58, 64, 0.9) !important;
+            background-color: rgb(52, 58, 64, 0.9) !important;
+
+            &:hover {
+                border-color: rgb(207, 207, 207, 0.3) !important;
+                background: rgb(207, 207, 207, 0.3) !important;
+                border-color: transparent !important;
             }
-          } */
+
+            .sco-button {
+                &--text {
+                    color: #FFF !important;
+                }
+            }
+          }
+
+          &--transparent {
+            background-color: transparent !important;
+            border-color: transparent !important;
+          }
         }
     }
 

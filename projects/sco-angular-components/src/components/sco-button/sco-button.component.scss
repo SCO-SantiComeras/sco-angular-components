@@ -173,4 +173,34 @@
     height: 48px;
     font-size: large;
   }
+  
+  &--icon-type {
+    text-align: center;
+    margin: 0px !important;
+
+    color: #fff;
+    border-color: #343a40;
+    background: #343a40;
+
+    &:hover {
+      border-color: rgb(52, 58, 64, 0.4) !important;
+      background: rgb(52, 58, 64, 0.4) !important;
+      border-color: transparent !important;
+    }
+
+    .sco-button {
+      &--icon-margin {
+        margin-right: 0px !important;
+      }
+
+      &--icon {
+        font-size: 18px !important;
+      }
+    }
+  }
+
+  &--transparent {
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
 }
