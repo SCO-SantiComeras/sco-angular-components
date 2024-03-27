@@ -59,6 +59,10 @@
                 {
                     "text": "Menú",
                     "route": "/sco-menu"
+                },
+                {
+                    "text": "App",
+                    "route": "/sco-app"
                 }
             ]
         },

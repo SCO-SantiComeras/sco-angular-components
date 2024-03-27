@@ -173,3 +173,7 @@ export * from './components/sco-graphics/sco-graphics.component';
 export * from './components/sco-menu/sco-menu.module';
 export * from './components/sco-menu/sco-menu.component';
 export * from './components/sco-menu/model/menu-item';
+
+// SCO App
+export * from './components/sco-app/sco-app.module';
+export * from './components/sco-app/sco-app.component';

@@ -1,0 +1,203 @@
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: App</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 pl-4 pt-1">
+            <sco-app>
+              
+            </sco-app>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTML">
+        <pre>
+          <code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12 &quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        <span>Ejemplo 1: Estandar</span>
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Ejemplo 1&quot;
+          [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill &gt;
+        &lt;sco-badge-pill  
+          text=&quot;Ejemplo 2&quot; 
+          [type]=&quot;constantsService.ScoBadgeConstants.DANGER&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Ejemplo 3&quot; 
+          [type]=&quot;constantsService.ScoBadgeConstants.WARNING&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Ejemplo 4&quot; 
+          [type]=&quot;constantsService.ScoBadgeConstants.SUCCESS&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        <span>Ejemplo 2: Tamaños</span>
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Peque&ntilde;o&quot;
+          [size]=&quot;constantsService.ScoBadgeConstants.SIZE_SMALL&quot;
+          [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Mediano&quot;
+          [size]=&quot;constantsService.ScoBadgeConstants.SIZE_MEDIUM&quot;
+          [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Grande&quot;
+          [size]=&quot;constantsService.ScoBadgeConstants.SIZE_LARGE&quot;
+          [type]=&quot;constantsService.ScoBadgeConstants.INFO&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-3&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        <span>Ejemplo 3: Personalizado</span>
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+        &lt;sco-badge-pill  
+          text=&quot;Ejemplo 3&quot; 
+          customClass=&quot;myclass&quot;
+          (clickBadge)=&quot;clickBadge($event)&quot;&gt;
+        &lt;/sco-badge-pill&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="CSS">
+        <pre>
+          <code class="language-css" pCode ngNonBindable>
+.myclass&#123;
+  background: orange;
+  color: white;
+&#125;
+          </code>
+        </pre>
+      </sco-tab-item>
+      <sco-tab-item title="TS">
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, ViewEncapsulation &#125; from '@angular/core';
+import &#123; ScoToastService &#125; from 'projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import &#123; ScoCacheService &#125; from 'projects/sco-angular-components/src/services/sco-cache.service';
+import &#123; ScoConstantsService &#125; from 'projects/sco-angular-components/src/services/sco-constants.service';
+
+&commat;Component(&#123;
+  selector: 'app-badge-showcase',
+  templateUrl: './badge-showcase.component.html',
+  styleUrls: ['./badge-showcase.component.scss'],
+  encapsulation: ViewEncapsulation.None
+&#125;)
+export class BadgeShowcaseComponent &#123;
+
+  constructor(
+    private cacheService: ScoCacheService,
+    private toastService: ScoToastService,
+    public constants: ScoConstantsService
+  ) &#123; 
+    this.cacheService.setElement('title', 'Badge');
+  &#125;
+
+  clickBadge($event)&#123;
+    this.toastService.addSuccessMessage("Exito", "Click en el badge");
+    console.log($event);    
+  &#125;
+
+&#125;
+          </code>
+        </pre>
+
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div inputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores (constants)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div outputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>

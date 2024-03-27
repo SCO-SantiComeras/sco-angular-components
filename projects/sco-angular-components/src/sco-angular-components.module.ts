@@ -37,6 +37,7 @@ import { ScoCalendarModule } from './components/sco-calendar/sco-calendar.module
 import { ScoIndicatorModule } from './components/sco-indicator/sco-indicator.module';
 import { ScoGraphicsModule } from './components/sco-graphics/sco-graphics.module';
 import { ScoMenuModule } from './components/sco-menu/sco-menu.module';
+import { ScoAppModule } from './components/sco-app/sco-app.module';
 
 @NgModule({
   declarations: [],
@@ -76,6 +77,7 @@ import { ScoMenuModule } from './components/sco-menu/sco-menu.module';
     ScoIndicatorModule,
     ScoGraphicsModule,
     ScoMenuModule,
+    ScoAppModule,
   ],
   exports: [
     ScoJoinPipeModule,
@@ -113,6 +115,7 @@ import { ScoMenuModule } from './components/sco-menu/sco-menu.module';
     ScoIndicatorModule,
     ScoGraphicsModule,
     ScoMenuModule,
+    ScoAppModule,
   ], 
   providers: [
     ScoConstantsService,
