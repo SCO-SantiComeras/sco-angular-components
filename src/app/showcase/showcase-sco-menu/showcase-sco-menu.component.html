@@ -11,9 +11,20 @@
         </div>
 
         <div class="row mt-1">
-            <div class="col-12">
-              <sco-menu>
-                
+          <div class="col-12">
+            <sco-toggle 
+              [inLine]="true"
+              [(ngModel)]="borderRadius"
+              [label]="'Border radius'">
+            </sco-toggle>
+          </div>
+        </div>
+
+        <div class="row mt-1 p-4">
+            <div class="col-12 p-1 bg-theme-color">
+              <sco-menu
+                [menuItems]="menuItems"
+                [borderRadius]="borderRadius">
               </sco-menu>
             </div>
         </div>
@@ -31,42 +42,27 @@
 
     &lt;div class=&quot;row mt-1&quot;&gt;
       &lt;div class=&quot;col-12 title-sco&quot;&gt;
-          &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
+        &lt;span&gt;Ejemplo 1: Menú&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;row mt-1&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-card [showTitle]=&quot;showTitleEx1&quot;&gt;
-            &lt;p card-title&gt;Titulo&lt;/p&gt;
-            &lt;span card-content&gt;
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
-              earum corporis mollitia delectus necessitatibus perspiciatis,
-              temporibus sed nam veritatis nostrum quaerat deserunt placeat
-              eveniet libero eaque enim, porro neque quod!
-            &lt;/span&gt;
-          &lt;/sco-card&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-          &lt;span&gt;Ejemplo 2: Sin t&iacute;tulo&lt;/span&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-toggle 
+          [inLine]=&quot;true&quot;
+          [(ngModel)]=&quot;borderRadius&quot;
+          [label]=&quot;'Border radius'&quot;&gt;
+        &lt;/sco-toggle&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;row mt-1&quot;&gt;
-        &lt;div class=&quot;col-12&quot;&gt;
-          &lt;sco-card [showTitle]=&quot;showTitleEx2&quot;&gt;
-            &lt;p card-title&gt;Titulo&lt;/p&gt;
-            &lt;span card-content&gt;
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
-              earum corporis mollitia delectus necessitatibus perspiciatis,
-              temporibus sed nam veritatis nostrum quaerat deserunt placeat
-              eveniet libero eaque enim, porro neque quod!
-            &lt;/span&gt;
-          &lt;/sco-card&gt;
-        &lt;/div&gt;
+    &lt;div class=&quot;row mt-1 p-4&quot;&gt;
+      &lt;div class=&quot;col-12 p-1 bg-theme-color&quot;&gt;
+        &lt;sco-menu
+          [menuItems]=&quot;menuItems&quot;
+          [borderRadius]=&quot;borderRadius&quot;&gt;
+        &lt;/sco-menu&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
@@ -81,28 +77,63 @@
   
       <sco-tab-item title="TS">
           <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoCacheService &#125; from 'sco-angular-components';
-import &#123; Component &#125; from '@angular/core';
+import &#123; MenuItem &#125; from './../../../../projects/sco-angular-components/src/components/sco-menu/model/menu-item';
+import &#123; Component, OnInit &#125; from '&commat;angular/core';
+
+export const EXAMPLE_MENU: MenuItem[] = [
+  &#123;
+    icon: "fa fa-caret-down",
+    text: "Gest. usuarios",
+    children: [
+      &#123;
+        text: "Usuarios",
+        route: "users",
+        icon: "fa fa-user"
+      &#125;,
+      &#123;
+        text: "Roles",
+        route: "roles",
+        icon: "fa fa-user"
+      &#125;,
+      &#123;
+        text: "Permisos",
+        route: "permissions",
+        icon: "fa fa-user"
+      &#125;
+    ]
+  &#125;,
+  &#123;
+    icon: "fa fa-gear",
+    text: "Opciones",
+    route: "/options",
+  &#125;,
+  &#123;
+    icon: "fa fa-sign-out",
+    text: "Cerrar sesión",
+    route: "/auth/logout",
+  &#125;,
+];
 
 &commat;Component(&#123;
-  selector: 'app-showcase-sco-card',
-  templateUrl: './showcase-sco-card.component.html',
-  styleUrls: ['./showcase-sco-card.component.scss']
+  selector: 'app-showcase-sco-menu',
+  templateUrl: './showcase-sco-menu.component.html',
+  styleUrls: ['./showcase-sco-menu.component.scss']
 &#125;)
+export class ShowcaseScoMenuComponent implements OnInit &#123;
 
-export class ShowcaseScoCardComponent &#123;
+  public menuItems: MenuItem[];
+  public borderRadius: boolean;
 
-  public showTitleEx1: boolean;
-  public showTitleEx2: boolean;
-
-  constructor(
-    private readonly cacheService: ScoCacheService
-  ) &#123;
-    this.cacheService.setElement("title", "Card");
-    this.showTitleEx1 = true;
-    this.showTitleEx2 = false;
+  constructor() &#123; 
+    this.menuItems = [];
+    this.borderRadius = false;
   &#125;
-&#125;
+
+  ngOnInit() &#123;
+    this.menuItems = EXAMPLE_MENU;
+  &#125;
+
+&#125;            
           </code></pre>
       </sco-tab-item>
     </sco-tabs>
