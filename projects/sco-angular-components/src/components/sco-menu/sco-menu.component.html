@@ -1,3 +1,49 @@
-<p>
-  sco-menu works!
-</p>
+<div class="sco-menu">
+  <div class="sco-menu__container" *ngIf="menuItems && menuItems.length > 0">
+
+    <ul class="sco-menu__menu" *ngFor="let item of menuItems; let i = index" (mouseleave)="onLeftMenu()">
+      <li>
+        
+        <div class="btn sco-menu__menu--menu-item" 
+          [ngClass]="{
+            'sco-menu__menu--menu-item--sub-item-hover': activeHover && _subMenuItems.length > 0 && selectedSubTitle == item.text,
+            'sco-menu__menu--menu-item--first-only1': i == 0 && menuItems.length == 1 && _subMenuItems.length == 0,
+            'sco-menu__menu--menu-item--first-only1-hover': i == 0 && _subMenuItems.length > 0 && selectedSubTitle == item.text && menuItems.length == 1,
+            'sco-menu__menu--menu-item--first': i == 0 && menuItems.length > 1,
+            'sco-menu__menu--menu-item--first-hover': i == 0 && _subMenuItems.length > 0 && selectedSubTitle == item.text && menuItems.length > 1,
+            'sco-menu__menu--menu-item--mid': i > 0 && i < (menuItems.length - 1),
+            'sco-menu__menu--menu-item--last': i == (menuItems.length - 1) && menuItems.length > 1,
+            'sco-menu__menu--menu-item--last-hover': i == (menuItems.length - 1) && _subMenuItems.length > 0 && selectedSubTitle == item.text,
+            'sco-menu__menu--menu-item--no-radius': !borderRadius
+          }"
+          (click)="!item.children && onMenuItemClick(item)" 
+          (mouseenter)="onMenuItemHover(item)" 
+        >
+          <span>{{item.text}}</span>
+          <i *ngIf="item.children" class="fa fa-caret-down ml-3 mt-2"></i>
+        </div>
+        
+        <div class="sco-menu__sub-menu" 
+          *ngIf="_subMenuItems && _subMenuItems.length > 0 && _selectedSubTitle == item.text" 
+          scoClickOutside 
+          [avoidFirstTime]="false" 
+          (clickOutSide)="onLeftMenu()" 
+        >
+          <ng-container *ngFor="let subItem of _subMenuItems; let i = index" >
+            <div class="btn sco-menu__sub-menu--sub-menu-item"
+              [ngClass]="{
+                'sco-menu__sub-menu--sub-menu-item--last': i == _subMenuItems.length - 1,
+                'sco-menu__sub-menu--sub-menu-item--no-radius': !borderRadius
+              }"
+              (click)="onMenuItemClick(subItem)" 
+            >
+              <span>{{subItem.text}}</span>
+            </div>
+          </ng-container>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+</div>

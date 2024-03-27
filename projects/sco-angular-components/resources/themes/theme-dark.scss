@@ -19,6 +19,10 @@ $content: #121212;
         color: #000 !important;
     }
 
+    .bg-theme-color {
+        background-color: $background;
+    }
+
     sco-accordion {
         .sco-accordion {
             &__title { 
@@ -407,6 +411,46 @@ $content: #121212;
             .p-datepicker-header {
                 background: $background !important;
                 color: #fff !important;
+            }
+        }
+    }
+
+    sco-menu {
+        .sco-menu {
+            &__menu {
+                position: relative;
+                display: block;
+
+                div:hover {
+                    color: $color-text;
+                    background-color: lightslategray;
+                }
+
+                &--menu-item { 
+                    background-color: transparent;
+                    font-family: 'sco medium';
+                    font-size: 20px;
+                    color: $color-text;      
+                    display: flex;
+                    border-radius: 0px;
+
+                    &--sub-item-hover {
+                        color: #FFF;
+                        background-color: lightslategray;
+                    }
+                }
+            }
+
+            &__sub-menu { 
+                &--sub-menu-item { 
+                    background-color: $background;
+                    width: 100%;
+                    font-family: 'sco medium';
+                    font-size: 20px;
+                    color: $color-text;    
+                    border: 0px;
+                    border-radius: 0px;
+                }
             }
         }
     }

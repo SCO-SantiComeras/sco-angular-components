@@ -19,6 +19,11 @@ $content: #FFF;
         color: $color-text !important;
     }
 
+    .bg-theme-color {
+        background: rgb(0,44,119);
+        background: linear-gradient(90deg, rgba(0,44,119,1) 32%, rgba(0,51,139,1) 56%, rgba(0,65,176,1) 80%);
+    }
+
     sco-accordion {
         .sco-accordion {
             &__title { 
@@ -370,6 +375,46 @@ $content: #FFF;
         .sco-split-button {
             &__options {
                 background: #fff;
+            }
+        }
+    }
+
+    sco-menu {
+        .sco-menu {
+            &__menu {
+                position: relative;
+                display: block;
+
+                div:hover {
+                    color: #FFF;
+                    background-color: lightslategray;
+                }
+
+                &--menu-item { 
+                    background-color: transparent;
+                    font-family: 'sco medium';
+                    font-size: 20px;
+                    color: #FFF;      
+                    display: flex;
+                    border-radius: 0px;
+
+                    &--sub-item-hover {
+                        color: #FFF;
+                        background-color: lightslategray;
+                    }
+                }
+            }
+
+            &__sub-menu { 
+                &--sub-menu-item { 
+                    background-color: #00338b;
+                    width: 100%;
+                    font-family: 'sco medium';
+                    font-size: 20px;
+                    color: #FFF;    
+                    border: 0px;
+                    border-radius: 0px;
+                }
             }
         }
     }
