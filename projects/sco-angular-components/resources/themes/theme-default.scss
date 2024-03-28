@@ -19,9 +19,13 @@ $content: #FFF;
         color: $color-text !important;
     }
 
-    .sco-bg-theme-color {
+    .sco-header-theme-color {
         background: rgb(19,18,18);
         background: linear-gradient(90deg, rgba(19,18,18,1) 20%, rgba(54,54,54,1) 65%, rgba(125,124,124,1) 95%);
+    }
+
+    .sco-bg-theme-color {
+        background: $content;
     }
 
     sco-accordion {

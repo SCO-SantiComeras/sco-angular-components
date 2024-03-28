@@ -19,8 +19,12 @@ $content: #121212;
         color: #000 !important;
     }
 
-    .sco-bg-theme-color {
+    .sco-header-theme-color {
         background-color: $background;
+    }
+
+    .sco-bg-theme-color {
+        background: $content;
     }
 
     sco-accordion {
