@@ -18,9 +18,9 @@ export class ScoResolutionService {
     this._size = value;
   }
 
-  constructor(private constantsService: ScoConstantsService) { }
+  constructor(private readonly constantsService: ScoConstantsService) { }
 
-  setSize(width: number = undefined) {
+  setSize(width: number = undefined): string {
     if (width == undefined) {
       width = window.innerWidth;
     }
@@ -37,5 +37,7 @@ export class ScoResolutionService {
         width < this.constantsService.ScoResolutionConstants.WEB_MAX) {
           this._size = this.constantsService.ScoResolutionConstants.WEB;
     }
+
+    return this._size;
   }
 }
