@@ -17,3 +17,6 @@ https://scoapps.es/sco-angular-components/#/get-started
     - Add icon button mode
     - Add icon transparent input
     - Update button showcase
+13.1.4:
+    - Add SCO menu component
+    - Add SCO app base component
