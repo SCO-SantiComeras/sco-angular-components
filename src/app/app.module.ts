@@ -51,6 +51,7 @@ import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { BaseShowcaseComponent } from './showcase/base-showcase/base-showcase.component';
 import { ShowcaseScoMenuComponent } from './showcase/showcase-sco-menu/showcase-sco-menu.component';
 import { ShowcaseScoAppComponent } from './showcase/showcase-sco-app/showcase-sco-app.component';
+import { ShowcaseScoMenuMobileComponent } from './showcase/showcase-sco-menu-mobile/showcase-sco-menu-mobile.component';
 
 export function configFactory(provider: ScoConfigService) {
   return () => provider.getDataFromJson('assets/config/data.json');
@@ -97,6 +98,7 @@ export function translateFactory(provider: ScoTranslateService) {
     ShowcaseScoGraphicsComponent,
     ShowcaseScoMenuComponent,
     ShowcaseScoAppComponent,
+    ShowcaseScoMenuMobileComponent,
     MenuComponent,
     GetStartedComponent,
     BaseShowcaseComponent,

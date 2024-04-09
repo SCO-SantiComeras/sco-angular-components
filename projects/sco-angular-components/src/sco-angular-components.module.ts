@@ -38,6 +38,7 @@ import { ScoIndicatorModule } from './components/sco-indicator/sco-indicator.mod
 import { ScoGraphicsModule } from './components/sco-graphics/sco-graphics.module';
 import { ScoMenuModule } from './components/sco-menu/sco-menu.module';
 import { ScoAppModule } from './components/sco-app/sco-app.module';
+import { ScoMenuMobileModule } from './components/sco-menu-mobile/sco-menu-mobile.module';
 
 @NgModule({
   declarations: [],
@@ -78,6 +79,7 @@ import { ScoAppModule } from './components/sco-app/sco-app.module';
     ScoGraphicsModule,
     ScoMenuModule,
     ScoAppModule,
+    ScoMenuMobileModule,
   ],
   exports: [
     ScoJoinPipeModule,
@@ -116,6 +118,7 @@ import { ScoAppModule } from './components/sco-app/sco-app.module';
     ScoGraphicsModule,
     ScoMenuModule,
     ScoAppModule,
+    ScoMenuMobileModule,
   ], 
   providers: [
     ScoConstantsService,

@@ -36,6 +36,7 @@ import { ShowcaseScoIndicatorComponent } from './showcase/showcase-sco-indicator
 import { ShowcaseScoGraphicsComponent } from './showcase/showcase-sco-graphics/showcase-sco-graphics.component';
 import { ShowcaseScoMenuComponent } from './showcase/showcase-sco-menu/showcase-sco-menu.component';
 import { ShowcaseScoAppComponent } from './showcase/showcase-sco-app/showcase-sco-app.component';
+import { ShowcaseScoMenuMobileComponent } from './showcase/showcase-sco-menu-mobile/showcase-sco-menu-mobile.component';
 
 const routes: Routes = [
   {path: 'sco-join-pipe', component: ShowcaseScoJoinPComponent},
@@ -72,6 +73,7 @@ const routes: Routes = [
   {path: 'sco-graphics', component: ShowcaseScoGraphicsComponent},
   {path: 'sco-menu', component: ShowcaseScoMenuComponent},
   {path: 'sco-app', component: ShowcaseScoAppComponent},
+  {path: 'sco-menu-mobile', component: ShowcaseScoMenuMobileComponent},
   
   //
   {path: '**', pathMatch: 'full', redirectTo: 'get-started'},

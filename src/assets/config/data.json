@@ -63,6 +63,10 @@
                 {
                     "text": "App",
                     "route": "/sco-app"
+                },
+                {
+                    "text": "Menú mobil",
+                    "route": "/sco-menu-mobile"
                 }
             ]
         },
