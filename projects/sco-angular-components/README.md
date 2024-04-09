@@ -20,3 +20,5 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.4:
     - Add SCO menu component
     - Add SCO app base component
+13.1.5:
+    - Add translate pipe param to SCO menu component
