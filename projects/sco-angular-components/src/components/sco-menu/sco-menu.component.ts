@@ -10,6 +10,7 @@ export class ScoMenuComponent implements OnInit, OnChanges {
 
   @Input() menuItems: MenuItem[] = [];
   @Input() borderRadius: boolean = true;
+  @Input() translatePipe: boolean = false;
 
   @Output() itemClick: EventEmitter<MenuItem>;
 

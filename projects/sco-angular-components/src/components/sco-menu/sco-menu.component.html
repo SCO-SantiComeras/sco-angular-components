@@ -19,7 +19,7 @@
           (click)="!item.children && onMenuItemClick(item)" 
           (mouseenter)="onMenuItemHover(item)" 
         >
-          <span>{{item.text}}</span>
+          <span>{{translatePipe ? (item.text | scoTranslate) : item.text}}</span>
           <i *ngIf="item.children" class="fa fa-caret-down ml-3 mt-2"></i>
         </div>
         
@@ -37,7 +37,7 @@
               }"
               (click)="onMenuItemClick(subItem)" 
             >
-              <span>{{subItem.text}}</span>
+              <span>{{translatePipe ? (subItem.text | scoTranslate) : subItem.text}}</span>
             </div>
           </ng-container>
         </div>
