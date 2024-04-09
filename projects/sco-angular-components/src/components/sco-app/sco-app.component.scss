@@ -1,3 +1,55 @@
 .sco-app {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     
+    &__header {
+        width: 100%;
+        height: 60px;
+        display: flex;
+
+        &--fixed {
+            position: fixed;
+            top: 0; 
+            left: 0;
+        }
+
+        &--logo-content {
+            width: 300px; 
+            height: 60px;
+
+            &_logo {
+                margin-top: 10px; 
+                margin-left: 20px; 
+                cursor: pointer;
+            }
+        }
+
+        &--menu-content {
+            width: calc(100% - 300px); 
+            height: 60px; 
+            display: flex; 
+            justify-content: end;
+
+            &_margin {
+                margin-top: 16px; 
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &__content {
+        width: 100%; 
+        height: calc(100vh - 60px); 
+        overflow-y: auto;
+    }
+
+    sco-button {
+        .sco-button {
+    
+            &--icon-type {
+                color: #FFF !important;
+            }
+        }
+    }
 }

@@ -1,3 +1,61 @@
-<p>
-  sco-app works!
-</p>
+<div class="sco-app" [ngClass]="themeService.theme" scoResolution >
+
+  <div class="sco-app__header sco-header-theme-color" [ngClass]="{'sco-app__header--fixed': headerFixed}">
+    <div class="sco-app__header--logo-content">
+      <img *ngIf="logoPath && logoPath.length > 0" class="sco-app__header--logo-content_logo" [src]="logoPath" [ngStyle]="{
+          'width.px': logoWidth,
+          'height.px': logoHeight
+        }"
+      >
+    </div>
+    <div class="sco-app__header--menu-content">
+      <div class="sco-app__header--menu-content_margin">
+        <sco-menu 
+          [hidden]="_viewMode != constantsService.ScoResolutionConstants.WEB"
+          [menuItems]="menuItems"
+          [borderRadius]="menuBorderRadius"
+          (itemClick)="onClickMenuItem($event)">
+        </sco-menu>
+        <sco-button
+          [hidden]="_viewMode == constantsService.ScoResolutionConstants.WEB"
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="'fa fa-bars'"
+          [transparent]="true"
+          (click)="onClickMobileMenu()">
+        </sco-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sco-app__content" 
+    [ngStyle]="{
+      'padding.px': contentPadding,
+      'background-color': contentBackgroundColor != undefined ? contentBackgroundColor : ''
+    }"
+    [ngClass]="{
+      'sco-bg-theme-color': contentBackgroundColor == undefined
+    }"
+  >
+    <ng-template #contentapp>
+      <ng-content select="[content-app]" ngProjectAs="[content-app]">
+      </ng-content>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="contentapp">
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="toastEnabled">
+    <sco-toast
+      [orientation]="toastOrientation" 
+      [block]="toastBlock">
+    </sco-toast>
+  </ng-container>
+  
+  <ng-container *ngIf="spinnerEnabled">
+    <sco-spinner
+      [embedded]="spinnerEmbedded"
+      [pathImg]="spinnerImgPath">
+    </sco-spinner>
+  </ng-container>
+  
+</div>
