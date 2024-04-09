@@ -14,6 +14,7 @@ import { Component, EventEmitter, HostListener, Input, Output, ViewEncapsulation
 export class ScoAppComponent {
 
   @Input() headerFixed: boolean = false;
+  @Input() translatePipe: boolean = false;
 
   @Input() logoPath: string = './../../../resources/img/sco-logo.png';
   @Input() logoWidth: number = 80;
