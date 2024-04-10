@@ -1,17 +1,17 @@
+import { ScoFormError } from './sco-form-error.model';
 import { Pipe, PipeTransform } from '@angular/core';
-import { ScoFormErrorsService } from './sco-form-errors.service';
 
 @Pipe({
   name: 'scoFormError'
 })
 export class ScoFormErrorsPipe implements PipeTransform {
 
-  constructor(private readonly formErrorsService: ScoFormErrorsService) {}
+  constructor() {}
 
-  transform(value: any, args: any[]): any {
-    const errorMsg: string = this.formErrorsService.getError(value, args[0]);
+  transform(formErrors: ScoFormError[], formControlName: string): any {
+    const errorMsg: ScoFormError = formErrors.find(f => f.formControlName == formControlName);
     if (errorMsg) {
-      return errorMsg;
+      return errorMsg.error ? errorMsg.error : '';
     }
 
     return '';

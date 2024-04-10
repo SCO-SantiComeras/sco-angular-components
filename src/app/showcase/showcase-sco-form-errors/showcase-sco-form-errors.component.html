@@ -41,7 +41,7 @@
                       [required]="true">
                     </sco-input>
                     <span class="sco-form-error" *ngIf="validationForm.controls['secondName'].invalid">
-                      {{formErrorsService.getError('secondName', formErrors)}}
+                      {{formErrors | scoFormError : 'secondName'}}
                     </span>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                       [required]="true">
                     </sco-input>
                     <span class="sco-form-error" *ngIf="validationForm.controls['address'].invalid">
-                      {{formErrorsService.getError('address', formErrors)}}
+                      {{formErrors | scoFormError : 'address'}}
                     </span>
                   </div>
                 </div>
