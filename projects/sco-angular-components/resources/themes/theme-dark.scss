@@ -20,7 +20,8 @@ $content: #121212;
     }
 
     .sco-header-theme-color {
-        background-color: $background;
+        background: none !important;
+        background-color: $background !important;
     }
 
     .sco-bg-theme-color {
