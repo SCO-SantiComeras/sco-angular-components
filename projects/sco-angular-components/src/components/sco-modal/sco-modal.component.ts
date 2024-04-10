@@ -20,6 +20,7 @@ export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
   @Input() width: string = undefined;
   @Input() height: string = undefined;
   @Input() sizeUnity: string = this.constantsService.ScoModalTypeConstants.SIZE_UNITY_PIXELS;
+  @Input() closeWhenConfirm: boolean = true;
 
   @Output() close: EventEmitter<MouseEvent>;
   @Output() accept: EventEmitter<MouseEvent>;
@@ -88,7 +89,10 @@ export class ScoModalComponent implements OnInit, OnDestroy, OnChanges {
 
   onConfirm($event: MouseEvent) {
     this.accept.emit($event);
-    this.modalsService.close(this.id);
+
+    if (this.closeWhenConfirm) {
+      this.modalsService.close(this.id);
+    }
   }
 
   onClose($event: MouseEvent) {
