@@ -20,6 +20,7 @@
               [logoWidth]="80"
               [logoHeight]="40"
 
+              [maxMenuItems]="6"
               [menuItems]="menuItems"
               [menuBorderRadius]="true"
 
@@ -33,6 +34,12 @@
               [spinnerEnabled]="true"
               [spinnerEmbedded]="false"
               [spinnerImgPath]="'resources/img/spinner.gif'"
+
+              [menuMobileTransparent]="true"
+              [menuMobileIcon]="'fa fa-bars'"
+              [menuMobileColorRevert]="true"
+              [menuMobileShowIcons]="true"
+              [menuMobileHeaderMargin]="60"
               
               (itemClick)="onClickMenuItem($event)">              
             </sco-app>
@@ -67,6 +74,7 @@
       [logoWidth]=&quot;80&quot;
       [logoHeight]=&quot;40&quot;
 
+      [maxMenuItems]=&quot;6&quot;
       [menuItems]=&quot;menuItems&quot;
       [menuBorderRadius]=&quot;true&quot;
 
@@ -80,6 +88,12 @@
       [spinnerEnabled]=&quot;true&quot;
       [spinnerEmbedded]=&quot;false&quot;
       [spinnerImgPath]=&quot;'resources/img/spinner.gif'&quot;
+
+      [menuMobileTransparent]=&quot;true&quot;
+      [menuMobileIcon]=&quot;'fa fa-bars'&quot;
+      [menuMobileColorRevert]=&quot;true&quot;
+      [menuMobileShowIcons]=&quot;true&quot;
+      [menuMobileHeaderMargin]=&quot;60&quot;
       
       (itemClick)=&quot;onClickMenuItem($event)&quot;&gt;              
     &lt;/sco-app&gt;
