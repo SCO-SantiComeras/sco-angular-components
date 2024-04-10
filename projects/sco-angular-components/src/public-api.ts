@@ -181,3 +181,9 @@ export * from './components/sco-app/sco-app.component';
 // SCO Menu Mobile
 export * from './components/sco-menu-mobile/sco-menu-mobile.module';
 export * from './components/sco-menu-mobile/sco-menu-mobile.component';
+
+// SCO Form Errors
+export * from './services/sco-form-errors/sco-form-errors.module';
+export * from './services/sco-form-errors/sco-form-errors.service';
+export * from './services/sco-form-errors/sco-form-errors.pipe';
+export * from './services/sco-form-errors/sco-form-error.model';
