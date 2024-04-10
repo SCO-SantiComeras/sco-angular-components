@@ -423,4 +423,32 @@ $content: #FFF;
             }
         }
     }
+
+    sco-menu-mobile {
+        .sco-menu-mobile {
+            background-color: lightgray !important; 
+            border-left: 1px solid rgb(19,18,18, 0.3) !important;
+
+            &__header { 
+                background: rgb(0,44,119);
+                background: linear-gradient(90deg, rgba(0,44,119,1) 32%, rgba(0,51,139,1) 56%, rgba(0,65,176,1) 80%);
+            }
+
+            &__content { 
+                &__menu { 
+                    border-bottom: 1px solid rgb(19,18,18, 0.3); 
+
+                    &:hover {
+                        background-color: rgb(128, 128, 128, 0.3);
+                    }
+                }
+
+                &__sub-menu { 
+                    &:hover {
+                        background-color: rgb(211, 211, 211, 0.8) !important;
+                    }
+                }
+            }
+        }
+    }
 }

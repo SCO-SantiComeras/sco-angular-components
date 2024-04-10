@@ -1,3 +1,77 @@
-<p>
-  sco-menu-mobile works!
-</p>
+<sco-button
+  [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+  [icon]="menuButtonIcon"
+  [transparent]="menuButtonTransparent"
+  (click)="onClickMobileMenu(true)">
+</sco-button>
+
+<sco-detail *ngIf="showMobileMenu" 
+  [showTitle]="false"
+  [clickOutsideEnabled]="true"
+  [showOverlay]="true"
+  [forceCloseNow]="forceCloseMobileMenu"
+  (close)="onCloseMobileMenu()" >
+
+  <div detail-title></div>
+  <div detail-content class="row sco-menu-mobile" [ngStyle]="{
+      'height.px': headerMargin == undefined || headerMargin == 0 ? windowHeight : (windowHeight - headerMargin),
+      'margin-top.px': headerMargin == undefined || headerMargin == 0 ? '0' : headerMargin
+    }"
+  >
+    <div class="col-12 sco-menu-mobile__header">
+      <div class="sco-menu-mobile__header__text-content">
+        <span class="sco-menu-mobile__header__text-content--text">Menu</span>
+      </div>
+      <div class="sco-menu-mobile__header__close-content">
+        <sco-button
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="'fa fa-close'"
+          [size]="constantsService.ScoButtonConstants.SIZE_SMALL"
+          [transparent]="true"
+          (click)="forceCloseMobileMenu = true;">
+        </sco-button>
+      </div>
+    </div>
+    <div class="col-12 sco-menu-mobile__content" (click)="onClickMobileMenuContent()" [ngStyle]="{
+        'height.px': headerMargin == undefined || headerMargin == 0 ? (windowHeight - 60) : (windowHeight - headerMargin - 60)
+      }"
+    >
+      <ng-container *ngIf="menuItems && menuItems.length > 0">
+        <div *ngFor="let menuItem of menuItems; let i = index;" 
+          class="sco-menu-mobile__content__menu"
+          [ngStyle]="{
+            'height': menuItem.children && menuItem.children.length > 0 && selectedMenuItem && selectedMenuItem == menuItem.text ? 'max-content' : '50px'
+          }"  
+          (click)="onCLickMobileMenuItem(menuItem)"
+        >
+
+          <div class="sco-menu-mobile__content__menu--item">
+            <span class="sco-menu-mobile__content__menu--item--text">
+              <i *ngIf="showMenuIcons && menuItem.icon || (!showMenuIcons && menuItem.children && menuItem.children.length > 0 && menuItem.icon)" 
+                class="{{menuItem.icon}} mr-2"
+              >
+              </i>
+              {{ translatePipe ? (menuItem.text | scoTranslate) : menuItem.text }}
+            </span>
+          </div>
+
+          <ng-container *ngIf="selectedMenuItem && selectedMenuItem == menuItem.text">
+            <div *ngFor="let subMenuItem of submenuItems; let j = index;"
+              class="sco-menu-mobile__content__sub-menu"
+              [ngStyle]="{'margin-top': j > 0 ? '0px' : '10px'}"
+              (click)="onCLickMobileMenuItem(subMenuItem)"
+            >
+              <span class="sco-menu-mobile__content__sub-menu--item">
+                <i *ngIf="showMenuIcons && subMenuItem.icon || (!showMenuIcons && subMenuItem.children && subMenuItem.children.length > 0 && subMenuItem.icon)"
+                  class="{{subMenuItem.icon}} mr-2"
+                >
+                </i>
+                {{ translatePipe ? (subMenuItem.text | scoTranslate) : subMenuItem.text }}
+              </span>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</sco-detail>

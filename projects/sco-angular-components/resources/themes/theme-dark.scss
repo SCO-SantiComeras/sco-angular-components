@@ -459,4 +459,32 @@ $content: #121212;
             }
         }
     }
+
+    sco-menu-mobile {
+        .sco-menu-mobile {
+            background-color: $content !important; 
+            border-left: 1px solid rgb(19,18,18, 0.3) !important;
+
+            &__header { 
+                background: none !important;
+                background-color: $background !important;
+            }
+
+            &__content { 
+                &__menu { 
+                    border-bottom: 1px solid rgb(19,18,18, 0.3); 
+
+                    &:hover {
+                        background-color: rgb(128, 128, 128, 0.3);
+                    }
+                }
+
+                &__sub-menu { 
+                    &:hover {
+                        background-color: rgb(211, 211, 211, 0.4) !important;
+                    }
+                }
+            }
+        }
+    }
 }
