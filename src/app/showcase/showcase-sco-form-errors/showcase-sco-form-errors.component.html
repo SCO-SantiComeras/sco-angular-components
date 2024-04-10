@@ -92,18 +92,83 @@
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
 
-    &lt;div class=&quot;row mt-1&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-          &lt;span&gt;Ejemplo 1: Translate&lt;/span&gt;
-      &lt;/div&gt;
+  &lt;div class=&quot;row mt-1&quot;&gt;
+    &lt;div class=&quot;col-12 title-sco&quot;&gt;
+      &lt;span&gt;Ejemplo 1: Validación de formulario&lt;/span&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-12 answer-sco&quot;&gt;
-          &lt;p&gt;- {{ ('label.example.1' | scoTranslate) + ' ' + ('label.example.2' | scoTranslate) }}&lt;/p&gt;
-          &lt;p&gt;- {{'label.look.console' | scoTranslate }}&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12 answer-sco&quot;&gt;
+      &lt;form [formGroup]=&quot;validationForm&quot;&gt;
+      &lt;div class=&quot;row mt-2&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-input
+          formControlName=&quot;name&quot;
+          [label]=&quot;'Nombre'&quot;
+          [showLabel]=&quot;true&quot;
+          [type]=&quot;constantsService.ScoInputTypeConstants.TEXT&quot;
+          [showIcon]=&quot;true&quot; 
+          [enabledIconClick]=&quot;true&quot;
+          [required]=&quot;true&quot;&gt;
+        &lt;/sco-input&gt;
+        &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;validationForm.controls['name'].invalid&quot;&gt;
+          {{formErrorsService.getError('name', formErrors)}}
+        &lt;/span&gt;
         &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row mt-2&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-input
+          formControlName=&quot;secondName&quot;
+          [label]=&quot;'Apellidos'&quot;
+          [showLabel]=&quot;true&quot;
+          [type]=&quot;constantsService.ScoInputTypeConstants.TEXT&quot;
+          [showIcon]=&quot;true&quot; 
+          [enabledIconClick]=&quot;true&quot;
+          [required]=&quot;true&quot;&gt;
+        &lt;/sco-input&gt;
+        &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;validationForm.controls['secondName'].invalid&quot;&gt;
+          {{formErrors | scoFormError : 'secondName'}}
+        &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row mt-2&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+        &lt;sco-input
+          formControlName=&quot;address&quot;
+          [label]=&quot;'Dirección'&quot;
+          [showLabel]=&quot;true&quot;
+          [type]=&quot;constantsService.ScoInputTypeConstants.TEXT&quot;
+          [showIcon]=&quot;true&quot; 
+          [enabledIconClick]=&quot;true&quot;
+          [required]=&quot;true&quot;&gt;
+        &lt;/sco-input&gt;
+        &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;validationForm.controls['address'].invalid&quot;&gt;
+          {{formErrors | scoFormError : 'address'}}
+        &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row mt-2&quot;&gt;
+        &lt;div class=&quot;col-12 text-right&quot;&gt;
+        &lt;sco-button class=&quot;mr-2&quot;
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_DANGER&quot;
+          [text]=&quot;'Cancelar'&quot;
+          (action)=&quot;onClickCancelForm()&quot;&gt;
+        &lt;/sco-button&gt;
+        &lt;sco-button
+          [mode]=&quot;constantsService.ScoButtonConstants.MODE_SAVE&quot;
+          [text]=&quot;'Validar'&quot;
+          (action)=&quot;onClickSubmitForm()&quot;&gt;
+        &lt;/sco-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/form&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;
@@ -116,82 +181,88 @@
       </sco-tab-item>
   
       <sco-tab-item title="TS">
-          -- Showcase
           <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoToastService, ScoCacheService, scoTranslateService &#125; from 'sco-angular-components';
-import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; ScoConstantsService &#125; from './../../../../projects/sco-angular-components/src/services/sco-constants.service';
+import &#123; ScoToastService &#125; from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import &#123; ScoFormErrorsService &#125; from './../../../../projects/sco-angular-components/src/services/sco-form-errors/sco-form-errors.service';
+import &#123; ScoFormError &#125; from './../../../../projects/sco-angular-components/src/services/sco-form-errors/sco-form-error.model';
+import &#123; Component, OnInit &#125; from '&commat;angular/core';
+import &#123; FormControl, FormGroup, Validators &#125; from '&commat;angular/forms';
+
+export class FormValidationClass &#123;
+  name: string;
+  secondName: string;
+  address: string;
+&#125;
 
 &commat;Component(&#123;
-  selector: 'app-showcase-sco-translate',
-  templateUrl: './showcase-sco-translate.component.html',
-  styleUrls: ['./showcase-sco-translate.component.scss']
+  selector: 'app-showcase-sco-form-errors',
+  templateUrl: './showcase-sco-form-errors.component.html',
+  styleUrls: ['./showcase-sco-form-errors.component.scss']
 &#125;)
+export class ShowcaseScoFormErrorsComponent implements OnInit &#123;
 
-export class ShowcasescoTranslateComponent implements OnInit &#123;
+  public validationForm: FormGroup;
+  public formErrors: ScoFormError[];
 
   constructor(
-    private cacheService: ScoCacheService,
-    private translateService: scoTranslateService,
-    private toastService: ScoToastService
-  ) &#123; 
-    this.cacheService.setElement("title", "Translate Service");
-  &#125;
+    public readonly formErrorsService: ScoFormErrorsService,
+    public readonly toastService: ScoToastService,
+    public readonly constantsService: ScoConstantsService,
+  ) &#123; &#125;
 
   ngOnInit() &#123;
-    this.toastService.addInfoMessage("label.example.1", this.translateService.getTranslate('label.example.1'));
-    this.toastService.addInfoMessage("label.example.2", this.translateService.getTranslate('label.example.2'));
+    this.validationForm = new FormGroup(&#123;
+      name: new FormControl('', [Validators.required]),
+      secondName: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
+    &#125;);
+
+    this.formErrors = [];
   &#125;
-&#125;
-          </code></pre>
-          -- JSON (es.json)
-          <pre><code class="language-typescript" pCode ngNonBindable>
-&#123;
-  "label.example.1": "Hola",
-  "label.example.2": "Mundo",
-  "label.look.console": "Mira la consola del navegador"
-&#125;
-          </code></pre>
-          -- JSON (en.json)
-          <pre><code class="language-typescript" pCode ngNonBindable>
-&#123;
-  "label.example.1": "Hello",
-  "label.example.2": "World",
-  "label.look.console": "Look at browser console"
-&#125;
-          </code></pre>
-          -- App.Module
-          <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; APP_INITIALIZER, NgModule &#125; from '@angular/core';
-import &#123; BrowserModule, &#125; from '@angular/platform-browser';
-import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
-import &#123; ScoComponentsLibModule &#125; from 'sco-angular-components';
-import &#123; ScoTranslateService &#125; from 'sco-angular-components';
-                    
-export function translateFactory(provider: ScoTranslateService) &#123;
-    return () => provider.getData('assets/i18n/');
-&#125;
 
-&commat;NgModule(&#123;
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        ScoComponentsLibModule,
-    ],
-    providers: [
-        scoTranslateService, 
-        &#123;
-          provide: APP_INITIALIZER,
-          useFactory: translateFactory,
-          deps: [
-              ScoTranslateService
-          ],
-          multi: true
-        &#125;
-    ],
-    bootstrap: [AppComponent]
-&#125;)
+  onClickSubmitForm() &#123;
+    const formValidationClass: FormValidationClass = this.validationForm.value;
 
-export class AppModule &#123; &#125;
+    this.validateFormValues(formValidationClass);
+    if (this.formErrors && this.formErrors.length > 0) &#123;
+      return;
+    &#125;
+
+    this.toastService.addSuccessMessage('Éxito', 'Formulario validado correctamente: ' + JSON.stringify(formValidationClass));
+  &#125;
+
+  onClickCancelForm() &#123;
+    this.validationForm = this.formErrorsService.cleanErrors(this.validationForm);
+  &#125;
+
+  private validateFormValues(formValidationClass: FormValidationClass) &#123;
+    this.formErrors = [];
+
+    if (!formValidationClass.name) &#123;
+      this.formErrors.push(&#123; 
+        formControlName: 'name', 
+        error: 'Nombre no reportado',
+      &#125;);
+    &#125;
+
+    if (!formValidationClass.secondName) &#123;
+      this.formErrors.push(&#123; 
+        formControlName: 'secondName', 
+        error: 'Apellidos no reportados',
+      &#125;);
+    &#125;
+
+    if (!formValidationClass.address) &#123;
+      this.formErrors.push(&#123; 
+        formControlName: 'address', 
+        error: 'Dirección no reportada',
+      &#125;);
+    &#125;
+
+    this.validationForm = this.formErrorsService.setErrors(this.validationForm, this.formErrors);
+  &#125;
+&#125;            
           </code></pre>
       </sco-tab-item>
     </sco-tabs>
