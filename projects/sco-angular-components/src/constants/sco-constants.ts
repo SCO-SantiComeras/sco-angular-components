@@ -126,4 +126,12 @@ export class ScoGraphicsConstants {
     static TYPE_DOUGHNUT: string = 'doughnut';
     static TYPE_POLAR_AREA: string = 'polarArea';
     static TYPE_RADAR: string = 'radar';
-  }
+}
+
+export class ScoTranslateConstants {
+    static DEFAULT_LANGUAGE: string = 'en';
+    static LANGUAGES: any = {
+        ES: 'es',
+        EN: 'en'
+    };
+}
