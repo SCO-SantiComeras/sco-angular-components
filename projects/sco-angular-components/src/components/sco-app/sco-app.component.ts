@@ -34,6 +34,12 @@ export class ScoAppComponent {
   @Input() spinnerEmbedded: boolean = false;
   @Input() spinnerImgPath: string = './../../../resources/img/spinner.gif';
 
+  @Input() menuMobileTransparent: boolean = true;
+  @Input() menuMobileIcon: string = 'fa fa-bars';
+  @Input() menuMobileColorRevert: boolean = true;
+  @Input() menuMobileShowIcons: boolean = true;
+  @Input() menuMobileHeaderMargin: number = 60;
+
   @Output() itemClick: EventEmitter<MenuItem>;
   @Output() mobileMenuClick: EventEmitter<boolean>;
 

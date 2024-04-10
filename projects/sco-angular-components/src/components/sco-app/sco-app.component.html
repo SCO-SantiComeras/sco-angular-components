@@ -17,13 +17,17 @@
           [translatePipe]="translatePipe"
           (itemClick)="onClickMenuItem($event)">
         </sco-menu>
-        <sco-button
+        <sco-menu-mobile
           [hidden]="_viewMode == constantsService.ScoResolutionConstants.WEB"
-          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-          [icon]="'fa fa-bars'"
-          [transparent]="true"
-          (click)="onClickMobileMenu()">
-        </sco-button>
+          [menuItems]="menuItems"
+          [menuButtonTransparent]="menuMobileTransparent"
+          [menuButtonIcon]="menuMobileIcon"
+          [menuButtonIconColorRevert]="menuMobileColorRevert"
+          [showMenuIcons]="menuMobileShowIcons"
+          [translatePipe]="translatePipe"
+          [headerMargin]="menuMobileHeaderMargin"
+          (itemClick)="onClickMenuItem($event)">
+        </sco-menu-mobile>
       </div>
     </div>
   </div>
