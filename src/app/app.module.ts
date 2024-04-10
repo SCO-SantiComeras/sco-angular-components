@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule, } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -111,6 +111,7 @@ export function translateFactory(provider: ScoTranslateService) {
     AppRoutingModule,
     ScoAngularComponentsModule,
     FormsModule,
+    ReactiveFormsModule,
     CodeHighlighterModule
   ],
   providers: [
