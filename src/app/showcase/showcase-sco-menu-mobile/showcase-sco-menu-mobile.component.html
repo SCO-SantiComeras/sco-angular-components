@@ -1,3 +1,228 @@
-<sco-menu-mobile>
+<base-showcase>
+
+  <div examples>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row mt-1">
+          <div class="col-12 title-sco">
+            <span>Ejemplo 1: Menú mobil</span>
+          </div>
+        </div>
+
+        <div class="row mt-1 p-4">
+          <div class="col-12 p-1 sco-header-theme-color">
+            <sco-menu-mobile
+              [menuItems]="menuItems"
+
+              [menuButtonTransparent]="true"
+              [menuButtonIcon]="'fa fa-bars'"
+              [menuButtonIconColorRevert]="true"
+
+              [showMenuIcons]="true"
+              [translatePipe]="false"
+              [headerMargin]="0"
+
+              (itemClick)="onClickMenuMobileItem($event)">
+            </sco-menu-mobile>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div code>
+    <sco-tabs>
+      <sco-tab-item title="HTLM">
+          <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+
+    &lt;div class=&quot;row mt-1&quot;&gt;
+      &lt;div class=&quot;col-12 title-sco&quot;&gt;
+        &lt;span&gt;Ejemplo 1: Menú mobil&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;row mt-1 p-4&quot;&gt;
+      &lt;div class=&quot;col-12 p-1 sco-header-theme-color&quot;&gt;
+        &lt;sco-menu-mobile
+          [menuItems]=&quot;menuItems&quot;
+
+          [menuButtonTransparent]=&quot;true&quot;
+          [menuButtonIcon]=&quot;'fa fa-bars'&quot;
+          [menuButtonIconColorRevert]=&quot;true&quot;
+
+          [showMenuIcons]=&quot;true&quot;
+          [translatePipe]=&quot;false&quot;
+          [headerMargin]=&quot;0&quot;
+
+          (itemClick)="onClickMenuMobileItem($event)"&gt;
+          &lt;/sco-menu-mobile&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+      </sco-tab-item>
+    
+      <sco-tab-item title="CSS">
+          <pre><code class="language-css" pCode ngNonBindable>
+          </code></pre>
+      </sco-tab-item>
   
-</sco-menu-mobile>
+      <sco-tab-item title="TS">
+          <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, OnInit &#125; from '&commat;angular/core';
+import &#123; MenuItem &#125; from './../../../../projects/sco-angular-components/src/components/sco-menu/model/menu-item';
+
+export const EXAMPLE_MENU: MenuItem[] = [
+  &#123;
+    icon: "fa fa-caret-down",
+    text: "Gest. usuarios",
+    children: [
+      &#123;
+        text: "Usuarios",
+        route: "users",
+        icon: "fa fa-user"
+      &#125;,
+      &#123;
+        text: "Roles",
+        route: "roles",
+        icon: "fa fa-user"
+      &#125;,
+      &#123;
+        text: "Permisos",
+        route: "permissions",
+        icon: "fa fa-user"
+      &#125;
+    ]
+  &#125;,
+  &#123;
+    icon: "fa fa-gear",
+    text: "Opciones",
+    route: "/options",
+  &#125;,
+  &#123;
+    icon: "fa fa-sign-out",
+    text: "Cerrar sesión",
+    route: "/auth/logout",
+  &#125;,
+];
+
+&commat;Component(&#123;
+  selector: 'app-showcase-sco-menu-mobile',
+  templateUrl: './showcase-sco-menu-mobile.component.html',
+  styleUrls: ['./showcase-sco-menu-mobile.component.scss']
+&#125;)
+export class ShowcaseScoMenuMobileComponent implements OnInit &#123;
+
+  public menuItems: MenuItem[];
+
+  constructor() &#123; 
+    this.menuItems = [];
+  &#125;
+
+  ngOnInit() &#123;
+    this.menuItems = EXAMPLE_MENU;
+  &#125;
+
+  onClickMenuMobileItem($event: MenuItem) &#123;
+
+  &#125;
+
+&#125;
+          </code></pre>
+      </sco-tab-item>
+    </sco-tabs>
+  </div>
+
+  <div class="scrollable" inputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>menuItems</td>
+          <td>Lista de elementos a mostrar en el menú</td>
+          <td>MenuItem</td>
+          <td>[]</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>menuButtonTransparent</td>
+          <td>Indicador que modifica el background del botón del menú</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>menuButtonIcon</td>
+          <td>Clase de font awesome para proveer el icono</td>
+          <td>string</td>
+          <td>'fa fa-bars'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>menuButtonIconColorRevert</td>
+          <td>Indicador para modificar el color del icono del botón del menú (#FFF)</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>showMenuIcons</td>
+          <td>Indicador para mostrar los iconos de los elementos del menú</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>translatePipe</td>
+          <td>Indicador para utilizar el pipe de translate en los textos del menú</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>headerMargin</td>
+          <td>Margen superior de la cabecera</td>
+          <td>number</td>
+          <td>0</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scrollable" outputs>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Valor devuelto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>itemClick</td>
+          <td>Evento que devuelve el componente al seleccionar un elemento del menú</td>
+          <td>MenuItem</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</base-showcase>
