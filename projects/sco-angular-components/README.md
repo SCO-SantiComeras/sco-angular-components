@@ -27,3 +27,5 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.7:
     - Add SCO menu mobile component
     - Update SCO app component to integrate SCO menu mobile
+13.1.8:
+    - Refactor translate service and add translate constants
