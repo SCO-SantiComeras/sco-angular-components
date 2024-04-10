@@ -1,24 +1,27 @@
 <div class="sco-login">
   <div class="row mt-3">
     <div class="col-12" >
-
-      <div class="row ml-1 mr-1">
-        <div class="col-12">
-          <sco-input
-              [(ngModel)]="inputUser"
+      <form [formGroup]="loginForm">
+        <div class="row ml-1 mr-1">
+          <div class="col-12">
+            <sco-input
+              formControlName="name"
               [label]="labelUser"
               [showLabel]="true"  
               [icon]="'fa fa-user'"
               [showIcon]="true" 
               [required]="true" >
-          </sco-input>
+            </sco-input>
+            <span class="sco-form-error" *ngIf="loginForm.controls['name'].invalid">
+              {{formErrorsService.getError('name', formErrors)}}
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div class="row mt-3 ml-1 mr-1">
-        <div class="col-12">
-          <sco-input
-              [(ngModel)]="inputPwd"
+        <div class="row mt-3 ml-1 mr-1">
+          <div class="col-12">
+            <sco-input
+              formControlName="password"
               [label]="labelPassword"
               [showLabel]="true"
               [type]="showPassword ? constantsService.ScoInputTypeConstants.TEXT : constantsService.ScoInputTypeConstants.PASSWORD "
@@ -27,45 +30,48 @@
               [enabledIconClick]="true"
               [required]="true"
               (iconClick)="showHidePassowrd()" >
-          </sco-input>
-        </div>
-      </div>
-
-      <div class="row mt-4 ml-1 mr-1" [ngClass]="{'mb-3': (!showLabelPwdRecovery && ! showLabelPwdRecovery)}">
-        <div class="col-6">
-          <sco-button
-            [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
-            [text]="labelCancel"
-            (action)="cancelButton()">
-          </sco-button>
-        </div>
-        <div class="col-6 text-right">
-          <sco-button
-            [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
-            [text]="labelConfirm"
-            (action)="confirmButton()">
-          </sco-button>
-        </div>
-      </div>
-
-      <div class="row mt-3 ml-1 mr-1 mb-3" *ngIf="showLabelPwdRecovery || showLabelUserRegister">
-        <div class="col-6 text-left">
-          <sco-button *ngIf="showLabelPwdRecovery"
-            [mode]="constantsService.ScoButtonConstants.MODE_LINK"
-            [text]="labelPwdRecovery"
-            (action)="passwordRecovery()">
-          </sco-button>
+            </sco-input>
+            <span class="sco-form-error" *ngIf="loginForm.controls['password'].invalid">
+              {{formErrorsService.getError('password', formErrors)}}
+            </span>
+          </div>
         </div>
 
-        <div class="col-6 text-right">
-          <sco-button *ngIf="showLabelUserRegister"
-            [mode]="constantsService.ScoButtonConstants.MODE_LINK"
-            [text]="labelUserRegister"
-            (action)="registerNewUser()">
-          </sco-button>
+        <div class="row mt-4 ml-1 mr-1" [ngClass]="{'mb-3': (!showLabelPwdRecovery && ! showLabelPwdRecovery)}">
+          <div class="col-6">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
+              [text]="labelCancel"
+              (action)="cancelButton()">
+            </sco-button>
+          </div>
+          <div class="col-6 text-right">
+            <sco-button
+              [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
+              [text]="labelConfirm"
+              (action)="confirmButton()">
+            </sco-button>
+          </div>
         </div>
-      </div>
 
+        <div class="row mt-3 ml-1 mr-1 mb-3" *ngIf="showLabelPwdRecovery || showLabelUserRegister">
+          <div class="col-6 text-left">
+            <sco-button *ngIf="showLabelPwdRecovery"
+              [mode]="constantsService.ScoButtonConstants.MODE_LINK"
+              [text]="labelPwdRecovery"
+              (action)="passwordRecovery()">
+            </sco-button>
+          </div>
+
+          <div class="col-6 text-right">
+            <sco-button *ngIf="showLabelUserRegister"
+              [mode]="constantsService.ScoButtonConstants.MODE_LINK"
+              [text]="labelUserRegister"
+              (action)="registerNewUser()">
+            </sco-button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

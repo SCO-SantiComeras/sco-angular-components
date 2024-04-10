@@ -28,6 +28,12 @@ $content: #121212;
         background: $content !important;
     }
 
+    .sco-form-error {
+        color: #f44336;
+        font-size: 14px;
+        font-family: 'sco regular';
+    }
+
     sco-accordion {
         .sco-accordion {
             &__title { 

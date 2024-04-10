@@ -1,6 +1,9 @@
+import { ScoFormErrorsService } from './../../services/sco-form-errors/sco-form-errors.service';
+import { ScoFormError } from './../../services/sco-form-errors/sco-form-error.model';
 import { ILogin } from './model/sco-login.model';
 import { ScoConstantsService } from '../../services/sco-constants.service';
-import { Component, Input, OnInit, Output, ViewEncapsulation, EventEmitter, HostListener } from '@angular/core';
+import { Component, Input, Output, ViewEncapsulation, EventEmitter, HostListener, OnChanges, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'sco-login',
@@ -8,7 +11,7 @@ import { Component, Input, OnInit, Output, ViewEncapsulation, EventEmitter, Host
   styleUrls: ['./sco-login.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ScoLoginComponent implements OnInit {
+export class ScoLoginComponent implements OnChanges {
 
   @Input() labelUser: string = 'Usuario';
   @Input() labelPassword: string = 'Contraseña';
@@ -18,6 +21,7 @@ export class ScoLoginComponent implements OnInit {
   @Input() showLabelPwdRecovery: boolean = true;
   @Input() labelUserRegister: string = 'Registrar usuario';
   @Input() showLabelUserRegister: boolean = true;
+  @Input() formErrors: ScoFormError[] = [];
 
   @Output() cancel: EventEmitter<boolean>;
   @Output() confirm: EventEmitter<ILogin>;
@@ -25,23 +29,35 @@ export class ScoLoginComponent implements OnInit {
   @Output() registerUser: EventEmitter<boolean>;
 
   public showPassword: boolean;
-  public inputUser: string;
-  public inputPwd: string;
+  public loginForm: FormGroup;
 
   constructor(
-    public readonly constantsService: ScoConstantsService
+    public readonly constantsService: ScoConstantsService,
+    public readonly formErrorsService: ScoFormErrorsService,
   ) { 
     this.cancel = new EventEmitter<boolean>();
     this.confirm = new EventEmitter<ILogin>();
     this.pwdRecovery = new EventEmitter<boolean>();
     this.registerUser = new EventEmitter<boolean>();
+
     this.showPassword = false;
-    this.inputUser = '';
-    this.inputPwd = '';
+    this.loginForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    });
   }
 
-  ngOnInit() {
-    this.showPassword = false;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      if (changes["formErrors"] && changes["formErrors"].currentValue) {
+        const formErrors: ScoFormError[] = changes["formErrors"].currentValue;
+
+        if (formErrors && formErrors.length > 0) {
+          this.formErrors = formErrors;
+          this.loginForm = this.formErrorsService.setErrors(this.loginForm, this.formErrors);
+        }
+      }
+    }
   }
 
   showHidePassowrd() {
@@ -49,17 +65,12 @@ export class ScoLoginComponent implements OnInit {
   }
 
   cancelButton() {
-    this.inputPwd = '';
-    this.inputUser = '';
+    this.loginForm = this.formErrorsService.cleanErrors(this.loginForm);
     this.cancel.emit(true);
   }
 
   confirmButton() {
-    let login: ILogin = {
-      userName: this.inputUser,
-      password: this.inputPwd
-    }
-
+    const login: ILogin = this.loginForm.value;
     this.confirm.emit(login);
   }
 
