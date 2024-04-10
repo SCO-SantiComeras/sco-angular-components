@@ -11,14 +11,14 @@
     <div class="sco-app__header--menu-content">
       <div class="sco-app__header--menu-content_margin">
         <sco-menu 
-          [hidden]="_viewMode != constantsService.ScoResolutionConstants.WEB"
+          [hidden]="showMenu()"
           [menuItems]="menuItems"
           [borderRadius]="menuBorderRadius"
           [translatePipe]="translatePipe"
           (itemClick)="onClickMenuItem($event)">
         </sco-menu>
         <sco-menu-mobile
-          [hidden]="_viewMode == constantsService.ScoResolutionConstants.WEB"
+          [hidden]="showMenuMobile()"
           [menuItems]="menuItems"
           [menuButtonTransparent]="menuMobileTransparent"
           [menuButtonIcon]="menuMobileIcon"

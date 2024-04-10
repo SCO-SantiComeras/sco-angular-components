@@ -3,7 +3,7 @@ import { ScoResolutionService } from './../../services/sco-resolution/sco-resolu
 import { ScoThemeService } from './../../services/sco-theme.service';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
 import { ScoConstantsService } from './../../services/sco-constants.service';
-import { Component, EventEmitter, HostListener, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'sco-app',
@@ -11,7 +11,7 @@ import { Component, EventEmitter, HostListener, Input, Output, ViewEncapsulation
   styleUrls: ['./sco-app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ScoAppComponent {
+export class ScoAppComponent implements OnInit, OnChanges {
 
   @Input() headerFixed: boolean = false;
   @Input() translatePipe: boolean = false;
@@ -20,6 +20,7 @@ export class ScoAppComponent {
   @Input() logoWidth: number = 80;
   @Input() logoHeight: number = 40;
 
+  @Input() maxMenuItems: number = 6;
   @Input() menuItems: MenuItem[] = [];
   @Input() menuBorderRadius: boolean = true;
 
@@ -44,6 +45,7 @@ export class ScoAppComponent {
   @Output() mobileMenuClick: EventEmitter<boolean>;
 
   public _viewMode: string;
+  public _alwaysMenuMobile: boolean;
 
   constructor(
     public readonly constantsService: ScoConstantsService,
@@ -55,6 +57,53 @@ export class ScoAppComponent {
     this.mobileMenuClick = new EventEmitter<boolean>();
 
     this._viewMode = this.resolutionService.size;
+    this._alwaysMenuMobile = false;
+  }
+
+  ngOnInit(): void {
+    if (this.menuItems && this.menuItems.length > 0 && this.menuItems.length > this.maxMenuItems) {
+      this._alwaysMenuMobile = true;
+    }
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      if (changes["maxMenuItems"] && changes["maxMenuItems"].currentValue) { 
+        this.maxMenuItems = changes["maxMenuItems"].currentValue;
+      }
+
+      if (changes["menuItems"] && changes["menuItems"].currentValue) {
+        const items: MenuItem[] = changes["menuItems"].currentValue;
+
+        if (items && items.length > 0 && items.length > this.maxMenuItems) {
+          this._alwaysMenuMobile = true;
+        }
+      }
+    }
+  }
+
+  showMenu() {
+    if (this._viewMode != this.constantsService.ScoResolutionConstants.WEB) {
+      return true;
+    }
+
+    if (this._alwaysMenuMobile) {
+      return true;
+    }
+  
+    return false;
+  }
+
+  showMenuMobile() {
+    if (this._viewMode == this.constantsService.ScoResolutionConstants.WEB) {
+      if (this._alwaysMenuMobile) {
+        return false;
+      }
+
+      return true;
+    }
+    
+    return false;
   }
 
   onClickMenuItem($event: MenuItem) {
