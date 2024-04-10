@@ -55,8 +55,4 @@ export class ShowcaseScoAppComponent implements OnInit {
   onClickMenuItem($event: MenuItem) {
 
   }
-
-  onClickMobileMenu($event: boolean) {
-    if (!$event) return;
-  }
 }

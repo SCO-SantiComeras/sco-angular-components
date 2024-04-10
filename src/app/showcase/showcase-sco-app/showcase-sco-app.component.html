@@ -34,8 +34,7 @@
               [spinnerEmbedded]="false"
               [spinnerImgPath]="'resources/img/spinner.gif'"
               
-              (itemClick)="onClickMenuItem($event)"
-              (mobileMenuClick)="onClickMobileMenu($event)">              
+              (itemClick)="onClickMenuItem($event)">              
             </sco-app>
           </div>
         </div>
@@ -82,8 +81,7 @@
       [spinnerEmbedded]=&quot;false&quot;
       [spinnerImgPath]=&quot;'resources/img/spinner.gif'&quot;
       
-      (itemClick)=&quot;onClickMenuItem($event)&quot;
-      (mobileMenuClick)=&quot;onClickMobileMenu($event)&quot;&gt;              
+      (itemClick)=&quot;onClickMenuItem($event)&quot;&gt;              
     &lt;/sco-app&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -158,10 +156,6 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
 
   onClickMenuItem($event: MenuItem) &#123;
 
-  &#125;
-
-  onClickMobileMenu($event: boolean) &#123;
-    if (!$event) return;
   &#125;
 
 &#125;            
@@ -358,11 +352,6 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
           <td>itemClick</td>
           <td>Evento que devuelve el componente al seleccionar un elemento del menú</td>
           <td>MenuItem</td>
-        </tr>
-        <tr>
-          <td>mobileMenuClick</td>
-          <td>Evento que devuelve un valor booleano al pulsar el botón para abrir el menú mobil</td>
-          <td>boolean</td>
         </tr>
       </tbody>
     </table>

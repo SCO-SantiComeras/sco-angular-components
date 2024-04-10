@@ -42,7 +42,6 @@ export class ScoAppComponent implements OnInit, OnChanges {
   @Input() menuMobileHeaderMargin: number = 60;
 
   @Output() itemClick: EventEmitter<MenuItem>;
-  @Output() mobileMenuClick: EventEmitter<boolean>;
 
   public _viewMode: string;
   public _alwaysMenuMobile: boolean;
@@ -54,7 +53,6 @@ export class ScoAppComponent implements OnInit, OnChanges {
     public readonly resolutionService: ScoResolutionService,
   ) { 
     this.itemClick = new EventEmitter<MenuItem>();
-    this.mobileMenuClick = new EventEmitter<boolean>();
 
     this._viewMode = this.resolutionService.size;
     this._alwaysMenuMobile = false;
@@ -108,10 +106,6 @@ export class ScoAppComponent implements OnInit, OnChanges {
 
   onClickMenuItem($event: MenuItem) {
     this.itemClick.emit($event);
-  }
-
-  onClickMobileMenu() {
-    this.mobileMenuClick.emit(true);
   }
 
   @HostListener('window:resize', ['$event'])
