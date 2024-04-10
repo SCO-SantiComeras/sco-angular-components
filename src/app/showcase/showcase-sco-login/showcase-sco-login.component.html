@@ -15,6 +15,7 @@
             <sco-login
               [showLabelPwdRecovery]="true"
               [showLabelUserRegister]="true"
+              [formErrors]="formErrors"
               (cancel)="cancelButton()"
               (confirm)="confirmButton($event)"
               (pwdRecovery)="pwdRecovery()"
@@ -46,6 +47,7 @@
         &lt;sco-login
           [showLabelPwdRecovery]=&quot;true&quot;
           [showLabelUserRegister]=&quot;true&quot;
+          [formErrors]=&quot;formErrors&quot;
           (cancel)=&quot;cancelButton()&quot;
           (confirm)=&quot;confirmButton($event)&quot;
           (pwdRecovery)=&quot;pwdRecovery()&quot;
@@ -65,8 +67,11 @@
       </sco-tab-item>
       <sco-tab-item title="TS">
           <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoCacheService, ScoToastService, ILogin &#125; from 'sco-angular-components';
-import &#123; Component &#125; from '@angular/core';
+import &#123; ScoFormError &#125; from './../../../../projects/sco-angular-components/src/services/sco-form-errors/sco-form-error.model';
+import &#123; ScoCacheService &#125; from '../../../../projects/sco-angular-components/src/services/sco-cache.service';
+import &#123; ScoToastService &#125; from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import &#123; ILogin &#125; from './../../../../projects/sco-angular-components/src/components/sco-login/model/sco-login.model';
+import &#123; Component &#125; from '&commat;angular/core';
 
 &commat;Component(&#123;
   selector: 'app-showcase-sco-login',
@@ -76,16 +81,14 @@ import &#123; Component &#125; from '@angular/core';
 
 export class ShowcaseScoLoginComponent &#123;
 
-  public inputUser: string;
-  public inputPwd: string;
+  public formErrors: ScoFormError[];
 
   constructor(
     private readonly toastService: ScoToastService,
     private readonly cacheService: ScoCacheService,
   ) &#123; 
-    this.cacheService.setElement("title", "Login")
-    this.inputUser = '';
-    this.inputPwd = '';
+    this.cacheService.setElement("title", "Login");
+    this.formErrors = [];
   &#125;
 
   cancelButton() &#123;
@@ -94,6 +97,7 @@ export class ShowcaseScoLoginComponent &#123;
 
   confirmButton($event: ILogin) &#123;
     this.toastService.addSuccessMessage("Exito", "Botón confirmar presionado: " + JSON.stringify($event));
+    this.validateFormValues($event);
   &#125;
 
   pwdRecovery() &#123;
@@ -104,6 +108,23 @@ export class ShowcaseScoLoginComponent &#123;
     this.toastService.addSuccessMessage("Exito", "Accion registrar usuario seleccionada");
   &#125;
 
+  private validateFormValues(iLogin: ILogin): void &#123;
+    this.formErrors = [];
+
+    if (!iLogin.name) &#123;
+      this.formErrors.push(&#123; 
+        formControlName: 'name', 
+        error: 'Nombre de usuario no informado',
+      &#125;);
+    &#125;
+
+    if (!iLogin.password) &#123;
+      this.formErrors.push(&#123; 
+        formControlName: 'password', 
+        error: 'Contraseña de usuario no informado',
+      &#125;);
+    &#125;
+  &#125;
 &#125;
           </code></pre>
       </sco-tab-item>
@@ -176,6 +197,13 @@ export class ShowcaseScoLoginComponent &#123;
           <td>Indica si mostrar o no la acción registrar usuario</td>
           <td>boolean</td>
           <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>formErrors</td>
+          <td>Provee los errores del formulario validado, es reactivo en la pantalla</td>
+          <td>ScoFormError[]</td>
+          <td>[]</td>
           <td></td>
         </tr>
       </tbody>
