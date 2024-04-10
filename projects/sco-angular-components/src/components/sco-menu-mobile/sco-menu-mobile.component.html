@@ -38,8 +38,8 @@
         'height.px': headerMargin == undefined || headerMargin == 0 ? (windowHeight - 60) : (windowHeight - headerMargin - 60)
       }"
     >
-      <ng-container *ngIf="menuItems && menuItems.length > 0">
-        <div *ngFor="let menuItem of menuItems; let i = index;" 
+      <ng-container *ngIf="_menuItems && _menuItems.length > 0">
+        <div *ngFor="let menuItem of _menuItems; let i = index;" 
           class="sco-menu-mobile__content__menu"
           [ngStyle]="{
             'height': menuItem.children && menuItem.children.length > 0 && selectedMenuItem && selectedMenuItem == menuItem.text ? 'max-content' : '50px'
@@ -58,7 +58,7 @@
           </div>
 
           <ng-container *ngIf="selectedMenuItem && selectedMenuItem == menuItem.text">
-            <div *ngFor="let subMenuItem of submenuItems; let j = index;"
+            <div *ngFor="let subMenuItem of sub_menuItems; let j = index;"
               class="sco-menu-mobile__content__sub-menu"
               [ngStyle]="{'margin-top': j > 0 ? '0px' : '10px'}"
               (click)="onCLickMobileMenuItem(subMenuItem)"

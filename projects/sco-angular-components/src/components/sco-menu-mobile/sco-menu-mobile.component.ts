@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from './../sco-menu/model/menu-item';
 import { ScoConstantsService } from './../../services/sco-constants.service';
 
@@ -8,7 +8,7 @@ import { ScoConstantsService } from './../../services/sco-constants.service';
   styleUrls: ['./sco-menu-mobile.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ScoMenuMobileComponent {
+export class ScoMenuMobileComponent implements OnInit, OnChanges {
 
   @Input() menuItems: MenuItem[] = [];
 
@@ -30,6 +30,8 @@ export class ScoMenuMobileComponent {
 
   public windowHeight: number;
 
+  public _menuItems: MenuItem[];
+
   constructor(
     public readonly constantsService: ScoConstantsService,
   ) {
@@ -42,7 +44,27 @@ export class ScoMenuMobileComponent {
     this.preventContentClick = false;
 
     this.windowHeight = window.innerHeight;
+
+    this._menuItems = [];
    }
+
+  ngOnInit(): void {
+    if (this.menuItems && this.menuItems.length > 0) {
+      this._menuItems = this.menuItems;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      if (changes["menuItems"] && changes["menuItems"].currentValue) {
+        const items: MenuItem[] = changes["menuItems"].currentValue;
+
+        if (items && items.length > 0) {
+          this._menuItems = items;
+        }
+      }
+    }
+  }
 
   onClickMobileMenu($event: boolean) {
     if (!$event || this.showMobileMenu) return;
