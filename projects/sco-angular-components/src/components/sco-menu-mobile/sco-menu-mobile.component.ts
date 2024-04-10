@@ -14,6 +14,7 @@ export class ScoMenuMobileComponent {
 
   @Input() menuButtonTransparent: boolean = true;
   @Input() menuButtonIcon: string = 'fa fa-bars';
+  @Input() menuButtonIconColorRevert: boolean = false;
 
   @Input() showMenuIcons: boolean = true;
   @Input() translatePipe: boolean = false;

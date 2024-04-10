@@ -1,9 +1,11 @@
-<sco-button
-  [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-  [icon]="menuButtonIcon"
-  [transparent]="menuButtonTransparent"
-  (click)="onClickMobileMenu(true)">
-</sco-button>
+<div [ngClass]="{'sco-menu-mobile-button': menuButtonIconColorRevert}">
+  <sco-button
+    [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+    [icon]="menuButtonIcon"
+    [transparent]="menuButtonTransparent"
+    (click)="onClickMobileMenu(true)">
+  </sco-button>
+</div>
 
 <sco-detail *ngIf="showMobileMenu" 
   [showTitle]="false"
