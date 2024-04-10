@@ -24,3 +24,6 @@ https://scoapps.es/sco-angular-components/#/get-started
     - Add translate pipe param to SCO menu component
 13.1.6:
     - Add translate pipe param to SCO app component
+13.1.7:
+    - Add SCO menu mobile component
+    - Update SCO app component to integrate SCO menu mobile
