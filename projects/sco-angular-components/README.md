@@ -17,15 +17,25 @@ https://scoapps.es/sco-angular-components/#/get-started
     - Add icon button mode
     - Add icon transparent input
     - Update button showcase
+
 13.1.4:
     - Add SCO menu component
     - Add SCO app base component
+
 13.1.5:
     - Add translate pipe param to SCO menu component
+
 13.1.6:
     - Add translate pipe param to SCO app component
+
 13.1.7:
     - Add SCO menu mobile component
     - Update SCO app component to integrate SCO menu mobile
+
 13.1.8:
     - Refactor translate service and add translate constants
+d
+13.1.9:
+    - Add SCO Form errors service & showcase
+    - Update SCO Login to integrate SCO Form errors service
+    - Add SCO Modal closeWhenConfirm input param
