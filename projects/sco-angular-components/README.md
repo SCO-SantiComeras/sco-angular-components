@@ -51,3 +51,7 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.12:
     - ADD Sco app logo click output event
+
+13.1.13:
+    - ADD Sco app display resize output event
+    - ADD Sco Display Resize Class
