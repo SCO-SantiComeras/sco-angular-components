@@ -12,12 +12,9 @@
     max-width: 80%;
     min-width: 30%;
 
-    &--option {
-        cursor: pointer;
-        //color: #000;
-
-        &:hover {
-            //color: #000;
-        }
+    &__title {
+        text-align: center;
+        font-family: 'sco bold';
+        font-size: 22px;
     }
 }

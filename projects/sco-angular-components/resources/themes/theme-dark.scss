@@ -252,12 +252,8 @@ $content: #121212;
         .sco-login {
             border: $border-primary;
 
-            &--option {
-                //color: #000;
-        
-                &:hover {
-                    //color: #000;
-                }
+            &__title {
+                color: $color-text;
             }
         }
     }

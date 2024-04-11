@@ -11,7 +11,14 @@
         </div>
 
         <div class="row mt-2">
-          <div class="col-12">
+          <div class="col-4">
+            <sco-input
+              [(ngModel)]="title"
+              [label]="'Título'"
+              [showLabel]="true">
+            </sco-input>
+          </div>
+          <div class="col-12 mt-2">
             <sco-toggle 
               [inLine]="true"
               [(ngModel)]="verticalButtons"
@@ -27,6 +34,7 @@
               [showLabelUserRegister]="true"
               [formErrors]="formErrors"
               [verticalButtons]="verticalButtons"
+              [title]="title"
               (cancel)="cancelButton()"
               (confirm)="confirmButton($event)"
               (pwdRecovery)="pwdRecovery()"
@@ -60,6 +68,7 @@
           [showLabelUserRegister]=&quot;true&quot;
           [formErrors]=&quot;formErrors&quot;
           [verticalButtons]=&quot;false&quot;
+          [title]=&quot;'Título'&quot;
           (cancel)=&quot;cancelButton()&quot;
           (confirm)=&quot;confirmButton($event)&quot;
           (pwdRecovery)=&quot;pwdRecovery()&quot;
@@ -223,6 +232,13 @@ export class ShowcaseScoLoginComponent &#123;
           <td>Indicador para modificar la disposición de los botones del componente</td>
           <td>boolean</td>
           <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Muestra el titulo proveido en el componente</td>
+          <td>string</td>
+          <td>''</td>
           <td></td>
         </tr>
       </tbody>
