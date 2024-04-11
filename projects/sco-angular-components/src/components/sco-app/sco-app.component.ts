@@ -4,6 +4,7 @@ import { ScoThemeService } from './../../services/sco-theme.service';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
 import { ScoConstantsService } from './../../services/sco-constants.service';
 import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { ScoDisplayResize } from './model/sco-display-resize';
 
 @Component({
   selector: 'sco-app',
@@ -43,7 +44,7 @@ export class ScoAppComponent implements OnInit, OnChanges {
 
   @Output() logoClick: EventEmitter<boolean>;
   @Output() itemClick: EventEmitter<MenuItem>;
-  @Output() itemClick: EventEmitter<MenuItem>;
+  @Output() displayResize: EventEmitter<ScoDisplayResize>;
 
   public _viewMode: string;
   public _alwaysMenuMobile: boolean;
@@ -56,12 +57,15 @@ export class ScoAppComponent implements OnInit, OnChanges {
   ) { 
     this.logoClick = new EventEmitter<boolean>();
     this.itemClick = new EventEmitter<MenuItem>();
-
-    this._viewMode = this.resolutionService.size;
-    this._alwaysMenuMobile = false;
+    this.displayResize = new EventEmitter<ScoDisplayResize>();
   }
 
   ngOnInit(): void {
+    this._viewMode = this.resolutionService.size;
+    this.displayResize.emit({ width: window.innerWidth, height: window.innerHeight, mode: this._viewMode })
+
+    this._alwaysMenuMobile = false;
+
     if (this.menuItems && this.menuItems.length > 0 && this.menuItems.length > this.maxMenuItems) {
       this._alwaysMenuMobile = true;
     }
@@ -118,5 +122,6 @@ export class ScoAppComponent implements OnInit, OnChanges {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this._viewMode = this.resolutionService.setSize(event.target.innerWidth);
+    this.displayResize.emit({ width: event.target.innerWidth, height: event.target.innerHeight, mode: this._viewMode })
   }
 }

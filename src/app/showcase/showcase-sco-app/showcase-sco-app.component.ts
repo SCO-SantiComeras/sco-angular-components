@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from './../../../../projects/sco-angular-components/src/components/sco-menu/model/menu-item';
 import { ScoConstantsService } from './../../../../projects/sco-angular-components/src/services/sco-constants.service';
+import { ScoDisplayResize } from './../../../../projects/sco-angular-components/src/components/sco-app/model/sco-display-resize';
 
 export const EXAMPLE_MENU: MenuItem[] = [
   {
@@ -58,5 +59,9 @@ export class ShowcaseScoAppComponent implements OnInit {
 
   onCLickLogo($event: boolean) {
     if (!$event) return;
+  }
+
+  onDisplayResize($event: ScoDisplayResize) {
+    
   }
 }

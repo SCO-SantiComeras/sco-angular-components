@@ -177,6 +177,7 @@ export * from './components/sco-menu/model/menu-item';
 // SCO App
 export * from './components/sco-app/sco-app.module';
 export * from './components/sco-app/sco-app.component';
+export * from './components/sco-app/model/sco-display-resize';
 
 // SCO Menu Mobile
 export * from './components/sco-menu-mobile/sco-menu-mobile.module';

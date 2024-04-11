@@ -42,7 +42,8 @@
               [menuMobileHeaderMargin]="60"
               
               (itemClick)="onClickMenuItem($event)"
-              (logoClick)="onCLickLogo($event)">              
+              (logoClick)="onCLickLogo($event)"
+              (displayResize)="onDisplayResize($event)">              
             </sco-app>
           </div>
         </div>
@@ -97,7 +98,8 @@
       [menuMobileHeaderMargin]=&quot;60&quot;
       
       (itemClick)=&quot;onClickMenuItem($event)&quot;
-      (logoClick)=&quot;onCLickLogo($event)&quot;&gt;              
+      (logoClick)=&quot;onCLickLogo($event)&quot;
+      (displayResize)=&quot;onDisplayResize($event)&quot;&gt;              
     &lt;/sco-app&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -119,6 +121,7 @@
 import &#123; Component, OnInit, ViewEncapsulation &#125; from '&commat;angular/core';
 import &#123; MenuItem &#125; from './../../../../projects/sco-angular-components/src/components/sco-menu/model/menu-item';
 import &#123; ScoConstantsService &#125; from './../../../../projects/sco-angular-components/src/services/sco-constants.service';
+import &#123; ScoDisplayResize &#125; from './../../../../projects/sco-angular-components/src/components/sco-app/model/sco-display-resize';
 
 export const EXAMPLE_MENU: MenuItem[] = [
   &#123;
@@ -176,6 +179,10 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
 
   onCLickLogo($event: boolean) &#123;
     if (!$event) return;
+  &#125;
+
+  onDisplayResize($event: ScoDisplayResize) &#123;
+    
   &#125;
 
 &#125;            
@@ -377,6 +384,11 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
           <td>itemClick</td>
           <td>Evento que devuelve el componente al seleccionar un elemento del menú</td>
           <td>MenuItem</td>
+        </tr>
+        <tr>
+          <td>displayResize</td>
+          <td>Evento que devuelve el componente al redimensionar la pantalla y al inicio del componente</td>
+          <td>ScoDisplayResize</td>
         </tr>
       </tbody>
     </table>
