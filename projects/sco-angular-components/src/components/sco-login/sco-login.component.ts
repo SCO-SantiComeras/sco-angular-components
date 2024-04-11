@@ -22,6 +22,7 @@ export class ScoLoginComponent implements OnChanges {
   @Input() labelUserRegister: string = 'Registrar usuario';
   @Input() showLabelUserRegister: boolean = true;
   @Input() formErrors: ScoFormError[] = [];
+  @Input() verticalButtons: boolean = false;
 
   @Output() cancel: EventEmitter<boolean>;
   @Output() confirm: EventEmitter<ILogin>;

@@ -10,12 +10,23 @@
           </div>
         </div>
 
+        <div class="row mt-2">
+          <div class="col-12">
+            <sco-toggle 
+              [inLine]="true"
+              [(ngModel)]="verticalButtons"
+              [label]="'Vertical buttons'">
+            </sco-toggle>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-12">
             <sco-login
               [showLabelPwdRecovery]="true"
               [showLabelUserRegister]="true"
               [formErrors]="formErrors"
+              [verticalButtons]="verticalButtons"
               (cancel)="cancelButton()"
               (confirm)="confirmButton($event)"
               (pwdRecovery)="pwdRecovery()"
@@ -48,6 +59,7 @@
           [showLabelPwdRecovery]=&quot;true&quot;
           [showLabelUserRegister]=&quot;true&quot;
           [formErrors]=&quot;formErrors&quot;
+          [verticalButtons]=&quot;false&quot;
           (cancel)=&quot;cancelButton()&quot;
           (confirm)=&quot;confirmButton($event)&quot;
           (pwdRecovery)=&quot;pwdRecovery()&quot;
@@ -204,6 +216,13 @@ export class ShowcaseScoLoginComponent &#123;
           <td>Provee los errores del formulario validado, es reactivo en la pantalla</td>
           <td>ScoFormError[]</td>
           <td>[]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>verticalButtons</td>
+          <td>Indicador para modificar la disposición de los botones del componente</td>
+          <td>boolean</td>
+          <td>false</td>
           <td></td>
         </tr>
       </tbody>
