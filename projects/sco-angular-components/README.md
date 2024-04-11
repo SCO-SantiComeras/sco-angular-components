@@ -45,3 +45,6 @@ https://scoapps.es/sco-angular-components/#/get-started
     - ADD SCO Toast max limit & constant (5)
     - Fix SCO Login link buttons padding
     - ADD SCO Login vertical buttons input param
+
+13.1.11:
+    - ADD Sco login title input param
