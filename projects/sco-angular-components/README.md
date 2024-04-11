@@ -34,8 +34,14 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.8:
     - Refactor translate service and add translate constants
-d
+
 13.1.9:
     - Add SCO Form errors service & showcase
     - Update SCO Login to integrate SCO Form errors service
     - Add SCO Modal closeWhenConfirm input param
+
+13.1.10:
+    - Update SCO Form erros showcase HTML & TS
+    - ADD SCO Toast max limit & constant (5)
+    - Fix SCO Login link buttons padding
+    - ADD SCO Login vertical buttons input param
