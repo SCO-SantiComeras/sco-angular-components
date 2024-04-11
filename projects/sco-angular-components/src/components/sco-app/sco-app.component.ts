@@ -43,6 +43,7 @@ export class ScoAppComponent implements OnInit, OnChanges {
 
   @Output() logoClick: EventEmitter<boolean>;
   @Output() itemClick: EventEmitter<MenuItem>;
+  @Output() itemClick: EventEmitter<MenuItem>;
 
   public _viewMode: string;
   public _alwaysMenuMobile: boolean;

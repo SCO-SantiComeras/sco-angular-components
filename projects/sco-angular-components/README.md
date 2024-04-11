@@ -48,3 +48,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.11:
     - ADD Sco login title input param
+
+13.1.12:
+    - ADD Sco app logo click output event
