@@ -55,4 +55,8 @@ export class ShowcaseScoAppComponent implements OnInit {
   onClickMenuItem($event: MenuItem) {
 
   }
+
+  onCLickLogo($event: boolean) {
+    if (!$event) return;
+  }
 }

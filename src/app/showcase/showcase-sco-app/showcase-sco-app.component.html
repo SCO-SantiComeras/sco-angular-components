@@ -41,7 +41,8 @@
               [menuMobileShowIcons]="true"
               [menuMobileHeaderMargin]="60"
               
-              (itemClick)="onClickMenuItem($event)">              
+              (itemClick)="onClickMenuItem($event)"
+              (logoClick)="onCLickLogo($event)">              
             </sco-app>
           </div>
         </div>
@@ -95,7 +96,8 @@
       [menuMobileShowIcons]=&quot;true&quot;
       [menuMobileHeaderMargin]=&quot;60&quot;
       
-      (itemClick)=&quot;onClickMenuItem($event)&quot;&gt;              
+      (itemClick)=&quot;onClickMenuItem($event)&quot;
+      (logoClick)=&quot;onCLickLogo($event)&quot;&gt;              
     &lt;/sco-app&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -170,6 +172,10 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
 
   onClickMenuItem($event: MenuItem) &#123;
 
+  &#125;
+
+  onCLickLogo($event: boolean) &#123;
+    if (!$event) return;
   &#125;
 
 &#125;            
@@ -362,6 +368,11 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>logoClick</td>
+          <td>Evento que devuelve el componente al pulsar el logo</td>
+          <td>boolean</td>
+        </tr>
         <tr>
           <td>itemClick</td>
           <td>Evento que devuelve el componente al seleccionar un elemento del menú</td>
