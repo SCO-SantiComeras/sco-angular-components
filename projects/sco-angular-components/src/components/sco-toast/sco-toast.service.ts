@@ -52,8 +52,15 @@ export class ScoToastService {
   }
 
   private addMessage(tittle: string, message: string, type: string) {
-    let toast: ScoToast = new ScoToast(tittle, message, type);
-    this._toasts.push(toast);
+    let toast = new ScoToast(tittle, message, type);
+
+    if (this._toasts.length < this.constantsService.ScoToastConstants.MAX_TOAST) {
+      this._toasts.push(toast);
+    } else {
+      this._toasts = this._toasts.slice(1, this._toasts.length);
+      this._toasts.push(toast);
+    }
+
     setTimeout(() => {
       this.closeToast(toast);
     }, this._timeout);

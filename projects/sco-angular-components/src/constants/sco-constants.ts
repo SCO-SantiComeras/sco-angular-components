@@ -10,6 +10,8 @@ export class ScoToastConstants {
     static ORIENTATION_TOP_LEFT: string = 'top-left';
     static ORIENTATION_BOTTOM_RIGHT: string = 'bottom-right';
     static ORIENTATION_BOTTOM_LEFT: string = 'bottom-left';
+
+    static MAX_TOAST: number = 5;
 }
 
 export class ScoBlockListConstants {
