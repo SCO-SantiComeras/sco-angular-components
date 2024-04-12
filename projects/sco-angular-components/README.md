@@ -68,3 +68,8 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.20:
     - Refactor SCO Dropdown on options changes
     - Add setSelectedItem input param & unsetSelectedItem output event
+
+13.1.21/22:
+    - Sco app fix icon button always #FFF (Alpha)
+13.1.23:
+    - Sco app fix icon button always #FFF
