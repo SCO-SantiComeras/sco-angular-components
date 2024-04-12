@@ -1,7 +1,9 @@
 .sco-menu-mobile-button {
     sco-button {
         .sco-button {
-            color: #FFF !important;
+            &--icon-type {
+                color: #FFF !important;
+            }
         }
     }
 }
@@ -43,9 +45,11 @@
 
             sco-button {
                 .sco-button {
-                    color: #FFF !important;
+                    &--icon-type {
+                        color: #FFF !important;
+                    }
                 }
-            }
+            } 
         }
     }
 
