@@ -28,19 +28,19 @@ export class ScoToastService {
     this._timeout = this.constantsService.ScoToastConstants.TIMEOUT;
   }
 
-  addInfoMessage(tittle: string, message) {
+  addInfoMessage(tittle: string, message: string) {
     this.addMessage(tittle, message, this.constantsService.ScoToastConstants.TYPE_INFO);
   }
   
-  addWarningMessage(tittle: string, message) {
+  addWarningMessage(tittle: string, message: string) {
     this.addMessage(tittle, message, this.constantsService.ScoToastConstants.TYPE_WARNING);
   }
 
-  addErrorMessage(tittle: string, message) {
+  addErrorMessage(tittle: string, message: string) {
     this.addMessage(tittle, message, this.constantsService.ScoToastConstants.TYPE_ERROR);
   }
 
-  addSuccessMessage(tittle: string, message) {
+  addSuccessMessage(tittle: string, message: string) {
     this.addMessage(tittle, message, this.constantsService.ScoToastConstants.TYPE_SUCCESS);
   }
 
