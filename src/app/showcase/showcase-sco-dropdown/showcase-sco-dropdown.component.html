@@ -128,6 +128,41 @@
             </div>
           </div>
 
+          <!-- 7 -->
+          <div class="row mt-3">
+            <div class="col-12 title-sco">
+                <span>Ejemplo 7: SetSelectedItem & UnsetSelectedItem</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 pl-4 pt-1">
+              <div class="row">
+                <div class="col-10">
+                  <sco-dropdown 
+                    [options]="options"
+                    [(ngModel)]="valueEx6"
+                    [showFilter]="false"
+                    [setSelectedItem]="setSelectedItemEx6"
+                    (selectItem)="select($event)"
+                    (unsetSelectedItem)="setSelectedItemEx6 = $event;" >
+                    <ng-template itemTemplate let-item="item">
+                      {{item.label + " - " + item.value}}
+                    </ng-template>
+                  </sco-dropdown>
+                </div>
+                <div class="col-2">
+                  <sco-button
+                    [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
+                    [text]="'Setear item'"
+                    (action)="onSetSelectedItemEx6()">
+                  </sco-button>
+                </div>
+              </div>
+              <span>{{'Value: ' + valueEx6}}</span>
+            </div>
+          </div>
+
         </div>
     </div>
   </div>
@@ -257,6 +292,41 @@
           &lt;/div&gt;
       &lt;/div&gt;
 
+      &lt;!-- 7 --&gt;
+      &lt;div class=&quot;row mt-3&quot;&gt;
+        &lt;div class=&quot;col-12 title-sco&quot;&gt;
+          &lt;span&gt;Ejemplo 7: SetSelectedItem & UnsetSelectedItem&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-10&quot;&gt;
+              &lt;sco-dropdown 
+                [options]=&quot;options&quot;
+                [(ngModel)]=&quot;valueEx6&quot;
+                [showFilter]=&quot;false&quot;
+                [setSelectedItem]=&quot;setSelectedItemEx6&quot;
+                (selectItem)=&quot;select($event)&quot;
+                (unsetSelectedItem)=&quot;setSelectedItemEx6 = $event;&quot; &gt;
+                &lt;ng-template itemTemplate let-item=&quot;item&quot;&gt;
+                  {{item.label + &quot; - &quot; + item.value}}
+                &lt;/ng-template&gt;
+              &lt;/sco-dropdown&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-2&quot;&gt;
+              &lt;sco-button
+                [mode]=&quot;constantsService.ScoButtonConstants.MODE_DEFAULT&quot;
+                [text]=&quot;'Setear item'&quot;
+                (action)=&quot;onSetSelectedItemEx6()&quot;&gt;
+              &lt;/sco-button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;span&gt;{{'Value: ' + valueEx6}}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
     &lt;/div&gt;
 &lt;/div&gt;
               </code></pre>
@@ -269,6 +339,7 @@
       
           <sco-tab-item title="TS">
               <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoConstantsService &#125; from 'projects/sco-angular-components/src/public-api';
 import &#123; ScoCacheService, ScoToastService, ScoSelectItem &#125; from 'sco-angular-components';
 import &#123; Component, OnInit &#125; from '@angular/core';
 
@@ -284,10 +355,13 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
   public valueEx2: any;
   public valueEx3: any;
   public valueEx5: any;
+  public valueEx6: any;
+  public setSelectedItemEx6: any;
 
   constructor(
     private toastService: ScoToastService,
-    private cacheService: ScoCacheService
+    private cacheService: ScoCacheService,
+    public readonly constantsService: ScoConstantsService,
   ) &#123; 
     this.cacheService.setElement("title", "Dropdown");
   &#125;
@@ -303,11 +377,19 @@ export class ShowcaseScoDropdownComponent implements OnInit &#123;
     this.valueEx2 = "";
     this.valueEx3 = "";
     this.valueEx5 = "Value4";
+    this.valueEx6 = "Value2";
+    this.setSelectedItemEx6 = undefined;
   &#125;
 
   select($event) &#123;
     this.toastService.addInfoMessage("Éxito", `Has elegido: $&#123;JSON.stringify($event)&#125;`);
   &#125;
+
+  onSetSelectedItemEx6() &#123;
+    this.valueEx6 = "Value3";
+    this.setSelectedItemEx6 = this.options.find(o => o.value == this.valueEx6);
+  &#125;
+
 &#125;
               </code></pre>
           </sco-tab-item>
