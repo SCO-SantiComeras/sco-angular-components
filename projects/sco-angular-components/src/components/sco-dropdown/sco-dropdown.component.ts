@@ -41,8 +41,10 @@ export class ScoDropdownComponent<T> extends ScoNgModelBase implements OnInit, O
   @Input() showLabel: boolean = false;
   @Input() required: boolean = false;
   @Input() showFilter: boolean = true;
+  @Input() setSelectedItem: ScoSelectItem<T>;
 
   @Output() selectItem: EventEmitter<ScoSelectItem<T>>;
+  @Output() unsetSelectedItem: EventEmitter<ScoSelectItem<T>>
 
   @ContentChild(TemplateRef, {static: false}) template: TemplateRef<any>;
 
@@ -54,18 +56,33 @@ export class ScoDropdownComponent<T> extends ScoNgModelBase implements OnInit, O
     super();
     this.showItems = false;
     this.selectItem = new EventEmitter<ScoSelectItem<T>>();
+    this.unsetSelectedItem = new EventEmitter<ScoSelectItem<T>>();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes) {
-      if (changes["options"]) {
-        this.ngOnInit();
+
+      if (changes['options']) {
+        if (!this.options || (this.options && this.options.length == 0)) {
+          this.optionsShow = [];
+          this.valueShow = null;
+          this.value = null;
+        } else {
+          this.optionsShow = this.options.slice(0);
+          if (this.value) {
+            this.preload(this.value); 
+          }
+        }
       }
 
-      this.firstValue.subscribe( (v: any) => {
-        this.preload(v);
-      });
-    }
+      if (changes['setSelectedItem'] && changes['setSelectedItem'].currentValue) {
+        const currentSelectedItem: ScoSelectItem<T> = changes['setSelectedItem'].currentValue;
+        if (currentSelectedItem != null && currentSelectedItem != undefined) {
+          this.onSelectItem(currentSelectedItem, true);
+        }
+      }
+      
+    }  
   }
 
   ngOnInit() {
@@ -74,16 +91,20 @@ export class ScoDropdownComponent<T> extends ScoNgModelBase implements OnInit, O
     this.firstValue.subscribe( (v: any) => {
       this.preload(v);
     });
+
+    this.changeValue.subscribe(v => {
+      if(v == null || v == undefined){
+        this.valueShow = null;
+      }
+    })
   }
 
   preload(v: any) {
-    let optionFound = this.options.find(option => isEqual(option.value, v));
-
-    if (!optionFound)
-      return;
-  
-    this.valueShow = optionFound.label;
-    this.onSelectItem(optionFound);
+    const optionFound = this.options.find(option => isEqual(option.value, v));
+    if (optionFound) {
+      this.valueShow = optionFound.label;
+      this.onSelectItem(optionFound);
+    }
   }
 
   showPanelOptions() {
@@ -94,19 +115,18 @@ export class ScoDropdownComponent<T> extends ScoNgModelBase implements OnInit, O
     this.optionsShow = this.options.filter(option => option.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
   }
 
-  onSelectItem(item: ScoSelectItem<T>) {
-    /* if (item instanceof ScoSelectItem) {
-      this.showItems = false;
-      this.valueShow = item.label;
-      this.value = item.value;
-      this.selectItem.emit(item);
-    } */
-
+  onSelectItem(item: ScoSelectItem<T>, unsetSelectedItem: boolean = false) {
     if (item) {
       this.showItems = false;
       this.valueShow = item.label;
       this.value = item.value;
       this.selectItem.emit(item);
+
+      if (unsetSelectedItem) {
+        setTimeout(() => {
+          this.unsetSelectedItem.emit(undefined);
+        }, 100);
+      }
     }
   }
 
