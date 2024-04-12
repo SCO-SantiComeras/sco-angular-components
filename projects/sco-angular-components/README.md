@@ -55,3 +55,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.13:
     - ADD Sco app display resize output event
     - ADD Sco Display Resize Class
+
+13.1.14:
+    - ADD SCO Spinner service delay number param (Default is undefined) to hideSpinner function
