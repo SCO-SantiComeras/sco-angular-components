@@ -14,11 +14,18 @@ export class ScoSpinnerService {
     return this._show;
   }
 
-  showSpinner() {
+  showSpinner(): void {
     this._show = true;
   }
 
-  hideSpinner() {
-    this._show = false;
+  hideSpinner(delay: number = undefined): void {
+    if (delay == undefined || delay <= 0) {
+      this._show = false;
+      return;
+    }
+
+    setTimeout(() => {
+      this._show = false;
+    }, delay);
   }
 }
