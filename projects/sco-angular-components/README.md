@@ -61,3 +61,10 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.15:
     - Fix SCO menu mobile submenu items do not open
+
+13.1.16/19:
+    - Refactor SCO Dropdown on options changes (Alpha)
+
+13.1.20:
+    - Refactor SCO Dropdown on options changes
+    - Add setSelectedItem input param & unsetSelectedItem output event
