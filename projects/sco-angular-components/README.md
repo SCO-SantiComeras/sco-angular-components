@@ -58,3 +58,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.14:
     - ADD SCO Spinner service delay number param (Default is undefined) to hideSpinner function
+
+13.1.15:
+    - Fix SCO menu mobile submenu items do not open
