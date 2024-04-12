@@ -58,7 +58,7 @@
           </div>
 
           <ng-container *ngIf="selectedMenuItem && selectedMenuItem == menuItem.text">
-            <div *ngFor="let subMenuItem of sub_menuItems; let j = index;"
+            <div *ngFor="let subMenuItem of submenuItems; let j = index;"
               class="sco-menu-mobile__content__sub-menu"
               [ngStyle]="{'margin-top': j > 0 ? '0px' : '10px'}"
               (click)="onCLickMobileMenuItem(subMenuItem)"
