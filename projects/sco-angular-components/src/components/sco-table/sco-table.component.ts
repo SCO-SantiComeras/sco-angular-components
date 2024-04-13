@@ -34,7 +34,7 @@ export class ScoTableComponent<T> implements OnInit {
   @Output() actionSelected: EventEmitter<ScoAction<T>>;
   @Output() closeOptions: EventEmitter<MouseEvent>;
   @Output() changePage: EventEmitter<number>;
-  @Output() onnAddCrud: EventEmitter<boolean>;
+  @Output() goToCreate: EventEmitter<boolean>;
 
   @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
 
@@ -51,7 +51,7 @@ export class ScoTableComponent<T> implements OnInit {
     this.actionSelected = new EventEmitter<ScoAction<T>>();
     this.closeOptions = new EventEmitter<MouseEvent>();
     this.changePage = new EventEmitter<number>();
-    this.onnAddCrud = new EventEmitter<boolean>();
+    this.goToCreate = new EventEmitter<boolean>();
     this.page = 1;
     this.showOptions = false;
     this.showOptionsIndex = -1;
@@ -117,6 +117,6 @@ export class ScoTableComponent<T> implements OnInit {
   }
 
   onClickAddCrudBtn() {
-    this.onnAddCrud.emit(true);
+    this.goToCreate.emit(true);
   }
 }
