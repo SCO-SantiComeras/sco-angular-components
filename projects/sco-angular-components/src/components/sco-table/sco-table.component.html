@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-12">
-        <div class="">
+        <div [ngStyle]="{'overflow-x': 'auto'}">
           <table class="table sco-table__table" 
             [ngClass]="{
               'table-sm': resolutionService.size != constantsService.ScoResolutionConstants.WEB
