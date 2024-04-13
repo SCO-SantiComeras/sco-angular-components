@@ -188,3 +188,7 @@ export * from './services/sco-form-errors/sco-form-errors.module';
 export * from './services/sco-form-errors/sco-form-errors.service';
 export * from './services/sco-form-errors/sco-form-errors.pipe';
 export * from './services/sco-form-errors/sco-form-error.model';
+
+// SCO Form Crud
+export * from './components/sco-form-crud/sco-form-crud.module';
+export * from './components/sco-form-crud/sco-form-crud.component';

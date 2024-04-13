@@ -140,6 +140,10 @@
                 {
                     "text": "Graphics",
                     "route": "/sco-graphics"
+                },
+                {
+                    "text": "Form crud",
+                    "route": "/sco-form-crud"
                 }
             ]
         },
