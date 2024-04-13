@@ -71,5 +71,10 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.21/22:
     - Sco app fix icon button always #FFF (Alpha)
+
 13.1.23:
     - Sco app fix icon button always #FFF
+
+13.1.24:
+    - Sco Table add addButton margin right when tablet or mobile
+    - Rename onnAddCrud output event to goToCreate output event
