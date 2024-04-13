@@ -28,6 +28,7 @@
                 <th scope="col" *ngIf="showActions" class="sco-table__table--thead--add-crud">
                   <i *ngIf="showAddCrudBtn"
                     class="fa fa-plus sco-table__table--thead--add-crud--icon" 
+                    [ngStyle]="{'margin-right': resolutionService.size != constantsService.ScoResolutionConstants.WEB ? '2.5px' : '0px'}"
                     (click)="onClickAddCrudBtn()">
                   </i>
                 </th>
