@@ -1,20 +1,20 @@
 <div class="row sco-form-crud">
   <div class="col-12">
 
-    <!-- SEARCH FILTER -->
-    <div class="row mb-1" *ngIf="showFilterPanel && showMode && (showMode == 'table' || showMode == 'block-list')">
-      <div class="col-12">
-
-        <ng-container *ngIf="templateFilter">
-          <ng-container *ngTemplateOutlet="templateFilter"></ng-container>
-        </ng-container>
-
-      </div>
-    </div>
-
     <!-- Table and Block List View -->
     <div class="row" *ngIf="showMode && (showMode == 'table' || showMode == 'block-list')">
       <div class="col-12">
+
+        <!-- SEARCH FILTER -->
+        <div class="row mb-1" *ngIf="showFilterPanel">
+          <div class="col-12">
+
+            <ng-container *ngIf="templateFilter">
+              <ng-container *ngTemplateOutlet="templateFilter"></ng-container>
+            </ng-container>
+
+          </div>
+        </div>
 
         <div class="row mb-1">
           <div class="col-6 text-left">
