@@ -183,36 +183,36 @@
       </div>
     </div>
 
-    <!-- Confirm Modal Delete -->
-    <sco-modal
-      [id]="'form-crud-delete-modal'"
-      [type]="constantsService.ScoModalTypeConstants.CONFIRM" 
-      [labelConfirm]="deleteModalConfirmLabel"
-      [labelClose]="deleteModalCancelLabel"
-      (close)="onCloseModal($event)"
-      (accept)="onConfirmModal($event)" >
-      <div modal-title>
-        {{deleteModalTitle}}
-      </div>
-      <div modal-content>
-        <div class="row" *ngIf="elementSelected">
-          <div class="col-12 text-center sco-text">
-            <span *ngIf="
-              elementSelectedProperty 
-              && elementSelectedProperty.length > 0 
-              && elementSelected[elementSelectedProperty] 
-              && elementSelected[elementSelectedProperty].length > 0"
-            >
-              {{deleteModalContent}}: {{elementSelected.name}}?
-            </span>
-
-            <span *ngIf="!elementSelectedProperty || (elementSelectedProperty && !elementSelected[elementSelectedProperty])">
-              {{deleteModalContent}}?
-            </span>
-          </div>
-        </div>
-      </div>
-    </sco-modal>
-
   </div>
 </div>
+
+<!-- Confirm Modal Delete -->
+<sco-modal
+  [id]="'form-crud-delete-modal'"
+  [type]="constantsService.ScoModalTypeConstants.CONFIRM" 
+  [labelConfirm]="deleteModalConfirmLabel"
+  [labelClose]="deleteModalCancelLabel"
+  (close)="onCloseModal($event)"
+  (accept)="onConfirmModal($event)" >
+  <div modal-title>
+    {{deleteModalTitle}}
+  </div>
+  <div modal-content>
+    <div class="row" *ngIf="elementSelected">
+      <div class="col-12 text-center sco-text">
+        <span *ngIf="
+          elementSelectedProperty 
+          && elementSelectedProperty.length > 0 
+          && elementSelected[elementSelectedProperty] 
+          && elementSelected[elementSelectedProperty].length > 0"
+        >
+          {{deleteModalContent}}: {{elementSelected.name}}?
+        </span>
+
+        <span *ngIf="!elementSelectedProperty || (elementSelectedProperty && !elementSelected[elementSelectedProperty])">
+          {{deleteModalContent}}?
+        </span>
+      </div>
+    </div>
+  </div>
+</sco-modal>
