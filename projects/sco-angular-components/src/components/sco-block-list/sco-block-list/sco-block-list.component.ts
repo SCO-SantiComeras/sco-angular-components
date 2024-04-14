@@ -29,13 +29,17 @@ export class ScoBlockListComponent<T> implements OnInit, OnChanges {
   @Input() nextLabel: string = "Next";
   @Input() paginationOnTop: boolean = false;
 
-  @Output() itemSelected: EventEmitter<ScoSelectedItem<T>>;
-  @Output() actionSelected: EventEmitter<ScoAction<T>>;
-  @Output() pageChange: EventEmitter<number>;
+  @Input() templateHeaderInput: TemplateRef<any>;
+  @Input() templateInfoAdditionalInput: TemplateRef<any>;
+  @Input() templateDataInput: TemplateRef<any>;
 
   @ContentChild("templateHeader", {static: false}) templateHeader: TemplateRef<any>;
   @ContentChild("templateInfoAdditional", {static: false}) templateInfoAdditional: TemplateRef<any>;
   @ContentChild("templateData", {static: false}) templateData: TemplateRef<any>;
+
+  @Output() itemSelected: EventEmitter<ScoSelectedItem<T>>;
+  @Output() actionSelected: EventEmitter<ScoAction<T>>;
+  @Output() changePage: EventEmitter<number>;
 
   public page: number;
   public totalItemsLabel: string;
@@ -47,7 +51,7 @@ export class ScoBlockListComponent<T> implements OnInit, OnChanges {
   ) { 
     this.itemSelected = new EventEmitter<ScoSelectedItem<T>>();
     this.actionSelected = new EventEmitter<ScoAction<T>>();
-    this.pageChange = new EventEmitter<number>();
+    this.changePage = new EventEmitter<number>();
     this.page = 1;
     this.totalItemsLabel = '';
   }
@@ -100,6 +104,6 @@ export class ScoBlockListComponent<T> implements OnInit, OnChanges {
 
   onPageChange($event) {
     this.page = $event;
-    this.pageChange.emit(this.page);
+    this.changePage.emit(this.page);
   }
 }

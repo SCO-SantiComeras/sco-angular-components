@@ -26,9 +26,9 @@
             [showActions]="showActions"
             [showBorder]="showBorder"
             [canSelectItems]="canSelectItems"
-            [templateHeader]="templateHeader"
-            [templateInfoAdditional]="templateInfoAdditional"
-            [templateData]="templateData"
+            [templateHeader]="templateHeaderInput ? templateHeaderInput : templateHeader"
+            [templateInfoAdditional]="templateInfoAdditionalInput ? templateInfoAdditionalInput : templateInfoAdditional"
+            [templateData]="templateDataInput ? templateDataInput : templateData"
             (actionSelected)="sendAction($event)"
             (closeOptions)="closeAllOptionsExcept($event)"
             (click)="canSelectItems && selectItem(blockItem, index)" >
