@@ -21,11 +21,10 @@ import { ScoSelectItem } from '../../common/sco-select-item';
 export class ScoCheckboxComponent<T> extends ScoNgModelBase implements OnInit {
 
   @Input() options: ScoSelectItem<T>[] = [];
-  
   @Input() binary: boolean = false;
   @Input() labelBinary: string;
-
   @Input() viewMode: string = this.constantsService.ScoResolutionConstants.WEB;
+  @Input() addOneItem: boolean = false;
   
   @Output() clickCheck: EventEmitter<ScoSelectItem<T>[]>;
   @Output() clickCheckBinary: EventEmitter<boolean>;
