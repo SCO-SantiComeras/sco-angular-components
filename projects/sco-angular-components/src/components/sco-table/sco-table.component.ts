@@ -30,13 +30,13 @@ export class ScoTableComponent<T> implements OnInit {
   @Input() templateRowInput: TemplateRef<any>;
   @Input() showAddCrudBtn: boolean = true;
 
+  @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
+
   @Output() itemSelected: EventEmitter<ScoSelectedItem<T>>;
   @Output() actionSelected: EventEmitter<ScoAction<T>>;
   @Output() closeOptions: EventEmitter<MouseEvent>;
   @Output() changePage: EventEmitter<number>;
   @Output() goToCreate: EventEmitter<boolean>;
-
-  @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
 
   public page: number;
   public showOptions: boolean;
@@ -89,7 +89,6 @@ export class ScoTableComponent<T> implements OnInit {
 
   sendAction($event: MouseEvent, action: ScoAction<T>, index: number) {
     // El parametro Index indica el indice de la lista de acciones del item, no del index del item en la lista de items  
-    $event.stopPropagation();
     this.showOptions = false;
 
     let actionSended: ScoAction<T> = cloneDeep(action);
@@ -99,13 +98,11 @@ export class ScoTableComponent<T> implements OnInit {
   }
 
   hideOptions($event: MouseEvent) {
-    $event.stopPropagation();
     this.showOptions = false;
     this.showOptionsIndex = -1;
   }
 
-  onSelectItem($event: Event, item: ScoSelectedItem<T>) {
-    $event.stopPropagation();
+  onSelectItem(item: ScoSelectedItem<T>) {
     if (this.canSelectItems) {
       this.itemSelected.emit(item);
     }

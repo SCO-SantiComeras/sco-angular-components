@@ -43,7 +43,7 @@
                 'sco-table__table--tbody__row--no-pair': i % 2 == 1
                 }"
                 *ngFor="let tableItem of tableItems| paginate: { itemsPerPage: pagination, currentPage: page }; let i = index"
-                (click)="canSelectItems && onSelectItem($event, tableItem.item, index)"
+                (click)="canSelectItems && onSelectItem(tableItem)"
               >
                 <th scope="row" *ngIf="showTableIndex">{{(i+1)}}</th>
                 <ng-container *ngIf="!templateRow && !templateRowInput">
