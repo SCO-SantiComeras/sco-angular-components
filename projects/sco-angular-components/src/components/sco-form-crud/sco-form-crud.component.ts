@@ -1,16 +1,17 @@
+
+import { Component, ContentChild, EventEmitter, HostListener, Input, OnInit, Output, TemplateRef, ViewEncapsulation, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { cloneDeep } from 'lodash-es';
 import { ScoCallback } from './../../common/sco-callback';
 import { ScoNgModelBase } from './../sco-ng-model-base/sco-ng-model-base.component';
 import { ScoResolutionService } from './../../services/sco-resolution/sco-resolution.service';
-import { cloneDeep } from 'lodash-es';
 import { ScoModalService } from './../sco-modal/sco-modal.service';
-import { ScoConstantsService } from 'projects/sco-angular-components/src/public-api';
 import { ScoSelectedItem } from './../../common/sco-selected-item';
-import { ScoAction } from 'projects/sco-angular-components/src/common/sco-action';
+import { ScoAction } from '../../common/sco-action';
 import { ScoBlockItem } from './../sco-block-list/model/sco-block-item';
 import { ScoTableItem } from './../sco-table/model/sco-table.item';
 import { ScoTableCol } from './../sco-table/model/sco-table-cols';
-import { Component, ContentChild, EventEmitter, HostListener, Input, OnInit, Output, TemplateRef, ViewEncapsulation, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ScoConstantsService } from '../../services/sco-constants.service';
 
 @Component({
   selector: 'sco-form-crud',
