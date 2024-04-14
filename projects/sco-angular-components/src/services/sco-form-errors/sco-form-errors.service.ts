@@ -9,6 +9,7 @@ export class ScoFormErrorsService {
 
   constructor() { }
 
+  /* Form Mode */
   public existError(formControlName: string, formErrors: ScoFormError[]): boolean {
     if (!formControlName) {
       return false;
@@ -94,5 +95,32 @@ export class ScoFormErrorsService {
     }
 
     return form;
+  }
+
+  /* Only Errors */
+  public checkIfErrors(formControlName: string, formErrors: ScoFormError[]): boolean {
+    if (!formErrors || (formErrors && formErrors.length == 0)) {
+      return false;
+    }
+
+    const existError: ScoFormError = formErrors.find(e => e.formControlName == formControlName);
+    if (existError) {
+      return true;
+    }
+
+    return false;
+  }
+
+  public showError(formControlName: string, formErrors: ScoFormError[]): string {
+    if (!formErrors || (formErrors && formErrors.length == 0)) {
+      return '';
+    }
+
+    const existError: ScoFormError = formErrors.find(e => e.formControlName == formControlName);
+    if (!existError) {
+      return '';
+    }
+
+    return existError.error;
   }
 }
