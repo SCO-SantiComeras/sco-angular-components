@@ -90,3 +90,7 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.26:
     - Fix SCO Form crud import errors
+
+13.1.27:
+    - Fix SCO checkbox min-width
+    - ADD SCO checkbox addOneItem input param
