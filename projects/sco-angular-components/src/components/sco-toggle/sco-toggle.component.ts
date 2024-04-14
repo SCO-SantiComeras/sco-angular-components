@@ -19,6 +19,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ScoToggleComponent extends ScoNgModelBase {
 
   @Input() label: string;
+  @Input() required: boolean = false;
   @Input() inLine: boolean = false;
 
   @Output() toggled: EventEmitter<boolean>;
