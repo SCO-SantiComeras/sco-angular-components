@@ -66,6 +66,7 @@
             <div class="col-12 pl-4 pt-1">
               <sco-toggle 
                 [inLine]="true"
+                [required]="true"
                 [(ngModel)]="valueExample4"
                 [label]="'Toggle'"
                 (toggled)="changeToggle($event)" >
@@ -229,6 +230,13 @@ export class ShowcaseScoToggleComponent &#123;
         <tr>
           <td>inLine</td>
           <td>Pone el Toggle y su label en línea</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>required</td>
+          <td>Indicador para marcar que el input toggle es obligatorio</td>
           <td>boolean</td>
           <td>false</td>
           <td></td>
