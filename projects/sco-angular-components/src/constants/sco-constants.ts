@@ -27,9 +27,9 @@ export class ScoResolutionConstants {
     static MOBILE_MAX: number = 568;
 
     static TABLET_MIN: number = 568;
-    static TABLET_MAX: number = 992;
+    static TABLET_MAX: number = 1050;
 
-    static WEB_MIN: number = 992;
+    static WEB_MIN: number = 1050;
     static WEB_MAX: number = 9999;
 }
 
