@@ -116,7 +116,7 @@ export class ScoFormCrudConstants {
     static FORM_BUTTONS_POSITION_CENTER: string = 'center';
     static FORM_BUTTONS_POSITION_RIGHT: string = 'right';
 
-    static EDIT_ACTION: string = 'update';
+    static UPDATE_ACTION: string = 'update';
     static DELETE_ACTION: string = 'delete';
 }
 
