@@ -78,3 +78,12 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.24:
     - Sco Table add addButton margin right when tablet or mobile
     - Rename onnAddCrud output event to goToCreate output event
+
+13.1.25:
+    - SCO Form errors add errors without form
+    - FIX Sco table select item event
+    - ADD Sco block list input params of templates
+    - ADD SCO Form crud module & showcase
+    - ADD SCO Callback generic class
+    - ADD SCO Form crud onFormConfirm callback
+    - ADD SCO Form crud formAlwaysVisible input param & showcase
