@@ -101,6 +101,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   @Input() formBackButtonTransparent: boolean = true;
   @Input() formBackButtonPosition: string = this.constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT;
   @Input() formBackButtonPaddingClasses: string = '';
+  @Input() formAlwaysVisible: boolean = false;
   @Output() onFormCancel: EventEmitter<T>;
   @Output() onFormConfirm: EventEmitter<ScoCallback<T>>;
   @Output() onFormClose: EventEmitter<T>;
@@ -120,6 +121,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   public totalItemsPage: number; // Indicador para el total de elementos por página
   public elementSelected: T; // Objeto para almacenar el elemento seleccionado en las acciones de la tabla / block list
   public itemForm: T;
+  public itemFormProperty: any;
   private _lastShowMode: string; // Guarda el valor de showMode antes de abrir el formulario new/update, al cerrar el fomulario, se abrira la vista según este indicador
 
   constructor(
@@ -144,7 +146,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
 
   /* Angular Flow Functions */
   ngOnInit(): void {
-    this.manageMode = '';
+    this.manageMode = this.formAlwaysVisible ? this.constantsService.ScoFormCrudConstants.MODE_NEW : '';
     this.showMode = this.tableDefaultView 
       ? this.constantsService.ScoFormCrudConstants.SHOW_TABLE 
       : this.constantsService.ScoFormCrudConstants.SHOW_BLOCK_LIST;
@@ -153,6 +155,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
       : this.blocklistItemsPage;
     this.elementSelected = undefined;
     this.itemForm = {} as T;
+    this.itemFormProperty = undefined;
     this._lastShowMode = this.showMode;
   }
 
@@ -179,11 +182,15 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   getAction($event: ScoAction<T>) {
     this.elementSelected = $event.item;
 
-    if ($event.value == 'edit') {
+    if ($event.value == this.constantsService.ScoFormCrudConstants.UPDATE_ACTION) {
       this.itemForm = cloneDeep($event.item);
-      this._lastShowMode = this.showMode;
+      this.itemFormProperty = this.formUpdateItemTitleProperty ? this.itemForm[this.formUpdateItemTitleProperty] : undefined;
       this.manageMode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
-      this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_FORM;
+
+      if (!this.formAlwaysVisible) {
+        this._lastShowMode = this.showMode;
+        this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_FORM;
+      }
     }
 
     if ($event.value == 'delete') {
@@ -200,19 +207,22 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   /* Form Actions */
   openForm(): void {
     this.itemForm = {} as T;
+    this.itemFormProperty = undefined;
     this.elementSelected = undefined;
-
-    this._lastShowMode = this.showMode;
-
     this.manageMode = this.constantsService.ScoFormCrudConstants.MODE_NEW;
-    this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_FORM;
+
+    if (!this.formAlwaysVisible) {
+      this._lastShowMode = this.showMode;
+      this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_FORM;
+    }
 
     this.goToCreate.emit(this.itemForm);
   }
 
   closeForm(preventPropagation: boolean = false): void {
-    this.manageMode = '';
+    this.manageMode = this.formAlwaysVisible ? this.constantsService.ScoFormCrudConstants.MODE_NEW : '';
     this.itemForm = {} as T;
+    this.itemFormProperty = undefined;
     this.setChangeView();
 
     if (!preventPropagation) {
@@ -222,10 +232,11 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
 
   confirmForm(): void {
     this.onFormConfirm.emit({ item: this.itemForm, callBack: () => {
-        this.manageMode = '';
+        this.manageMode = this.formAlwaysVisible ? this.constantsService.ScoFormCrudConstants.MODE_NEW : '';
         this.itemForm = {} as T;
+        this.itemFormProperty = undefined;
 
-        if (!this._lastShowMode) {
+        if (!this._lastShowMode && !this.formAlwaysVisible) {
           if (this.tableDefaultView) {
             this.totalItemsPage = this.tableItemsPage;
             this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_TABLE;
@@ -242,12 +253,18 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
             this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_BLOCK_LIST;
           }
         }
+
+        if (this.formAlwaysVisible) {
+          this.goToCreate.emit(this.itemForm);
+        }
       } 
     });
   }
 
   cancelForm(): void {
+    this.manageMode = this.formAlwaysVisible ? this.constantsService.ScoFormCrudConstants.MODE_NEW : '';
     this.itemForm = {} as T;
+    this.itemFormProperty = undefined;
     this.onFormCancel.emit(this.itemForm);
 
     if (this.closeFormWhenCancel) {

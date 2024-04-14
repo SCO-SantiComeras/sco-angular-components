@@ -1,188 +1,185 @@
-<div class="row sco-form-crud">
-  <div class="col-12">
-
-    <!-- Table and Block List View -->
-    <div class="row" *ngIf="showMode && (showMode == 'table' || showMode == 'block-list')">
+<div class="row sco-form-crud" [ngClass]="{'d-flex': formAlwaysVisible}">
+  <!-- Table and Block List View -->
+  <div *ngIf="(showMode && (showMode == 'table' || showMode == 'block-list')) || formAlwaysVisible"
+    [ngClass]="{
+      'col-12': !formAlwaysVisible,
+      'col-8': formAlwaysVisible
+    }"
+  >
+    <!-- SEARCH FILTER -->
+    <div class="row mb-1" *ngIf="showFilterPanel">
       <div class="col-12">
 
-        <!-- SEARCH FILTER -->
-        <div class="row mb-1" *ngIf="showFilterPanel">
-          <div class="col-12">
+        <ng-container *ngIf="templateFilter">
+          <ng-container *ngTemplateOutlet="templateFilter"></ng-container>
+        </ng-container>
 
-            <ng-container *ngIf="templateFilter">
-              <ng-container *ngTemplateOutlet="templateFilter"></ng-container>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-6 text-left">
+        <sco-button *ngIf="showChangeView"
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="changeViewTableBtnIcon"
+          [transparent]="changeViewTableBtnTransparent"
+          (action)="changeTableMode()">
+        </sco-button>
+        <sco-button *ngIf="showChangeView" class="ml-1"
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="changeViewBlocklistBtnIcon"
+          [transparent]="changeViewBlocklistBtnTransparent"
+          (action)="changeBlockListMode()">
+        </sco-button>
+      </div>
+      <div class="col-6 text-right">
+        <sco-button *ngIf="tableItems && tableItems.length > 0 && showExcelDownloadBtn"
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="excelDownloadBtnIcon"
+          [transparent]="excelDownloadBtnTransparent"
+          (action)="donwloadExcelFile()">
+        </sco-button>
+        <sco-button class="ml-1" *ngIf="showMode == 'block-list' && !formAlwaysVisible"
+          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+          [icon]="addElementBtnIcon"
+          [transparent]="addElementBtnTransparent"
+          (action)="openForm()">
+        </sco-button>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="showMode == 'block-list'">
+      <div class="col-12">
+        <sco-block-list
+          [blockItems]="blockItems"
+          [labelTotalResults]="labelTotalResults"
+          [labelNoResults]="labelNoResults"
+          [showActions]="showActions"
+          [showTotalItems]="showTotalItems"
+          [showHeader]="showBlocklistHeader"
+          [showInfoAdditional]="showBlocklistInfoAdditional"
+          [showBorder]="showBlocklistBorder"
+          [canSelectItems]="canSelectItems"
+          [pagination]="totalItemsPage"
+          [previousLabel]="previousLabel"
+          [nextLabel]="nextLabel"
+          [paginationOnTop]="paginationOnTop"
+          [templateHeaderInput]="templateHeader"
+          [templateInfoAdditionalInput]="templateInfoAdditional"
+          [templateDataInput]="templateData"
+
+          (itemSelected)="selectItem($event)"
+          (actionSelected)="getAction($event)"
+          (changePage)="onChangePage($event)" >
+        </sco-block-list>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="showMode == 'table'">
+      <div class="col-12">
+        <sco-table
+          [cols]="tableCols"
+          [tableItems]="tableItems"
+          [labelTotalResults]="labelTotalResults"
+          [labelNoResults]="labelNoResults"
+          [showActions]="showActions"
+          [showTotalItems]="showTotalItems"
+          [showTableIndex]="showTableIndex"
+          [canSelectItems]="canSelectItems"
+          [pagination]="totalItemsPage"
+          [previousLabel]="previousLabel"
+          [nextLabel]="nextLabel"
+          [paginationOnTop]="paginationOnTop"
+          [templateRowInput]="templateRow"
+          [showAddCrudBtn]="showTableAddBtn && !formAlwaysVisible"
+
+          (itemSelected)="selectItem($event)"
+          (actionSelected)="getAction($event)"
+          (changePage)="onChangePage($event)"
+
+          (closeOptions)="onCloseOptions($event)"
+          (goToCreate)="openForm()">
+        </sco-table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create and Update Form View -->
+  <div *ngIf="(showMode && showMode == 'form') || formAlwaysVisible"
+    [ngClass]="{
+      'col-12': !formAlwaysVisible,
+      'col-4': formAlwaysVisible,
+      'sco-form-crud__content': !formAlwaysVisible && formPadding && resolutionService.size == constantsService.ScoResolutionConstants.WEB,
+      'sco-form-crud__content--tablet': !formAlwaysVisible && formPadding && resolutionService.size == constantsService.ScoResolutionConstants.TABLET,
+      'sco-form-crud__content--mobile': !formAlwaysVisible && formPadding && resolutionService.size == constantsService.ScoResolutionConstants.MOBILE
+    }"
+  >
+    <sco-card [showTitle]="formShowTitle" >
+      <div card-title [ngClass]="{'text-center': formCenterTitle}">
+        <p>
+          {{
+            manageMode != constantsService.ScoFormCrudConstants.MODE_UPDATE
+              ? formNewItemTitle
+              : formUpdateItemTitleProperty && formUpdateItemTitleProperty.length > 0 && itemFormProperty 
+                ?  formUpdateItemTitle + ': ' + itemFormProperty
+                : formUpdateItemTitle
+          }}
+        </p>
+      </div>
+      <div card-content class="row">
+        <div class="col-12">
+
+          <div class="row mb-3" *ngIf="formBackButton && !formAlwaysVisible">
+            <div class="col-12 {{formBackButtonPaddingClasses}}" [ngClass]="{
+                'text-left': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT,
+                'text-center': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER,
+                'text-right': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT
+              }"
+            >
+              <sco-button 
+                [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+                [icon]="formBackButtonIcon"
+                [transparent]="formBackButtonTransparent"
+                (action)="closeForm()">
+              </sco-button>
+            </div>
+          </div>
+
+          <ng-container *ngIf="templateForm">
+            <ng-container *ngTemplateOutlet="templateForm; context: {
+                item: itemForm,
+                mode: manageMode == constantsService.ScoFormCrudConstants.MODE_UPDATE
+                  ? constantsService.ScoFormCrudConstants.MODE_UPDATE
+                  : constantsService.ScoFormCrudConstants.MODE_NEW
+              }"
+            >
             </ng-container>
+          </ng-container>
 
-          </div>
-        </div>
-
-        <div class="row mb-1">
-          <div class="col-6 text-left">
-            <sco-button *ngIf="showChangeView"
-              [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-              [icon]="changeViewTableBtnIcon"
-              [transparent]="changeViewTableBtnTransparent"
-              (action)="changeTableMode()">
-            </sco-button>
-            <sco-button *ngIf="showChangeView" class="ml-1"
-              [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-              [icon]="changeViewBlocklistBtnIcon"
-              [transparent]="changeViewBlocklistBtnTransparent"
-              (action)="changeBlockListMode()">
-            </sco-button>
-          </div>
-          <div class="col-6 text-right">
-            <sco-button *ngIf="tableItems && tableItems.length > 0 && showExcelDownloadBtn"
-              [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-              [icon]="excelDownloadBtnIcon"
-              [transparent]="excelDownloadBtnTransparent"
-              (action)="donwloadExcelFile()">
-            </sco-button>
-            <sco-button class="ml-1" *ngIf="showMode == 'block-list'"
-              [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-              [icon]="addElementBtnIcon"
-              [transparent]="addElementBtnTransparent"
-              (action)="openForm()">
-            </sco-button>
-          </div>
-        </div>
-
-        <div class="row" *ngIf="showMode == 'block-list'">
-          <div class="col-12">
-            <sco-block-list
-              [blockItems]="blockItems"
-              [labelTotalResults]="labelTotalResults"
-              [labelNoResults]="labelNoResults"
-              [showActions]="showActions"
-              [showTotalItems]="showTotalItems"
-              [showHeader]="showBlocklistHeader"
-              [showInfoAdditional]="showBlocklistInfoAdditional"
-              [showBorder]="showBlocklistBorder"
-              [canSelectItems]="canSelectItems"
-              [pagination]="totalItemsPage"
-              [previousLabel]="previousLabel"
-              [nextLabel]="nextLabel"
-              [paginationOnTop]="paginationOnTop"
-              [templateHeaderInput]="templateHeader"
-              [templateInfoAdditionalInput]="templateInfoAdditional"
-              [templateDataInput]="templateData"
-
-              (itemSelected)="selectItem($event)"
-              (actionSelected)="getAction($event)"
-              (changePage)="onChangePage($event)" >
-            </sco-block-list>
-          </div>
-        </div>
-
-        <div class="row" *ngIf="showMode == 'table'">
-          <div class="col-12">
-            <sco-table
-              [cols]="tableCols"
-              [tableItems]="tableItems"
-              [labelTotalResults]="labelTotalResults"
-              [labelNoResults]="labelNoResults"
-              [showActions]="showActions"
-              [showTotalItems]="showTotalItems"
-              [showTableIndex]="showTableIndex"
-              [canSelectItems]="canSelectItems"
-              [pagination]="totalItemsPage"
-              [previousLabel]="previousLabel"
-              [nextLabel]="nextLabel"
-              [paginationOnTop]="paginationOnTop"
-              [templateRowInput]="templateRow"
-              [showAddCrudBtn]="showTableAddBtn"
-
-              (itemSelected)="selectItem($event)"
-              (actionSelected)="getAction($event)"
-              (changePage)="onChangePage($event)"
-
-              (closeOptions)="onCloseOptions($event)"
-              (goToCreate)="openForm()">
-            </sco-table>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Create and Update Form View -->
-    <div class="row" *ngIf="showMode && showMode == 'form'">
-      <div class="col-12" [ngClass]="{
-          'sco-form-crud__content': formPadding && resolutionService.size == constantsService.ScoResolutionConstants.WEB,
-          'sco-form-crud__content--tablet': formPadding && resolutionService.size == constantsService.ScoResolutionConstants.TABLET,
-          'sco-form-crud__content--mobile': formPadding && resolutionService.size == constantsService.ScoResolutionConstants.MOBILE
-        }"
-      >
-        <sco-card [showTitle]="formShowTitle" >
-          <div card-title [ngClass]="{'text-center': formCenterTitle}">
-            <p>
-              {{
-                manageMode == 'new'
-                  ? formNewItemTitle
-                  : formUpdateItemTitleProperty && formUpdateItemTitleProperty.length > 0 && itemForm && itemForm[formUpdateItemTitleProperty]
-                    ?  formUpdateItemTitle + ': ' + itemForm[formUpdateItemTitleProperty]
-                    : formUpdateItemTitle
-              }}
-            </p>
-          </div>
-          <div card-content class="row">
-            <div class="col-12">
-
-              <div class="row mb-3" *ngIf="formBackButton">
-                <div class="col-12 {{formBackButtonPaddingClasses}}" [ngClass]="{
-                    'text-left': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT,
-                    'text-center': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER,
-                    'text-right': formBackButtonPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT
-                  }"
-                >
-                  <sco-button 
-                    [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-                    [icon]="formBackButtonIcon"
-                    [transparent]="formBackButtonTransparent"
-                    (action)="closeForm()">
-                  </sco-button>
-                </div>
-              </div>
-
-              <ng-container *ngIf="templateForm">
-                <ng-container *ngTemplateOutlet="templateForm; context: {
-                    item: itemForm,
-                    mode: manageMode == constantsService.ScoFormCrudConstants.MODE_NEW
-                      ? constantsService.ScoFormCrudConstants.MODE_NEW
-                      : constantsService.ScoFormCrudConstants.MODE_UPDATE
-                  }"
-                >
-                </ng-container>
-              </ng-container>
-
-              <div class="row form-group mb-0">
-                <div class="col-12 {{formButtonsPaddingClasses}} mt-3" [ngClass]="{
-                    'text-left': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT,
-                    'text-center': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER,
-                    'text-right': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT
-                  }"
-                >
-                  <sco-button class="mr-1"
-                    [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
-                    [text]="formCancelButtonLabel"
-                    [transparent]="false"
-                    (action)="cancelForm()">
-                  </sco-button>
-                  <sco-button
-                    [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
-                    [text]="manageMode == constantsService.ScoFormCrudConstants.MODE_NEW ? formCreateButtonLabel : formUpdateButtonLabel"
-                    [transparent]="false"
-                    (action)="confirmForm()">
-                  </sco-button>
-                </div>
+          <div class="row form-group mb-0">
+            <div class="col-12 {{formButtonsPaddingClasses}} mt-3" [ngClass]="{
+                'text-left': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT,
+                'text-center': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER,
+                'text-right': formButtonsPosition == constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT
+              }"
+            >
+              <sco-button class="mr-1"
+                [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
+                [text]="formCancelButtonLabel"
+                [transparent]="false"
+                (action)="cancelForm()">
+              </sco-button>
+              <sco-button
+                [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
+                [text]="manageMode == constantsService.ScoFormCrudConstants.MODE_UPDATE ? formUpdateButtonLabel : formCreateButtonLabel"
+                [transparent]="false"
+                (action)="confirmForm()">
+              </sco-button>
             </div>
-            </div>
-          </div>
-        </sco-card>
-
+        </div>
+        </div>
       </div>
-    </div>
-
+    </sco-card>
   </div>
 </div>
 
