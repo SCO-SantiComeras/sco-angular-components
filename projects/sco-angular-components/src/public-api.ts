@@ -17,6 +17,7 @@ export * from './services/sco-cache.service';
 export * from './common/sco-select-item';
 export * from './common/sco-selected-item';
 export * from './common/sco-action';
+export * from './common/sco-callback';
 
 // SCO Input
 export * from './components/sco-input/sco-input.component';
