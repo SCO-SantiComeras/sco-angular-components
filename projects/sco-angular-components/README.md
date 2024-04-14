@@ -87,3 +87,6 @@ https://scoapps.es/sco-angular-components/#/get-started
     - ADD SCO Callback generic class
     - ADD SCO Form crud onFormConfirm callback
     - ADD SCO Form crud formAlwaysVisible input param & showcase
+
+13.1.26:
+    - Fix SCO Form crud import errors
