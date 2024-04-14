@@ -98,18 +98,26 @@ export class ScoBadgeConstants {
 }
 
 export class ScoGridConstants {
-    static STATUS_EMPTY = 'empty';
-    static STATUS_FREE = 'free';
-    static STATUS_OCCUPIED = 'occupied';
-    static STATUS_RESERVED = 'reserved';
+    static STATUS_EMPTY: string = 'empty';
+    static STATUS_FREE: string = 'free';
+    static STATUS_OCCUPIED: string = 'occupied';
+    static STATUS_RESERVED: string = 'reserved';
 }
 
 export class ScoFormCrudConstants {
-    static MODE_CREATE = 'CREATE';
-    static MODE_EDIT = 'EDIT';
-    static MODE_DELETE = 'DELETE';
-    static MODE_VIEW_TABLE = 'MODE_VIEW_TABLE';
-    static MODE_VIEW_BLOCK = 'MODE_VIEW_BLOCK';
+    static SHOW_TABLE: string = 'table';
+    static SHOW_BLOCK_LIST: string = 'block-list';
+    static SHOW_FORM: string = 'form';
+
+    static MODE_NEW: string = 'new';
+    static MODE_UPDATE: string = 'update';
+
+    static FORM_BUTTONS_POSITION_LEFT: string = 'left';
+    static FORM_BUTTONS_POSITION_CENTER: string = 'center';
+    static FORM_BUTTONS_POSITION_RIGHT: string = 'right';
+
+    static EDIT_ACTION: string = 'update';
+    static DELETE_ACTION: string = 'delete';
 }
 
 export class ScoCalendarConstants {
