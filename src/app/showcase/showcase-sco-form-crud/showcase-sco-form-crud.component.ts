@@ -38,7 +38,7 @@ const EXAMPLE_TABLE_ITEMS = [
     "actions": [
       {
         "label": "Editar",
-        "value": "edit",
+        "value": "update",
         "icon": "fa fa-edit"
       },
       {
@@ -59,7 +59,7 @@ const EXAMPLE_TABLE_ITEMS = [
     "actions": [
       {
         "label": "Editar",
-        "value": "edit",
+        "value": "update",
         "icon": "fa fa-edit"
       },
       {
@@ -80,7 +80,7 @@ const EXAMPLE_TABLE_ITEMS = [
     "actions": [
       {
         "label": "Editar",
-        "value": "edit",
+        "value": "update",
         "icon": "fa fa-edit"
       },
       {
@@ -101,7 +101,7 @@ const EXAMPLE_TABLE_ITEMS = [
     "actions": [
       {
         "label": "Editar",
-        "value": "edit",
+        "value": "update",
         "icon": "fa fa-edit"
       },
       {
@@ -230,7 +230,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
     this.toastService.addSuccessMessage($event.value, `Elemento seleccionado: ${JSON.stringify($event.item)}`);
     this._selectedItem = $event.item;
 
-    if ($event.value == this.constantsService.ScoFormCrudConstants.EDIT_ACTION) {
+    if ($event.value == this.constantsService.ScoFormCrudConstants.UPDATE_ACTION) {
       this._mode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
     }
   }
@@ -284,7 +284,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
     this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: ${JSON.stringify($event.item)}`);
 
 
-    if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) {
+    if (this._mode != this.constantsService.ScoFormCrudConstants.MODE_UPDATE) {
       $event.item.id = this._nextId;
       this._nextId++;
 
@@ -293,7 +293,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
         "actions": [
           {
             "label": "Editar",
-            "value": "edit",
+            "value": "update",
             "icon": "fa fa-edit"
           },
           {
@@ -310,7 +310,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
         "actions": [
           {
             "label": "Editar",
-            "value": "edit",
+            "value": "update",
             "icon": "fa fa-edit"
           },
           {
@@ -328,8 +328,8 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
       if (existItem) {
         const index: number = this._tableItems.indexOf(existItem);
         if (index != -1) {
-          this._tableItems[index].item = cloneDeep($event);
-          this._blockItems[index].item = cloneDeep($event);
+          this._tableItems[index].item = cloneDeep($event.item);
+          this._blockItems[index].item = cloneDeep($event.item);
         }
       }
     }

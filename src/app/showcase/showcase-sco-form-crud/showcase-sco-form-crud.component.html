@@ -7,7 +7,7 @@
                 <!-- 1 -->
                 <div class="row mt-1">
                     <div class="col-12 title-sco">
-                        <span>Ejemplo 1: Ejemplo formulario aparte</span>
+                        <span>Ejemplo 1: Ejemplo de form crud</span>
                     </div>
                 </div>
 
@@ -69,6 +69,7 @@
                             [formBackButtonTransparent]="true"
                             [formBackButtonPosition]="constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT"
                             [formBackButtonPaddingClasses]="''"
+                            [formAlwaysVisible]="false"
 
                             [deleteModalConfirmLabel]="'Eliminar'"
                             [deleteModalCancelLabel]="'Cancelar'"
@@ -315,6 +316,7 @@
                     [formBackButtonTransparent]=&quot;true&quot;
                     [formBackButtonPosition]=&quot;constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT&quot;
                     [formBackButtonPaddingClasses]=&quot;''&quot;
+                    [formAlwaysVisible]=&quot;false&quot;
 
                     [deleteModalConfirmLabel]=&quot;'Eliminar'&quot;
                     [deleteModalCancelLabel]=&quot;'Cancelar'&quot;
@@ -537,7 +539,7 @@ const EXAMPLE_TABLE_ITEMS = [
     &quot;actions&quot;: [
         &#123;
         &quot;label&quot;: &quot;Editar&quot;,
-        &quot;value&quot;: &quot;edit&quot;,
+        &quot;value&quot;: &quot;update&quot;,
         &quot;icon&quot;: &quot;fa fa-edit&quot;
         &#125;,
         &#123;
@@ -558,7 +560,7 @@ const EXAMPLE_TABLE_ITEMS = [
     &quot;actions&quot;: [
         &#123;
         &quot;label&quot;: &quot;Editar&quot;,
-        &quot;value&quot;: &quot;edit&quot;,
+        &quot;value&quot;: &quot;update&quot;,
         &quot;icon&quot;: &quot;fa fa-edit&quot;
         &#125;,
         &#123;
@@ -579,7 +581,7 @@ const EXAMPLE_TABLE_ITEMS = [
     &quot;actions&quot;: [
         &#123;
         &quot;label&quot;: &quot;Editar&quot;,
-        &quot;value&quot;: &quot;edit&quot;,
+        &quot;value&quot;: &quot;update&quot;,
         &quot;icon&quot;: &quot;fa fa-edit&quot;
         &#125;,
         &#123;
@@ -600,7 +602,7 @@ const EXAMPLE_TABLE_ITEMS = [
     &quot;actions&quot;: [
         &#123;
         &quot;label&quot;: &quot;Editar&quot;,
-        &quot;value&quot;: &quot;edit&quot;,
+        &quot;value&quot;: &quot;update&quot;,
         &quot;icon&quot;: &quot;fa fa-edit&quot;
         &#125;,
         &#123;
@@ -729,7 +731,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
         this.toastService.addSuccessMessage($event.value, `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
         this._selectedItem = $event.item;
 
-        if ($event.value == this.constantsService.ScoFormCrudConstants.EDIT_ACTION) &#123;
+        if ($event.value == this.constantsService.ScoFormCrudConstants.UPDATE_ACTION) &#123;
             this._mode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
         &#125;
     &#125;
@@ -783,7 +785,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
         this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: $&#123;JSON.stringify($event.item)&#125;`);
 
 
-        if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) &#123;
+        if (this._mode != this.constantsService.ScoFormCrudConstants.MODE_UPDATE) &#123;
             $event.item.id = this._nextId;
             this._nextId++;
 
@@ -792,7 +794,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
             &quot;actions&quot;: [
                 &#123;
                 &quot;label&quot;: &quot;Editar&quot;,
-                &quot;value&quot;: &quot;edit&quot;,
+                &quot;value&quot;: &quot;update&quot;,
                 &quot;icon&quot;: &quot;fa fa-edit&quot;
                 &#125;,
                 &#123;
@@ -809,7 +811,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
             &quot;actions&quot;: [
                 &#123;
                 &quot;label&quot;: &quot;Editar&quot;,
-                &quot;value&quot;: &quot;edit&quot;,
+                &quot;value&quot;: &quot;update&quot;,
                 &quot;icon&quot;: &quot;fa fa-edit&quot;
                 &#125;,
                 &#123;
@@ -827,8 +829,8 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
             if (existItem) &#123;
                 const index: number = this._tableItems.indexOf(existItem);
                 if (index != -1) &#123;
-                    this._tableItems[index].item = cloneDeep($event);
-                    this._blockItems[index].item = cloneDeep($event);
+                    this._tableItems[index].item = cloneDeep($event.item);
+                    this._blockItems[index].item = cloneDeep($event.item);
                 &#125;
             &#125;
         &#125;
@@ -1171,6 +1173,13 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
                     <td>Nombre de clases que se le puede pasar al contenedor de la botonera inferior</td>
                     <td>string</td>
                     <td>''</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formAlwaysVisible</td>
+                    <td>Indicador para mostrar siempre el formulario al lado derecho de la vista de tabla o lista de bloques</td>
+                    <td>boolean</td>
+                    <td>false</td>
                     <td></td>
                 </tr>
                 <tr>
