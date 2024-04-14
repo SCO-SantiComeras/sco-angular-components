@@ -1,3 +1,1347 @@
-<sco-form-crud>
-  
-</sco-form-crud>
+<base-showcase>
+
+    <div examples>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- 1 -->
+                <div class="row mt-1">
+                    <div class="col-12 title-sco">
+                        <span>Ejemplo 1: Ejemplo formulario aparte</span>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <sco-form-crud
+                            [showFilterPanel]="true"
+
+                            [showChangeView]="true"
+                            [changeViewTableBtnIcon]="'fa fa-table'"
+                            [changeViewTableBtnTransparent]="true"
+                            [changeViewBlocklistBtnIcon]="'fa fa-th-large'"
+                            [changeViewBlocklistBtnTransparent]="true"
+
+                            [showExcelDownloadBtn]="true"
+                            [excelDownloadBtnIcon]="'fa fa-download'"
+                            [excelDownloadBtnTransparent]="true"
+
+                            [addElementBtnIcon]="'fa fa-plus'"
+                            [addElementBtnTransparent]="true"
+
+                            [enableKeyboardBinds]="true"
+                            [tableDefaultView]="true"
+                            [tableCols]="cols"
+                            [tableItems]="currentTableItems"
+                            [blockItems]="currentBlocklistItems"
+                            [tableItemsPage]="8"
+                            [blocklistItemsPage]="5"
+                            [labelTotalResults]="'Total'"
+                            [labelNoResults]="'No hay elementos que mostrar'"
+                            [showActions]="true"
+                            [showTotalItems]="true"
+                            [canSelectItems]="false"
+                            [previousLabel]="'Anterior'"
+                            [nextLabel]="'Siguiente'"
+                            [paginationOnTop]="false"
+                            [closeFormWhenCancel]="true"
+
+                            [showTableIndex]="true"
+                            [showTableAddBtn]="true"
+
+                            [showBlocklistHeader]="false"
+                            [showBlocklistInfoAdditional]="false"
+                            [showBlocklistBorder]="true"
+
+                            [formShowTitle]="true"
+                            [formCenterTitle]="true"
+                            [formPadding]="true"
+                            [formNewItemTitle]="'Nuevo elemento'"
+                            [formUpdateItemTitle]="'Actualizar elemento'"
+                            [formUpdateItemTitleProperty]="'name'"
+                            [formButtonsPosition]="constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT"
+                            [formButtonsPaddingClasses]="''"
+                            [formCancelButtonLabel]="'Cancelar'"
+                            [formCreateButtonLabel]="'Crear'"
+                            [formUpdateButtonLabel]="'Actualizar'"
+                            [formBackButton]="true"
+                            [formBackButtonIcon]="'fa fa-arrow-left'"
+                            [formBackButtonTransparent]="true"
+                            [formBackButtonPosition]="constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT"
+                            [formBackButtonPaddingClasses]="''"
+
+                            [deleteModalConfirmLabel]="'Eliminar'"
+                            [deleteModalCancelLabel]="'Cancelar'"
+                            [deleteModalTitle]="'Eliminar elemento'"
+                            [deleteModalContent]="'¿Realmente quiere eliminar el elemento'"
+                            [elementSelectedProperty]="'name'"
+
+                            (onDownloadExcel)="onDownloadExcel($event)"
+                            (itemSelected)="onItemSelected($event)"
+                            (actionSelected)="onActionSelected($event)"
+                            (changePage)="onChangePage($event)"
+                            (closeOptions)="onCloseOptions($event)"
+                            (goToCreate)="onGoToCreate($event)"
+                            (onFormCancel)="onFormCancel($event)"
+                            (onFormConfirm)="onFormConfirm($event)"
+                            (onFormClose)="onFormClose($event)"
+
+                            (onConfirmDeleteModal)="onConfirmDeleteModal($event)"
+                            (onCloseDeleteModal)="onCloseDeleteModal($event)"
+                        > 
+                            <ng-template #templateFilter>
+                                <sco-accordion [title]="'Filtro de datos'" [open]="false"> 
+                                    <div content-accordion>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <form [formGroup]="filterForm">
+                                                <div class="row form-group">
+                                                    <div class="col-3">
+                                                        <sco-input
+                                                            formControlName="id"
+                                                            [label]="'Id'"
+                                                            [showLabel]="true"  
+                                                            [required]="false" >
+                                                        </sco-input>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <sco-input
+                                                            formControlName="name"
+                                                            [label]="'Nombre'"
+                                                            [showLabel]="true"  
+                                                            [required]="false" >
+                                                        </sco-input>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <sco-input
+                                                            formControlName="secondName"
+                                                            [label]="'Apellidos'"
+                                                            [showLabel]="true"  
+                                                            [required]="false" >
+                                                        </sco-input>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <sco-input
+                                                            formControlName="age"
+                                                            [label]="'Edad'"
+                                                            [showLabel]="true"  
+                                                            [required]="false" >
+                                                        </sco-input>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row form-group">
+                                                    <div class="col-12 text-right">
+                                                        <sco-button class="mr-1"
+                                                            [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+                                                            [icon]="'fa fa-close'"
+                                                            [transparent]="true"
+                                                            (action)="clearFilter()">
+                                                        </sco-button>
+                                                
+                                                        <sco-button
+                                                            [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+                                                            [icon]="'fa fa-search'"
+                                                            [transparent]="true"
+                                                            (action)="search()">
+                                                        </sco-button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </sco-accordion>
+                            </ng-template>
+
+                            <ng-template #templateHeader let-item="item">
+                            </ng-template>
+
+                            <ng-template #templateInfoAdditional let-item="item">
+                            </ng-template>
+
+                            <ng-template #templateData let-item="item">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <sco-block-list-data-item
+                                            [label]="cols[0].label"
+                                            [value]="item.id" >
+                                        </sco-block-list-data-item>
+                                    </div> 
+                                    <div class="col-2">
+                                        <sco-block-list-data-item
+                                            [label]="cols[1].label"
+                                            [value]="item.name" >
+                                        </sco-block-list-data-item>
+                                    </div> 
+                                    <div class="col-2">
+                                        <sco-block-list-data-item
+                                            [label]="cols[2].label"
+                                            [value]="item.secondName" >
+                                        </sco-block-list-data-item>
+                                    </div> 
+                                    <div class="col-2">
+                                        <sco-block-list-data-item
+                                            [label]="cols[3].label"
+                                            [value]="item.age" >
+                                        </sco-block-list-data-item>
+                                    </div> 
+                                </div>
+                            </ng-template>
+
+                            <ng-template #templateRow let-item="item" let-cols="cols">
+                                <td *ngFor="let col of cols" [ngSwitch]="col.label">     
+                                <span *ngSwitchDefault>
+                                    {{item[col.property]}}
+                                </span>
+                                </td>
+                            </ng-template>
+
+                            <ng-template #templateForm let-item="item" let-mode="mode">
+                                <div class="row form-group">
+                                    <div class="col-12 pl-5 pr-5">
+                                        <sco-input
+                                            [(ngModel)]="item.name"
+                                            [label]="'Nombre'"
+                                            [showLabel]="true"  
+                                            [required]="true" >
+                                        </sco-input>
+                                        <span class="sco-form-error" *ngIf="crudErrors && crudErrors.length > 0 && formErrorsService.checkIfErrors('name', crudErrors)">
+                                            {{formErrorsService.showError('name', crudErrors)}}
+                                        </span>
+                                    </div>
+                                    <div class="col-12 pl-5 pr-5">
+                                        <sco-input
+                                            [(ngModel)]="item.secondName"
+                                            [label]="'Apellidos'"
+                                            [showLabel]="true"  
+                                            [required]="true" >
+                                        </sco-input>
+                                        <span class="sco-form-error" *ngIf="crudErrors && crudErrors.length > 0 && formErrorsService.checkIfErrors('secondName', crudErrors)">
+                                            {{formErrorsService.showError('secondName', crudErrors)}}
+                                        </span>
+                                    </div>
+                                    <div class="col-12 pl-5 pr-5">
+                                        <sco-input
+                                            [(ngModel)]="item.age"
+                                            [type]="constantsService.ScoInputTypeConstants.NUMBER"
+                                            [label]="'Edad'"
+                                            [showLabel]="true"  
+                                            [required]="true" >
+                                        </sco-input>
+                                        <span class="sco-form-error" *ngIf="crudErrors && crudErrors.length > 0 && formErrorsService.checkIfErrors('age', crudErrors)">
+                                            {{formErrorsService.showError('age', crudErrors)}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </sco-form-crud>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div code>
+        <sco-tabs>
+            <sco-tab-item title="HTLM">
+                <pre><code class="language-markup" pCode ngNonBindable>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+
+        &lt;!-- 1 --&gt;
+        &lt;div class=&quot;row mt-1&quot;&gt;
+            &lt;div class=&quot;col-12 title-sco&quot;&gt;
+                &lt;span&gt;Ejemplo 1: Ejemplo formulario aparte&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row mt-3&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;sco-form-crud
+                    [showFilterPanel]=&quot;true&quot;
+
+                    [showChangeView]=&quot;true&quot;
+                    [changeViewTableBtnIcon]=&quot;'fa fa-table'&quot;
+                    [changeViewTableBtnTransparent]=&quot;true&quot;
+                    [changeViewBlocklistBtnIcon]=&quot;'fa fa-th-large'&quot;
+                    [changeViewBlocklistBtnTransparent]=&quot;true&quot;
+
+                    [showExcelDownloadBtn]=&quot;true&quot;
+                    [excelDownloadBtnIcon]=&quot;'fa fa-download'&quot;
+                    [excelDownloadBtnTransparent]=&quot;true&quot;
+
+                    [addElementBtnIcon]=&quot;'fa fa-plus'&quot;
+                    [addElementBtnTransparent]=&quot;true&quot;
+
+                    [enableKeyboardBinds]=&quot;true&quot;
+                    [tableDefaultView]=&quot;true&quot;
+                    [tableCols]=&quot;cols&quot;
+                    [tableItems]=&quot;currentTableItems&quot;
+                    [blockItems]=&quot;currentBlocklistItems&quot;
+                    [tableItemsPage]=&quot;8&quot;
+                    [blocklistItemsPage]=&quot;5&quot;
+                    [labelTotalResults]=&quot;'Total'&quot;
+                    [labelNoResults]=&quot;'No hay elementos que mostrar'&quot;
+                    [showActions]=&quot;true&quot;
+                    [showTotalItems]=&quot;true&quot;
+                    [canSelectItems]=&quot;false&quot;
+                    [previousLabel]=&quot;'Anterior'&quot;
+                    [nextLabel]=&quot;'Siguiente'&quot;
+                    [paginationOnTop]=&quot;false&quot;
+                    [closeFormWhenCancel]=&quot;true&quot;
+
+                    [showTableIndex]=&quot;true&quot;
+                    [showTableAddBtn]=&quot;true&quot;
+
+                    [showBlocklistHeader]=&quot;false&quot;
+                    [showBlocklistInfoAdditional]=&quot;false&quot;
+                    [showBlocklistBorder]=&quot;true&quot;
+
+                    [formShowTitle]=&quot;true&quot;
+                    [formCenterTitle]=&quot;true&quot;
+                    [formPadding]=&quot;true&quot;
+                    [formNewItemTitle]=&quot;'Nuevo elemento'&quot;
+                    [formUpdateItemTitle]=&quot;'Actualizar elemento'&quot;
+                    [formUpdateItemTitleProperty]=&quot;'name'&quot;
+                    [formButtonsPosition]=&quot;constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT&quot;
+                    [formButtonsPaddingClasses]=&quot;''&quot;
+                    [formCancelButtonLabel]=&quot;'Cancelar'&quot;
+                    [formCreateButtonLabel]=&quot;'Crear'&quot;
+                    [formUpdateButtonLabel]=&quot;'Actualizar'&quot;
+                    [formBackButton]=&quot;true&quot;
+                    [formBackButtonIcon]=&quot;'fa fa-arrow-left'&quot;
+                    [formBackButtonTransparent]=&quot;true&quot;
+                    [formBackButtonPosition]=&quot;constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT&quot;
+                    [formBackButtonPaddingClasses]=&quot;''&quot;
+
+                    [deleteModalConfirmLabel]=&quot;'Eliminar'&quot;
+                    [deleteModalCancelLabel]=&quot;'Cancelar'&quot;
+                    [deleteModalTitle]=&quot;'Eliminar elemento'&quot;
+                    [deleteModalContent]=&quot;'¿Realmente quiere eliminar el elemento'&quot;
+                    [elementSelectedProperty]=&quot;'name'&quot;
+
+                    (onDownloadExcel)=&quot;onDownloadExcel($event)&quot;
+                    (itemSelected)=&quot;onItemSelected($event)&quot;
+                    (actionSelected)=&quot;onActionSelected($event)&quot;
+                    (changePage)=&quot;onChangePage($event)&quot;
+                    (closeOptions)=&quot;onCloseOptions($event)&quot;
+                    (goToCreate)=&quot;onGoToCreate($event)&quot;
+                    (onFormCancel)=&quot;onFormCancel($event)&quot;
+                    (onFormConfirm)=&quot;onFormConfirm($event)&quot;
+                    (onFormClose)=&quot;onFormClose($event)&quot;
+
+                    (onConfirmDeleteModal)=&quot;onConfirmDeleteModal($event)&quot;
+                    (onCloseDeleteModal)=&quot;onCloseDeleteModal($event)&quot;
+                &gt; 
+                    &lt;ng-template #templateFilter&gt;
+                        &lt;sco-accordion [title]=&quot;'Filtro de datos'&quot; [open]=&quot;false&quot;&gt; 
+                            &lt;div content-accordion&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div class=&quot;col-12&quot;&gt;
+                                    &lt;form [formGroup]=&quot;filterForm&quot;&gt;
+                                        &lt;div class=&quot;row form-group&quot;&gt;
+                                            &lt;div class=&quot;col-3&quot;&gt;
+                                                &lt;sco-input
+                                                    formControlName=&quot;id&quot;
+                                                    [label]=&quot;'Id'&quot;
+                                                    [showLabel]=&quot;true&quot;  
+                                                    [required]=&quot;false&quot; &gt;
+                                                &lt;/sco-input&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;col-3&quot;&gt;
+                                                &lt;sco-input
+                                                    formControlName=&quot;name&quot;
+                                                    [label]=&quot;'Nombre'&quot;
+                                                    [showLabel]=&quot;true&quot;  
+                                                    [required]=&quot;false&quot; &gt;
+                                                &lt;/sco-input&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;col-3&quot;&gt;
+                                                &lt;sco-input
+                                                    formControlName=&quot;secondName&quot;
+                                                    [label]=&quot;'Apellidos'&quot;
+                                                    [showLabel]=&quot;true&quot;  
+                                                    [required]=&quot;false&quot; &gt;
+                                                &lt;/sco-input&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;col-3&quot;&gt;
+                                                &lt;sco-input
+                                                    formControlName=&quot;age&quot;
+                                                    [label]=&quot;'Edad'&quot;
+                                                    [showLabel]=&quot;true&quot;  
+                                                    [required]=&quot;false&quot; &gt;
+                                                &lt;/sco-input&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div class=&quot;row form-group&quot;&gt;
+                                            &lt;div class=&quot;col-12 text-right&quot;&gt;
+                                                &lt;sco-button class=&quot;mr-1&quot;
+                                                    [mode]=&quot;constantsService.ScoButtonConstants.MODE_ICON&quot;
+                                                    [icon]=&quot;'fa fa-close'&quot;
+                                                    [transparent]=&quot;true&quot;
+                                                    (action)=&quot;clearFilter()&quot;&gt;
+                                                &lt;/sco-button&gt;
+                                        
+                                                &lt;sco-button
+                                                    [mode]=&quot;constantsService.ScoButtonConstants.MODE_ICON&quot;
+                                                    [icon]=&quot;'fa fa-search'&quot;
+                                                    [transparent]=&quot;true&quot;
+                                                    (action)=&quot;search()&quot;&gt;
+                                                &lt;/sco-button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/sco-accordion&gt;
+                    &lt;/ng-template&gt;
+
+                    &lt;ng-template #templateHeader let-item=&quot;item&quot;&gt;
+                    &lt;/ng-template&gt;
+
+                    &lt;ng-template #templateInfoAdditional let-item=&quot;item&quot;&gt;
+                    &lt;/ng-template&gt;
+
+                    &lt;ng-template #templateData let-item=&quot;item&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div class=&quot;col-2&quot;&gt;
+                                &lt;sco-block-list-data-item
+                                    [label]=&quot;cols[0].label&quot;
+                                    [value]=&quot;item.id&quot; &gt;
+                                &lt;/sco-block-list-data-item&gt;
+                            &lt;/div&gt; 
+                            &lt;div class=&quot;col-2&quot;&gt;
+                                &lt;sco-block-list-data-item
+                                    [label]=&quot;cols[1].label&quot;
+                                    [value]=&quot;item.name&quot; &gt;
+                                &lt;/sco-block-list-data-item&gt;
+                            &lt;/div&gt; 
+                            &lt;div class=&quot;col-2&quot;&gt;
+                                &lt;sco-block-list-data-item
+                                    [label]=&quot;cols[2].label&quot;
+                                    [value]=&quot;item.secondName&quot; &gt;
+                                &lt;/sco-block-list-data-item&gt;
+                            &lt;/div&gt; 
+                            &lt;div class=&quot;col-2&quot;&gt;
+                                &lt;sco-block-list-data-item
+                                    [label]=&quot;cols[3].label&quot;
+                                    [value]=&quot;item.age&quot; &gt;
+                                &lt;/sco-block-list-data-item&gt;
+                            &lt;/div&gt; 
+                        &lt;/div&gt;
+                    &lt;/ng-template&gt;
+
+                    &lt;ng-template #templateRow let-item=&quot;item&quot; let-cols=&quot;cols&quot;&gt;
+                        &lt;td *ngFor=&quot;let col of cols&quot; [ngSwitch]=&quot;col.label&quot;&gt;     
+                        &lt;span *ngSwitchDefault&gt;
+                            {{item[col.property]}}
+                        &lt;/span&gt;
+                        &lt;/td&gt;
+                    &lt;/ng-template&gt;
+
+                    &lt;ng-template #templateForm let-item=&quot;item&quot; let-mode=&quot;mode&quot;&gt;
+                        &lt;div class=&quot;row form-group&quot;&gt;
+                            &lt;div class=&quot;col-12 pl-5 pr-5&quot;&gt;
+                                &lt;sco-input
+                                    [(ngModel)]=&quot;item.name&quot;
+                                    [label]=&quot;'Nombre'&quot;
+                                    [showLabel]=&quot;true&quot;  
+                                    [required]=&quot;true&quot; &gt;
+                                &lt;/sco-input&gt;
+                                &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;crudErrors && crudErrors.length &gt; 0 && formErrorsService.checkIfErrors('name', crudErrors)&quot;&gt;
+                                    {{formErrorsService.showError('name', crudErrors)}}
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col-12 pl-5 pr-5&quot;&gt;
+                                &lt;sco-input
+                                    [(ngModel)]=&quot;item.secondName&quot;
+                                    [label]=&quot;'Apellidos'&quot;
+                                    [showLabel]=&quot;true&quot;  
+                                    [required]=&quot;true&quot; &gt;
+                                &lt;/sco-input&gt;
+                                &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;crudErrors && crudErrors.length &gt; 0 && formErrorsService.checkIfErrors('secondName', crudErrors)&quot;&gt;
+                                    {{formErrorsService.showError('secondName', crudErrors)}}
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col-12 pl-5 pr-5&quot;&gt;
+                                &lt;sco-input
+                                    [(ngModel)]=&quot;item.age&quot;
+                                    [type]=&quot;constantsService.ScoInputTypeConstants.NUMBER&quot;
+                                    [label]=&quot;'Edad'&quot;
+                                    [showLabel]=&quot;true&quot;  
+                                    [required]=&quot;true&quot; &gt;
+                                &lt;/sco-input&gt;
+                                &lt;span class=&quot;sco-form-error&quot; *ngIf=&quot;crudErrors && crudErrors.length &gt; 0 && formErrorsService.checkIfErrors('age', crudErrors)&quot;&gt;
+                                    {{formErrorsService.showError('age', crudErrors)}}
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/ng-template&gt;
+                &lt;/sco-form-crud&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item title="CSS">
+                <pre><code class="language-css" pCode ngNonBindable>
+                </code></pre>
+            </sco-tab-item>
+        
+            <sco-tab-item title="TS">
+                <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; Component, OnInit &#125; from '&commat;angular/core';
+import &#123; FormControl, FormGroup, Validators &#125; from '&commat;angular/forms';
+import &#123; cloneDeep &#125; from 'lodash-es';
+import &#123; ScoAction &#125; from './../../../../projects/sco-angular-components/src/common/sco-action';
+import &#123; ScoSelectedItem &#125; from './../../../../projects/sco-angular-components/src/common/sco-selected-item';
+import &#123; ScoResolutionService &#125; from './../../../../projects/sco-angular-components/src/services/sco-resolution/sco-resolution.service';
+import &#123; ScoConstantsService &#125; from './../../../../projects/sco-angular-components/src/public-api';
+import &#123; ScoToastService &#125; from './../../../../projects/sco-angular-components/src/components/sco-toast/sco-toast.service';
+import &#123; ScoFormErrorsService &#125; from './../../../../projects/sco-angular-components/src/services/sco-form-errors/sco-form-errors.service';
+import &#123; ScoFormError &#125; from './../../../../projects/sco-angular-components/src/services/sco-form-errors/sco-form-error.model';
+import &#123; ScoTableCol &#125; from './../../../../projects/sco-angular-components/src/components/sco-table/model/sco-table-cols';
+import &#123; ScoBlockItem &#125; from './../../../../projects/sco-angular-components/src/components/sco-block-list/model/sco-block-item';
+import &#123; ScoTableItem &#125; from './../../../../projects/sco-angular-components/src/components/sco-table/model/sco-table.item';
+
+export class FormCrudExample &#123;
+    id: number; 
+    name: string;
+    secondName: string;
+    age: number;
+&#125;
+
+export class FormCrudExampleFilter &#123;
+    id?: number;
+    name?: string;
+    secondName?: string;
+    age?: number;
+&#125;
+
+const EXAMPLE_TABLE_ITEMS = [
+    &#123;
+    &quot;item&quot;: &#123;
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Santi&quot;,
+        &quot;secondName&quot;: &quot;Comeras&quot;,
+        &quot;age&quot;: 30
+    &#125;,
+    &quot;actions&quot;: [
+        &#123;
+        &quot;label&quot;: &quot;Editar&quot;,
+        &quot;value&quot;: &quot;edit&quot;,
+        &quot;icon&quot;: &quot;fa fa-edit&quot;
+        &#125;,
+        &#123;
+        &quot;label&quot;: &quot;Eliminar&quot;,
+        &quot;value&quot;: &quot;delete&quot;,
+        &quot;icon&quot;: &quot;fa fa-trash&quot;
+        &#125;
+    ],
+    &quot;index&quot;: 0
+    &#125;,
+    &#123;
+    &quot;item&quot;: &#123;
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Santi&quot;,
+        &quot;secondName&quot;: &quot;Oteo&quot;,
+        &quot;age&quot;: 35
+    &#125;,
+    &quot;actions&quot;: [
+        &#123;
+        &quot;label&quot;: &quot;Editar&quot;,
+        &quot;value&quot;: &quot;edit&quot;,
+        &quot;icon&quot;: &quot;fa fa-edit&quot;
+        &#125;,
+        &#123;
+        &quot;label&quot;: &quot;Eliminar&quot;,
+        &quot;value&quot;: &quot;delete&quot;,
+        &quot;icon&quot;: &quot;fa fa-trash&quot;
+        &#125;
+    ],
+    &quot;index&quot;: 1
+    &#125;,
+    &#123;
+    &quot;item&quot;: &#123;
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;Carol&quot;,
+        &quot;secondName&quot;: &quot;Comeras&quot;,
+        &quot;age&quot;: 25
+    &#125;,
+    &quot;actions&quot;: [
+        &#123;
+        &quot;label&quot;: &quot;Editar&quot;,
+        &quot;value&quot;: &quot;edit&quot;,
+        &quot;icon&quot;: &quot;fa fa-edit&quot;
+        &#125;,
+        &#123;
+        &quot;label&quot;: &quot;Eliminar&quot;,
+        &quot;value&quot;: &quot;delete&quot;,
+        &quot;icon&quot;: &quot;fa fa-trash&quot;
+        &#125;
+    ],
+    &quot;index&quot;: 2
+    &#125;,
+    &#123;
+    &quot;item&quot;: &#123;
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;Carol&quot;,
+        &quot;secondName&quot;: &quot;Serrano&quot;,
+        &quot;age&quot;: 25
+    &#125;,
+    &quot;actions&quot;: [
+        &#123;
+        &quot;label&quot;: &quot;Editar&quot;,
+        &quot;value&quot;: &quot;edit&quot;,
+        &quot;icon&quot;: &quot;fa fa-edit&quot;
+        &#125;,
+        &#123;
+        &quot;label&quot;: &quot;Eliminar&quot;,
+        &quot;value&quot;: &quot;delete&quot;,
+        &quot;icon&quot;: &quot;fa fa-trash&quot;
+        &#125;
+    ],
+    &quot;index&quot;: 3
+    &#125;
+];
+
+&commat;Component(&#123;
+    selector: 'app-showcase-sco-form-crud',
+    templateUrl: './showcase-sco-form-crud.component.html',
+    styleUrls: ['./showcase-sco-form-crud.component.scss']
+&#125;)
+export class ShowcaseScoFormCrudComponent implements OnInit &#123;
+
+    public filterForm: FormGroup;
+
+    public crudErrors: ScoFormError[];
+    
+
+    private _tableItems: ScoTableItem&lt;FormCrudExample&gt;[];
+    private _blockItems: ScoBlockItem&lt;FormCrudExample&gt;[];
+    private _selectedItem: FormCrudExample;
+    private _nextId: number;
+    private _mode: string;
+
+    public cols: ScoTableCol[];
+    public currentTableItems: ScoTableItem&lt;FormCrudExample&gt;[];
+    public currentBlocklistItems: ScoBlockItem&lt;FormCrudExample&gt;[];
+
+    constructor(
+    public readonly formErrorsService: ScoFormErrorsService,
+    public readonly toastService: ScoToastService,
+    public readonly constantsService: ScoConstantsService,
+    public readonly resolutionService: ScoResolutionService,
+    ) &#123; 
+    this._tableItems = [];
+    this._blockItems = [];
+    this._selectedItem = undefined;
+    this._nextId = 5;
+
+    this.cols = [];
+    this.currentTableItems = [];
+    this.currentBlocklistItems = [];
+    &#125;
+
+    ngOnInit() &#123;
+    this.filterForm = new FormGroup(&#123;
+        id: new FormControl('', [Validators.required]),
+        name: new FormControl('', [Validators.required]),
+        secondName: new FormControl('', [Validators.required]),
+        age: new FormControl('', [Validators.required]),
+    &#125;);
+
+    this.crudErrors = [];
+
+    this.cols = [
+        &#123; label: 'Id', property: 'id' &#125;,
+        &#123; label: 'Nombre', property: 'name' &#125;,
+        &#123; label: 'Apellidos', property: 'secondName' &#125;,
+        &#123; label: 'Edad', property: 'age' &#125;,
+    ];
+
+    this._selectedItem = undefined;
+
+    this._tableItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
+    this.currentTableItems = cloneDeep(this._tableItems);
+
+    this._blockItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
+    this.currentBlocklistItems = cloneDeep(this._blockItems);
+    &#125;
+
+    search() &#123;
+    this.currentTableItems = [];
+    this.currentBlocklistItems = [];
+
+    const formCrudExampleFilter: FormCrudExampleFilter = this.filterForm.value;
+    const keys: string[] = Object.keys(formCrudExampleFilter);
+
+    const filteredItems: ScoTableItem&lt;FormCrudExample&gt;[] = [];
+    for (const item of this._tableItems) &#123;
+        let pusheableItem: boolean = true;
+
+        for (const key of keys) &#123;
+        if (formCrudExampleFilter[key]) &#123;
+            if (formCrudExampleFilter[key] != item.item[key]) &#123;
+            pusheableItem = false;
+            &#125;
+        &#125;
+        &#125;
+
+        if (pusheableItem) &#123;
+        filteredItems.push(item);
+        &#125;
+    &#125;
+
+    if (filteredItems && filteredItems.length &gt; 0) &#123;
+        this.currentTableItems = cloneDeep(filteredItems);
+        this.currentBlocklistItems = cloneDeep(filteredItems);
+    &#125;
+    &#125;
+
+    clearFilter() &#123;
+    this.filterForm = this.formErrorsService.cleanErrors(this.filterForm);
+    this.currentTableItems = this._tableItems;
+    this.currentBlocklistItems = this._blockItems;
+    &#125;
+
+    onDownloadExcel($event: boolean) &#123;
+    if (!$event) return;
+
+    this.toastService.addSuccessMessage('Excel', 'Botón descargar fichero excel pulsado');
+    &#125;
+
+    onItemSelected($event: ScoSelectedItem&lt;FormCrudExample&gt;) &#123;
+    if (!$event) return;
+
+    this.toastService.addSuccessMessage('Item selected', `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
+    &#125;
+
+    onActionSelected($event: ScoAction&lt;FormCrudExample&gt;) &#123;
+    this.toastService.addSuccessMessage($event.value, `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
+    this._selectedItem = $event.item;
+
+    if ($event.value == this.constantsService.ScoFormCrudConstants.EDIT_ACTION) &#123;
+        this._mode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
+    &#125;
+    &#125;
+
+    onChangePage($event: number) &#123;
+    this.toastService.addSuccessMessage(`Change page`, `La página cambió: $&#123;$event&#125;`);
+    &#125;
+
+    onCloseOptions($event: MouseEvent) &#123;
+    //this.toastService.addSuccessMessage(`Options panel`, `Se cerró el panel de opciones: $&#123;$event&#125;`);
+    &#125;
+
+    onGoToCreate($event: FormCrudExample) &#123;
+    this.toastService.addSuccessMessage(`Se abrió el formulario`, `Nuevo elemento: $&#123;JSON.stringify($event)&#125;`);
+    this._mode = this.constantsService.ScoFormCrudConstants.MODE_NEW;
+    &#125;
+    
+    onFormCancel($event: FormCrudExample) &#123;
+    this.crudErrors = [];
+    this.toastService.addSuccessMessage(`Formulario`, `Se canceló el formulario: $&#123;JSON.stringify($event)&#125;`);
+    &#125;
+
+    onFormConfirm($event: FormCrudExample) &#123;
+    this.crudErrors = [];
+
+    if (!$event.name) &#123;
+        this.crudErrors.push(&#123; 
+        formControlName: 'name', 
+        error: `Nombre no informado`,
+        &#125;);
+    &#125;
+
+    if (!$event.secondName) &#123;
+        this.crudErrors.push(&#123; 
+        formControlName: 'secondName', 
+        error: `Apellidos no informados`,
+        &#125;);
+    &#125;
+
+    if ($event.age == undefined) &#123;
+        this.crudErrors.push(&#123;
+        formControlName: 'age', 
+        error: `Edad no informada`,
+        &#125;);
+    &#125;
+
+    if (this.crudErrors && this.crudErrors.length &gt; 0) &#123;
+        return this.toastService.addErrorMessage(`Formulario`, `El formulario contiene errores: $&#123;JSON.stringify($event)&#125;`);
+    &#125;
+
+    this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: $&#123;JSON.stringify($event)&#125;`);
+
+
+    if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) &#123;
+        $event.id = this._nextId;
+        this._nextId++;
+
+        const newTableItem: ScoTableItem&lt;FormCrudExample&gt; =  &#123;
+        &quot;item&quot;: $event,
+        &quot;actions&quot;: [
+            &#123;
+            &quot;label&quot;: &quot;Editar&quot;,
+            &quot;value&quot;: &quot;edit&quot;,
+            &quot;icon&quot;: &quot;fa fa-edit&quot;
+            &#125;,
+            &#123;
+            &quot;label&quot;: &quot;Eliminar&quot;,
+            &quot;value&quot;: &quot;delete&quot;,
+            &quot;icon&quot;: &quot;fa fa-trash&quot;
+            &#125;
+        ],
+        &quot;index&quot;: this._tableItems.length
+        &#125;;
+
+        const newBlockItem: ScoBlockItem&lt;FormCrudExample&gt; =  &#123;
+        &quot;item&quot;: $event,
+        &quot;actions&quot;: [
+            &#123;
+            &quot;label&quot;: &quot;Editar&quot;,
+            &quot;value&quot;: &quot;edit&quot;,
+            &quot;icon&quot;: &quot;fa fa-edit&quot;
+            &#125;,
+            &#123;
+            &quot;label&quot;: &quot;Eliminar&quot;,
+            &quot;value&quot;: &quot;delete&quot;,
+            &quot;icon&quot;: &quot;fa fa-trash&quot;
+            &#125;
+        ],
+        &#125;;
+
+        this._tableItems.push(newTableItem);
+        this._blockItems.push(newBlockItem);
+    &#125; else &#123;
+        const existItem: ScoTableItem&lt;FormCrudExample&gt; = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
+        if (existItem) &#123;
+        const index: number = this._tableItems.indexOf(existItem);
+        if (index != -1) &#123;
+            this._tableItems[index].item = cloneDeep($event);
+            this._blockItems[index].item = cloneDeep($event);
+        &#125;
+        &#125;
+    &#125;
+
+    this.currentTableItems = cloneDeep(this._tableItems);
+    this.currentBlocklistItems = cloneDeep(this._blockItems);
+    &#125;
+
+    onFormClose($event: FormCrudExample) &#123;
+    this.crudErrors = [];
+    this.toastService.addSuccessMessage(`Formulario`, `Se cerró el formulario: $&#123;JSON.stringify($event)&#125;`);
+    &#125;
+
+    onConfirmDeleteModal($event: boolean) &#123;
+    this.toastService.addSuccessMessage(`Eliminar`, `Se confirmó la ventana modal: $&#123;$event&#125;`);
+
+    if ($event) &#123;
+        const existItem = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
+        if (existItem) &#123;
+        const index: number = this._tableItems.indexOf(existItem);
+        if (index != -1) &#123;
+            this._tableItems.splice(index, 1);
+            this._blockItems.splice(index, 1);
+
+            this.currentTableItems = cloneDeep(this._tableItems);
+            this.currentBlocklistItems = cloneDeep(this._blockItems);
+        &#125;
+        &#125;
+    &#125;
+
+    this._selectedItem = undefined;
+    &#125;
+
+    onCloseDeleteModal($event: boolean) &#123;
+    this.toastService.addSuccessMessage(`Eliminar`, `Se cerró la ventana modal: $&#123;$event&#125;`);
+    this._selectedItem = undefined;
+    &#125;
+&#125;
+                </code></pre>
+            </sco-tab-item>
+        </sco-tabs>
+    </div>
+
+    <div class="scrollable" inputs>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Tipo</th>
+                    <th>Valor por defecto</th>
+                    <th>Posibles valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>showFilterPanel</td>
+                    <td>Indicador para mostrar o no el templateFilter</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showChangeView</td>
+                    <td>Indicador para permitir al usuario poder modificar la vista table / blocklist</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>changeViewTableBtnIcon</td>
+                    <td>Icono para el botón de cambiar vista tabla</td>
+                    <td>string</td>
+                    <td>'fa fa-table'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>changeViewTableBtnTransparent</td>
+                    <td>Indicador para modificar el background del botón de cambiar a vista tabla</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>changeViewBlocklistBtnIcon</td>
+                    <td>Icono para el botón de cambiar vista blocklist</td>
+                    <td>string</td>
+                    <td>'fa fa-th-large'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>changeViewBlocklistBtnTransparent</td>
+                    <td>Indicador para modificar el background del botón de cambiar a vista blocklist</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showExcelDownloadBtn</td>
+                    <td>Indicador para mostrar al usuario el botón de descarga de fichero excel</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>excelDownloadBtnIcon</td>
+                    <td>Icono para el botón de descarga de fichero excel</td>
+                    <td>string</td>
+                    <td>'fa fa-download'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>excelDownloadBtnTransparent</td>
+                    <td>Indicador para modificar el background del botón de descarga de fichero excel</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>addElementBtnIcon</td>
+                    <td>Icono para el botón de añadir elemento</td>
+                    <td>string</td>
+                    <td>'fa fa-plus'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>addElementBtnTransparent</td>
+                    <td>Indicador para modificar el background del botón de añadir elemento</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>enableKeyboardBinds</td>
+                    <td>Indicador para habilitar los bindeos de teclado en el formulario</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>tableDefaultView</td>
+                    <td>Indicador para mostrar por defecto la vista de tabla</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>tableCols</td>
+                    <td>Lista de columnas de la tabla</td>
+                    <td>ScoTableCol[]</td>
+                    <td>[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>tableItems</td>
+                    <td>Lista de elementos de la tabla</td>
+                    <td>ScoTableItem&lt;T&gt;[]</td>
+                    <td>[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>blockItems</td>
+                    <td>Lista de elementos de la lista de bloques</td>
+                    <td>ScoBlockItem&lt;T&gt;[]</td>
+                    <td>[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>tableItemsPage</td>
+                    <td>Número de elementos por página en la vista tabla</td>
+                    <td>number</td>
+                    <td>8</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>blocklistItemsPage</td>
+                    <td>Número de elementos por página en la vista lista de bloques</td>
+                    <td>number</td>
+                    <td>5</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>labelTotalResults</td>
+                    <td>Label para el texto de total de elementos</td>
+                    <td>string</td>
+                    <td>'Total de elementos:'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>labelNoResults</td>
+                    <td>Label para el texto cuando no hay elementos que mostrar</td>
+                    <td>string</td>
+                    <td>'No hay elementos que mostrar'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showActions</td>
+                    <td>Indicador mostrar el panel de acciones de los elementos en la tabla o en la lista de bloques</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showTotalItems</td>
+                    <td>Indicador mostrar el texto de total de elemtos</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>canSelectItems</td>
+                    <td>Indicador permitir al usuario seleccionar elementos de la tabla o de la lista de bloques</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>previousLabel</td>
+                    <td>Label para el texto de la paginación anterior</td>
+                    <td>string</td>
+                    <td>'Anterior'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>nextLabel</td>
+                    <td>Label para el texto de la paginación posterior</td>
+                    <td>string</td>
+                    <td>'Siguiente'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>paginationOnTop</td>
+                    <td>Indicador mostrar los controles de paginación en la parte superior de la tabla o lista de bloques</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>closeFormWhenCancel</td>
+                    <td>Indicador para cerrar o no el formulario al pulsar el botón de cancelar fomulario</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showTableIndex</td>
+                    <td>Indicador mostrar el índice en los elementos de la tabla</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showTableAddBtn</td>
+                    <td>Indicador para mostrar o no el botón de añadir nuevo elemento en la tabla</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showBlocklistHeader</td>
+                    <td>Indicador para mostrar o no el templateHeader de los elementos de la lista de bloques</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showBlocklistInfoAdditional</td>
+                    <td>Indicador para mostrar o no el templateInfoAdditional de los elementos de la lista de bloques</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showBlocklistBorder</td>
+                    <td>Indicador para mostrar o no el la propiedad border de los elementos de la lista de bloques</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formShowTitle</td>
+                    <td>Indicador para mostrar o no el título en el formulario</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formCenterTitle</td>
+                    <td>Indicador para situar el título del formulario en el centro</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formPadding</td>
+                    <td>Indicador para añadir o no padding a la tarjeta del formulario y hacerlo "flotante"</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formNewItemTitle</td>
+                    <td>Label para el título del formulario en modo crear</td>
+                    <td>string</td>
+                    <td>'Nuevo elemento'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formUpdateItemTitle</td>
+                    <td>Label para el título del formulario en modo editar</td>
+                    <td>string</td>
+                    <td>'Actualizar elemento'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formUpdateItemTitleProperty</td>
+                    <td>Propiedad que se mostrará en el título del formulario al editar</td>
+                    <td>string</td>
+                    <td>'name'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formButtonsPosition</td>
+                    <td>Posición de la botonera inferior del formulario</td>
+                    <td>string</td>
+                    <td>ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT</td>
+                    <td>
+                        <ul>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT</li>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER</li>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>formButtonsPaddingClasses</td>
+                    <td>Nombre de clases que se le puede pasar al contenedor de la botonera inferior</td>
+                    <td>string</td>
+                    <td>''</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formCancelButtonLabel</td>
+                    <td>Label para el texto del botón cancelar del formulario</td>
+                    <td>string</td>
+                    <td>'Cancelar'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formCreateButtonLabel</td>
+                    <td>Label para el texto del botón confirmar del formulario en modo crear</td>
+                    <td>string</td>
+                    <td>'Crear'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formUpdateButtonLabel</td>
+                    <td>Label para el texto del botón confirmar del formulario en modo editar</td>
+                    <td>string</td>
+                    <td>'Actualizar'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formBackButton</td>
+                    <td>Indicador para mostrar o no el botón de vuelta atrás en el formulario</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formBackButtonIcon</td>
+                    <td>Icono del botón vuelta atrás del formulario en modo editar</td>
+                    <td>string</td>
+                    <td>'fa fa-arrow-left'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formBackButtonTransparent</td>
+                    <td>Indicador para modificar el background del botón de vuelta trás del formulario</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>formBackButtonPosition</td>
+                    <td>Posición de la botonera superior del formulario</td>
+                    <td>string</td>
+                    <td>ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT</td>
+                    <td>
+                        <ul>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_RIGHT</li>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_CENTER</li>
+                            <li>ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>formBackButtonPaddingClasses</td>
+                    <td>Nombre de clases que se le puede pasar al contenedor de la botonera superior</td>
+                    <td>string</td>
+                    <td>''</td>
+                    <td></td>
+                </tr>
+                
+
+
+                <tr>
+                    <td>deleteModalConfirmLabel</td>
+                    <td>Label para el texto del botón confirmar de la ventana modal de eliminar</td>
+                    <td>string</td>
+                    <td>'Eliminar'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>deleteModalCancelLabel</td>
+                    <td>Label para el texto del botón cancelar de la ventana modal de eliminar</td>
+                    <td>string</td>
+                    <td>'Cancelar'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>deleteModalTitle</td>
+                    <td>Label para el texto del título de la ventana modal de liminar</td>
+                    <td>string</td>
+                    <td>'Eliminar elemento'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>deleteModalContent</td>
+                    <td>Label para el texto del contenido de la ventana modal de eliminar</td>
+                    <td>string</td>
+                    <td>'¿Realmente quiere eliminar el elemento'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>elementSelectedProperty</td>
+                    <td>Nombre de la propiedad para concatenar con el texto del contenido de la ventana modal de eliminar</td>
+                    <td>string</td>
+                    <td>'name'</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="scrollable" outputs>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcción</th>
+                    <th>Valor devuelto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>onDownloadExcel</td>
+                    <td>Evento al pulsar el botón de descarga de datos</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td>itemSelected</td>
+                    <td>Evento al seleccionar un elemento de la tabla o de la lista de bloques</td>
+                    <td>ScoSelectedItem&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>actionSelected</td>
+                    <td>Evento al seleccionar una acción un elemento de la tabla o de la lista de bloques</td>
+                    <td>ScoAction&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>changePage</td>
+                    <td>Evento al cambiar la página de la tabla o de la lista de bloques</td>
+                    <td>number</td>
+                </tr>
+                <tr>
+                    <td>closeOptions</td>
+                    <td>Evento al cerrar el panel de acciones de un elemento de la tabla</td>
+                    <td>MouseEvent</td>
+                </tr>
+                <tr>
+                    <td>goToCreate</td>
+                    <td>Evento al pulsar el botón de añadir elemento</td>
+                    <td>&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>onFormCancel</td>
+                    <td>Evento al pulsar el botón de cancelar formulario</td>
+                    <td>&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>onFormConfirm</td>
+                    <td>Evento al pulsar el botón de confirmar formulario</td>
+                    <td>&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>onFormClose</td>
+                    <td>Evento al pulsar el botón de cerrar/volver del formulario</td>
+                    <td>&lt;T&gt;</td>
+                </tr>
+                <tr>
+                    <td>onConfirmDeleteModal</td>
+                    <td>Evento al pulsar el botón de confirmar en la ventana modal de eliminar</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td>onCloseDeleteModal</td>
+                    <td>Evento al pulsar el botón de cancelar en la ventana modal de eliminar</td>
+                    <td>boolean</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</base-showcase>

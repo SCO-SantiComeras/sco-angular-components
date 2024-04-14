@@ -1,0 +1,16 @@
+.sco-form-crud {
+    &__content {
+        padding-left: 30%; 
+        padding-right: 30%;
+
+        &--tablet {
+            padding-left: 15%; 
+            padding-right: 15%;
+        }
+
+        &--mobile {
+            padding-left: 2.5%; 
+            padding-right: 2.5%;
+        }
+    }
+}
