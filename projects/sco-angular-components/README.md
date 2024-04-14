@@ -94,3 +94,7 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.27:
     - Fix SCO checkbox min-width
     - ADD SCO checkbox addOneItem input param
+
+13.1.28:
+    - ADD SCO toggle required input param && showcase
+    - UPD SCO Resolution constants tablet max & web min to 1050px
