@@ -1,3 +1,4 @@
+import { ScoCallback } from './../../../../projects/sco-angular-components/src/common/sco-callback';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { cloneDeep } from 'lodash-es';
@@ -252,24 +253,24 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
     this.toastService.addSuccessMessage(`Formulario`, `Se canceló el formulario: ${JSON.stringify($event)}`);
   }
 
-  onFormConfirm($event: FormCrudExample) {
+  onFormConfirm($event: ScoCallback<FormCrudExample>) {
     this.crudErrors = [];
 
-    if (!$event.name) {
+    if (!$event.item.name) {
       this.crudErrors.push({ 
         formControlName: 'name', 
         error: `Nombre no informado`,
       });
     }
 
-    if (!$event.secondName) {
+    if (!$event.item.secondName) {
       this.crudErrors.push({ 
         formControlName: 'secondName', 
         error: `Apellidos no informados`,
       });
     }
 
-    if ($event.age == undefined) {
+    if ($event.item.age == undefined) {
       this.crudErrors.push({
         formControlName: 'age', 
         error: `Edad no informada`,
@@ -277,18 +278,18 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
     }
 
     if (this.crudErrors && this.crudErrors.length > 0) {
-      return this.toastService.addErrorMessage(`Formulario`, `El formulario contiene errores: ${JSON.stringify($event)}`);
+      return this.toastService.addErrorMessage(`Formulario`, `El formulario contiene errores: ${JSON.stringify($event.item)}`);
     }
 
-    this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: ${JSON.stringify($event)}`);
+    this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: ${JSON.stringify($event.item)}`);
 
 
     if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) {
-      $event.id = this._nextId;
+      $event.item.id = this._nextId;
       this._nextId++;
 
       const newTableItem: ScoTableItem<FormCrudExample> =  {
-        "item": $event,
+        "item": $event.item,
         "actions": [
           {
             "label": "Editar",
@@ -305,7 +306,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
       };
 
       const newBlockItem: ScoBlockItem<FormCrudExample> =  {
-        "item": $event,
+        "item": $event.item,
         "actions": [
           {
             "label": "Editar",
@@ -335,6 +336,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit {
 
     this.currentTableItems = cloneDeep(this._tableItems);
     this.currentBlocklistItems = cloneDeep(this._blockItems);
+    $event.callBack();
   }
 
   onFormClose($event: FormCrudExample) {

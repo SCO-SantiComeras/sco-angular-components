@@ -1,3 +1,4 @@
+import { ScoCallback } from './../../common/sco-callback';
 import { ScoNgModelBase } from './../sco-ng-model-base/sco-ng-model-base.component';
 import { ScoResolutionService } from './../../services/sco-resolution/sco-resolution.service';
 import { cloneDeep } from 'lodash-es';
@@ -101,7 +102,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   @Input() formBackButtonPosition: string = this.constantsService.ScoFormCrudConstants.FORM_BUTTONS_POSITION_LEFT;
   @Input() formBackButtonPaddingClasses: string = '';
   @Output() onFormCancel: EventEmitter<T>;
-  @Output() onFormConfirm: EventEmitter<T>;
+  @Output() onFormConfirm: EventEmitter<ScoCallback<T>>;
   @Output() onFormClose: EventEmitter<T>;
   @ContentChild('templateForm', { static: false }) templateForm: TemplateRef<any>;
 
@@ -135,7 +136,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
     this.closeOptions = new EventEmitter<MouseEvent>();
     this.goToCreate = new EventEmitter<T>();
     this.onFormCancel = new EventEmitter<T>();
-    this.onFormConfirm = new EventEmitter<T>();
+    this.onFormConfirm = new EventEmitter<ScoCallback<T>>();
     this.onFormClose = new EventEmitter<T>();
     this.onConfirmDeleteModal = new EventEmitter<boolean>();
     this.onCloseDeleteModal = new EventEmitter<boolean>();
@@ -220,7 +221,29 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   }
 
   confirmForm(): void {
-    this.onFormConfirm.emit(this.itemForm);
+    this.onFormConfirm.emit({ item: this.itemForm, callBack: () => {
+        this.manageMode = '';
+        this.itemForm = {} as T;
+
+        if (!this._lastShowMode) {
+          if (this.tableDefaultView) {
+            this.totalItemsPage = this.tableItemsPage;
+            this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_TABLE;
+          } else {
+            this.totalItemsPage = this.blocklistItemsPage;
+            this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_BLOCK_LIST;
+          }
+        } else {
+          if (this._lastShowMode == this.constantsService.ScoFormCrudConstants.SHOW_TABLE) {
+            this.totalItemsPage = this.tableItemsPage;
+            this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_TABLE;
+          } else {
+            this.totalItemsPage = this.blocklistItemsPage;
+            this.showMode = this.constantsService.ScoFormCrudConstants.SHOW_BLOCK_LIST;
+          }
+        }
+      } 
+    });
   }
 
   cancelForm(): void {

@@ -497,6 +497,7 @@
         
             <sco-tab-item title="TS">
                 <pre><code class="language-typescript" pCode ngNonBindable>
+import &#123; ScoCallback &#125; from './../../../../projects/sco-angular-components/src/common/sco-callback';
 import &#123; Component, OnInit &#125; from '&commat;angular/core';
 import &#123; FormControl, FormGroup, Validators &#125; from '&commat;angular/forms';
 import &#123; cloneDeep &#125; from 'lodash-es';
@@ -635,235 +636,236 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
     public currentBlocklistItems: ScoBlockItem&lt;FormCrudExample&gt;[];
 
     constructor(
-    public readonly formErrorsService: ScoFormErrorsService,
-    public readonly toastService: ScoToastService,
-    public readonly constantsService: ScoConstantsService,
-    public readonly resolutionService: ScoResolutionService,
+        public readonly formErrorsService: ScoFormErrorsService,
+        public readonly toastService: ScoToastService,
+        public readonly constantsService: ScoConstantsService,
+        public readonly resolutionService: ScoResolutionService,
     ) &#123; 
-    this._tableItems = [];
-    this._blockItems = [];
-    this._selectedItem = undefined;
-    this._nextId = 5;
+        this._tableItems = [];
+        this._blockItems = [];
+        this._selectedItem = undefined;
+        this._nextId = 5;
 
-    this.cols = [];
-    this.currentTableItems = [];
-    this.currentBlocklistItems = [];
+        this.cols = [];
+        this.currentTableItems = [];
+        this.currentBlocklistItems = [];
     &#125;
 
     ngOnInit() &#123;
-    this.filterForm = new FormGroup(&#123;
-        id: new FormControl('', [Validators.required]),
-        name: new FormControl('', [Validators.required]),
-        secondName: new FormControl('', [Validators.required]),
-        age: new FormControl('', [Validators.required]),
-    &#125;);
+        this.filterForm = new FormGroup(&#123;
+            id: new FormControl('', [Validators.required]),
+            name: new FormControl('', [Validators.required]),
+            secondName: new FormControl('', [Validators.required]),
+            age: new FormControl('', [Validators.required]),
+        &#125;);
 
-    this.crudErrors = [];
+        this.crudErrors = [];
 
-    this.cols = [
-        &#123; label: 'Id', property: 'id' &#125;,
-        &#123; label: 'Nombre', property: 'name' &#125;,
-        &#123; label: 'Apellidos', property: 'secondName' &#125;,
-        &#123; label: 'Edad', property: 'age' &#125;,
-    ];
+        this.cols = [
+            &#123; label: 'Id', property: 'id' &#125;,
+            &#123; label: 'Nombre', property: 'name' &#125;,
+            &#123; label: 'Apellidos', property: 'secondName' &#125;,
+            &#123; label: 'Edad', property: 'age' &#125;,
+        ];
 
-    this._selectedItem = undefined;
+        this._selectedItem = undefined;
 
-    this._tableItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
-    this.currentTableItems = cloneDeep(this._tableItems);
+        this._tableItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
+        this.currentTableItems = cloneDeep(this._tableItems);
 
-    this._blockItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
-    this.currentBlocklistItems = cloneDeep(this._blockItems);
+        this._blockItems = cloneDeep(EXAMPLE_TABLE_ITEMS);
+        this.currentBlocklistItems = cloneDeep(this._blockItems);
     &#125;
 
     search() &#123;
-    this.currentTableItems = [];
-    this.currentBlocklistItems = [];
+        this.currentTableItems = [];
+        this.currentBlocklistItems = [];
 
-    const formCrudExampleFilter: FormCrudExampleFilter = this.filterForm.value;
-    const keys: string[] = Object.keys(formCrudExampleFilter);
+        const formCrudExampleFilter: FormCrudExampleFilter = this.filterForm.value;
+        const keys: string[] = Object.keys(formCrudExampleFilter);
 
-    const filteredItems: ScoTableItem&lt;FormCrudExample&gt;[] = [];
-    for (const item of this._tableItems) &#123;
-        let pusheableItem: boolean = true;
+        const filteredItems: ScoTableItem&lt;FormCrudExample&gt;[] = [];
+        for (const item of this._tableItems) &#123;
+            let pusheableItem: boolean = true;
 
-        for (const key of keys) &#123;
-        if (formCrudExampleFilter[key]) &#123;
-            if (formCrudExampleFilter[key] != item.item[key]) &#123;
-            pusheableItem = false;
+            for (const key of keys) &#123;
+            if (formCrudExampleFilter[key]) &#123;
+                if (formCrudExampleFilter[key] != item.item[key]) &#123;
+                pusheableItem = false;
+                &#125;
+            &#125;
+            &#125;
+
+            if (pusheableItem) &#123;
+            filteredItems.push(item);
             &#125;
         &#125;
-        &#125;
 
-        if (pusheableItem) &#123;
-        filteredItems.push(item);
+        if (filteredItems && filteredItems.length &gt; 0) &#123;
+            this.currentTableItems = cloneDeep(filteredItems);
+            this.currentBlocklistItems = cloneDeep(filteredItems);
         &#125;
-    &#125;
-
-    if (filteredItems && filteredItems.length &gt; 0) &#123;
-        this.currentTableItems = cloneDeep(filteredItems);
-        this.currentBlocklistItems = cloneDeep(filteredItems);
-    &#125;
     &#125;
 
     clearFilter() &#123;
-    this.filterForm = this.formErrorsService.cleanErrors(this.filterForm);
-    this.currentTableItems = this._tableItems;
-    this.currentBlocklistItems = this._blockItems;
+        this.filterForm = this.formErrorsService.cleanErrors(this.filterForm);
+        this.currentTableItems = this._tableItems;
+        this.currentBlocklistItems = this._blockItems;
     &#125;
 
     onDownloadExcel($event: boolean) &#123;
-    if (!$event) return;
+        if (!$event) return;
 
-    this.toastService.addSuccessMessage('Excel', 'Botón descargar fichero excel pulsado');
+        this.toastService.addSuccessMessage('Excel', 'Botón descargar fichero excel pulsado');
     &#125;
 
     onItemSelected($event: ScoSelectedItem&lt;FormCrudExample&gt;) &#123;
-    if (!$event) return;
+        if (!$event) return;
 
-    this.toastService.addSuccessMessage('Item selected', `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
+        this.toastService.addSuccessMessage('Item selected', `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
     &#125;
 
     onActionSelected($event: ScoAction&lt;FormCrudExample&gt;) &#123;
-    this.toastService.addSuccessMessage($event.value, `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
-    this._selectedItem = $event.item;
+        this.toastService.addSuccessMessage($event.value, `Elemento seleccionado: $&#123;JSON.stringify($event.item)&#125;`);
+        this._selectedItem = $event.item;
 
-    if ($event.value == this.constantsService.ScoFormCrudConstants.EDIT_ACTION) &#123;
-        this._mode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
-    &#125;
+        if ($event.value == this.constantsService.ScoFormCrudConstants.EDIT_ACTION) &#123;
+            this._mode = this.constantsService.ScoFormCrudConstants.MODE_UPDATE;
+        &#125;
     &#125;
 
     onChangePage($event: number) &#123;
-    this.toastService.addSuccessMessage(`Change page`, `La página cambió: $&#123;$event&#125;`);
+        this.toastService.addSuccessMessage(`Change page`, `La página cambió: $&#123;$event&#125;`);
     &#125;
 
     onCloseOptions($event: MouseEvent) &#123;
-    //this.toastService.addSuccessMessage(`Options panel`, `Se cerró el panel de opciones: $&#123;$event&#125;`);
+        //this.toastService.addSuccessMessage(`Options panel`, `Se cerró el panel de opciones: $&#123;$event&#125;`);
     &#125;
 
     onGoToCreate($event: FormCrudExample) &#123;
-    this.toastService.addSuccessMessage(`Se abrió el formulario`, `Nuevo elemento: $&#123;JSON.stringify($event)&#125;`);
-    this._mode = this.constantsService.ScoFormCrudConstants.MODE_NEW;
+        this.toastService.addSuccessMessage(`Se abrió el formulario`, `Nuevo elemento: $&#123;JSON.stringify($event)&#125;`);
+        this._mode = this.constantsService.ScoFormCrudConstants.MODE_NEW;
     &#125;
     
     onFormCancel($event: FormCrudExample) &#123;
-    this.crudErrors = [];
-    this.toastService.addSuccessMessage(`Formulario`, `Se canceló el formulario: $&#123;JSON.stringify($event)&#125;`);
+        this.crudErrors = [];
+        this.toastService.addSuccessMessage(`Formulario`, `Se canceló el formulario: $&#123;JSON.stringify($event)&#125;`);
     &#125;
 
-    onFormConfirm($event: FormCrudExample) &#123;
-    this.crudErrors = [];
+    onFormConfirm($event: ScoCallback&lt;FormCrudExample&gt;) &#123;
+        this.crudErrors = [];
 
-    if (!$event.name) &#123;
-        this.crudErrors.push(&#123; 
-        formControlName: 'name', 
-        error: `Nombre no informado`,
-        &#125;);
-    &#125;
-
-    if (!$event.secondName) &#123;
-        this.crudErrors.push(&#123; 
-        formControlName: 'secondName', 
-        error: `Apellidos no informados`,
-        &#125;);
-    &#125;
-
-    if ($event.age == undefined) &#123;
-        this.crudErrors.push(&#123;
-        formControlName: 'age', 
-        error: `Edad no informada`,
-        &#125;);
-    &#125;
-
-    if (this.crudErrors && this.crudErrors.length &gt; 0) &#123;
-        return this.toastService.addErrorMessage(`Formulario`, `El formulario contiene errores: $&#123;JSON.stringify($event)&#125;`);
-    &#125;
-
-    this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: $&#123;JSON.stringify($event)&#125;`);
-
-
-    if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) &#123;
-        $event.id = this._nextId;
-        this._nextId++;
-
-        const newTableItem: ScoTableItem&lt;FormCrudExample&gt; =  &#123;
-        &quot;item&quot;: $event,
-        &quot;actions&quot;: [
-            &#123;
-            &quot;label&quot;: &quot;Editar&quot;,
-            &quot;value&quot;: &quot;edit&quot;,
-            &quot;icon&quot;: &quot;fa fa-edit&quot;
-            &#125;,
-            &#123;
-            &quot;label&quot;: &quot;Eliminar&quot;,
-            &quot;value&quot;: &quot;delete&quot;,
-            &quot;icon&quot;: &quot;fa fa-trash&quot;
-            &#125;
-        ],
-        &quot;index&quot;: this._tableItems.length
-        &#125;;
-
-        const newBlockItem: ScoBlockItem&lt;FormCrudExample&gt; =  &#123;
-        &quot;item&quot;: $event,
-        &quot;actions&quot;: [
-            &#123;
-            &quot;label&quot;: &quot;Editar&quot;,
-            &quot;value&quot;: &quot;edit&quot;,
-            &quot;icon&quot;: &quot;fa fa-edit&quot;
-            &#125;,
-            &#123;
-            &quot;label&quot;: &quot;Eliminar&quot;,
-            &quot;value&quot;: &quot;delete&quot;,
-            &quot;icon&quot;: &quot;fa fa-trash&quot;
-            &#125;
-        ],
-        &#125;;
-
-        this._tableItems.push(newTableItem);
-        this._blockItems.push(newBlockItem);
-    &#125; else &#123;
-        const existItem: ScoTableItem&lt;FormCrudExample&gt; = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
-        if (existItem) &#123;
-        const index: number = this._tableItems.indexOf(existItem);
-        if (index != -1) &#123;
-            this._tableItems[index].item = cloneDeep($event);
-            this._blockItems[index].item = cloneDeep($event);
+        if (!$event.item.name) &#123;
+            this.crudErrors.push(&#123; 
+            formControlName: 'name', 
+            error: `Nombre no informado`,
+            &#125;);
         &#125;
-        &#125;
-    &#125;
 
-    this.currentTableItems = cloneDeep(this._tableItems);
-    this.currentBlocklistItems = cloneDeep(this._blockItems);
+        if (!$event.item.secondName) &#123;
+            this.crudErrors.push(&#123; 
+            formControlName: 'secondName', 
+            error: `Apellidos no informados`,
+            &#125;);
+        &#125;
+
+        if ($event.item.age == undefined) &#123;
+            this.crudErrors.push(&#123;
+            formControlName: 'age', 
+            error: `Edad no informada`,
+            &#125;);
+        &#125;
+
+        if (this.crudErrors && this.crudErrors.length &gt; 0) &#123;
+            return this.toastService.addErrorMessage(`Formulario`, `El formulario contiene errores: $&#123;JSON.stringify($event.item)&#125;`);
+        &#125;
+
+        this.toastService.addSuccessMessage(`Formulario`, `Se confirmó el formulario: $&#123;JSON.stringify($event.item)&#125;`);
+
+
+        if (this._mode == this.constantsService.ScoFormCrudConstants.MODE_NEW) &#123;
+            $event.item.id = this._nextId;
+            this._nextId++;
+
+            const newTableItem: ScoTableItem&lt;FormCrudExample&gt; =  &#123;
+            &quot;item&quot;: $event.item,
+            &quot;actions&quot;: [
+                &#123;
+                &quot;label&quot;: &quot;Editar&quot;,
+                &quot;value&quot;: &quot;edit&quot;,
+                &quot;icon&quot;: &quot;fa fa-edit&quot;
+                &#125;,
+                &#123;
+                &quot;label&quot;: &quot;Eliminar&quot;,
+                &quot;value&quot;: &quot;delete&quot;,
+                &quot;icon&quot;: &quot;fa fa-trash&quot;
+                &#125;
+            ],
+            &quot;index&quot;: this._tableItems.length
+            &#125;;
+
+            const newBlockItem: ScoBlockItem&lt;FormCrudExample&gt; =  &#123;
+            &quot;item&quot;: $event.item,
+            &quot;actions&quot;: [
+                &#123;
+                &quot;label&quot;: &quot;Editar&quot;,
+                &quot;value&quot;: &quot;edit&quot;,
+                &quot;icon&quot;: &quot;fa fa-edit&quot;
+                &#125;,
+                &#123;
+                &quot;label&quot;: &quot;Eliminar&quot;,
+                &quot;value&quot;: &quot;delete&quot;,
+                &quot;icon&quot;: &quot;fa fa-trash&quot;
+                &#125;
+            ],
+            &#125;;
+
+            this._tableItems.push(newTableItem);
+            this._blockItems.push(newBlockItem);
+        &#125; else &#123;
+            const existItem: ScoTableItem&lt;FormCrudExample&gt; = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
+            if (existItem) &#123;
+                const index: number = this._tableItems.indexOf(existItem);
+                if (index != -1) &#123;
+                    this._tableItems[index].item = cloneDeep($event);
+                    this._blockItems[index].item = cloneDeep($event);
+                &#125;
+            &#125;
+        &#125;
+
+        this.currentTableItems = cloneDeep(this._tableItems);
+        this.currentBlocklistItems = cloneDeep(this._blockItems);
+        $event.callBack();
     &#125;
 
     onFormClose($event: FormCrudExample) &#123;
-    this.crudErrors = [];
-    this.toastService.addSuccessMessage(`Formulario`, `Se cerró el formulario: $&#123;JSON.stringify($event)&#125;`);
+        this.crudErrors = [];
+        this.toastService.addSuccessMessage(`Formulario`, `Se cerró el formulario: $&#123;JSON.stringify($event)&#125;`);
     &#125;
 
     onConfirmDeleteModal($event: boolean) &#123;
-    this.toastService.addSuccessMessage(`Eliminar`, `Se confirmó la ventana modal: $&#123;$event&#125;`);
+        this.toastService.addSuccessMessage(`Eliminar`, `Se confirmó la ventana modal: $&#123;$event&#125;`);
 
-    if ($event) &#123;
-        const existItem = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
-        if (existItem) &#123;
-        const index: number = this._tableItems.indexOf(existItem);
-        if (index != -1) &#123;
-            this._tableItems.splice(index, 1);
-            this._blockItems.splice(index, 1);
+        if ($event) &#123;
+            const existItem = this._tableItems.find(i =&gt; i.item.id == this._selectedItem.id);
+            if (existItem) &#123;
+            const index: number = this._tableItems.indexOf(existItem);
+            if (index != -1) &#123;
+                this._tableItems.splice(index, 1);
+                this._blockItems.splice(index, 1);
 
-            this.currentTableItems = cloneDeep(this._tableItems);
-            this.currentBlocklistItems = cloneDeep(this._blockItems);
+                this.currentTableItems = cloneDeep(this._tableItems);
+                this.currentBlocklistItems = cloneDeep(this._blockItems);
+            &#125;
+            &#125;
         &#125;
+
+        this._selectedItem = undefined;
         &#125;
-    &#125;
 
-    this._selectedItem = undefined;
-    &#125;
-
-    onCloseDeleteModal($event: boolean) &#123;
-    this.toastService.addSuccessMessage(`Eliminar`, `Se cerró la ventana modal: $&#123;$event&#125;`);
-    this._selectedItem = undefined;
+        onCloseDeleteModal($event: boolean) &#123;
+        this.toastService.addSuccessMessage(`Eliminar`, `Se cerró la ventana modal: $&#123;$event&#125;`);
+        this._selectedItem = undefined;
     &#125;
 &#125;
                 </code></pre>
@@ -1323,7 +1325,7 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
                 <tr>
                     <td>onFormConfirm</td>
                     <td>Evento al pulsar el botón de confirmar formulario</td>
-                    <td>&lt;T&gt;</td>
+                    <td>ScoCallback&lt;T&gt;</td>
                 </tr>
                 <tr>
                     <td>onFormClose</td>
