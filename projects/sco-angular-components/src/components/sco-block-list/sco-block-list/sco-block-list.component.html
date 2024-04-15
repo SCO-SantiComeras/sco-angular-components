@@ -48,9 +48,10 @@
     </div>
 
     <!-- Pagination -->
-    <div class="row sco-block-list__pagination" *ngIf="!paginationOnTop">
+    <div class="row sco-block-list__pagination" *ngIf="!paginationOnTop"
+      [ngStyle]="{'min-height': actionsMarginBottom != undefined ? actionsMarginBottom + 'px' : ''}"
+    >
       <div class="col-12 p-0 text-center">
-        <!-- [previusLabel]="previusLabel" -->
         <pagination-controls 
           [autoHide]="true"
           [previousLabel]="previousLabel"

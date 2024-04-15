@@ -33,6 +33,8 @@ export class ScoBlockListComponent<T> implements OnInit, OnChanges {
   @Input() templateInfoAdditionalInput: TemplateRef<any>;
   @Input() templateDataInput: TemplateRef<any>;
 
+  @Input() actionsMarginBottom: number = undefined;
+
   @ContentChild("templateHeader", {static: false}) templateHeader: TemplateRef<any>;
   @ContentChild("templateInfoAdditional", {static: false}) templateInfoAdditional: TemplateRef<any>;
   @ContentChild("templateData", {static: false}) templateData: TemplateRef<any>;

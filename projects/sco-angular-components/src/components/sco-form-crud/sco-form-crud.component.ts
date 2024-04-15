@@ -73,6 +73,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   /* Table */
   @Input() showTableIndex: boolean = true;
   @Input() showTableAddBtn: boolean = true;
+  @Input() tableActionsMarginBottom: number = undefined;
   @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
   @Output() closeOptions: EventEmitter<MouseEvent>;
   @Output() goToCreate: EventEmitter<T>;
@@ -81,6 +82,7 @@ export class ScoFormCrudComponent<T, K = {}> extends ScoNgModelBase implements O
   @Input() showBlocklistHeader: boolean = false;
   @Input() showBlocklistInfoAdditional: boolean = false;
   @Input() showBlocklistBorder: boolean = true;
+  @Input() blocklistActionsMarginBottom: number = undefined;
   @ContentChild('templateHeader', { static: false }) templateHeader: TemplateRef<any>;
   @ContentChild('templateInfoAdditional', { static: false }) templateInfoAdditional: TemplateRef<any>;
   @ContentChild('templateData', { static: false }) templateData: TemplateRef<any>;

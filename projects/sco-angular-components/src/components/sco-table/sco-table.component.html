@@ -90,7 +90,9 @@
     </div>
 
     <!-- Pagination -->
-    <div class="row sco-table__table--pagination" *ngIf="tableItems?.length > 0 && !paginationOnTop">
+    <div class="row sco-table__table--pagination" *ngIf="tableItems?.length > 0 && !paginationOnTop" 
+      [ngStyle]="{'min-height': actionsMarginBottom != undefined ? actionsMarginBottom + 'px' : ''}"
+    >
       <div class="col-12 text-center">
         <pagination-controls 
           [autoHide]="true"

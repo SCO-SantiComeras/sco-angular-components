@@ -48,10 +48,12 @@
 
                             [showTableIndex]="true"
                             [showTableAddBtn]="true"
+                            [tableActionsMarginBottom]="30"
 
                             [showBlocklistHeader]="false"
                             [showBlocklistInfoAdditional]="false"
                             [showBlocklistBorder]="true"
+                            [blocklistActionsMarginBottom]="undefined"
 
                             [formShowTitle]="true"
                             [formCenterTitle]="true"
@@ -295,10 +297,12 @@
 
                     [showTableIndex]=&quot;true&quot;
                     [showTableAddBtn]=&quot;true&quot;
+                    [tableActionsMarginBottom]=&quot;30&quot;
 
                     [showBlocklistHeader]=&quot;false&quot;
                     [showBlocklistInfoAdditional]=&quot;false&quot;
                     [showBlocklistBorder]=&quot;true&quot;
+                    [blocklistActionsMarginBottom]=&quot;undefined&quot;
 
                     [formShowTitle]=&quot;true&quot;
                     [formCenterTitle]=&quot;true&quot;
@@ -1093,6 +1097,13 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
                     <td></td>
                 </tr>
                 <tr>
+                    <td>tableActionsMarginBottom</td>
+                    <td>Margen en pixeles para el panel de acciones de la tabla (Mínima altura del contenedor de paginación)</td>
+                    <td>number</td>
+                    <td>undefined</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>showBlocklistHeader</td>
                     <td>Indicador para mostrar o no el templateHeader de los elementos de la lista de bloques</td>
                     <td>boolean</td>
@@ -1111,6 +1122,13 @@ export class ShowcaseScoFormCrudComponent implements OnInit &#123;
                     <td>Indicador para mostrar o no el la propiedad border de los elementos de la lista de bloques</td>
                     <td>boolean</td>
                     <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>blocklistActionsMarginBottom</td>
+                    <td>Margen en pixeles para el panel de acciones de la lista de bloques (Mínima altura del contenedor de paginación)</td>
+                    <td>number</td>
+                    <td>undefined</td>
                     <td></td>
                 </tr>
                 <tr>

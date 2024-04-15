@@ -29,6 +29,7 @@ export class ScoTableComponent<T> implements OnInit {
   @Input() paginationOnTop: boolean = false;
   @Input() templateRowInput: TemplateRef<any>;
   @Input() showAddCrudBtn: boolean = true;
+  @Input() actionsMarginBottom: number = undefined;
 
   @ContentChild('templateRow', { static: false }) templateRow: TemplateRef<any>;
 
