@@ -101,3 +101,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.29:
     - UPD delete SCO toggle label always in uppercase
+
+13.1.30:
+    - FIX SCO Table & SCO Blocklist action panels & overflow x
