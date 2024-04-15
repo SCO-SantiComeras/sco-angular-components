@@ -41,7 +41,8 @@ export class ScoPdfViewerComponent implements OnInit {
   @Input() labelTotalPages: string = 'Páginas';
 
   @Output() onGoBack: EventEmitter<void>;
-  @Output() onResult: EventEmitter<boolean>;
+  @Output() onDownload: EventEmitter<boolean>;
+  @Output() onLoad: EventEmitter<boolean>;
 
   public pdfSrc: string | Uint8Array;
 	public pdfZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
@@ -53,7 +54,8 @@ export class ScoPdfViewerComponent implements OnInit {
     private readonly spinnerService: ScoSpinnerService,
   ) {
     this.onGoBack = new EventEmitter<void>();
-    this.onResult = new EventEmitter<boolean>();
+    this.onDownload = new EventEmitter<boolean>();
+    this.onLoad = new EventEmitter<boolean>();
   }
 
   /* Component Functions */
@@ -95,6 +97,7 @@ export class ScoPdfViewerComponent implements OnInit {
 
 	async callBackFn(pdf: PDFDocumentProxy) {
 		this.totalPages = pdf.numPages;
+    this.onLoad.emit(true);
     this.spinnerService.hideSpinner();
 	}
 
@@ -146,9 +149,9 @@ export class ScoPdfViewerComponent implements OnInit {
       document.body.removeChild(link);
 
       // Report result to user
-      this.onResult.emit(true);
+      this.onDownload.emit(true);
     } catch (err) {
-      this.onResult.emit(false);
+      this.onDownload.emit(false);
     }
   }
 
