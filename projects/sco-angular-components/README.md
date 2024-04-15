@@ -104,3 +104,7 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.30:
     - FIX SCO Table & SCO Blocklist action panels & overflow x
+
+13.1.31:
+    - FIX SCO Table & SCO Blocklist action panels & overflow x
+    - ADD SCO Table, Blocklist & Formcrud actionsMarginBottom param & showcase
