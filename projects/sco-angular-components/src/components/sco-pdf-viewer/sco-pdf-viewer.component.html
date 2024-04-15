@@ -15,7 +15,7 @@
         [transparent]="comebackButtonTransparent"
         (action)="showComebackButton && onClickComeBackBtn()">
       </sco-button>
-      <sco-button *ngIf="showDownloadButton" [ngClass]="{'ml-1': showComebackButton}"
+      <sco-button *ngIf="showDownloadButton && _showPdfViewer.canDownload" [ngClass]="{'ml-1': showComebackButton}"
         [mode]="constantsService.ScoButtonConstants.MODE_ICON"
         [icon]="downloadButtonIcon"
         [transparent]="downloadButtonTransparent"
@@ -31,8 +31,8 @@
         }"
         [zoom]="pdfZoom" 
         [src]="pdfSrc" 
-        [page]="scoPdfViewer.startPage"
-        [show-all]="scoPdfViewer.startPage != undefined && scoPdfViewer.startPage >= 1 ? false : true"
+        [page]="_showPdfViewer.startPage"
+        [show-all]="_showPdfViewer.startPage != undefined && _showPdfViewer.startPage >= 1 ? false : true"
         [stick-to-page]="false"
         [render-text]="true"
         [original-size]="false"
@@ -40,10 +40,10 @@
       </pdf-viewer>
     </div>
 
-    <div class="col-12 sco-pdf-viewer__footer" *ngIf="showZoomButtons || scoPdfViewer.showTotalPages">
+    <div class="col-12 sco-pdf-viewer__footer" *ngIf="showZoomButtons || _showPdfViewer.showTotalPages">
       <div class="row">
         <div class="col-2">
-          <div *ngIf="scoPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && !totalPagesOnRightSide" 
+          <div *ngIf="_showPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && !totalPagesOnRightSide" 
             class="sco-pdf-viewer__footer--paginator-container sco-pdf-viewer__footer--paginator-container--left"
           >
             <span class="sco-pdf-viewer__footer--paginator-container--text">
@@ -72,7 +72,7 @@
           </sco-button>
         </div>
         <div class="col-2">
-          <div *ngIf="scoPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && totalPagesOnRightSide" 
+          <div *ngIf="_showPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && totalPagesOnRightSide" 
             class="sco-pdf-viewer__footer--paginator-container"
           >
             <span class="sco-pdf-viewer__footer--paginator-container--text">

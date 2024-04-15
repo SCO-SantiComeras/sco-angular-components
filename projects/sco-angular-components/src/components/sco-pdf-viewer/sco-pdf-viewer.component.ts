@@ -1,6 +1,6 @@
 import { ScoConstantsService } from 'projects/sco-angular-components/src/public-api';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ScoPdfViewer } from './model/sco-pdf-viewer';
 import { Location } from '@angular/common';
 import { PDFDocumentProxy } from 'ng2-pdf-viewer';
@@ -11,7 +11,7 @@ import { PDFDocumentProxy } from 'ng2-pdf-viewer';
   styleUrls: ['./sco-pdf-viewer.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ScoPdfViewerComponent implements OnInit {
+export class ScoPdfViewerComponent implements OnInit, OnChanges {
 
   @Input() headerPosition: string = this.constantsService.ScoPdfViewerConstants.HEADER_POSITION_LEFT;
   @Input() headerPaddingBottom: number = 10;
@@ -48,6 +48,8 @@ export class ScoPdfViewerComponent implements OnInit {
 	public pdfZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
 	public totalPages: number;
 
+  public _showPdfViewer: ScoPdfViewer;
+
   constructor(
     public readonly constantsService: ScoConstantsService,
     private readonly locationService: Location,
@@ -56,6 +58,15 @@ export class ScoPdfViewerComponent implements OnInit {
     this.onGoBack = new EventEmitter<void>();
     this.onDownload = new EventEmitter<boolean>();
     this.onLoad = new EventEmitter<boolean>();
+  }
+
+  async ngOnChanges(changes: SimpleChanges): Promise<void> {
+    if (!changes) return;
+
+    if (changes["scoPdfViewer"] && changes["scoPdfViewer"].currentValue) {
+      this._showPdfViewer = changes["scoPdfViewer"].currentValue;
+      await this.processPdf();
+    }
   }
 
   /* Component Functions */
@@ -75,6 +86,13 @@ export class ScoPdfViewerComponent implements OnInit {
     }
 
     this.validatePdfViewerValues();
+    await this.processPdf(this.scoPdfViewer);
+  }
+
+  async processPdf(ScoPdfViewer: ScoPdfViewer = undefined) {
+    if (ScoPdfViewer) {
+      this._showPdfViewer = ScoPdfViewer;
+    }
 
     // Conver Input url (Public internet pdf url or local pdf url) to base64 code
     if (this.scoPdfViewer.isBase64 == false) {
