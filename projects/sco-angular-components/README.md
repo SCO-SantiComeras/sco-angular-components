@@ -98,3 +98,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.28:
     - ADD SCO toggle required input param && showcase
     - UPD SCO Resolution constants tablet max & web min to 1050px
+
+13.1.29:
+    - UPD delete SCO toggle label always in uppercase
