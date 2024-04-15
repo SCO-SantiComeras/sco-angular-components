@@ -1,4 +1,4 @@
-import { ScoTranslateConstants } from './../constants/sco-constants';
+import { ScoPdfViewerConstants, ScoTranslateConstants } from './../constants/sco-constants';
 import { ScoAccordionConstants, ScoBadgeConstants, ScoBlockListConstants, ScoButtonConstants, ScoCalendarConstants, ScoFormCrudConstants, ScoGraphicsConstants, ScoGridConstants, ScoInputTypeConstants, ScoModalTypeConstants, ScoResolutionConstants, ScoTableConstants, ScoThemeConstants, ScoToastConstants } from '../constants/sco-constants';
 import { Injectable } from '@angular/core';
 
@@ -22,6 +22,7 @@ export class ScoConstantsService {
   ScoCalendarConstants = ScoCalendarConstants;
   ScoGraphicsConstants = ScoGraphicsConstants;
   ScoTranslateConstants = ScoTranslateConstants;
+  ScoPdfViewerConstants = ScoPdfViewerConstants;
   
   constructor() { }
 }

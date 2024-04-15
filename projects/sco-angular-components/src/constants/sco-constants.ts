@@ -145,3 +145,14 @@ export class ScoTranslateConstants {
         EN: 'en'
     };
 }
+
+export class ScoPdfViewerConstants {
+    static HEADER_POSITION_LEFT: string = 'text-left';
+    static HEADER_POSITION_CENTER: string = 'text-center';
+    static HEADER_POSITION_RIGHT: string = 'text-right';
+
+    static ZOOM_STEP: number = 0.10;
+    static DEFAULT_ZOOM: number = 0.5;
+
+    static DEFAULT_FILE_NAME: string = 'sco-pdf-viewer.pdf';
+}
