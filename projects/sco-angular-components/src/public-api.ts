@@ -193,3 +193,7 @@ export * from './services/sco-form-errors/sco-form-error.model';
 // SCO Form Crud
 export * from './components/sco-form-crud/sco-form-crud.module';
 export * from './components/sco-form-crud/sco-form-crud.component';
+
+// SCO Pdf Viewer
+export * from './components/sco-pdf-viewer/sco-pdf-viewer.module';
+export * from './components/sco-pdf-viewer/sco-pdf-viewer.component';

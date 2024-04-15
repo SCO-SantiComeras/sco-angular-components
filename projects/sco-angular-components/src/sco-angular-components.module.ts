@@ -41,6 +41,7 @@ import { ScoAppModule } from './components/sco-app/sco-app.module';
 import { ScoMenuMobileModule } from './components/sco-menu-mobile/sco-menu-mobile.module';
 import { ScoFormErrorsModule } from './services/sco-form-errors/sco-form-errors.module';
 import { ScoFormCrudModule } from './components/sco-form-crud/sco-form-crud.module';
+import { ScoPdfViewerModule } from './components/sco-pdf-viewer/sco-pdf-viewer.module';
 
 @NgModule({
   declarations: [],
@@ -84,6 +85,7 @@ import { ScoFormCrudModule } from './components/sco-form-crud/sco-form-crud.modu
     ScoMenuMobileModule,
     ScoFormErrorsModule,
     ScoFormCrudModule,
+    ScoPdfViewerModule,
   ],
   exports: [
     ScoJoinPipeModule,
@@ -125,6 +127,7 @@ import { ScoFormCrudModule } from './components/sco-form-crud/sco-form-crud.modu
     ScoMenuMobileModule,
     ScoFormErrorsModule,
     ScoFormCrudModule,
+    ScoPdfViewerModule,
   ], 
   providers: [
     ScoConstantsService,

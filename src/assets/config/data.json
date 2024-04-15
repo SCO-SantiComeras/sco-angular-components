@@ -71,6 +71,10 @@
                 {
                     "text": "Menú mobil",
                     "route": "/sco-menu-mobile"
+                },
+                {
+                    "text": "Pdf Viewer",
+                    "route": "/sco-pdf-viewer"
                 }
             ]
         },
