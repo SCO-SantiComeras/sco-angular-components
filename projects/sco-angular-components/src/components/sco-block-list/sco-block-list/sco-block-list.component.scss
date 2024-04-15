@@ -1,4 +1,7 @@
 .sco-block-list {
+    overflow-x: auto;
+    overflow-y: hidden;
+
     &__tfoot {
         font-family: 'sco italic';
     }
