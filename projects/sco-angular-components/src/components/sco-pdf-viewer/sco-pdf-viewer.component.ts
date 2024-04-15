@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ScoConstantsService } from 'projects/sco-angular-components/src/public-api';
+import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { ScoPdfViewer } from './model/sco-pdf-viewer';
+import { Location } from '@angular/common';
+import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 
 @Component({
   selector: 'sco-pdf-viewer',
@@ -8,9 +13,175 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ScoPdfViewerComponent implements OnInit {
 
-  constructor() { }
+  @Input() headerPosition: string = this.constantsService.ScoPdfViewerConstants.HEADER_POSITION_LEFT;
+  @Input() headerPaddingBottom: number = 10;
 
-  ngOnInit() {
+  @Input() showComebackButton: boolean = true;
+  @Input() comebackButtonIcon: string = 'fa fa-arrow-left';
+  @Input() comebackButtonTransparent: boolean = true;
+
+  @Input() showDownloadButton: boolean = true;
+  @Input() downloadButtonIcon: string = 'fa fa-download';
+  @Input() downloadButtonTransparent: boolean = true;
+
+  @Input() scoPdfViewer: ScoPdfViewer;
+  @Input() viewerHeight: string = '80vh';
+  @Input() viewerWidth: string = '100vw'
+
+  @Input() showZoomButtons: boolean = true;
+  @Input() plusZoomButtonIcon: string = 'fa fa-plus';
+  @Input() plusZoomButtonTransparent: boolean = true;
+  @Input() minusZoomButtonIcon: string = 'fa fa-minus';
+  @Input() minusZoomButtonTransparent: boolean = true;
+  @Input() restoreZoomButtonIcon: string = 'fa fa-refresh';
+  @Input() restoreZoomButtonTransparent: boolean = true;
+
+  @Input() showTotalPages: boolean = true;
+  @Input() totalPagesOnRightSide: boolean = true;
+  @Input() labelTotalPages: string = 'Páginas';
+
+  @Output() onGoBack: EventEmitter<void>;
+  @Output() onResult: EventEmitter<boolean>;
+
+  public pdfSrc: string | Uint8Array;
+	public pdfZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
+	public totalPages: number;
+
+  constructor(
+    public readonly constantsService: ScoConstantsService,
+    private readonly locationService: Location,
+    private readonly spinnerService: ScoSpinnerService,
+  ) {
+    this.onGoBack = new EventEmitter<void>();
+    this.onResult = new EventEmitter<boolean>();
   }
 
+  /* Component Functions */
+  async ngOnInit() {
+    this.spinnerService.showSpinner();
+
+    if (!this.scoPdfViewer) {
+      this.spinnerService.hideSpinner();
+      this.onGoBack.emit();
+      return;
+    }
+
+    if (!this.scoPdfViewer.pdfSrc) {
+      this.spinnerService.hideSpinner();
+      this.onGoBack.emit();
+      return;
+    }
+
+    this.validatePdfViewerValues();
+
+    // Conver Input url (Public internet pdf url or local pdf url) to base64 code
+    if (this.scoPdfViewer.isBase64 == false) {
+      const file = await fetch(this.scoPdfViewer.pdfSrc)
+        .then(r => r.blob())
+        .then(blobFile => new File([blobFile], this.scoPdfViewer.fileName, { type: "application/pdf" }));
+
+      const reader: FileReader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = async () => {
+          this.scoPdfViewer.pdfSrc = reader.result.toString().split("base64,")[1];
+          this.scoPdfViewer.isBase64 = true;
+          await this.printPdf();
+          return;
+      };
+    }
+
+    await this.printPdf();
+  }
+
+	async callBackFn(pdf: PDFDocumentProxy) {
+		this.totalPages = pdf.numPages;
+    this.spinnerService.hideSpinner();
+	}
+
+  /* Comeback Function */
+  public onClickComeBackBtn() {
+    this.locationService.back();
+  }
+
+  /* PDF Functions */
+  async printPdf() {
+    if (!this.scoPdfViewer || (this.scoPdfViewer && !this.scoPdfViewer.pdfSrc)) {
+      return;
+    }
+    
+    const byteArray: Uint8Array = new Uint8Array(
+      atob(this.scoPdfViewer.pdfSrc)
+        .split("")
+        .map(char => char.charCodeAt(0))
+    );
+
+    const file: Blob = new Blob([byteArray], { type: "application/pdf" });
+    const fileURL: string = URL.createObjectURL(file);
+
+    this.pdfSrc = fileURL;
+  }
+
+  async onClickDownloadBtn() {
+    try {
+      const byteArray: Uint8Array = new Uint8Array(
+        atob(this.scoPdfViewer.pdfSrc)
+          .split("")
+          .map(char => char.charCodeAt(0))
+      );
+
+      const file: Blob = new Blob([byteArray], { type: "application/pdf" });
+      const fileURL: string = URL.createObjectURL(file);
+  
+      // Construct the 'a' element
+      const link: HTMLAnchorElement  = document.createElement("a");
+      link.download = `${this.scoPdfViewer.fileName}`;
+      link.target = "_blank";
+  
+      // Construct the URI
+      link.href = fileURL;
+      document.body.appendChild(link);
+      link.click();
+  
+      // Cleanup the DOM
+      document.body.removeChild(link);
+
+      // Report result to user
+      this.onResult.emit(true);
+    } catch (err) {
+      this.onResult.emit(false);
+    }
+  }
+
+  /* PdfViewer Component Functions */
+  public zoomIn() {
+    this.pdfZoom += this.constantsService.ScoPdfViewerConstants.ZOOM_STEP;
+  }
+ 
+  public zoomOut() {
+    if (this.pdfZoom > (this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM/2)) {
+      this.pdfZoom -= this.constantsService.ScoPdfViewerConstants.ZOOM_STEP;
+    }
+  }
+ 
+  public resetZoom() {
+    this.pdfZoom = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
+  }
+
+  private validatePdfViewerValues() {
+    if (!this.scoPdfViewer.fileName) {
+      this.scoPdfViewer.fileName = this.constantsService.ScoPdfViewerConstants.DEFAULT_FILE_NAME;
+    } 
+    
+    if (this.scoPdfViewer.showTotalPages == undefined) {
+      this.scoPdfViewer.showTotalPages = true;
+    }
+
+    if (this.scoPdfViewer.canDownload == undefined) {
+      this.scoPdfViewer.canDownload = true;
+    }
+
+    if (this.scoPdfViewer.isBase64 == undefined) {
+      this.scoPdfViewer.isBase64 = false;
+    }
+  }
 }

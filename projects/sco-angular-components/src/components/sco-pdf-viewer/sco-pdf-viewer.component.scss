@@ -1,3 +1,49 @@
 .sco-pdf-viewer {
-    
+    box-sizing: border-box;
+
+    &__header {
+        text-align: left;
+
+        &--center {
+            text-align: center;
+        }
+
+        &--right {
+            text-align: right;
+        }
+    }
+
+    &__content {
+        pdf-viewer {
+            display: inline-block;
+            max-width: 100vw;
+            max-height: 100vh;
+        }
+    }
+
+    &__footer {
+        padding-top: 10px;
+
+        &--btn-left {
+            margin-right: 10px;
+        }
+        
+        &--btn-right {
+            margin-left: 10px;
+        }
+        
+        &--paginator-container {
+            margin-top: 5px;
+            text-align: right;
+
+            &--left {
+                text-align: left;
+            }
+        
+            &--text {
+                font-size: 16px;
+                font-family: 'sco regular';
+            }
+        }
+    }
 }

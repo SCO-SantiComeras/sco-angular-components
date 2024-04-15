@@ -1,3 +1,86 @@
-<p>
-  sco-pdf-viewer works!
-</p>
+<div class="row sco-pdf-viewer">
+
+    <div class="col-12 sco-pdf-viewer__header" 
+      [ngClass]="{
+        'sco-pdf-viewer__header--center': headerPosition == 'text-center',
+        'sco-pdf-viewer__header--right': headerPosition == 'text-right'
+      }"
+      [ngStyle]="{
+        'padding-bottom.px': !headerPaddingBottom ? 0 : headerPaddingBottom
+      }"
+    >
+      <sco-button *ngIf="showComebackButton"
+        [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+        [icon]="comebackButtonIcon"
+        [transparent]="comebackButtonTransparent"
+        (action)="showComebackButton && onClickComeBackBtn()">
+      </sco-button>
+      <sco-button *ngIf="showDownloadButton" [ngClass]="{'ml-1': showComebackButton}"
+        [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+        [icon]="downloadButtonIcon"
+        [transparent]="downloadButtonTransparent"
+        (action)="showDownloadButton && onClickDownloadBtn()">
+      </sco-button>
+    </div>
+
+    <div class="col-12 sco-pdf-viewer__content" *ngIf="pdfSrc">
+      <pdf-viewer 
+        [ngStyle]="{
+          'height': !viewerHeight ? '80vh' : viewerHeight,
+          'width': !viewerWidth ? '100vw' : viewerWidth
+        }"
+        [zoom]="pdfZoom" 
+        [src]="pdfSrc" 
+        [page]="scoPdfViewer.startPage"
+        [show-all]="scoPdfViewer.startPage != undefined && scoPdfViewer.startPage >= 1 ? false : true"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [original-size]="false"
+        (after-load-complete)="callBackFn($event)">
+      </pdf-viewer>
+    </div>
+
+    <div class="col-12 sco-pdf-viewer__footer" *ngIf="showZoomButtons || scoPdfViewer.showTotalPages">
+      <div class="row">
+        <div class="col-2">
+          <div *ngIf="scoPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && !totalPagesOnRightSide" 
+            class="sco-pdf-viewer__footer--paginator-container sco-pdf-viewer__footer--paginator-container--left"
+          >
+            <span class="sco-pdf-viewer__footer--paginator-container--text">
+              {{labelTotalPages}}: {{totalPages}}
+            </span>
+          </div>
+        </div>
+        <div class="col-8 text-center">
+          <sco-button *ngIf="showZoomButtons" class="sco-pdf-viewer__footer--btn-left"
+            [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+            [icon]="plusZoomButtonIcon"
+            [transparent]="plusZoomButtonTransparent"
+            (action)="showZoomButtons && zoomIn()">
+          </sco-button>
+          <sco-button *ngIf="showZoomButtons"
+            [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+            [icon]="minusZoomButtonIcon"
+            [transparent]="minusZoomButtonTransparent"
+            (action)="showZoomButtons && zoomOut()">
+          </sco-button>
+          <sco-button *ngIf="showZoomButtons" class="sco-pdf-viewer__footer--btn-right"
+            [mode]="constantsService.ScoButtonConstants.MODE_ICON"
+            [icon]="restoreZoomButtonIcon"
+            [transparent]="restoreZoomButtonTransparent"
+            (action)="showZoomButtons && resetZoom()">
+          </sco-button>
+        </div>
+        <div class="col-2">
+          <div *ngIf="scoPdfViewer.showTotalPages && totalPages > 0 && showTotalPages && totalPagesOnRightSide" 
+            class="sco-pdf-viewer__footer--paginator-container"
+          >
+            <span class="sco-pdf-viewer__footer--paginator-container--text">
+              {{labelTotalPages}}: {{totalPages}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>
