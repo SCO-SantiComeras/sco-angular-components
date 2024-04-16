@@ -114,3 +114,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.33:
     - Add SCO Pdf Viewer initialZoom input param & showcase
+
+13.1.34:
+    - Fix SCO Pdf Viewer input path errors
