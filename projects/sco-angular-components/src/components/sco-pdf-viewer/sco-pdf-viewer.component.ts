@@ -1,3 +1,4 @@
+import { ScoPdfViewerService } from './sco-pdf-viewer.service';
 import { ScoConstantsService } from 'projects/sco-angular-components/src/public-api';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
@@ -24,7 +25,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Input() downloadButtonIcon: string = 'fa fa-download';
   @Input() downloadButtonTransparent: boolean = true;
 
-  @Input() scoPdfViewer: ScoPdfViewer = undefined;
+  @Input() scoPdfViewer: ScoPdfViewer = this.pdfViewerService.scoPdfViewer();
   @Input() viewerHeight: string = '80vh';
   @Input() viewerWidth: string = '100vw'
 
@@ -51,6 +52,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   public _showPdfViewer: ScoPdfViewer;
 
   constructor(
+    public readonly pdfViewerService: ScoPdfViewerService,
     public readonly constantsService: ScoConstantsService,
     private readonly locationService: Location,
     private readonly spinnerService: ScoSpinnerService,

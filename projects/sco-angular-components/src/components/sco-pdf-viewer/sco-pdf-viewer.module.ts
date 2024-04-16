@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ScoPdfViewerComponent } from './sco-pdf-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ScoPdfViewerService } from './sco-pdf-viewer.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScoPdfViewerComponent,
   ],
   providers: [
-    
+    ScoPdfViewerService,
   ]
 })
 export class ScoPdfViewerModule { }
