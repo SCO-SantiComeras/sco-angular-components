@@ -24,7 +24,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Input() downloadButtonIcon: string = 'fa fa-download';
   @Input() downloadButtonTransparent: boolean = true;
 
-  @Input() scoPdfViewer: ScoPdfViewer;
+  @Input() scoPdfViewer: ScoPdfViewer = undefined;
   @Input() viewerHeight: string = '80vh';
   @Input() viewerWidth: string = '100vw'
 
