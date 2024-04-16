@@ -453,4 +453,10 @@ $content: #FFF;
             }
         }
     }
+
+    sco-pdf-viewer {
+        .sco-pdf-viewer {
+            background-color: $background;
+        }
+    }
 }

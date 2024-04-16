@@ -490,4 +490,10 @@ $content: #121212;
             }
         }
     }
+
+    sco-pdf-viewer {
+        .sco-pdf-viewer {
+            background-color: $background;
+        }
+    }
 }
