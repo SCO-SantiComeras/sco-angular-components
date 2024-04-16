@@ -123,3 +123,9 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.36:
     - ADD Sco pdf viewer background color property
+
+13.1.37:
+    - FIX Sco pdf viewer back button
+
+13.1.38:
+    - FIX Sco pdf viewer back button
