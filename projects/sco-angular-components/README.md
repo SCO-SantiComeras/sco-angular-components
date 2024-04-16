@@ -117,3 +117,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.34:
     - Fix SCO Pdf Viewer input path errors
+
+13.1.35:
+    - ADD Sco pdf viewer positionAbsolute input param
