@@ -134,6 +134,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
 
   /* Comeback Function */
   public onClickComeBackBtn() {
+    this.onGoBack.emit();
     this.locationService.back();
   }
 
