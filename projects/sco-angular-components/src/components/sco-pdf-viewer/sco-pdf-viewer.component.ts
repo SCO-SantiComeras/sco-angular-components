@@ -65,6 +65,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
 
     if (changes["scoPdfViewer"] && changes["scoPdfViewer"].currentValue) {
       this._showPdfViewer = changes["scoPdfViewer"].currentValue;
+      this.validatePdfViewerValues();
       await this.processPdf();
     }
   }
@@ -95,22 +96,21 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
     }
 
     // Conver Input url (Public internet pdf url or local pdf url) to base64 code
-    if (this.scoPdfViewer.isBase64 == false) {
-      const file = await fetch(this.scoPdfViewer.pdfSrc)
-        .then(r => r.blob())
-        .then(blobFile => new File([blobFile], this.scoPdfViewer.fileName, { type: "application/pdf" }));
-
-      const reader: FileReader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = async () => {
-          this.scoPdfViewer.pdfSrc = reader.result.toString().split("base64,")[1];
-          this.scoPdfViewer.isBase64 = true;
-          await this.printPdf();
-          return;
-      };
+    if (this._showPdfViewer.isBase64) { 
+      await this.printPdf();
+      return;
     }
 
-    await this.printPdf();
+    const file: File = await fetch(this.scoPdfViewer.pdfSrc)
+      .then(r => r.blob())
+      .then(blobFile => new File([blobFile], this._showPdfViewer.fileName, { type: "application/pdf" }));
+
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = async () => {
+      this._showPdfViewer.pdfSrc = reader.result.toString().split("base64,")[1];
+      await this.printPdf();
+    };
   }
 
 	async callBackFn(pdf: PDFDocumentProxy) {
@@ -126,12 +126,12 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
 
   /* PDF Functions */
   async printPdf() {
-    if (!this.scoPdfViewer || (this.scoPdfViewer && !this.scoPdfViewer.pdfSrc)) {
+    if (!this._showPdfViewer || (this._showPdfViewer && !this._showPdfViewer.pdfSrc)) {
       return;
     }
     
     const byteArray: Uint8Array = new Uint8Array(
-      atob(this.scoPdfViewer.pdfSrc)
+      atob(this._showPdfViewer.pdfSrc)
         .split("")
         .map(char => char.charCodeAt(0))
     );
@@ -145,7 +145,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   async onClickDownloadBtn() {
     try {
       const byteArray: Uint8Array = new Uint8Array(
-        atob(this.scoPdfViewer.pdfSrc)
+        atob(this._showPdfViewer.pdfSrc)
           .split("")
           .map(char => char.charCodeAt(0))
       );
@@ -155,7 +155,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   
       // Construct the 'a' element
       const link: HTMLAnchorElement  = document.createElement("a");
-      link.download = `${this.scoPdfViewer.fileName}`;
+      link.download = `${this._showPdfViewer.fileName}`;
       link.target = "_blank";
   
       // Construct the URI
