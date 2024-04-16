@@ -120,3 +120,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.35:
     - ADD Sco pdf viewer positionAbsolute input param
+
+13.1.36:
+    - ADD Sco pdf viewer background color property
