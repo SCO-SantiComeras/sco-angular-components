@@ -1,5 +1,5 @@
 import { ScoPdfViewerService } from './sco-pdf-viewer.service';
-import { ScoConstantsService } from 'projects/sco-angular-components/src/public-api';
+import { ScoConstantsService } from '../../services/sco-constants.service';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ScoPdfViewer } from './model/sco-pdf-viewer';
