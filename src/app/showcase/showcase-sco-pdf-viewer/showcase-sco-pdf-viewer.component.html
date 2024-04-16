@@ -78,8 +78,8 @@
                 <div class="row">
                     <div class="col-12 pl-4 pt-1" *ngIf="showComponent">
                         <sco-pdf-viewer
+                            [positionAbsolute]="true"
                             [headerPosition]="constantsService.ScoPdfViewerConstants.HEADER_POSITION_LEFT"
-                            [headerPaddingBottom]="10"
 
                             [showComebackButton]="true"
                             [comebackButtonIcon]="'fa fa-arrow-left'"
@@ -90,8 +90,6 @@
                             [downloadButtonTransparent]="true"
 
                             [scoPdfViewer]="pdfViewerService.scoPdfViewer()"
-                            [viewerHeight]="'80vh'"
-                            [viewerWidth]="'100vw'"
                             [initialZoom]="constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM"
 
                             [showZoomButtons]="true"
@@ -198,8 +196,8 @@
         &lt;div class=&quot;row&quot;&gt;
             &lt;div class=&quot;col-12 pl-4 pt-1&quot; *ngIf=&quot;showComponent&quot;&gt;
                 &lt;sco-pdf-viewer
+                    [positionAbsolute]=&quot;true&quot;
                     [headerPosition]=&quot;constantsService.ScoPdfViewerConstants.HEADER_POSITION_LEFT&quot;
-                    [headerPaddingBottom]=&quot;10&quot;
 
                     [showComebackButton]=&quot;true&quot;
                     [comebackButtonIcon]=&quot;'fa fa-arrow-left'&quot;
@@ -210,8 +208,6 @@
                     [downloadButtonTransparent]=&quot;true&quot;
 
                     [scoPdfViewer]=&quot;pdfViewerService.scoPdfViewer()&quot;
-                    [viewerHeight]=&quot;'80vh'&quot;
-                    [viewerWidth]=&quot;'100vw'&quot;
                     [initialZoom]=&quot;constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM&quot;
 
                     [showZoomButtons]=&quot;true&quot;
@@ -338,6 +334,13 @@ export class ShowcaseScoPdfViewerComponent &#123;
             </thead>
             <tbody>
                 <tr>
+                    <td>positionAbsolute</td>
+                    <td>Indicador para poner el componente en posición absoluta</td>
+                    <tr>boolean</tr>
+                    <tr>true</tr>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>headerPosition</td>
                     <td>Indica la posición de la botonera superior</td>
                     <td>string</td>
@@ -349,13 +352,6 @@ export class ShowcaseScoPdfViewerComponent &#123;
                             <li>ScoPdfViewerConstants.HEADER_POSITION_RIGHT</li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
-                    <td>headerPaddingBottom</td>
-                    <td>Padding inferior de la botonera superior, se marca en pixeles</td>
-                    <td>number</td>
-                    <td>10</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>showComebackButton</td>
@@ -404,20 +400,6 @@ export class ShowcaseScoPdfViewerComponent &#123;
                     <td>Objeto que contiene los datos del pdf a mostrar en el componente</td>
                     <td>ScoPdfViewer</td>
                     <td>undefined</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>viewerHeight</td>
-                    <td>Altura del pdf</td>
-                    <td>string</td>
-                    <td>'80vh'</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>viewerWidth</td>
-                    <td>Anchura del pdf</td>
-                    <td>string</td>
-                    <td>'100vw'</td>
                     <td></td>
                 </tr>
                 <tr>

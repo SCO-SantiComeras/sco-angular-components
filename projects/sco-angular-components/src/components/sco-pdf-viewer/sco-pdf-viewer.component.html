@@ -1,12 +1,9 @@
-<div class="row sco-pdf-viewer">
+<div class="row sco-pdf-viewer" [ngClass]="{'sco-pdf-viewer__absolute': positionAbsolute}">
 
     <div class="col-12 sco-pdf-viewer__header" 
       [ngClass]="{
         'sco-pdf-viewer__header--center': headerPosition == 'text-center',
         'sco-pdf-viewer__header--right': headerPosition == 'text-right'
-      }"
-      [ngStyle]="{
-        'padding-bottom.px': !headerPaddingBottom ? 0 : headerPaddingBottom
       }"
     >
       <sco-button *ngIf="showComebackButton"
@@ -24,11 +21,7 @@
     </div>
 
     <div class="col-12 sco-pdf-viewer__content" *ngIf="pdfSrc">
-      <pdf-viewer 
-        [ngStyle]="{
-          'height': !viewerHeight ? '80vh' : viewerHeight,
-          'width': !viewerWidth ? '100vw' : viewerWidth
-        }"
+      <pdf-viewer
         [zoom]="pdfZoom" 
         [src]="pdfSrc" 
         [page]="_showPdfViewer.startPage"

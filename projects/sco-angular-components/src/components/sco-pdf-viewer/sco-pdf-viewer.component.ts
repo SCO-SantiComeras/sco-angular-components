@@ -1,4 +1,3 @@
-import { ScoPdfViewerService } from './sco-pdf-viewer.service';
 import { ScoConstantsService } from '../../services/sco-constants.service';
 import { ScoSpinnerService } from './../sco-spinner/sco-spinner.service';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
@@ -14,8 +13,8 @@ import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 })
 export class ScoPdfViewerComponent implements OnInit, OnChanges {
 
+  @Input() positionAbsolute: boolean = true;
   @Input() headerPosition: string = this.constantsService.ScoPdfViewerConstants.HEADER_POSITION_LEFT;
-  @Input() headerPaddingBottom: number = 10;
 
   @Input() showComebackButton: boolean = true;
   @Input() comebackButtonIcon: string = 'fa fa-arrow-left';
@@ -25,9 +24,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Input() downloadButtonIcon: string = 'fa fa-download';
   @Input() downloadButtonTransparent: boolean = true;
 
-  @Input() scoPdfViewer: ScoPdfViewer = this.pdfViewerService.scoPdfViewer();
-  @Input() viewerHeight: string = '80vh';
-  @Input() viewerWidth: string = '100vw'
+  @Input() scoPdfViewer: ScoPdfViewer = undefined;
   @Input() initialZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
 
   @Input() showZoomButtons: boolean = true;
@@ -53,7 +50,6 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   public _showPdfViewer: ScoPdfViewer;
 
   constructor(
-    public readonly pdfViewerService: ScoPdfViewerService,
     public readonly constantsService: ScoConstantsService,
     private readonly locationService: Location,
     private readonly spinnerService: ScoSpinnerService,
