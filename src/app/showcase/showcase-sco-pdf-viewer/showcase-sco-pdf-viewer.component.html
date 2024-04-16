@@ -92,6 +92,7 @@
                             [scoPdfViewer]="pdfViewerService.scoPdfViewer()"
                             [viewerHeight]="'80vh'"
                             [viewerWidth]="'100vw'"
+                            [initialZoom]="constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM"
 
                             [showZoomButtons]="true"
                             [plusZoomButtonIcon]="'fa fa-plus'"
@@ -211,6 +212,7 @@
                     [scoPdfViewer]=&quot;pdfViewerService.scoPdfViewer()&quot;
                     [viewerHeight]=&quot;'80vh'&quot;
                     [viewerWidth]=&quot;'100vw'&quot;
+                    [initialZoom]=&quot;constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM&quot;
 
                     [showZoomButtons]=&quot;true&quot;
                     [plusZoomButtonIcon]=&quot;'fa fa-plus'&quot;
@@ -417,6 +419,17 @@ export class ShowcaseScoPdfViewerComponent &#123;
                     <td>string</td>
                     <td>'100vw'</td>
                     <td></td>
+                </tr>
+                <tr>
+                    <td>initialZoom</td>
+                    <td>Cantidad de zoom con la que iniciará la carga el fichero pdf</td>
+                    <td>number</td>
+                    <td>ScoPdfViewerConstants.DEFAULT_ZOOM</td>
+                    <td>
+                        <ul>
+                            <li>ScoPdfViewerConstants.DEFAULT_ZOOM</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
                     <td>showZoomButtons</td>

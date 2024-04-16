@@ -28,6 +28,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Input() scoPdfViewer: ScoPdfViewer = this.pdfViewerService.scoPdfViewer();
   @Input() viewerHeight: string = '80vh';
   @Input() viewerWidth: string = '100vw'
+  @Input() initialZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
 
   @Input() showZoomButtons: boolean = true;
   @Input() plusZoomButtonIcon: string = 'fa fa-plus';
@@ -46,7 +47,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Output() onLoad: EventEmitter<boolean>;
 
   public pdfSrc: string | Uint8Array;
-	public pdfZoom: number = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
+	public pdfZoom: number;
 	public totalPages: number;
 
   public _showPdfViewer: ScoPdfViewer;
@@ -60,6 +61,10 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
     this.onGoBack = new EventEmitter<void>();
     this.onDownload = new EventEmitter<boolean>();
     this.onLoad = new EventEmitter<boolean>();
+
+    this.pdfSrc = undefined;
+    this.pdfZoom = undefined;
+    this.totalPages = undefined;
   }
 
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
@@ -69,6 +74,10 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
       this._showPdfViewer = changes["scoPdfViewer"].currentValue;
       this.validatePdfViewerValues();
       await this.processPdf();
+    }
+
+    if (changes["initialZoom"] != undefined && changes["scoPdfViewer"].currentValue > 0) {
+      this.pdfZoom = changes["initialZoom"].currentValue;
     }
   }
 
@@ -86,6 +95,12 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
       this.spinnerService.hideSpinner();
       this.onGoBack.emit();
       return;
+    }
+
+    if (this.initialZoom != undefined && this.initialZoom > 0) {
+      this.pdfZoom = this.initialZoom;
+    } else {
+      this.pdfZoom = this.constantsService.ScoPdfViewerConstants.DEFAULT_ZOOM;
     }
 
     this.validatePdfViewerValues();
