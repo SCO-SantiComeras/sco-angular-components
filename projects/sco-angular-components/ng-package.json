@@ -13,7 +13,8 @@
     "lodash-es",
     "ngx-pagination",
     "primeicons",
-    "primeng"
+    "primeng",
+    "ng2-pdf-viewer"
   ],
   "assets": [
     "./resources/**/*"
