@@ -133,3 +133,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 13.1.39:
     - FIX Sco pdf viewer z-index
     - Refactor SCO file uploader
+
+13.1.40:
+    - Add Sco file uploader multiple files & accepted files input params
