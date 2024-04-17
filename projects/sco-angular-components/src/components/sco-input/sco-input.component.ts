@@ -33,6 +33,7 @@ export class ScoInputComponent extends ScoNgModelBase implements OnInit {
 
   @Output() iconClick: EventEmitter<boolean>;
   @Output() inputChange: EventEmitter<boolean>;
+  @Output() inputKeyUp: EventEmitter<string>;
 
   private possiblesTypes: string[];
 
@@ -48,6 +49,7 @@ export class ScoInputComponent extends ScoNgModelBase implements OnInit {
 
     this.iconClick = new EventEmitter<boolean>();
     this.inputChange = new EventEmitter<boolean>();
+    this.inputKeyUp = new EventEmitter<string>();
   }
 
   ngOnInit(): void {
@@ -63,5 +65,9 @@ export class ScoInputComponent extends ScoNgModelBase implements OnInit {
 
   onInputChange() {
     this.inputChange.emit(true);
+  }
+
+  onInputKeyUp() {
+    this.inputKeyUp.emit(this.value);
   }
 }

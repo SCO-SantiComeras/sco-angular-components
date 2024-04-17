@@ -13,7 +13,8 @@
       [disabled]="disabled" 
       [type]="type"
       [placeholder]="placeholder" 
-      (change)="onInputChange()">
+      (change)="onInputChange()"
+      (keyup)="onInputKeyUp()">
     <div class="input-group-append" *ngIf="showIcon && icon">
       <button
         [ngClass]="{'cursor-default': !enabledIconClick}" 

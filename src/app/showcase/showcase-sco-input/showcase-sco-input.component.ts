@@ -38,4 +38,9 @@ export class ShowcaseScoInputComponent {
       this.toastService.addSuccessMessage("Éxito", "El valor ha cambiado");
     }
   }
+
+  onInputKeyUp($event: string) {
+    if (!$event) return;
+    this.toastService.addSuccessMessage("Keyup", "La tecla se levantó!");
+  }
 } 

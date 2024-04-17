@@ -15,7 +15,8 @@
                     <div class="col-12 pl-4 pt-1">
                         <sco-input
                             [(ngModel)]="valueEx1"
-                            [showLabel]="false">
+                            [showLabel]="false"
+                            (inputKeyUp)="onInputKeyUp($event)">
                         </sco-input>
                         <div>{{'Valor: ' + valueEx1}}</div>
                     </div>  
@@ -204,7 +205,8 @@
                 &lt;div class=&quot;col-12 pl-4 pt-1&quot;&gt;
                     &lt;sco-input
                         [(ngModel)]=&quot;valueEx1&quot;
-                        [showLabel]=&quot;false&quot;&gt;
+                        [showLabel]=&quot;false&quot;
+                        (inputKeyUp)=&quot;onInputKeyUp($event)&quot;&gt;
                     &lt;/sco-input&gt;
                     &lt;div&gt;{{'Valor: ' + valueEx1}}&lt;/div&gt;
                 &lt;/div&gt;  
@@ -381,16 +383,16 @@
     
         <sco-tab-item title="TS">
             <pre><code class="language-typescript" pCode ngNonBindable>
-    import &#123; ScoToastService, ScoConstantsService, ScoCacheService &#125; from 'sco-angular-components';
-    import &#123; Component &#125; from '@angular/core';
+import &#123; ScoToastService, ScoConstantsService, ScoCacheService &#125; from 'sco-angular-components';
+import &#123; Component &#125; from '@angular/core';
 
-    &commat;Component(&#123;
-    selector: 'app-showcase-sco-input',
-    templateUrl: './showcase-sco-input.component.html',
-    styleUrls: ['./showcase-sco-input.component.scss']
-    &#125;)
+&commat;Component(&#123;
+selector: 'app-showcase-sco-input',
+templateUrl: './showcase-sco-input.component.html',
+styleUrls: ['./showcase-sco-input.component.scss']
+&#125;)
 
-    export class ShowcaseScoInputComponent &#123;
+export class ShowcaseScoInputComponent &#123;
 
     public valueEx1: string;
     public valueEx2: string;
@@ -409,11 +411,16 @@
     ) &#123; 
         this.scoCache.setElement("title", "Input");
     &#125;
-    
+
     onIconClick($event: boolean) &#123;
         this.ScoToast.addSuccessMessage("Éito", "Pulsado el evento del icono: " + $event);
     &#125;
-    &#125; 
+    
+    onInputKeyUp($event: string) &#123;
+        if (!$event) return;
+        this.toastService.addSuccessMessage("Keyup", "La tecla se levantó!");
+    &#125;
+&#125; 
             </code></pre>
         </sco-tab-item>
         </sco-tabs>
@@ -538,6 +545,11 @@
                 <td>inputChange</td>
                 <td>Evento al cambiar el valor del input</td>
                 <td>boolean</td>
+            </tr>
+            <tr>
+                <td>inputKeyUp</td>
+                <td>Evento al levantar la tecla del input</td>
+                <td>string</td>
             </tr>
         </tbody>
         </table>
