@@ -1,3 +1,4 @@
+import { ScoConstantsService } from '../../services/sco-constants.service';
 import { Component, forwardRef, Input, OnInit, Output, ViewEncapsulation, EventEmitter, HostListener } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ScoNgModelBase } from '../sco-ng-model-base/sco-ng-model-base.component';
@@ -34,23 +35,26 @@ export class ScoFileUploaderComponent extends ScoNgModelBase implements OnInit {
   @Input() labelBase64Title: string = 'Base64';
   @Input() base64TextRows: number = 4;
 
-  @Output() uploadBtn: EventEmitter<File>;
+
+  @Output() selectFiles: EventEmitter<File[]>;
+  @Output() uploadBtn: EventEmitter<File[]>;
   @Output() cleanBtn: EventEmitter<boolean>;
   @Output() copyBtn: EventEmitter<string[]>;
 
-  public fileToUpload: File;
+  public filesToUpload: File[];
   public fileReader: FileReader;
 
   public fileBase64: string;
 
-  constructor() {
+  constructor(public constantsService: ScoConstantsService) {
     super();
     
-    this.uploadBtn = new EventEmitter<File>();
+    this.selectFiles = new EventEmitter<File[]>();
+    this.uploadBtn = new EventEmitter<File[]>();
     this.cleanBtn = new EventEmitter<boolean>();
     this.copyBtn = new EventEmitter<string[]>();
 
-    this.fileToUpload = null;
+    this.filesToUpload = [];
     this.fileReader = null;
     this.fileBase64 = '';
    }
@@ -62,35 +66,54 @@ export class ScoFileUploaderComponent extends ScoNgModelBase implements OnInit {
   async onChangeFileInput(files: FileList) {
     try {
       // File to post
-      this.fileToUpload = files.item(0);
+      this.filesToUpload = [];
 
-      // Get reader
-      this.fileReader = new FileReader();
-      this.fileReader.readAsDataURL(this.fileToUpload);
+      if (files && files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+          this.filesToUpload.push(files.item(i));
+        }
+      }
 
-      // On load fil reader
-      this.fileReader.onload = () => {
-        // Get base64
-        this.fileBase64 = this.fileReader.result.toString().split("base64,")[1];
-      };
+      const emitFiles: File[] = this.filesToUpload;
+      if (!this.showUploadBtn) {
+        this.onClickCleanBtn(false);
+      }
+ 
+      if (emitFiles.length > 0) {
+        this.selectFiles.emit(emitFiles);
+      }
+
+      if (this.base64 && emitFiles && emitFiles[0]) {
+        // Get reader
+        this.fileReader = new FileReader();
+        this.fileReader.readAsDataURL(emitFiles[0]);
+
+        // On load fil reader
+        this.fileReader.onload = () => {
+          // Get base64
+          this.fileBase64 = this.fileReader.result.toString().split("base64,")[1];
+        };
+      }
     } catch (err) {
 
     }
   }
 
-  onClickCleanBtn() {
-    this.fileToUpload = null;
+  onClickCleanBtn(emit: boolean = true) {
+    this.filesToUpload = [];
     this.fileReader = null;
     this.fileBase64 = '';
 
     const inputFile: any = document.getElementById("file");
     inputFile.value = null;
 
-    this.cleanBtn.emit(true);
+    if (emit) {
+      this.cleanBtn.emit(true);
+    }
   }
 
   onClickUploadBtn() {
-    this.uploadBtn.emit(this.fileToUpload);
+    this.uploadBtn.emit(this.filesToUpload);
   }
 
   onCLickCopyResultBtn(value: string, editor: string){

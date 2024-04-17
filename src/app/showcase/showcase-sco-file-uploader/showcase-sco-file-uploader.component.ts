@@ -77,10 +77,17 @@ export class ShowcaseScoFileUploaderComponent implements OnInit {
   }
 
   /* Component Functions */
-  uploadBtn($event) {
+  selectFiles($event: File[]) {
+    this.toastService.addSuccessMessage(
+      "Select Files",
+      `Ficheros seleccionados: ${JSON.stringify($event && $event.length > 0 ? $event[0].name : null)}`
+    );
+  }
+
+  uploadBtn($event: File[]) {
     this.toastService.addSuccessMessage(
       "Success",
-      `Botón subir pulsado: ${JSON.stringify($event ? $event.name : null)}`
+      `Botón subir pulsado: ${JSON.stringify($event && $event.length > 0 ? $event[0].name : null)}`
     );
   }
 

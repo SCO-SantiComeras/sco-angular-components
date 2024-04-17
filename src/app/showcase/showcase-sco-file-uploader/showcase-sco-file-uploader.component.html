@@ -130,6 +130,7 @@
               [base64]="base64"
               [labelBase64Title]="labelBase64Title"
               [base64TextRows]="base64TextRows"
+              (selectFiles)="selectFiles($event)"
               (uploadBtn)="uploadBtn($event)"
               (cleanBtn)="cleanBtn($event)"
               (copyBtn)="copyBtn($event)">
@@ -284,6 +285,7 @@
           [base64]=&quot;base64&quot;
           [labelBase64Title]=&quot;labelBase64Title&quot;
           [base64TextRows]=&quot;base64TextRows&quot;
+          (selectFiles)=&quot;selectFiles($event)&quot;
           (uploadBtn)=&quot;uploadBtn($event)&quot;
           (cleanBtn)=&quot;cleanBtn($event)&quot;
           (copyBtn)=&quot;copyBtn($event)&quot;&gt;
@@ -380,10 +382,17 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
   &#125;
 
   /* Component Functions */
+  selectFiles($event: File[]) &#123;
+    this.toastService.addSuccessMessage(
+      "Select Files",
+      `Ficheros seleccionados: $&#123;JSON.stringify($event && $event.length > 0 ? $event[0].name : null)&#125;`
+    );
+  &#125;
+
   uploadBtn($event) &#123;
     this.toastService.addSuccessMessage(
       "Success",
-      `Botón subir pulsado: $&#123;JSON.stringify($event ? $event.name : null)&#125;`
+      `Botón subir pulsado: $&#123;JSON.stringify($event && $event.length ? $event[0].name : null)&#125;`
     );
   &#125;
 
@@ -517,9 +526,14 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
       </thead>
       <tbody>
         <tr>
+          <td>selectFiles</td>
+          <td>Evento al seleccionar ficheros</td>
+          <td>File[]</td>
+        </tr>
+        <tr>
           <td>uploadBtn</td>
           <td>Evento al pulsar el botón de subida de archivo</td>
-          <td>File</td>
+          <td>File[]</td>
         </tr>
         <tr>
           <td>cleanBtn</td>
