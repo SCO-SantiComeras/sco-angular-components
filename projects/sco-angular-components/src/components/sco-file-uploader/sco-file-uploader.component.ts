@@ -22,6 +22,9 @@ export class ScoFileUploaderComponent extends ScoNgModelBase implements OnInit {
   @Input() showLabel: boolean = false;
   @Input() required: boolean = false;
 
+  @Input() multipleFiles: boolean = true;
+  @Input() acceptFileTypes: string[] = []
+
   @Input() showBorder: boolean = false;
   @Input() colorBorder: string = '#000';
 

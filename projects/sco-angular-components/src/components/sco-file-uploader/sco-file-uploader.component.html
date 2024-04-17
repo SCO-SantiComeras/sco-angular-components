@@ -18,7 +18,13 @@
         [icon]="iconSelectBtn"
         (action)="file.click()">
       </sco-button>
-      <input class="sco-file-uploader__container__file--input" type="file" id="file" (change)="onChangeFileInput($event.target.files)" #file hidden>
+      <input class="sco-file-uploader__container__file--input" #file hidden
+        type="file" 
+        id="file"
+        [multiple]="multipleFiles"
+        [accept]="!acceptFileTypes || (acceptFileTypes && acceptFileTypes.length == 0) ? '*' : (acceptFileTypes | join: ', ')"
+        (change)="onChangeFileInput($event.target.files)"
+      >
       <sco-button class="ml-2" *ngIf="showUploadBtn"
         [text]="labelUploadBtn"
         [mode]="constantsService.ScoButtonConstants.MODE_SAVE"

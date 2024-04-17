@@ -122,6 +122,9 @@
               [label]="label"
               [required]="required"
 
+              [multipleFiles]="true"
+              [acceptFileTypes]="[]"
+
               [showBorder]="showBorder"
               [colorBorder]="borderColor"
 
@@ -289,6 +292,9 @@
           [showLabel]=&quot;showLabel&quot;
           [label]=&quot;label&quot;
           [required]=&quot;required&quot;
+
+          [multipleFiles]=&quot;true&quot;
+          [acceptFileTypes]=&quot;[]&quot;
 
           [showBorder]=&quot;showBorder&quot;
           [colorBorder]=&quot;borderColor&quot;
@@ -469,6 +475,20 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
           <td>Indicador para mostrar el texto de elemento obligatorio</td>
           <td>boolean</td>
           <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>multipleFiles</td>
+          <td>Indicador para permitir más de un archivo</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>acceptFileTypes</td>
+          <td>Lista de tipos de archivos permitidos para seleccionar, lista vacía permite todos</td>
+          <td>string[]</td>
+          <td>[]</td>
           <td></td>
         </tr>
         <tr>
