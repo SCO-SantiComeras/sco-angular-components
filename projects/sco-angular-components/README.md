@@ -129,3 +129,7 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.38:
     - FIX Sco pdf viewer back button
+
+13.1.39:
+    - FIX Sco pdf viewer z-index
+    - Refactor SCO file uploader
