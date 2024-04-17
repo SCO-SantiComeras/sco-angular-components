@@ -25,11 +25,16 @@ export class ScoFileUploaderComponent extends ScoNgModelBase implements OnInit {
   @Input() showBorder: boolean = false;
   @Input() colorBorder: string = '#000';
 
+  @Input() labelSelectBtn: string = 'Seleccionar';
+  @Input() iconSelectBtn: string = 'fa fa-file';
+
   @Input() labelUploadBtn: string = 'Subir';
   @Input() showUploadBtn: boolean = true;
+  @Input() iconUploadBtn: string = 'fa fa-upload';
 
   @Input() labelCleanBtn: string = 'Limpiar';
   @Input() showCleanBtn: boolean = true;
+  @Input() iconCleanBtn: string = 'fa fa-eraser';
 
   @Input() base64: boolean = false;
   @Input() labelBase64Title: string = 'Base64';

@@ -121,15 +121,25 @@
               [showLabel]="showLabel"
               [label]="label"
               [required]="required"
+
               [showBorder]="showBorder"
               [colorBorder]="borderColor"
+
+              [labelSelectBtn]="'Seleccionar'"
+              [iconSelectBtn]="'fa fa-file'"
+
               [labelUploadBtn]="labelUploadBtn"
               [showUploadBtn]="showUploadBtn"
+              [iconUploadBtn]="'fa fa-upload'"
+
               [labelCleanBtn]="labelCleanBtn"
               [showCleanBtn]="showCleanBtn"
+              [iconCleanBtn]="'fa fa-eraser'"
+
               [base64]="base64"
               [labelBase64Title]="labelBase64Title"
               [base64TextRows]="base64TextRows"
+
               (selectFiles)="selectFiles($event)"
               (uploadBtn)="uploadBtn($event)"
               (cleanBtn)="cleanBtn($event)"
@@ -276,15 +286,28 @@
     &lt;div class=&quot;row&quot; &gt;
       &lt;div class=&quot;col-12&quot;&gt;
         &lt;sco-file-uploader *ngIf=&quot;showFileUploader&quot;
+          [showLabel]=&quot;showLabel&quot;
+          [label]=&quot;label&quot;
+          [required]=&quot;required&quot;
+
           [showBorder]=&quot;showBorder&quot;
           [colorBorder]=&quot;borderColor&quot;
+
+          [labelSelectBtn]=&quot;'Seleccionar'&quot;
+          [iconSelectBtn]=&quot;'fa fa-file'&quot;
+
           [labelUploadBtn]=&quot;labelUploadBtn&quot;
           [showUploadBtn]=&quot;showUploadBtn&quot;
+          [iconUploadBtn]=&quot;'fa fa-upload'&quot;
+
           [labelCleanBtn]=&quot;labelCleanBtn&quot;
           [showCleanBtn]=&quot;showCleanBtn&quot;
+          [iconCleanBtn]=&quot;'fa fa-eraser'&quot;
+
           [base64]=&quot;base64&quot;
           [labelBase64Title]=&quot;labelBase64Title&quot;
           [base64TextRows]=&quot;base64TextRows&quot;
+
           (selectFiles)=&quot;selectFiles($event)&quot;
           (uploadBtn)=&quot;uploadBtn($event)&quot;
           (cleanBtn)=&quot;cleanBtn($event)&quot;
@@ -456,6 +479,20 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
           <td></td>
         </tr>
         <tr>
+          <td>labelSelectBtn</td>
+          <td>Texto del selector de archivos</td>
+          <td>string</td>
+          <td>'Seleccionar'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>iconSelectBtn</td>
+          <td>Icono para el selector de archivos</td>
+          <td>string</td>
+          <td>'fa fa-file'</td>
+          <td></td>
+        </tr>
+        <tr>
           <td>borderColor</td>
           <td>Color del borde del componente (Hex, name)</td>
           <td>string</td>
@@ -464,16 +501,23 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
         </tr>
         <tr>
           <td>showUploadBtn</td>
-          <td>Indicador para mostrar el botón de subida de archivo</td>
+          <td>Indicador para mostrar el botón de subida de archivos</td>
           <td>boolean</td>
           <td>true</td>
           <td></td>
         </tr>
         <tr>
           <td>labelUploadBtn</td>
-          <td>Texto del botón de subida de archivo</td>
+          <td>Texto del botón de subida de archivos</td>
           <td>string</td>
           <td>'Subir'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>iconUploadBtn</td>
+          <td>Icono para el botón de subida de archivos</td>
+          <td>string</td>
+          <td>'fa fa-upload'</td>
           <td></td>
         </tr>
         <tr>
@@ -488,6 +532,13 @@ export class ShowcaseScoFileUploaderComponent implements OnInit &#123;
           <td>Texto del botón de limpiar archivo</td>
           <td>string</td>
           <td>'Limpiar'</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>iconCleanBtn</td>
+          <td>Icono para el botón de limpiar</td>
+          <td>string</td>
+          <td>'fa fa-eraser'</td>
           <td></td>
         </tr>
         <tr>

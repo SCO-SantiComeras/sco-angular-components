@@ -10,18 +10,27 @@
 
     <div class="col-12 sco-file-uploader__container__file" [ngClass]="{'sco-file-uploader__container__file--only-file': !base64}">
       <sco-button
-          [text]="'Seleccionar'"
-          [mode]="constantsService.ScoButtonConstants.MODE_ICON"
-          [icon]="'fa fa-file'"
-          (action)="file.click()">
-        </sco-button>
+        [text]="labelSelectBtn"
+        [mode]="labelSelectBtn && labelSelectBtn.length > 0 
+          ? constantsService.ScoButtonConstants.MODE_DEFAULT 
+          : constantsService.ScoButtonConstants.MODE_ICON
+        "
+        [icon]="iconSelectBtn"
+        (action)="file.click()">
+      </sco-button>
       <input class="sco-file-uploader__container__file--input" type="file" id="file" (change)="onChangeFileInput($event.target.files)" #file hidden>
-      <button class="btn btn-success btn-sm sco-file-uploader__container__file--upload-btn" (click)="onClickUploadBtn()" *ngIf="showUploadBtn">
-        {{labelUploadBtn}}
-      </button>
-      <button class="btn btn-sco btn-sm sco-file-uploader__container__file--clean-btn" (click)="onClickCleanBtn()" *ngIf="showCleanBtn">
-        {{labelCleanBtn}}
-      </button>
+      <sco-button class="ml-2" *ngIf="showUploadBtn"
+        [text]="labelUploadBtn"
+        [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
+        [icon]="'fa fa-upload'"
+        (action)="onClickUploadBtn()">
+      </sco-button>
+      <sco-button class="ml-2" *ngIf="showCleanBtn"
+        [text]="labelCleanBtn"
+        [mode]="constantsService.ScoButtonConstants.MODE_DANGER"
+        [icon]="'fa fa-eraser'"
+        (action)="onClickCleanBtn()">
+      </sco-button>
     </div>
 
     <div class="col-12 col-12 sco-file-uploader__container__base64" *ngIf="base64">
