@@ -139,3 +139,6 @@ https://scoapps.es/sco-angular-components/#/get-started
 
 13.1.41:
     - ADD SCo input keyup output event
+
+13.1.42:
+    - ADD SCo pdf viewer comeBackButtonStayInRoute input param
