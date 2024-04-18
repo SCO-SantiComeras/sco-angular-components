@@ -19,6 +19,7 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   @Input() showComebackButton: boolean = true;
   @Input() comebackButtonIcon: string = 'fa fa-arrow-left';
   @Input() comebackButtonTransparent: boolean = true;
+  @Input() comeBackButtonStayInRoute: boolean = true;
 
   @Input() showDownloadButton: boolean = true;
   @Input() downloadButtonIcon: string = 'fa fa-download';
@@ -135,7 +136,9 @@ export class ScoPdfViewerComponent implements OnInit, OnChanges {
   /* Comeback Function */
   public onClickComeBackBtn() {
     this.onGoBack.emit();
-    this.locationService.back();
+    if (!this.comeBackButtonStayInRoute) {
+      this.locationService.back();
+    }
   }
 
   /* PDF Functions */

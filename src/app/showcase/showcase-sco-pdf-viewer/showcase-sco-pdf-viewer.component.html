@@ -84,6 +84,7 @@
                             [showComebackButton]="true"
                             [comebackButtonIcon]="'fa fa-arrow-left'"
                             [comebackButtonTransparent]="true"
+                            [comeBackButtonStayInRoute]="true"
 
                             [showDownloadButton]="true"
                             [downloadButtonIcon]="'fa fa-download'"
@@ -202,6 +203,7 @@
                     [showComebackButton]=&quot;true&quot;
                     [comebackButtonIcon]=&quot;'fa fa-arrow-left'&quot;
                     [comebackButtonTransparent]=&quot;true&quot;
+                    [comeBackButtonStayInRoute]=&quot;true&quot;
 
                     [showDownloadButton]=&quot;true&quot;
                     [downloadButtonIcon]=&quot;'fa fa-download'&quot;
@@ -370,6 +372,13 @@ export class ShowcaseScoPdfViewerComponent &#123;
                 <tr>
                     <td>comebackButtonTransparent</td>
                     <td>Indicador para modificar el background del botón de vuelta atrás</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>comeBackButtonStayInRoute</td>
+                    <td>Indicador para quedarse en la misma ruta al pulsar el botón de volver atrás, solo descargará el PDF</td>
                     <td>boolean</td>
                     <td>true</td>
                     <td></td>
