@@ -1,5 +1,5 @@
 import { ScoPdfViewerConstants, ScoTranslateConstants } from './../constants/sco-constants';
-import { ScoAccordionConstants, ScoBadgeConstants, ScoBlockListConstants, ScoButtonConstants, ScoCalendarConstants, ScoFormCrudConstants, ScoGraphicsConstants, ScoGridConstants, ScoInputTypeConstants, ScoModalTypeConstants, ScoResolutionConstants, ScoTableConstants, ScoThemeConstants, ScoToastConstants } from '../constants/sco-constants';
+import { ScoAccordionConstants, ScoBadgeConstants, ScoBlockListConstants, ScoButtonConstants, ScoCalendarConstants, ScoFormCrudConstants, ScoGraphicsConstants, ScoInputTypeConstants, ScoModalTypeConstants, ScoResolutionConstants, ScoTableConstants, ScoThemeConstants, ScoToastConstants } from '../constants/sco-constants';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -17,7 +17,6 @@ export class ScoConstantsService {
   ScoTableConstants = ScoTableConstants;
   ScoButtonConstants = ScoButtonConstants;
   ScoBadgeConstants = ScoBadgeConstants;
-  ScoGridConstants = ScoGridConstants;
   ScoFormCrudConstants = ScoFormCrudConstants;
   ScoCalendarConstants = ScoCalendarConstants;
   ScoGraphicsConstants = ScoGraphicsConstants;

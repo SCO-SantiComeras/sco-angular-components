@@ -97,13 +97,6 @@ export class ScoBadgeConstants {
     static SIZE_SMALL: string = 'small';
 }
 
-export class ScoGridConstants {
-    static STATUS_EMPTY: string = 'empty';
-    static STATUS_FREE: string = 'free';
-    static STATUS_OCCUPIED: string = 'occupied';
-    static STATUS_RESERVED: string = 'reserved';
-}
-
 export class ScoFormCrudConstants {
     static SHOW_TABLE: string = 'table';
     static SHOW_BLOCK_LIST: string = 'block-list';
