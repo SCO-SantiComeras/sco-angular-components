@@ -339,3 +339,6 @@ export class AppModule { }
 
 13.1.43:
 - Delete unused constants
+
+13.1.44:
+- ADD NPM Package README
