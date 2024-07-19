@@ -7,7 +7,7 @@ import { Component, Output, ViewEncapsulation, EventEmitter, Input, OnChanges, S
   styleUrls: ['./sco-detail.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [
-    trigger('slide', [
+    trigger('slideRight', [
       transition(':enter', [
         style({transform: 'translateX(100%)'}),
         animate('600ms ease-in', style({transform: 'translateX(0%)'}))
@@ -15,8 +15,17 @@ import { Component, Output, ViewEncapsulation, EventEmitter, Input, OnChanges, S
       transition(':leave', [
         animate('600ms ease-in', style({transform: 'translateX(100%)'}))
       ])
-    ])
-  ]
+    ]),
+    trigger('slideLeft', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('600ms ease-in', style({ transform: 'translateX(0%)' }))
+      ]),
+      transition(':leave', [
+        animate('600ms ease-in', style({ transform: 'translateX(-100%)' }))
+      ])
+    ]),
+  ],
 })
 export class ScoDetailComponent implements OnChanges {
 
@@ -25,11 +34,12 @@ export class ScoDetailComponent implements OnChanges {
   @Input() clickOutsideEnabled: boolean = true;
   @Input() closeOnClick: boolean = false;
   @Input() forceCloseNow: boolean = false;
+  @Input() rightPosition: boolean = true;
+  @Input() showCloseButton: boolean = true;
   
   @Output() close: EventEmitter<boolean>;
 
   public showDetail: boolean;
-
   private clickOutSideFirstTime: boolean;
 
   constructor() { 

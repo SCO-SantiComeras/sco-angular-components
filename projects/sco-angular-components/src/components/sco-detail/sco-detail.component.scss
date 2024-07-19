@@ -1,16 +1,41 @@
 .sco-detail {
     position: fixed;
     top: 0;
-    right: 0;
     padding: 15px;
     padding-top: 0px;
     z-index: 9999;
     height: 100%;
     font-family: 'sco regular';
-    
-    &__close {
-        font-size: 26px;
-        cursor: pointer;
+
+    &__right-position {
+        right: 0;
+    }
+
+    &__left-position {
+        left: 0;
+    }
+
+    &__header {
+        display: flex;
+
+        &--title {
+            flex: 1; 
+            padding-left: 10px;
+        }
+
+        &--icon {
+            flex: 0 0 auto; 
+            text-align: right; 
+            align-items: center; 
+            justify-content: center;
+            display: flex; 
+            padding-right: 10px;
+
+            &--close {
+                font-size: 26px;
+                cursor: pointer;
+            }
+        }
     }
 }
 

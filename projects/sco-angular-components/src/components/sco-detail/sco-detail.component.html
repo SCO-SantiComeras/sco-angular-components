@@ -1,17 +1,48 @@
-<div *ngIf="showDetail"
+<div *ngIf="showDetail && rightPosition"
   class="sco-detail" 
-  [@slide] 
+  [ngClass]="{
+    'sco-detail__right-position': rightPosition,
+    'sco-detail__left-position': !rightPosition
+  }"
+
+  [@slideRight]
+  
   scoClickOutside 
   [avoidFirstTime]="false" 
   [clickOutsideEnabled]="clickOutsideEnabled" 
-  (clickOutSide)="closeDetail($event)" (click)="closeOnClick && closeDetail($event)"
+
+  (clickOutSide)="closeDetail($event)" 
+  (click)="closeOnClick && closeDetail($event)"
 >
-  <div class="row sco-detail__title" *ngIf="showTitle">
-    <div class="col-lg-11 col-md-11 col-11">
+  <template *ngTemplateOutlet="detailTemplate"></template>
+</div>
+
+<div *ngIf="showDetail && !rightPosition"
+  class="sco-detail" 
+  [ngClass]="{
+    'sco-detail__right-position': rightPosition,
+    'sco-detail__left-position': !rightPosition
+  }"
+
+  [@slideLeft]
+  
+  scoClickOutside 
+  [avoidFirstTime]="false" 
+  [clickOutsideEnabled]="clickOutsideEnabled" 
+
+  (clickOutSide)="closeDetail($event)" 
+  (click)="closeOnClick && closeDetail($event)"
+>
+  <template *ngTemplateOutlet="detailTemplate"></template>
+</div>
+
+<ng-template #detailTemplate>
+  <div class="row sco-detail__header" *ngIf="showTitle">
+    <div class="sco-detail__header--title">
       <ng-content select="[detail-title]"></ng-content>
     </div>
-    <div clas="col-lg-1 col-md-1 col-1 text-right">
-      <i class="fa fa-times sco-detail__close" (click)="closeDetail($event)"></i>
+    <div class="sco-detail__header--icon" *ngIf="showCloseButton">
+      <i class="fa fa-times sco-detail__header--icon--close" (click)="showCloseButton && closeDetail($event)"></i>
     </div>
   </div>
 
@@ -20,5 +51,6 @@
       <ng-content select="[detail-content]"></ng-content>
     </div>
   </div>
-</div>
+</ng-template>
+
 <div class="sco-overlay" *ngIf="showDetail && showOverlay"></div>
