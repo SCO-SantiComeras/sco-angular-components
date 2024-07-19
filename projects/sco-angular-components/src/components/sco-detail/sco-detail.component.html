@@ -1,37 +1,49 @@
-<div *ngIf="showDetail && rightPosition"
+<div *ngIf="(showDetail && rightPosition && !alwaysOpen) || (rightPosition && alwaysOpen)"
   class="sco-detail" 
   [ngClass]="{
     'sco-detail__right-position': rightPosition,
     'sco-detail__left-position': !rightPosition
+  }"
+  [ngStyle]="{
+    'border-left': setBorder('left') ? border : '0px solid',
+    'border-right': setBorder('right') ? border : '0px solid',
+    'border-top': setBorder('top') ? border : '0px solid',
+    'border-bottom': setBorder('bottom') ? border : '0px solid'
   }"
 
   [@slideRight]
   
   scoClickOutside 
   [avoidFirstTime]="false" 
-  [clickOutsideEnabled]="clickOutsideEnabled" 
+  [clickOutsideEnabled]="clickOutsideEnabled && !alwaysOpen" 
 
-  (clickOutSide)="closeDetail($event)" 
-  (click)="closeOnClick && closeDetail($event)"
+  (clickOutSide)="closeDetail($event) && !alwaysOpen" 
+  (click)="closeOnClick && !alwaysOpen && closeDetail($event)"
 >
   <template *ngTemplateOutlet="detailTemplate"></template>
 </div>
 
-<div *ngIf="showDetail && !rightPosition"
+<div *ngIf="(showDetail && !rightPosition && !alwaysOpen) || (!rightPosition && alwaysOpen)"
   class="sco-detail" 
   [ngClass]="{
     'sco-detail__right-position': rightPosition,
     'sco-detail__left-position': !rightPosition
   }"
+  [ngStyle]="{
+    'border-left': setBorder('left') ? border : '0px solid',
+    'border-right': setBorder('right') ? border : '0px solid',
+    'border-top': setBorder('top') ? border : '0px solid',
+    'border-bottom': setBorder('bottom') ? border : '0px solid'
+  }"
 
   [@slideLeft]
-  
+
   scoClickOutside 
   [avoidFirstTime]="false" 
-  [clickOutsideEnabled]="clickOutsideEnabled" 
+  [clickOutsideEnabled]="clickOutsideEnabled && !alwaysOpen" 
 
-  (clickOutSide)="closeDetail($event)" 
-  (click)="closeOnClick && closeDetail($event)"
+  (clickOutSide)="closeDetail($event) && !alwaysOpen" 
+  (click)="closeOnClick && !alwaysOpen && closeDetail($event)"
 >
   <template *ngTemplateOutlet="detailTemplate"></template>
 </div>
@@ -41,7 +53,7 @@
     <div class="sco-detail__header--title">
       <ng-content select="[detail-title]"></ng-content>
     </div>
-    <div class="sco-detail__header--icon" *ngIf="showCloseButton">
+    <div class="sco-detail__header--icon" *ngIf="showCloseButton && !alwaysOpen">
       <i class="fa fa-times sco-detail__header--icon--close" (click)="showCloseButton && closeDetail($event)"></i>
     </div>
   </div>
@@ -53,4 +65,4 @@
   </div>
 </ng-template>
 
-<div class="sco-overlay" *ngIf="showDetail && showOverlay"></div>
+<div class="sco-overlay" *ngIf="showDetail && showOverlay && !alwaysOpen"></div>

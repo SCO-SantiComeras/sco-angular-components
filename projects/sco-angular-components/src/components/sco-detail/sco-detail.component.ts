@@ -36,6 +36,9 @@ export class ScoDetailComponent implements OnChanges {
   @Input() forceCloseNow: boolean = false;
   @Input() rightPosition: boolean = true;
   @Input() showCloseButton: boolean = true;
+  @Input() alwaysOpen: boolean = false;
+  @Input() border: string = '1px solid';
+  @Input() borders: string[] = ['left', 'top', 'bottom', 'right'];
   
   @Output() close: EventEmitter<boolean>;
 
@@ -49,27 +52,39 @@ export class ScoDetailComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes) {
-      if (changes["forceCloseNow"]) {
-        if (changes["forceCloseNow"].currentValue == true) {
-          this.closeDetail(null);
-        }
+    if (!changes) {
+      return;
+    }
+
+    if (changes["forceCloseNow"]) {
+      if (changes["forceCloseNow"].currentValue == true) {
+        this.closeDetail(null);
       }
     }
   }
 
   closeDetail($event: Event) {
-   if ($event)
-    $event.stopPropagation();
-
-    if (this.clickOutSideFirstTime == false) {
-      this.showDetail = false;
-      setTimeout(() => {
-        this.close.emit(true);
-      }, 600);
-    } else {
-      this.clickOutSideFirstTime = false;
+    if ($event) {
+      $event.stopPropagation();
     }
+    
+    if (this.clickOutSideFirstTime) {
+      this.clickOutSideFirstTime = false;
+      return;
+    }
+
+    this.showDetail = false;
+    setTimeout(() => {
+      this.close.emit(true);
+    }, 600);
   }
 
+  setBorder(border: string): boolean {
+    const existBorder: string = this.borders.find(b => b == border);
+    if (existBorder) {
+      return true;
+    }
+
+    return false;
+  }
 }

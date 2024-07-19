@@ -52,7 +52,7 @@ $content: #FFF;
 
     sco-detail {
         .sco-detail {
-            border: $border-primary;
+            border-color: $primary !important;
             background: $background;
         }
     }
