@@ -10,7 +10,7 @@ import { ScoButton } from './bean/sco-button';
 })
 export class ScoMultipleButtonComponent {
   @Input() buttons: ScoButton[] = [];
-  @Input() modeButtonsSize: string = this.constantsService.ScoButtonConstants.SIZE_MEDIUM;
+  @Input() modeButtonsSize: string = this.constantsService.ScoButtonConstants.SIZE_SMALL;
 
   @Output() action: EventEmitter<ScoButton>;
 
