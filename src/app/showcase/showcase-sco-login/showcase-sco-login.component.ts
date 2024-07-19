@@ -15,6 +15,7 @@ export class ShowcaseScoLoginComponent {
   public formErrors: ScoFormError[];
   public verticalButtons: boolean;
   public title: string;
+  public showCancelButton: boolean;
 
   constructor(
     private readonly toastService: ScoToastService,
@@ -23,6 +24,7 @@ export class ShowcaseScoLoginComponent {
     this.cacheService.setElement("title", "Login");
     this.formErrors = [];
     this.verticalButtons = false;
+    this.showCancelButton = false;
     this.title = '';
   }
 

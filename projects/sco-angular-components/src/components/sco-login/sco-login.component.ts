@@ -24,6 +24,7 @@ export class ScoLoginComponent implements OnChanges {
   @Input() formErrors: ScoFormError[] = [];
   @Input() verticalButtons: boolean = false;
   @Input() title: string = '';
+  @Input() showCancelButton: boolean = false;
 
   @Output() cancel: EventEmitter<boolean>;
   @Output() confirm: EventEmitter<ILogin>;

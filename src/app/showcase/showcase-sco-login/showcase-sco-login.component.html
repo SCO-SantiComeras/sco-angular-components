@@ -25,6 +25,13 @@
               [label]="'Vertical buttons'">
             </sco-toggle>
           </div>
+          <div class="col-12 mt-2">
+            <sco-toggle 
+              [inLine]="true"
+              [(ngModel)]="showCancelButton"
+              [label]="'Cancel button'">
+            </sco-toggle>
+          </div>
         </div>
 
         <div class="row">
@@ -35,6 +42,7 @@
               [formErrors]="formErrors"
               [verticalButtons]="verticalButtons"
               [title]="title"
+              [showCancelButton]="showCancelButton"
               (cancel)="cancelButton()"
               (confirm)="confirmButton($event)"
               (pwdRecovery)="pwdRecovery()"
@@ -239,6 +247,13 @@ export class ShowcaseScoLoginComponent &#123;
           <td>Muestra el titulo proveido en el componente</td>
           <td>string</td>
           <td>''</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showCancelButton</td>
+          <td>Oculta el botón de cancelar</td>
+          <td>boolean</td>
+          <td>false</td>
           <td></td>
         </tr>
       </tbody>

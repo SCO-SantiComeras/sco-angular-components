@@ -79,9 +79,26 @@
         <div class="row mt-3 ml-1 mr-1 mb-3">
           <div [ngClass]="{
               'col-6': !verticalButtons,
-
+              'col-12': verticalButtons || (!verticalButtons && !showCancelButton),
+              'text-center': verticalButtons,
+              'text-right': !verticalButtons && !showCancelButton,
+              'pl-5': verticalButtons,
+              'pr-5': verticalButtons
+            }"
+          >
+            <sco-button
+              [block]="verticalButtons"
+              [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
+              [text]="labelConfirm"
+              (action)="confirmButton()">
+            </sco-button>
+          </div>
+          <div *ngIf="showCancelButton" [ngClass]="{
+              'col-6': !verticalButtons,
+              'text-right': !verticalButtons,
               'col-12': verticalButtons,
               'text-center': verticalButtons,
+              'mt-3': verticalButtons,
               'pl-5': verticalButtons,
               'pr-5': verticalButtons
             }"
@@ -90,25 +107,7 @@
               [block]="verticalButtons"
               [mode]="constantsService.ScoButtonConstants.MODE_DEFAULT"
               [text]="labelCancel"
-              (action)="cancelButton()">
-            </sco-button>
-          </div>
-          <div [ngClass]="{
-              'col-6': !verticalButtons,
-              'text-right': !verticalButtons,
-
-              'col-12': verticalButtons,
-              'text-center': verticalButtons,
-              'mt-3': verticalButtons,
-              'pl-5': verticalButtons,
-              'pr-5': verticalButtons
-            }"
-        >
-            <sco-button
-              [block]="verticalButtons"
-              [mode]="constantsService.ScoButtonConstants.MODE_SAVE"
-              [text]="labelConfirm"
-              (action)="confirmButton()">
+              (action)="showCancelButton && cancelButton()">
             </sco-button>
           </div>
         </div>
