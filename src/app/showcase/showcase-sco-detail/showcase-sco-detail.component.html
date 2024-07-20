@@ -1,476 +1,213 @@
 <base-showcase>
 
   <div examples>
-    <div class="row">
-      <div class="col-12">
 
-        <!-- 1 -->
-        <div class="row mt-1">
-          <div class="col-12 title-sco">
-            <span>Ejemplo 1: Estandar</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <sco-button
-              [mode]="'default'"
-              [text]="'Abrir'"
-              (action)="openExample1()">
-            </sco-button>
-            <sco-detail *ngIf="showDetail" 
-              [showTitle]="showTitle"
-              [clickOutsideEnabled]="enableClickOutside"
-              [showOverlay]="showOverlay"
-              (close)="closeDetail()" >
-
-              <h1 detail-title>Detalle ejemplo</h1>
-              <div detail-content class="row">
-                <div class="col-12">
-                  <form>
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field1">Campo 1</label>
-                        <input type="text" class="form-control" id="field1">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field2">Campo 2</label>
-                        <input type="text" class="form-control" id="field2">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field3">Campo 3</label>
-                        <input type="text" class="form-control" id="field3">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <button class="btn btn-block btn-primary" type="button">Guardar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </sco-detail>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="row mt-3">
-          <div class="col-12 title-sco">
-            <span>Ejemplo 2: Sin título</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <sco-button
-              [mode]="'default'"
-              [text]="'Abrir'"
-              (action)="openExample2()">
-            </sco-button>
-            <sco-detail *ngIf="showDetail" (close)="closeDetail()"
-              [showTitle]="showTitle"
-              [clickOutsideEnabled]="enableClickOutside"
-              [showOverlay]="showOverlay" >
-
-              <h1 detail-title>Detalle ejemplo</h1>
-              <div detail-content class="row">
-                <div class="col-12">
-                  <form>
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field1">Campo 1</label>
-                        <input type="text" class="form-control" id="field1">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field2">Campo 2</label>
-                        <input type="text" class="form-control" id="field2">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field3">Campo 3</label>
-                        <input type="text" class="form-control" id="field3">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <button class="btn btn-block btn-primary" type="button">Guardar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </sco-detail>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="row mt-3">
-          <div class="col-12 title-sco">
-            <span>Ejemplo 3: Sin overlay</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <sco-button
-              [mode]="'default'"
-              [text]="'Abrir'"
-              (action)="openExample3()">
-            </sco-button>
-            <sco-detail *ngIf="showDetail" (close)="closeDetail()"
-              [showTitle]="showTitle"
-              [clickOutsideEnabled]="enableClickOutside"
-              [showOverlay]="showOverlay" >
-
-              <h1 detail-title>Detalle ejemplo</h1>
-              <div detail-content class="row">
-                <div class="col-12">
-                  <form>
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field1">Campo 1</label>
-                        <input type="text" class="form-control" id="field1">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field2">Campo 2</label>
-                        <input type="text" class="form-control" id="field2">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field3">Campo 3</label>
-                        <input type="text" class="form-control" id="field3">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <button class="btn btn-block btn-primary" type="button">Guardar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </sco-detail>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="row mt-3">
-          <div class="col-12 title-sco">
-            <span>Ejemplo 4: Sin click outside</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <sco-button
-              [mode]="'default'"
-              [text]="'Abrir'"
-              (action)="openExample4()">
-            </sco-button>
-            <sco-detail *ngIf="showDetail" (close)="closeDetail()"
-              [showTitle]="showTitle"
-              [clickOutsideEnabled]="enableClickOutside"
-              [showOverlay]="showOverlay" >
-
-              <h1 detail-title>Detalle ejemplo</h1>
-              <div detail-content class="row">
-                <div class="col-12">
-                  <form>
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field1">Campo 1</label>
-                        <input type="text" class="form-control" id="field1">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field2">Campo 2</label>
-                        <input type="text" class="form-control" id="field2">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <label for="field3">Campo 3</label>
-                        <input type="text" class="form-control" id="field3">
-                      </div>
-                    </div>
-
-                    <div class="row form-group">
-                      <div class="col-12">
-                        <button class="btn btn-block btn-primary" type="button">Guardar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-            </sco-detail>
-          </div>
-        </div>
-
+    <div class="row mt-1">
+      <div class="col-12 title-sco">
+        <span>Parámetros de entrada</span>
       </div>
     </div>
+
+    <div class="row mt-1">
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Show Overlay'"
+          [inLine]="false"
+          [(ngModel)]="showOverlay">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Show Title'"
+          [inLine]="false"
+          [(ngModel)]="showTitle">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Click Outside Enabled'"
+          [inLine]="false"
+          [(ngModel)]="clickOutsideEnabled">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Close On Click'"
+          [inLine]="false"
+          [(ngModel)]="closeOnClick">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Force Close Now'"
+          [inLine]="false"
+          [(ngModel)]="forceCloseNow">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Right position'"
+          [inLine]="false"
+          [(ngModel)]="rightPosition">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Show Close Button'"
+          [inLine]="false"
+          [(ngModel)]="showCloseButton">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-toggle 
+          [label]="'Always Open'"
+          [inLine]="false"
+          [(ngModel)]="alwaysOpen">
+        </sco-toggle>
+      </div>
+      <div class="col-4">
+        <sco-input
+          [label]="'Border'"
+          [showLabel]="true"
+          [(ngModel)]="border">
+        </sco-input>
+      </div>
+      <div class="col-12">
+        <sco-manage-list
+          [label]="'Bordes:'"
+          [labelAddItem]="'Añadir elemento'"
+          [labelEmpty]="'Sin elementos'"
+          [(ngModel)]="borders">
+        </sco-manage-list>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12 text-right">
+        <sco-button
+          [mode]="'default'"
+          [text]="'Abrir'"
+          (action)="openDetail()">
+        </sco-button>
+      </div>
+    </div>
+
+    <sco-detail *ngIf="showDetail" 
+      [showOverlay]="showOverlay"
+      [showTitle]="showTitle"
+      [clickOutsideEnabled]="clickOutsideEnabled"
+      [closeOnClick]="closeOnClick"
+      [forceCloseNow]="forceCloseNow"
+      [rightPosition]="rightPosition"
+      [showCloseButton]="showCloseButton"
+      [alwaysOpen]="alwaysOpen"
+      [border]="border"
+      [borders]="borders"
+      (close)="closeDetail($event)"
+    >
+      <h1 detail-title>Detalle ejemplo</h1>
+      <div detail-content class="row">
+        <div class="col-12">
+          <form>
+            <div class="row form-group">
+              <div class="col-12">
+                <label for="field1">Campo 1</label>
+                <input type="text" class="form-control" id="field1">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-12">
+                <label for="field2">Campo 2</label>
+                <input type="text" class="form-control" id="field2">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-12">
+                <label for="field3">Campo 3</label>
+                <input type="text" class="form-control" id="field3">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-12">
+                <button class="btn btn-block btn-primary" type="button">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </sco-detail>
+
   </div>
 
   <div code>
     <sco-tabs>
       <sco-tab-item title="HTLM">
         <pre><code class="language-markup" pCode ngNonBindable>
-&lt;div class=&quot;row&quot;&gt;
+&lt;sco-detail *ngIf=&quot;showDetail&quot; 
+  [showOverlay]=&quot;showOverlay&quot;
+  [showTitle]=&quot;showTitle&quot;
+  [clickOutsideEnabled]=&quot;clickOutsideEnabled&quot;
+  [closeOnClick]=&quot;closeOnClick&quot;
+  [forceCloseNow]=&quot;forceCloseNow&quot;
+  [rightPosition]=&quot;rightPosition&quot;
+  [showCloseButton]=&quot;showCloseButton&quot;
+  [alwaysOpen]=&quot;alwaysOpen&quot;
+  [border]=&quot;border&quot;
+  [borders]=&quot;borders&quot;
+  (close)=&quot;closeDetail($event)&quot;
+&gt;
+  &lt;h1 detail-title&gt;Detalle ejemplo&lt;/h1&gt;
+  &lt;div detail-content class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12&quot;&gt;
-
-    &lt;!-- 1 --&gt;
-    &lt;div class=&quot;row mt-1&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-        &lt;span&gt;Ejemplo 1: Estandar&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;form&gt;
+    &lt;div class=&quot;row form-group&quot;&gt;
       &lt;div class=&quot;col-12&quot;&gt;
-        &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openExample1()&quot;&gt;Abrir&lt;/button&gt;
-        &lt;sco-detail *ngIf=&quot;showDetail&quot; 
-          [showTitle]=&quot;showTitle&quot;
-          [clickOutsideEnabled]=&quot;enableClickOutside&quot;
-          [showOverlay]=&quot;showOverlay&quot;
-          (close)=&quot;closeDetail()&quot; &gt;
-
-          &lt;h1 detail-title&gt;Detalle ejemplo&lt;/h1&gt;
-          &lt;div detail-content class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-              &lt;form&gt;
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field1&quot;&gt;Campo 1&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field1&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field2&quot;&gt;Campo 2&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field2&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field3&quot;&gt;Campo 3&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field3&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;button class=&quot;btn btn-block btn-primary&quot; type=&quot;button&quot;&gt;Guardar&lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/form&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-
-        &lt;/sco-detail&gt;
+      &lt;label for=&quot;field1&quot;&gt;Campo 1&lt;/label&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field1&quot;&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- 2 --&gt;
-    &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-        &lt;span&gt;Ejemplo 2: Sin t&iacute;tulo&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;row form-group&quot;&gt;
       &lt;div class=&quot;col-12&quot;&gt;
-        &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openExample2()&quot;&gt;Abrir&lt;/button&gt;
-        &lt;sco-detail *ngIf=&quot;showDetail&quot; (close)=&quot;closeDetail()&quot;
-          [showTitle]=&quot;showTitle&quot;
-          [clickOutsideEnabled]=&quot;enableClickOutside&quot;
-          [showOverlay]=&quot;showOverlay&quot; &gt;
-
-          &lt;h1 detail-title&gt;Detalle ejemplo&lt;/h1&gt;
-          &lt;div detail-content class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-              &lt;form&gt;
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field1&quot;&gt;Campo 1&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field1&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field2&quot;&gt;Campo 2&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field2&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field3&quot;&gt;Campo 3&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field3&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;button class=&quot;btn btn-block btn-primary&quot; type=&quot;button&quot;&gt;Guardar&lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/form&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-
-        &lt;/sco-detail&gt;
+      &lt;label for=&quot;field2&quot;&gt;Campo 2&lt;/label&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field2&quot;&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- 3 --&gt;
-    &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-        &lt;span&gt;Ejemplo 3: Sin overlay&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;row form-group&quot;&gt;
       &lt;div class=&quot;col-12&quot;&gt;
-        &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openExample3()&quot;&gt;Abrir&lt;/button&gt;
-        &lt;sco-detail *ngIf=&quot;showDetail&quot; (close)=&quot;closeDetail()&quot;
-          [showTitle]=&quot;showTitle&quot;
-          [clickOutsideEnabled]=&quot;enableClickOutside&quot;
-          [showOverlay]=&quot;showOverlay&quot; &gt;
-
-          &lt;h1 detail-title&gt;Detalle ejemplo&lt;/h1&gt;
-          &lt;div detail-content class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-              &lt;form&gt;
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field1&quot;&gt;Campo 1&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field1&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field2&quot;&gt;Campo 2&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field2&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field3&quot;&gt;Campo 3&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field3&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;button class=&quot;btn btn-block btn-primary&quot; type=&quot;button&quot;&gt;Guardar&lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/form&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-
-        &lt;/sco-detail&gt;
+      &lt;label for=&quot;field3&quot;&gt;Campo 3&lt;/label&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field3&quot;&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- 4 --&gt;
-    &lt;div class=&quot;row mt-3&quot;&gt;
-      &lt;div class=&quot;col-12 title-sco&quot;&gt;
-        &lt;span&gt;Ejemplo 4: Sin click outside&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;row form-group&quot;&gt;
       &lt;div class=&quot;col-12&quot;&gt;
-        &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;openExample4()&quot;&gt;Abrir&lt;/button&gt;
-        &lt;sco-detail *ngIf=&quot;showDetail&quot; (close)=&quot;closeDetail()&quot;
-          [showTitle]=&quot;showTitle&quot;
-          [clickOutsideEnabled]=&quot;enableClickOutside&quot;
-          [showOverlay]=&quot;showOverlay&quot; &gt;
-
-          &lt;h1 detail-title&gt;Detalle ejemplo&lt;/h1&gt;
-          &lt;div detail-content class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-              &lt;form&gt;
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field1&quot;&gt;Campo 1&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field1&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field2&quot;&gt;Campo 2&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field2&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;label for=&quot;field3&quot;&gt;Campo 3&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;field3&quot;&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;row form-group&quot;&gt;
-                  &lt;div class=&quot;col-12&quot;&gt;
-                    &lt;button class=&quot;btn btn-block btn-primary&quot; type=&quot;button&quot;&gt;Guardar&lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/form&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-
-        &lt;/sco-detail&gt;
+      &lt;button class=&quot;btn btn-block btn-primary&quot; type=&quot;button&quot;&gt;Guardar&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-
+    &lt;/form&gt;
   &lt;/div&gt;
-&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/sco-detail&gt;
         </code></pre>
       </sco-tab-item>
     
       <sco-tab-item title="CSS">
-        <pre><code class="language-css" pCode ngNonBindable>
-        </code></pre>
+        <pre>
+          <code class="language-css" pCode ngNonBindable>
+          </code>
+        </pre>
       </sco-tab-item>
     
       <sco-tab-item title="TS">
-        <pre><code class="language-typescript" pCode ngNonBindable>
-import &#123; ScoCacheService &#125; from 'sco-angular-components';
+        <pre>
+          <code class="language-typescript" pCode ngNonBindable>
 import &#123; Component &#125; from '@angular/core';
+import &#123; ScoCacheService &#125; from 'sco-angular-components';
 
 &commat;Component(&#123;
   selector: 'app-showcase-sco-detail',
@@ -480,54 +217,37 @@ import &#123; Component &#125; from '@angular/core';
 
 export class ShowcaseScoDetailComponent &#123;
 
-  public showDetail:boolean;
+  /* Detail Show Flag */
+  public showDetail: boolean;
 
-  public showTitle:boolean;
-  public showOverlay:boolean;
-  public enableClickOutside:boolean;
+  /* Detail Input Params */
+  public showOverlay: boolean = true;
+  public showTitle: boolean = true;
+  public clickOutsideEnabled: boolean = true;
+  public closeOnClick: boolean = false;
+  public forceCloseNow: boolean = false;
+  public rightPosition: boolean = true;
+  public showCloseButton: boolean = true;
+  public alwaysOpen: boolean = false;
+  public border: string = '1px solid';
+  public borders: string[] = ['left', 'top', 'bottom', 'right'];
 
-  constructor(
-    private cacheService: ScoCacheService
-  ) &#123; 
+  constructor(private readonly cacheService: ScoCacheService) &#123; 
     this.cacheService.setElement("title", "Detail");
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
   &#125;
   
-  openExample1() &#123;
+  openDetail() &#123;
     this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
   &#125;
 
-  openExample2() &#123;
-    this.showDetail = true;
-    this.showTitle = false;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
-  &#125;
-
-  openExample3() &#123;
-    this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = false;
-    this.enableClickOutside = true;
-  &#125;
-
-  openExample4() &#123;
-    this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = false;
-  &#125;
-
-  closeDetail() &#123;
-    this.showDetail = false;
+  closeDetail($event: boolean): void &#123;
+    if ($event) &#123;
+      this.showDetail = false;
+    &#125;
   &#125;
 &#125;
-        </code></pre>
+          </code>
+        </pre>
       </sco-tab-item>
     </sco-tabs>
   </div>
@@ -536,27 +256,27 @@ export class ShowcaseScoDetailComponent &#123;
     <table class="table table-dark table-striped">
       <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Descripcción</th>
-            <th>Tipo</th>
-            <th>Valor por defecto</th>
-            <th>Posibles valores</th>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Tipo</th>
+          <th>Valor por defecto</th>
+          <th>Posibles valores</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td>showOverlay</td>
-            <td>Indica si se muestra o no el overlay del Detalle</td>
-            <td>boolean</td>
-            <td>true</td>
-            <td></td>
+          <td>showOverlay</td>
+          <td>Indica si se muestra o no el overlay del Detalle</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
         </tr>
         <tr>
-            <td>showTitle</td>
-            <td>Indica si se muestra o no el título del Detalle</td>
-            <td>boolean</td>
-            <td>true</td>
-            <td></td>
+          <td>showTitle</td>
+          <td>Indica si se muestra o no el título del Detalle</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
         </tr>
         <tr>
           <td>clickOutsideEnabled</td>
@@ -629,16 +349,16 @@ export class ShowcaseScoDetailComponent &#123;
     <table class="table table-dark table-striped">
       <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Descripcción</th>
-            <th>Valor devuelto</th>
+          <th>Nombre</th>
+          <th>Descripcción</th>
+          <th>Valor devuelto</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td>close</td>
-            <td>Evento al cerrar el detalle</td>
-            <td>boolean</td>
+          <td>close</td>
+          <td>Evento al cerrar el detalle</td>
+          <td>boolean</td>
         </tr>
       </tbody>
     </table>

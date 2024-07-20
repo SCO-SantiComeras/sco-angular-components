@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, Output, ViewEncapsulation, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Output, ViewEncapsulation, EventEmitter, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sco-detail',
@@ -27,7 +27,7 @@ import { Component, Output, ViewEncapsulation, EventEmitter, Input, OnChanges, S
     ]),
   ],
 })
-export class ScoDetailComponent implements OnChanges {
+export class ScoDetailComponent implements OnInit, OnChanges {
 
   @Input() showOverlay: boolean = true;
   @Input() showTitle: boolean = true;
@@ -44,11 +44,15 @@ export class ScoDetailComponent implements OnChanges {
 
   public showDetail: boolean;
   private clickOutSideFirstTime: boolean;
+  public _border: string;
+  public _borders: string[];
 
   constructor() { 
     this.close = new EventEmitter<boolean>();
     this.showDetail = true;
     this.clickOutSideFirstTime = true;
+    this._border = undefined;
+    this._borders = [];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -56,10 +60,26 @@ export class ScoDetailComponent implements OnChanges {
       return;
     }
 
-    if (changes["forceCloseNow"]) {
-      if (changes["forceCloseNow"].currentValue == true) {
-        this.closeDetail(null);
-      }
+    if (changes["forceCloseNow"] && changes["forceCloseNow"].currentValue == true) {
+      this.closeDetail(null);
+    }
+
+    if (changes['border'] && changes['border'].currentValue != undefined) {
+      this._border = changes['border'].currentValue;
+    }
+
+    if (changes['borders'] && changes['borders'].currentValue != undefined && changes['borders'].currentValue.length > 0) {
+      this._borders = changes['borders'].currentValue;
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.border) {
+      this._border = this.border;
+    }
+
+    if (this.borders && this.borders.length > 0) {
+      this._borders = this.borders;
     }
   }
 
@@ -80,7 +100,7 @@ export class ScoDetailComponent implements OnChanges {
   }
 
   setBorder(border: string): boolean {
-    const existBorder: string = this.borders.find(b => b == border);
+    const existBorder: string = this._borders.find(b => b == border);
     if (existBorder) {
       return true;
     }

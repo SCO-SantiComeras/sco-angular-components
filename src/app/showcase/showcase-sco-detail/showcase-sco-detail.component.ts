@@ -9,50 +9,32 @@ import { Component } from '@angular/core';
 
 export class ShowcaseScoDetailComponent {
 
-  public showDetail:boolean;
+  /* Detail Show Flag */
+  public showDetail: boolean;
 
-  public showTitle:boolean;
-  public showOverlay:boolean;
-  public enableClickOutside:boolean;
+  /* Detail Input Params */
+  public showOverlay: boolean = true;
+  public showTitle: boolean = true;
+  public clickOutsideEnabled: boolean = true;
+  public closeOnClick: boolean = false;
+  public forceCloseNow: boolean = false;
+  public rightPosition: boolean = true;
+  public showCloseButton: boolean = true;
+  public alwaysOpen: boolean = false;
+  public border: string = '1px solid';
+  public borders: string[] = ['left', 'top', 'bottom', 'right'];
 
-  constructor(
-    private readonly cacheService: ScoCacheService
-  ) { 
+  constructor(private readonly cacheService: ScoCacheService) { 
     this.cacheService.setElement("title", "Detail");
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
   }
   
-  openExample1() {
+  openDetail() {
     this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
   }
 
-  openExample2() {
-    this.showDetail = true;
-    this.showTitle = false;
-    this.showOverlay = true;
-    this.enableClickOutside = true;
-  }
-
-  openExample3() {
-    this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = false;
-    this.enableClickOutside = true;
-  }
-
-  openExample4() {
-    this.showDetail = true;
-    this.showTitle = true;
-    this.showOverlay = true;
-    this.enableClickOutside = false;
-  }
-
-  closeDetail() {
-    this.showDetail = false;
+  closeDetail($event: boolean): void {
+    if ($event) {
+      this.showDetail = false;
+    }
   }
 }
