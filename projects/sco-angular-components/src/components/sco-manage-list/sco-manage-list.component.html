@@ -6,7 +6,7 @@
     </label>
 
     <div class="row">
-      <ng-container *ngIf="value && listShow?.length > 0">
+      <ng-container *ngIf="value && listShow && listShow.length > 0">
         <div class="col-12" *ngFor="let item of listShow; let index = index">
           <sco-input
             [(ngModel)]="value[index]"
@@ -14,7 +14,8 @@
             [icon]="'fa fa-trash'"
             [showIcon]="true" 
             [enabledIconClick]="true"
-            (iconClick)="deleteListItem(index)" >
+            (iconClick)="deleteListItem(index)"
+            (inputKeyUp)="onInputKeyUp()" >
           </sco-input>
         </div>
       </ng-container>

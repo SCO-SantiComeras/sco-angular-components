@@ -7,11 +7,22 @@ import { ScoCacheService } from 'projects/sco-angular-components/src/services/sc
   styleUrls: ['./showcase-sco-manage-list.component.scss']
 })
 export class ShowcaseScoManageListComponent {
-
-  public listEx2: string[];
+  
+  public label: string = 'Lista';
+  public labelAddItem: string = 'Añadir elemento';
+  public labelEmpty: string = 'Sin elementos';
+  public list: string[];
 
   constructor(private readonly cacheService: ScoCacheService) {
     this.cacheService.setElement('title', 'Manage List');
-    this.listEx2 = ['1', '2', '3', '4', '5'];
+  }
+
+  onChangeList($event: any) {
+    // TODO: Child Elements (Inputs) send untounched output event and it is captured here
+    // This Fix Untounched output event captured. Refactor any type is needed
+    // $event returns string[]
+    if ($event && $event.bubbles) {
+      return;
+    }
   }
 }

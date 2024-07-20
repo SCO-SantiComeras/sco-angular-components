@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { cloneDeep } from 'lodash-es';
 import { ScoNgModelBase } from '../sco-ng-model-base/sco-ng-model-base.component';
@@ -19,26 +19,28 @@ import { ScoConstantsService } from '../../services/sco-constants.service';
 })
 export class ScoManageListComponent extends ScoNgModelBase implements OnInit {
   
+  @Input() label: string;
   @Input() labelAddItem: string;
   @Input() labelEmpty: string;
-  @Input() label: boolean;
 
-  public listShow: string[] = [];
+  @Output() change: EventEmitter<string[]>;
+
+  public listShow: string[];
 
   constructor(public readonly constantsService: ScoConstantsService) {
     super();
+    this.change = new EventEmitter<string[]>();
     this.value = [];
     this.listShow = [];
   }
 
   ngOnInit(): void {
     this.listShow.push('');
-
-    this.firstValue.subscribe((v) => {
-      if (v) {
-        this.listShow = cloneDeep(v);
-      } else {
+    this.changeValue.subscribe((v) => {
+      if (!v || (v && v.length == 0)) {
         this.value = [''];
+      } else {
+        this.listShow = cloneDeep(v);
       }
     });
   }
@@ -46,10 +48,24 @@ export class ScoManageListComponent extends ScoNgModelBase implements OnInit {
   addItemList() {
     this.value.push('');
     this.listShow.push('');
+    this.change.emit(this.value && this.value.length > 0 ? this.value : []);
   }
 
   deleteListItem(index: number) {
-    this.value.splice(index, 1);
-    this.listShow.splice(index, 1);
+    if (this.value && this.value.length > 0) {
+      this.value.splice(index, 1);
+    }
+    if (this.listShow && this.listShow.length > 0) {
+      this.listShow.splice(index, 1);
+    }
+    this.change.emit(this.value && this.value.length > 0 ? this.value : []);
+  }
+
+  onInputKeyUp(): void {
+    if (this.value && this.value.length > 0) {
+      this.change.emit(this.value);
+    } else {
+      this.change.emit([]);
+    }
   }
 }
