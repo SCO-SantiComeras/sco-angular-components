@@ -16,8 +16,8 @@
           [menuItems]="menuItems"
           [menuBorderRadius]="true"
 
-          [contentPadding]="20"
-          [contentBackgroundColor]="undefined"
+          [contentPadding]="0"
+          [contentBackgroundColor]="'lightgray'"
           
           [toastEnabled]="true"
           [toastOrientation]="constantsService.ScoToastConstants.ORIENTATION_TOP_RIGHT"
@@ -37,8 +37,8 @@
           (logoClick)="onCLickLogo($event)"
           (displayResize)="onDisplayResize($event)"
         >
-          <div content-app style="background-color: gray;">
-            a
+          <div content-app>
+            <span>Sco app example</span>
           </div>         
         </sco-app>
 
@@ -259,14 +259,14 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
           <td>contentPadding</td>
           <td>Padding del contenedor 'content'</td>
           <td>number</td>
-          <td>20</td>
+          <td>0</td>
           <td></td>
         </tr>
         <tr>
           <td>contentBackgroundColor</td>
           <td>Color del contenedor 'content'</td>
           <td>string</td>
-          <td>undefined</td>
+          <td>'lightgray'</td>
           <td></td>
         </tr>
         <tr>

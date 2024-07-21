@@ -25,8 +25,8 @@ export class ScoAppComponent implements OnInit, OnChanges {
   @Input() menuItems: MenuItem[] = [];
   @Input() menuBorderRadius: boolean = true;
 
-  @Input() contentPadding: number = 20;
-  @Input() contentBackgroundColor: string = undefined;
+  @Input() contentPadding: number = 0;
+  @Input() contentBackgroundColor: string = 'lightgray';
 
   @Input() toastEnabled: boolean = true;
   @Input() toastOrientation: string = this.constantsService.ScoToastConstants.ORIENTATION_TOP_RIGHT;
