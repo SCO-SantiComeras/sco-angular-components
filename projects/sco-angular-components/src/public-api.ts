@@ -199,3 +199,7 @@ export * from './components/sco-pdf-viewer/sco-pdf-viewer.module';
 export * from './components/sco-pdf-viewer/sco-pdf-viewer.component';
 export * from './components/sco-pdf-viewer/sco-pdf-viewer.service';
 export * from './components/sco-pdf-viewer/model/sco-pdf-viewer';
+
+// SCO Sidebard Content
+export * from './components/sco-sidebar-content/sco-sidebar-content.module';
+export * from './components/sco-sidebar-content/sco-sidebar-content.component';

@@ -75,6 +75,10 @@
                 {
                     "text": "Pdf Viewer",
                     "route": "/sco-pdf-viewer"
+                },
+                {
+                    "text": "Sidebar Content",
+                    "route": "/sco-sidebar-content"
                 }
             ]
         },

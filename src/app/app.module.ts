@@ -55,6 +55,7 @@ import { ShowcaseScoMenuMobileComponent } from './showcase/showcase-sco-menu-mob
 import { ShowcaseScoFormErrorsComponent } from './showcase/showcase-sco-form-errors/showcase-sco-form-errors.component';
 import { ShowcaseScoFormCrudComponent } from './showcase/showcase-sco-form-crud/showcase-sco-form-crud.component';
 import { ShowcaseScoPdfViewerComponent } from './showcase/showcase-sco-pdf-viewer/showcase-sco-pdf-viewer.component';
+import { ShowcaseScoSidebarContentComponent } from './showcase/showcase-sco-sidebar-content/showcase-sco-sidebar-content.component';
 
 export function configFactory(provider: ScoConfigService) {
   return () => provider.getDataFromJson('assets/config/data.json');
@@ -105,6 +106,7 @@ export function translateFactory(provider: ScoTranslateService) {
     ShowcaseScoFormErrorsComponent,
     ShowcaseScoFormCrudComponent,
     ShowcaseScoPdfViewerComponent,
+    ShowcaseScoSidebarContentComponent,
     MenuComponent,
     GetStartedComponent,
     BaseShowcaseComponent,

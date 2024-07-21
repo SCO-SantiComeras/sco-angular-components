@@ -40,6 +40,7 @@ import { ShowcaseScoMenuMobileComponent } from './showcase/showcase-sco-menu-mob
 import { ShowcaseScoFormErrorsComponent } from './showcase/showcase-sco-form-errors/showcase-sco-form-errors.component';
 import { ShowcaseScoFormCrudComponent } from './showcase/showcase-sco-form-crud/showcase-sco-form-crud.component';
 import { ShowcaseScoPdfViewerComponent } from './showcase/showcase-sco-pdf-viewer/showcase-sco-pdf-viewer.component';
+import { ShowcaseScoSidebarContentComponent } from './showcase/showcase-sco-sidebar-content/showcase-sco-sidebar-content.component';
 
 const routes: Routes = [
   {path: 'sco-join-pipe', component: ShowcaseScoJoinPComponent},
@@ -80,7 +81,7 @@ const routes: Routes = [
   {path: 'sco-form-errors', component: ShowcaseScoFormErrorsComponent},
   {path: 'sco-form-crud', component: ShowcaseScoFormCrudComponent},
   {path: 'sco-pdf-viewer', component: ShowcaseScoPdfViewerComponent},
-  
+  {path: 'sco-sidebar-content', component: ShowcaseScoSidebarContentComponent},
   //
   {path: '**', pathMatch: 'full', redirectTo: 'get-started'},
   {path: 'get-started', component: GetStartedComponent},
