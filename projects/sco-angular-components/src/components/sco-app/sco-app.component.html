@@ -9,8 +9,8 @@
         (click)="onCLickLogo()"
       >
     </div>
-    <div class="sco-app__header--menu-content">
-      <div class="sco-app__header--menu-content_margin">
+    <div class="sco-app__header--rest-content">
+      <div class="sco-app__header--rest-content--menu-margin" *ngIf="showMenus">
         <sco-menu 
           [hidden]="showMenu()"
           [menuItems]="menuItems"

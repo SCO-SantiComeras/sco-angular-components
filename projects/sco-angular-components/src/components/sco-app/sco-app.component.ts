@@ -16,6 +16,8 @@ export class ScoAppComponent implements OnInit, OnChanges {
 
   @Input() headerFixed: boolean = false;
   @Input() translatePipe: boolean = false;
+  @Input() showMenus: boolean = true;
+  @Input() alwaysMenuMobile: boolean = false;
 
   @Input() logoPath: string = './../../../resources/img/sco-logo.png';
   @Input() logoWidth: number = 80;
@@ -65,8 +67,11 @@ export class ScoAppComponent implements OnInit, OnChanges {
     this.displayResize.emit({ width: window.innerWidth, height: window.innerHeight, mode: this._viewMode })
 
     this._alwaysMenuMobile = false;
-
     if (this.menuItems && this.menuItems.length > 0 && this.menuItems.length > this.maxMenuItems) {
+      this._alwaysMenuMobile = true;
+    }
+
+    if (this.alwaysMenuMobile) {
       this._alwaysMenuMobile = true;
     }
   }
@@ -83,6 +88,14 @@ export class ScoAppComponent implements OnInit, OnChanges {
         if (items && items.length > 0 && items.length > this.maxMenuItems) {
           this._alwaysMenuMobile = true;
         }
+
+        if (this.alwaysMenuMobile) {
+          this._alwaysMenuMobile = true;
+        }
+      }
+
+      if (changes['alwaysMenuMobile'] && changes['alwaysMenuMobile'] != undefined) {
+        this._alwaysMenuMobile = changes['alwaysMenuMobile'].currentValue;
       }
     }
   }

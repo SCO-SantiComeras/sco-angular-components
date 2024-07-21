@@ -7,6 +7,8 @@
         <sco-app
           [headerFixed]="false"
           [translatePipe]="false"
+          [showMenus]="true"
+          [alwaysMenuMobile]="false"
 
           [logoPath]="'resources/img/sco-logo.png'"
           [logoWidth]="80"
@@ -65,6 +67,8 @@
     &lt;sco-app
       [headerFixed]=&quot;false&quot;
       [translatePipe]=&quot;false&quot;
+      [showMenus]=&quot;true&quot;
+      [alwaysMenuMobile]=&quot;false&quot;
 
       [logoPath]=&quot;'resources/img/sco-logo.png'&quot;
       [logoWidth]=&quot;80&quot;
@@ -209,6 +213,20 @@ export class ShowcaseScoAppComponent implements OnInit &#123;
         <tr>
           <td>translatePipe</td>
           <td>Indicador para utilizar el pipe de translate en los textos del componente</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>showMenus</td>
+          <td>Indicador para habilitar o no los menús del componente</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>alwaysMenuMobile</td>
+          <td>Indicador mostrar siempre el menú mobile</td>
           <td>boolean</td>
           <td>false</td>
           <td></td>
