@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-12">
 
+    <div class="row mb-2" *ngIf="title && title.length > 0">
+      <div class="col-12 text-center">
+        <h1>{{title}}</h1>
+      </div>
+    </div>
+
     <sco-accordion *ngIf="showEamples" [title]="'Ejemplos'" [open]="true" >
       <ng-content select="[examples]" content-accordion></ng-content>
     </sco-accordion>
