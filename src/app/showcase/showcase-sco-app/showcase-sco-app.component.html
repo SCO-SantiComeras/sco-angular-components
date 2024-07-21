@@ -4,49 +4,43 @@
     <div class="row">
       <div class="col-12">
 
-        <div class="row mt-1">
-          <div class="col-12 title-sco">
-            <span>Ejemplo 1: App</span>
-          </div>
-        </div>
+        <sco-app
+          [headerFixed]="false"
+          [translatePipe]="false"
 
-        <div class="row">
-          <div class="col-12">
-            <sco-app
-              [headerFixed]="false"
-              [translatePipe]="false"
+          [logoPath]="'resources/img/sco-logo.png'"
+          [logoWidth]="80"
+          [logoHeight]="40"
 
-              [logoPath]="'resources/img/sco-logo.png'"
-              [logoWidth]="80"
-              [logoHeight]="40"
+          [maxMenuItems]="6"
+          [menuItems]="menuItems"
+          [menuBorderRadius]="true"
 
-              [maxMenuItems]="6"
-              [menuItems]="menuItems"
-              [menuBorderRadius]="true"
+          [contentPadding]="20"
+          [contentBackgroundColor]="undefined"
+          
+          [toastEnabled]="true"
+          [toastOrientation]="constantsService.ScoToastConstants.ORIENTATION_TOP_RIGHT"
+          [toastBlock]="false"
 
-              [contentPadding]="20"
-              [contentBackgroundColor]="undefined"
-              
-              [toastEnabled]="true"
-              [toastOrientation]="constantsService.ScoToastConstants.ORIENTATION_TOP_RIGHT"
-              [toastBlock]="false"
+          [spinnerEnabled]="true"
+          [spinnerEmbedded]="false"
+          [spinnerImgPath]="'resources/img/spinner.gif'"
 
-              [spinnerEnabled]="true"
-              [spinnerEmbedded]="false"
-              [spinnerImgPath]="'resources/img/spinner.gif'"
-
-              [menuMobileTransparent]="true"
-              [menuMobileIcon]="'fa fa-bars'"
-              [menuMobileColorRevert]="true"
-              [menuMobileShowIcons]="true"
-              [menuMobileHeaderMargin]="60"
-              
-              (itemClick)="onClickMenuItem($event)"
-              (logoClick)="onCLickLogo($event)"
-              (displayResize)="onDisplayResize($event)">              
-            </sco-app>
-          </div>
-        </div>
+          [menuMobileTransparent]="true"
+          [menuMobileIcon]="'fa fa-bars'"
+          [menuMobileColorRevert]="true"
+          [menuMobileShowIcons]="true"
+          [menuMobileHeaderMargin]="60"
+          
+          (itemClick)="onClickMenuItem($event)"
+          (logoClick)="onCLickLogo($event)"
+          (displayResize)="onDisplayResize($event)"
+        >
+          <div content-app style="background-color: gray;">
+            a
+          </div>         
+        </sco-app>
 
       </div>
     </div>
